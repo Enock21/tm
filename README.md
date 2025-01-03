@@ -1,0 +1,1 @@
+A Taverna Multiversal (TM) é um app mobile que serve como uma rede social voltada a RPG, com foco em jogos de interpretação não eletrônicos. Sua função principal é auxiliar na organização, publicação e procura de tais jogos, que frequentemente enfrentam obstáculos pela falta de uma boa administração.
