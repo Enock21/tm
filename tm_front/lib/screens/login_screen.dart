@@ -127,50 +127,64 @@ class LoginScreen extends StatelessWidget
                 ),
               ),
               const SizedBox(height: 16),
-              Row
+              SizedBox
               (
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: 
-                [
-                  Icon(Icons.login, color: Color(0xFFB3B3B3)),
-                  const SizedBox(width: 8),
-                  CustomButton
-                  (
-                    text: 'Entrar',
-                    onPressed: () 
-                    {
-                      if (formKey.currentState!.validate())
-                      {
-                        // TODO: Implementar ação de login
-                        print('Entrar');
-                      }
-                    },
-                  ),
-                ],
+                width: double.infinity,
+                child: Row
+                (
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: 
+                  [
+                    Icon(Icons.login, color: Color(0xFFB3B3B3)),
+                    const SizedBox(width: 8),
+                    Expanded
+                    (
+                      child: CustomButton
+                      (
+                        text: 'Entrar',
+                        onPressed: () 
+                        {
+                          if (formKey.currentState!.validate())
+                          {
+                            // TODO: Implementar ação de login
+                            print('Entrar');
+                          }
+                        }
+                      )
+                    )
+                  ]
+                )
               ),
               const SizedBox(height: 8),
-              Row
+              SizedBox
               (
-                mainAxisAlignment: MainAxisAlignment.center,
-                children:
-                [
-                  Icon(Icons.person, color: Color(0xFFB3B3B3)),
-                  const SizedBox(width: 8),
-                  CustomButton
-                  (
-                    text: 'Criar conta',
-                    onPressed: () 
-                    {
-                      // TODO: Navegar para tela de cadastro
-                      print('Criar conta');
-                    },
-                  ),
-                ]
-              ),
-            ],
-          ),
-        ),
-      ),
+                width: double.infinity,
+                child: Row
+                (
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children:
+                  [
+                    Icon(Icons.person, color: Color(0xFFB3B3B3)),
+                    const SizedBox(width: 8),
+                    Expanded
+                    (
+                      child: CustomButton
+                      (
+                        text: 'Criar conta',
+                        onPressed: () 
+                        {
+                          // TODO: Navegar para tela de cadastro
+                          print('Criar conta');
+                        }
+                      )
+                    )
+                  ]
+                )
+              )
+            ]
+          )
+        )
+      )
     );
   }
 }
