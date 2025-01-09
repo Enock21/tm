@@ -24,23 +24,42 @@ class LoginScreen extends StatelessWidget
             mainAxisAlignment: MainAxisAlignment.center,
             children: 
             [
-              const CircleAvatar
-              (
-                radius: 56,
-                backgroundColor: Color(0xFFBB86FC),
-                child: Text('LOGO', style: TextStyle(color: Colors.black)),
-              ),
+              // const CircleAvatar
+              // (
+              //   radius: 56,
+              //   backgroundColor: Color(0xFFBB86FC),
+              //   child: Text('LOGO', style: TextStyle(color: Colors.black)),
+              //),
               const SizedBox(height: 24),
-              const Text
+              const Column
               (
-                'Taverna Multiversal',
-                textAlign: TextAlign.center,
-                style: TextStyle
-                (
-                  color: Color(0xFFBB86FC),
-                  fontSize: 36,
-                  fontWeight: FontWeight.bold,
-                )
+                children:
+                [
+                  Text
+                  (
+                    'Taverna',
+                    textAlign: TextAlign.center,
+                    style: TextStyle
+                    (
+                      color: Color(0xFFBB86FC),
+                      fontSize: 48,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'BerkshireSwash'
+                    ),
+                  ),
+                  Text
+                  (
+                    'Multiversal',
+                    textAlign: TextAlign.center,
+                    style: TextStyle
+                    (
+                      color: Color(0xFFBB86FC),
+                      fontSize: 48,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'BerkshireSwash'
+                    )
+                  )
+                ]
               ),
               const SizedBox(height: 24),
               TextFormField
@@ -51,6 +70,7 @@ class LoginScreen extends StatelessWidget
                   border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
                   filled: true,
                   fillColor: const Color(0xFF312B47),
+                  prefixIcon: Icon(Icons.email, color: Color(0xFFB3B3B3))
                 ),
                 style: const TextStyle(color: Colors.white),
                 validator: (value)
@@ -76,6 +96,7 @@ class LoginScreen extends StatelessWidget
                   border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
                   filled: true,
                   fillColor: const Color(0xFF322B47),
+                  prefixIcon: Icon(Icons.lock, color: Color(0xFFB3B3B3))
                 ),
                 style: const TextStyle(color: Colors.white),
                 validator: (value)
@@ -106,29 +127,49 @@ class LoginScreen extends StatelessWidget
                 ),
               ),
               const SizedBox(height: 16),
-              CustomButton
+              Row
               (
-                text: 'Entrar',
-                onPressed: ()
-                {
-                  if (formKey.currentState!.validate())
-                  {
-                    print('Entrar'); //TODO: delete this line
-                  }
-                },
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: 
+                [
+                  Icon(Icons.login, color: Color(0xFFB3B3B3)),
+                  const SizedBox(width: 8),
+                  CustomButton
+                  (
+                    text: 'Entrar',
+                    onPressed: () 
+                    {
+                      if (formKey.currentState!.validate())
+                      {
+                        // TODO: Implementar ação de login
+                        print('Entrar');
+                      }
+                    },
+                  ),
+                ],
               ),
               const SizedBox(height: 8),
-              CustomButton
+              Row
               (
-                text: 'Criar conta',
-                onPressed: () 
-                {
-                  print('Criar conta'); //TODO: delete this line
-                },
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:
+                [
+                  Icon(Icons.person, color: Color(0xFFB3B3B3)),
+                  const SizedBox(width: 8),
+                  CustomButton
+                  (
+                    text: 'Criar conta',
+                    onPressed: () 
+                    {
+                      // TODO: Navegar para tela de cadastro
+                      print('Criar conta');
+                    },
+                  ),
+                ]
               ),
             ],
           ),
-        )
+        ),
       ),
     );
   }
