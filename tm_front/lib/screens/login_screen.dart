@@ -160,24 +160,28 @@ class LoginScreenState extends State<LoginScreen>
                   const SizedBox(width: 10),
                   Expanded
                   (
-                    child: CustomButton
+                    child: SizedBox
                     (
-                      text: 'Entrar',
-                      onPressed: () 
-                      {
-                        if (formKey.currentState!.validate())
+                      height: 50,
+                      child: CustomButton
+                      (
+                        text: 'Entrar',
+                        onPressed: () 
                         {
-                          // TODO: Implementar ação de login
-                          print('Entrar');
+                          if (formKey.currentState!.validate())
+                          {
+                            // TODO: Implementar ação de login
+                            print('Entrar');
+                          }
                         }
-                      },
-                    ),
+                      )
+                    )
                   ),
                   const SizedBox(width: 10),
-                  const SizedBox(width: 24), 
-                ],
+                  const SizedBox(width: 24)
+                ]
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 15),
               Row
               (
                 children:
@@ -186,14 +190,18 @@ class LoginScreenState extends State<LoginScreen>
                   const SizedBox(width: 10),
                   Expanded
                   (
-                    child: CustomButton
+                    child: SizedBox
                     (
-                      text: 'Criar conta',
-                      onPressed: ()
-                      {
-                        // TODO: Navegar para tela de cadastro
-                        print('Criar conta');
-                      }
+                      height: 50,
+                      child: CustomButton
+                      (
+                        text: 'Criar conta',
+                        onPressed: ()
+                        {
+                          // TODO: Navegar para tela de cadastro
+                          print('Criar conta');
+                        }
+                      )
                     )
                   ),
                   const SizedBox(width:10),
