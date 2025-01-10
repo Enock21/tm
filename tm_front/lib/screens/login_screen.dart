@@ -1,15 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:tm_front/widgets/custom_button.dart';
 
-class LoginScreen extends StatelessWidget 
+class LoginScreen extends StatefulWidget
 {
   const LoginScreen({super.key});
 
   @override
+  LoginScreenState createState() => LoginScreenState();
+}
+
+class LoginScreenState extends State<LoginScreen> 
+{
+  final formKey = GlobalKey<FormState>();
+  bool obscureTextVar = true;
+
+  void togglePasswordVisibility()
+  {
+    setState
+    (
+      ()
+      {obscureTextVar = !obscureTextVar;}
+    );
+  }
+
+  @override
   Widget build(BuildContext context) 
   {
-    final formKey = GlobalKey<FormState>();
-
     return Scaffold
     (
       backgroundColor: const Color(0xFF1A1A1A),
@@ -70,7 +86,7 @@ class LoginScreen extends StatelessWidget
                   border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
                   filled: true,
                   fillColor: const Color(0xFF312B47),
-                  prefixIcon: Icon(Icons.email, color: Color(0xFFB3B3B3))
+                  prefixIcon: const Icon(Icons.email, color: Color(0xFFB3B3B3))
                 ),
                 style: const TextStyle(color: Colors.white),
                 validator: (value)
@@ -89,14 +105,23 @@ class LoginScreen extends StatelessWidget
               const SizedBox(height: 16),
               TextFormField
               (
-                obscureText: true,
+                obscureText: obscureTextVar,
                 decoration: InputDecoration
                 (
                   hintText: 'Digite a senha',
                   border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
                   filled: true,
                   fillColor: const Color(0xFF322B47),
-                  prefixIcon: Icon(Icons.lock, color: Color(0xFFB3B3B3))
+                  prefixIcon: const Icon(Icons.lock, color: Color(0xFFB3B3B3)),
+                  suffixIcon: IconButton
+                  (
+                    icon: Icon
+                    (
+                      obscureTextVar ? Icons.visibility_off : Icons.visibility,
+                      color: const Color(0xFFB3B3B3)
+                    ),
+                    onPressed: togglePasswordVisibility
+                  )
                 ),
                 style: const TextStyle(color: Colors.white),
                 validator: (value)
@@ -135,7 +160,7 @@ class LoginScreen extends StatelessWidget
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: 
                   [
-                    Icon(Icons.login, color: Color(0xFFB3B3B3)),
+                    const Icon(Icons.login, color: Color(0xFFB3B3B3)),
                     const SizedBox(width: 8),
                     Expanded
                     (
@@ -164,7 +189,7 @@ class LoginScreen extends StatelessWidget
                   mainAxisAlignment: MainAxisAlignment.center,
                   children:
                   [
-                    Icon(Icons.person, color: Color(0xFFB3B3B3)),
+                    const Icon(Icons.person, color: Color(0xFFB3B3B3)),
                     const SizedBox(width: 8),
                     Expanded
                     (
