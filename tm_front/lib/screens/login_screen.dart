@@ -152,59 +152,53 @@ class LoginScreenState extends State<LoginScreen>
                 ),
               ),
               const SizedBox(height: 16),
-              SizedBox
+              Row
               (
-                width: double.infinity,
-                child: Row
-                (
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: 
-                  [
-                    const Icon(Icons.login, color: Color(0xFFB3B3B3)),
-                    const SizedBox(width: 8),
-                    Expanded
+                children: 
+                [
+                  const Icon(Icons.login, color: Color(0xFFB3B3B3)),
+                  const SizedBox(width: 10),
+                  Expanded
+                  (
+                    child: CustomButton
                     (
-                      child: CustomButton
-                      (
-                        text: 'Entrar',
-                        onPressed: () 
+                      text: 'Entrar',
+                      onPressed: () 
+                      {
+                        if (formKey.currentState!.validate())
                         {
-                          if (formKey.currentState!.validate())
-                          {
-                            // TODO: Implementar ação de login
-                            print('Entrar');
-                          }
+                          // TODO: Implementar ação de login
+                          print('Entrar');
                         }
-                      )
-                    )
-                  ]
-                )
+                      },
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  const SizedBox(width: 24), 
+                ],
               ),
               const SizedBox(height: 8),
-              SizedBox
+              Row
               (
-                width: double.infinity,
-                child: Row
-                (
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children:
-                  [
-                    const Icon(Icons.person, color: Color(0xFFB3B3B3)),
-                    const SizedBox(width: 8),
-                    Expanded
+                children:
+                [
+                  const Icon(Icons.person, color: Color(0xFFB3B3B3)),
+                  const SizedBox(width: 10),
+                  Expanded
+                  (
+                    child: CustomButton
                     (
-                      child: CustomButton
-                      (
-                        text: 'Criar conta',
-                        onPressed: () 
-                        {
-                          // TODO: Navegar para tela de cadastro
-                          print('Criar conta');
-                        }
-                      )
+                      text: 'Criar conta',
+                      onPressed: ()
+                      {
+                        // TODO: Navegar para tela de cadastro
+                        print('Criar conta');
+                      }
                     )
-                  ]
-                )
+                  ),
+                  const SizedBox(width:10),
+                  const SizedBox(width: 24),
+                ]
               )
             ]
           )
