@@ -171,7 +171,7 @@ class LoginScreenState extends State<LoginScreen>
                           child: CustomButton
                           (
                             text: 'Entrar',
-                            textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                            textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, fontFamily: 'Montserrat'),
                             onPressed: () 
                             {
                               if (formKey.currentState!.validate())
@@ -202,7 +202,7 @@ class LoginScreenState extends State<LoginScreen>
                           child: CustomButton
                           (
                             text: 'Criar conta',
-                            textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                            textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, fontFamily: 'Montserrat'),
                             onPressed: () 
                             {
                               // TODO: Navegar para tela de cadastro
@@ -226,7 +226,7 @@ class LoginScreenState extends State<LoginScreen>
                 child: Text
                 (
                   '© 2024 Taverna Multiversal. Todos os direitos reservados.',
-                  style: TextStyle(color: Colors.white, fontSize: 12),
+                  style: TextStyle(color: Colors.white, fontSize: 11),
                 ),
               ),
             ),

@@ -8,13 +8,13 @@ class CustomButton extends StatelessWidget {
   final Color textColor;
 
   const CustomButton({
-    super.key,
     required this.text,
-    required this.textStyle,
+    this.textStyle,
     required this.onPressed,
     this.backgroundColor = const Color(0xFF7B0AAF),
     this.textColor = const Color(0xFF00C925),
-  });
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,10 @@ class CustomButton extends StatelessWidget {
       ),
       child: Text(
         text,
-        style: textStyle ?? TextStyle(color: textColor),
+        style: textStyle ?? Theme.of(context).textTheme.labelLarge?.copyWith(
+              fontFamily: 'Montserrat',
+              color: textColor,
+            ),
       ),
     );
   }
