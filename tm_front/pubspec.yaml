@@ -95,4 +95,4 @@ flutter:
   fonts:
     - family: BerkshireSwash
       fonts:
-        - asset: fonts/BerkshireSwash-Regular.ttf
+        - asset: fonts/BerkshireSwash/BerkshireSwash-Regular.ttf
