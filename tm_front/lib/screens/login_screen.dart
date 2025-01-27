@@ -1,44 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:tm_front/widgets/custom_button.dart';
 //---Atualizado
-import 'package:tm_front/widgets/custom_text_input_email.dart';
-import 'package:tm_front/widgets/custom_text_input_password.dart';
+import 'package:tm_front/widgets/text_input_email.dart';
+import 'package:tm_front/widgets/text_input_password.dart';
 //---Fim do atualizado
 
-class LoginScreen extends StatefulWidget
-{
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
   @override
   LoginScreenState createState() => LoginScreenState();
 }
 
-class LoginScreenState extends State<LoginScreen> 
-{
+class LoginScreenState extends State<LoginScreen> {
   final formKey = GlobalKey<FormState>();
 
   @override
-  Widget build(BuildContext context) 
-  {
-    return Scaffold
-    (
+  Widget build(BuildContext context) {
+    return Scaffold(
       backgroundColor: const Color(0xFF1A1A1A),
-      body: Padding
-      (
+      body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column
-        (
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: 
-          [
-            Form
-            (
+          children: [
+            Form(
               key: formKey,
-              child: Column
-              (
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: 
-                [
+                children: [
                   // const CircleAvatar
                   // (
                   //   radius: 56,
@@ -46,62 +36,43 @@ class LoginScreenState extends State<LoginScreen>
                   //   child: Text('LOGO', style: TextStyle(color: Colors.black)),
                   //),
                   const SizedBox(height: 24),
-                  const Column
-                  (
-                    children:
-                    [
-                      Text
-                      (
-                        'Taverna',
-                        textAlign: TextAlign.center,
-                        style: TextStyle
-                        (
+                  const Column(children: [
+                    Text(
+                      'Taverna',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
                           color: Color(0xFFBB86FC),
                           fontSize: 48,
                           fontWeight: FontWeight.bold,
-                          fontFamily: 'BerkshireSwash'
-                        ),
-                      ),
-                      Text
-                      (
-                        'Multiversal',
+                          fontFamily: 'BerkshireSwash'),
+                    ),
+                    Text('Multiversal',
                         textAlign: TextAlign.center,
-                        style: TextStyle
-                        (
-                          color: Color(0xFFBB86FC),
-                          fontSize: 48,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: 'BerkshireSwash'
-                        )
-                      )
-                    ]
-                  ),
+                        style: TextStyle(
+                            color: Color(0xFFBB86FC),
+                            fontSize: 48,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'BerkshireSwash'))
+                  ]),
                   const SizedBox(height: 24),
                   //---Atualizado
-                  CustomTextInputEmail
-                  (
+                  TextInputEmail.TextInputEmail(
                     hintText: 'Digite o e-mail',
-                    validator: (value) 
-                    {
-                      if (value == null || value.isEmpty) 
-                      {
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
                         return 'Falta o e-mail';
                       }
-                      if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) 
-                      {
+                      if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
                         return 'E-mail inválido';
                       }
                       return null;
                     },
                   ),
                   const SizedBox(height: 16),
-                  CustomTextInputPassword
-                  (
+                  TextInputPassword(
                     hintText: 'Digite a senha',
-                    validator: (value) 
-                    {
-                      if (value == null || value.isEmpty) 
-                      {
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
                         return 'Falta a senha';
                       }
                       return null;
@@ -109,17 +80,13 @@ class LoginScreenState extends State<LoginScreen>
                   ),
                   //---Fim do atualizado
                   const SizedBox(height: 8),
-                  TextButton
-                  (
-                    onPressed: () 
-                    {
+                  TextButton(
+                    onPressed: () {
                       print('Esqueci minha senha'); //TODO: delete this line
                     },
-                    child: const Text
-                    (
-                      'Esqueci minha senha', 
-                      style: TextStyle
-                      (
+                    child: const Text(
+                      'Esqueci minha senha',
+                      style: TextStyle(
                         color: Color(0xFF03DAC6),
                         decoration: TextDecoration.underline,
                         decorationColor: Color(0xFF03DAC6),
@@ -127,30 +94,21 @@ class LoginScreenState extends State<LoginScreen>
                     ),
                   ),
                   const SizedBox(height: 16),
-                  Row
-                  (
-                    children: 
-                    [
+                  Row(
+                    children: [
                       const Icon(Icons.login, color: Color(0xFFB3B3B3)),
                       const SizedBox(width: 8),
-                      Expanded
-                      (
-                        child: SizedBox
-                        (
+                      Expanded(
+                        child: SizedBox(
                           height: 50, // Defina a altura desejada aqui
-                          child: CustomButton
-                          (
+                          child: CustomButton(
                             text: 'Entrar',
-                            textStyle: const TextStyle
-                            (
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'Montserrat'
-                            ),
-                            onPressed: () 
-                            {
-                              if (formKey.currentState!.validate()) 
-                              {
+                            textStyle: const TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'Montserrat'),
+                            onPressed: () {
+                              if (formKey.currentState!.validate()) {
                                 // TODO: Implementar ação de login
                                 print('Entrar');
                               }
@@ -159,32 +117,25 @@ class LoginScreenState extends State<LoginScreen>
                         ),
                       ),
                       const SizedBox(width: 8),
-                      const SizedBox(width: 24), // Espaço reservado para o ícone oculto
+                      const SizedBox(
+                          width: 24), // Espaço reservado para o ícone oculto
                     ],
                   ),
                   const SizedBox(height: 18),
-                  Row
-                  (
-                    children: 
-                    [
+                  Row(
+                    children: [
                       const Icon(Icons.person, color: Color(0xFFB3B3B3)),
                       const SizedBox(width: 8),
-                      Expanded
-                      (
-                        child: SizedBox
-                        (
+                      Expanded(
+                        child: SizedBox(
                           height: 50, // Defina a altura desejada aqui
-                          child: CustomButton
-                          (
+                          child: CustomButton(
                             text: 'Criar conta',
-                            textStyle: const TextStyle
-                            (
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'Montserrat'
-                            ),
-                            onPressed: () 
-                            {
+                            textStyle: const TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'Montserrat'),
+                            onPressed: () {
                               // TODO: Navegar para tela de cadastro
                               print('Criar conta');
                             },
@@ -192,19 +143,18 @@ class LoginScreenState extends State<LoginScreen>
                         ),
                       ),
                       const SizedBox(width: 8),
-                      const SizedBox(width: 24), // Espaço reservado para o ícone oculto
+                      const SizedBox(
+                          width: 24), // Espaço reservado para o ícone oculto
                     ],
                   ),
                 ],
               ),
             ),
-            const Padding
-            (
+            const Padding(
               padding: EdgeInsets.only(bottom: 16.0),
               child: Center // Usando Center para centralizar o texto
-              (
-                child: Text
-                (
+                  (
+                child: Text(
                   '© 2024 Taverna Multiversal. Todos os direitos reservados.',
                   style: TextStyle(color: Colors.white, fontSize: 11),
                 ),

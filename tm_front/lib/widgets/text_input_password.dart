@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class CustomTextInputPassword extends StatefulWidget {
+class TextInputPassword extends StatefulWidget {
   final String hintText;
   final String? Function(String?)? validator;
   final TextEditingController? controller;
 
-  const CustomTextInputPassword({
+  const TextInputPassword({
     Key? key,
     required this.hintText,
     this.validator,
@@ -13,11 +13,10 @@ class CustomTextInputPassword extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _CustomTextInputPasswordState createState() =>
-      _CustomTextInputPasswordState();
+  _TextInputPasswordState createState() => _TextInputPasswordState();
 }
 
-class _CustomTextInputPasswordState extends State<CustomTextInputPassword> {
+class _TextInputPasswordState extends State<TextInputPassword> {
   bool obscureTextVar = true;
 
   void togglePasswordVisibility() {

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class CustomTextInputEmail extends StatelessWidget {
+class TextInputEmail extends StatelessWidget {
   final String hintText;
   final String? Function(String?)? validator;
   final TextEditingController? controller;
 
-  const CustomTextInputEmail({
+  const TextInputEmail.TextInputEmail({
     Key? key,
     required this.hintText,
     this.validator,
