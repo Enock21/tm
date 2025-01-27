@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:tm_front/widgets/text_input_generic.dart';
 
 class TextInputPassword extends StatefulWidget {
-  final String hintText;
-  final String? Function(String?)? validator;
-  final TextEditingController? controller;
-
   const TextInputPassword({
     Key? key,
     required this.hintText,
     this.validator,
     this.controller,
   }) : super(key: key);
+
+  final String hintText;
+  final String? Function(String?)? validator;
+  final TextEditingController? controller;
 
   @override
   _TextInputPasswordState createState() => _TextInputPasswordState();

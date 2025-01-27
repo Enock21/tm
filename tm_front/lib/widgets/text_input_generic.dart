@@ -11,6 +11,7 @@ class TextInput extends StatelessWidget {
   final VoidCallback? onSuffixIconPressed;
   final String? Function(String?)? validator;
   final TextEditingController? controller;
+  final Color hintTextColor;
 
   const TextInput({
     Key? key,
@@ -21,6 +22,7 @@ class TextInput extends StatelessWidget {
     this.onSuffixIconPressed,
     this.validator,
     this.controller,
+    this.hintTextColor = const Color.fromARGB(255, 196, 196, 196),
   }) : super(key: key);
 
   @override
@@ -30,6 +32,7 @@ class TextInput extends StatelessWidget {
       obscureText: obscureText,
       decoration: InputDecoration(
         hintText: hintText,
+        hintStyle: TextStyle(color: hintTextColor),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
         filled: true,
         fillColor: const Color(0xFF322B47),
