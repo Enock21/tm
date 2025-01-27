@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tm_front/widgets/text_input_generic.dart';
 
 class TextInputPassword extends StatefulWidget {
   final String hintText;
@@ -27,25 +28,14 @@ class _TextInputPasswordState extends State<TextInputPassword> {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      controller: widget.controller,
+    return TextInput(
+      hintText: widget.hintText,
       obscureText: obscureTextVar,
-      decoration: InputDecoration(
-        hintText: widget.hintText,
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
-        filled: true,
-        fillColor: const Color(0xFF322B47),
-        prefixIcon: const Icon(Icons.lock, color: Color(0xFFB3B3B3)),
-        suffixIcon: IconButton(
-          icon: Icon(
-            obscureTextVar ? Icons.visibility_off : Icons.visibility,
-            color: const Color(0xFFB3B3B3),
-          ),
-          onPressed: togglePasswordVisibility,
-        ),
-      ),
-      style: const TextStyle(color: Colors.white),
+      prefixIcon: Icons.lock,
+      suffixIcon: obscureTextVar ? Icons.visibility_off : Icons.visibility,
+      onSuffixIconPressed: togglePasswordVisibility,
       validator: widget.validator,
+      controller: widget.controller,
     );
   }
 }

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 /// This widget serves as a generic reference for creating custom text input fields.
 /// It can be extended or modified to create specific types of input fields.
 
-abstract class TextInput extends StatelessWidget {
+class TextInput extends StatelessWidget {
   final String hintText;
   final bool obscureText;
   final IconData prefixIcon;

@@ -56,7 +56,7 @@ class LoginScreenState extends State<LoginScreen> {
                   ]),
                   const SizedBox(height: 24),
                   //---Atualizado
-                  TextInputEmail.TextInputEmail(
+                  TextInputEmail(
                     hintText: 'Digite o e-mail',
                     validator: (value) {
                       if (value == null || value.isEmpty) {
