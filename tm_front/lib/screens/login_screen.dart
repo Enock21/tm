@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tm_front/widgets/custom_button.dart';
+//---Atualizado
+import 'package:tm_front/widgets/custom_text_input_email.dart';
+import 'package:tm_front/widgets/custom_text_input_password.dart';
+//---Fim do atualizado
 
 class LoginScreen extends StatefulWidget
 {
@@ -12,16 +16,6 @@ class LoginScreen extends StatefulWidget
 class LoginScreenState extends State<LoginScreen> 
 {
   final formKey = GlobalKey<FormState>();
-  bool obscureTextVar = true;
-
-  void togglePasswordVisibility()
-  {
-    setState
-    (
-      ()
-      {obscureTextVar = !obscureTextVar;}
-    );
-  }
 
   @override
   Widget build(BuildContext context) 
@@ -83,61 +77,37 @@ class LoginScreenState extends State<LoginScreen>
                     ]
                   ),
                   const SizedBox(height: 24),
-                  TextFormField
+                  //---Atualizado
+                  CustomTextInputEmail
                   (
-                    decoration: InputDecoration
-                    (
-                      hintText: 'Digite o e-mail',
-                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
-                      filled: true,
-                      fillColor: const Color(0xFF312B47),
-                      prefixIcon: const Icon(Icons.email, color: Color(0xFFB3B3B3))
-                    ),
-                    style: const TextStyle(color: Colors.white),
-                    validator: (value)
+                    hintText: 'Digite o e-mail',
+                    validator: (value) 
                     {
-                      if (value == null || value.isEmpty)
+                      if (value == null || value.isEmpty) 
                       {
                         return 'Falta o e-mail';
                       }
-                      if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value))
+                      if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) 
                       {
                         return 'E-mail inválido';
                       }
                       return null;
-                    }
+                    },
                   ),
                   const SizedBox(height: 16),
-                  TextFormField
+                  CustomTextInputPassword
                   (
-                    obscureText: obscureTextVar,
-                    decoration: InputDecoration
-                    (
-                      hintText: 'Digite a senha',
-                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
-                      filled: true,
-                      fillColor: const Color(0xFF322B47),
-                      prefixIcon: const Icon(Icons.lock, color: Color(0xFFB3B3B3)),
-                      suffixIcon: IconButton
-                      (
-                        icon: Icon
-                        (
-                          obscureTextVar ? Icons.visibility_off : Icons.visibility,
-                          color: const Color(0xFFB3B3B3)
-                        ),
-                        onPressed: togglePasswordVisibility
-                      )
-                    ),
-                    style: const TextStyle(color: Colors.white),
-                    validator: (value)
+                    hintText: 'Digite a senha',
+                    validator: (value) 
                     {
-                      if (value == null || value.isEmpty)
+                      if (value == null || value.isEmpty) 
                       {
                         return 'Falta a senha';
                       }
                       return null;
-                    }
+                    },
                   ),
+                  //---Fim do atualizado
                   const SizedBox(height: 8),
                   TextButton
                   (
@@ -171,10 +141,15 @@ class LoginScreenState extends State<LoginScreen>
                           child: CustomButton
                           (
                             text: 'Entrar',
-                            textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, fontFamily: 'Montserrat'),
+                            textStyle: const TextStyle
+                            (
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Montserrat'
+                            ),
                             onPressed: () 
                             {
-                              if (formKey.currentState!.validate())
+                              if (formKey.currentState!.validate()) 
                               {
                                 // TODO: Implementar ação de login
                                 print('Entrar');
@@ -190,7 +165,7 @@ class LoginScreenState extends State<LoginScreen>
                   const SizedBox(height: 18),
                   Row
                   (
-                    children:
+                    children: 
                     [
                       const Icon(Icons.person, color: Color(0xFFB3B3B3)),
                       const SizedBox(width: 8),
@@ -202,12 +177,17 @@ class LoginScreenState extends State<LoginScreen>
                           child: CustomButton
                           (
                             text: 'Criar conta',
-                            textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, fontFamily: 'Montserrat'),
+                            textStyle: const TextStyle
+                            (
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Montserrat'
+                            ),
                             onPressed: () 
                             {
                               // TODO: Navegar para tela de cadastro
                               print('Criar conta');
-                            }
+                            },
                           ),
                         ),
                       ),
