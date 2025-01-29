@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tm_front/widgets/custom_button.dart';
 import 'package:tm_front/widgets/text_input_email.dart';
 import 'package:tm_front/widgets/text_input_password.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -101,10 +102,10 @@ class LoginScreenState extends State<LoginScreen> {
                           height: 50, // Defina a altura desejada aqui
                           child: CustomButton(
                             text: 'Entrar',
-                            textStyle: const TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: 'Montserrat'),
+                            textStyle: GoogleFonts.montserrat(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
                             onPressed: () {
                               if (formKey.currentState!.validate()) {
                                 // TODO: Implementar ação de login
@@ -129,10 +130,10 @@ class LoginScreenState extends State<LoginScreen> {
                           height: 50, // Defina a altura desejada aqui
                           child: CustomButton(
                             text: 'Criar conta',
-                            textStyle: const TextStyle(
+                            textStyle: GoogleFonts.montserrat(
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
-                                fontFamily: 'Montserrat'),
+                              ),
                             onPressed: () {
                               // TODO: Navegar para tela de cadastro
                               print('Criar conta');
