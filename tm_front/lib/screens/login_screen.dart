@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tm_front/widgets/custom_button.dart';
-//---Atualizado
 import 'package:tm_front/widgets/text_input_email.dart';
 import 'package:tm_front/widgets/text_input_password.dart';
-//---Fim do atualizado
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
