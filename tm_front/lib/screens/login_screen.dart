@@ -54,7 +54,6 @@ class LoginScreenState extends State<LoginScreen> {
                             fontFamily: 'BerkshireSwash'))
                   ]),
                   const SizedBox(height: 24),
-                  //---Atualizado
                   TextInputEmail(
                     hintText: 'Digite o e-mail',
                     validator: (value) {
@@ -77,15 +76,14 @@ class LoginScreenState extends State<LoginScreen> {
                       return null;
                     },
                   ),
-                  //---Fim do atualizado
                   const SizedBox(height: 8),
                   TextButton(
                     onPressed: () {
                       print('Esqueci minha senha'); //TODO: delete this line
                     },
-                    child: const Text(
+                    child: Text(
                       'Esqueci minha senha',
-                      style: TextStyle(
+                      style: GoogleFonts.montserrat(
                         color: Color(0xFF03DAC6),
                         decoration: TextDecoration.underline,
                         decorationColor: Color(0xFF03DAC6),
