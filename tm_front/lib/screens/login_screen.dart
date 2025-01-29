@@ -147,13 +147,12 @@ class LoginScreenState extends State<LoginScreen> {
                 ],
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(bottom: 16.0),
-              child: Center // Usando Center para centralizar o texto
-                  (
+            Padding(
+              padding: const EdgeInsets.only(bottom: 16.0),
+              child: Center(
                 child: Text(
                   '© 2024 Taverna Multiversal. Todos os direitos reservados.',
-                  style: TextStyle(color: Colors.white, fontSize: 11),
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
               ),
             ),

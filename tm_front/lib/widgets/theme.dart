@@ -17,7 +17,12 @@ final theme = ThemeData(
     ),
     bodyMedium: GoogleFonts.montserrat(
       color: const Color(0xFF878787),
-      fontSize: 16,
+      fontSize: 14,
+      fontWeight: FontWeight.w400,
+    ),
+    bodySmall: GoogleFonts.montserrat(
+      color: const Color(0xFFBB86FC),
+      fontSize: 12,
       fontWeight: FontWeight.w400,
     ),
     labelLarge: GoogleFonts.montserrat(
