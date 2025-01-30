@@ -3,11 +3,11 @@ import 'package:tm_front/widgets/text_input_generic.dart';
 
 class TextInputPassword extends StatefulWidget {
   const TextInputPassword({
-    Key? key,
+    super.key,
     required this.hintText,
     this.validator,
     this.controller,
-  }) : super(key: key);
+  });
 
   final String hintText;
   final String? Function(String?)? validator;

@@ -5,7 +5,8 @@ final theme = ThemeData(
   primaryColor: const Color(0xFFBB86FC),
   scaffoldBackgroundColor: const Color(0xFF1A1A1A),
   textTheme: TextTheme(
-    headlineLarge: GoogleFonts.montserrat(
+    headlineLarge: GoogleFonts.getFont(
+      'Berkshire Swash',
       color: const Color(0xFFBB86FC),
       fontSize: 48,
       fontWeight: FontWeight.bold,

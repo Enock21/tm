@@ -35,23 +35,17 @@ class LoginScreenState extends State<LoginScreen> {
                   //   child: Text('LOGO', style: TextStyle(color: Colors.black)),
                   //),
                   const SizedBox(height: 24),
-                  const Column(children: [
+                  Column(children: [
                     Text(
                       'Taverna',
                       textAlign: TextAlign.center,
-                      style: TextStyle(
-                          color: Color(0xFFBB86FC),
-                          fontSize: 48,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: 'BerkshireSwash'),
+                      style: Theme.of(context).textTheme.headlineLarge,
                     ),
-                    Text('Multiversal',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Color(0xFFBB86FC),
-                            fontSize: 48,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'BerkshireSwash'))
+                    Text(
+                      'Multiversal',
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.headlineLarge,
+                    )
                   ]),
                   const SizedBox(height: 24),
                   TextInputEmail(

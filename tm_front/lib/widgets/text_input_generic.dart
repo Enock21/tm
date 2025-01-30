@@ -14,7 +14,7 @@ class TextInput extends StatelessWidget {
   final Color hintTextColor;
 
   const TextInput({
-    Key? key,
+    super.key,
     required this.hintText,
     this.obscureText = false,
     required this.prefixIcon,
@@ -23,7 +23,7 @@ class TextInput extends StatelessWidget {
     this.validator,
     this.controller,
     this.hintTextColor = const Color.fromARGB(255, 196, 196, 196),
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

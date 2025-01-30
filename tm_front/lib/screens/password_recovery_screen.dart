@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/services.dart';
 
 class PasswordRecoveryScreen extends StatelessWidget {
-  const PasswordRecoveryScreen({Key? key}) : super(key: key);
+  const PasswordRecoveryScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
