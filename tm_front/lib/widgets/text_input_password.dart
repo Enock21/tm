@@ -2,45 +2,44 @@ import 'package:flutter/material.dart';
 import 'package:tm_front/widgets/text_input_generic.dart';
 
 class TextInputPassword extends StatefulWidget {
-  final String hintText;
-  final FormFieldValidator<String>? validator;
   final TextEditingController? controller;
+  final Widget? prefixIcon;
 
-  const TextInputPassword({
-    Key? key,
-    required this.hintText,
-    this.validator,
-    this.controller,
-  }) : super(key: key);
+  const TextInputPassword({Key? key, this.controller, this.prefixIcon}) : super(key: key);
 
   @override
   _TextInputPasswordState createState() => _TextInputPasswordState();
 }
 
 class _TextInputPasswordState extends State<TextInputPassword> {
-  bool obscureTextVar = true;
+  bool _obscureText = true;
 
-  void togglePasswordVisibility() {
+  void _toggleVisibility() {
     setState(() {
-      obscureTextVar = !obscureTextVar;
+      _obscureText = !_obscureText;
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return TextInputGeneric(
-      hintText: widget.hintText,
-      obscureText: obscureTextVar,
-      prefixIcon: Icon(Icons.lock, color: Theme.of(context).primaryColor),
+      hintText: 'Digite a senha',
+      controller: widget.controller,
+      prefixIcon: widget.prefixIcon,
+      obscureText: _obscureText,
       suffixIcon: IconButton(
         icon: Icon(
-          obscureTextVar ? Icons.visibility_off : Icons.visibility,
+          _obscureText ? Icons.visibility : Icons.visibility_off,
           color: Theme.of(context).primaryColor,
         ),
-        onPressed: togglePasswordVisibility,
+        onPressed: _toggleVisibility,
       ),
-      validator: widget.validator,
-      controller: widget.controller,
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'Falta a senha';
+        }
+        return null;
+      },
     );
   }
 }

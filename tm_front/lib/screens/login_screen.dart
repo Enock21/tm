@@ -55,13 +55,8 @@ class LoginScreenState extends State<LoginScreen> {
                   ),
                   const SizedBox(height: 16),
                   TextInputPassword(
-                    hintText: 'Digite a senha',
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Falta a senha';
-                      }
-                      return null;
-                    },
+                    controller: TextEditingController(),
+                    prefixIcon: Icon(Icons.lock, color: Theme.of(context).primaryColor),
                   ),
                   const SizedBox(height: 8),
                   TextButton(
