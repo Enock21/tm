@@ -17,7 +17,7 @@ class LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF1A1A1A),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -91,7 +91,7 @@ class LoginScreenState extends State<LoginScreen> {
                       const SizedBox(width: 8),
                       Expanded(
                         child: SizedBox(
-                          height: 50, // Defina a altura desejada aqui
+                          height: 50,
                           child: CustomButton(
                             text: 'Entrar',
                             textStyle: GoogleFonts.montserrat(
@@ -119,13 +119,13 @@ class LoginScreenState extends State<LoginScreen> {
                       const SizedBox(width: 8),
                       Expanded(
                         child: SizedBox(
-                          height: 50, // Defina a altura desejada aqui
+                          height: 50,
                           child: CustomButton(
                             text: 'Criar conta',
                             textStyle: GoogleFonts.montserrat(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                              ),
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
                             onPressed: () {
                               // TODO: Navegar para tela de cadastro
                               print('Criar conta');
