@@ -1,14 +1,27 @@
 import 'package:flutter/material.dart';
-import 'text_input_generic.dart';
+import 'package:tm_front/widgets/text_input_generic.dart';
 
-class TextInputEmail extends TextInput {
-  const TextInputEmail({
-    super.key,
-    required super.hintText,
-    super.validator,
-    super.controller,
-  }) : super(
-          obscureText: false,
-          prefixIcon: Icons.email,
-        );
+class TextInputEmail extends StatelessWidget {
+  final TextEditingController? controller;
+  final Widget? prefixIcon;
+
+  const TextInputEmail({Key? key, this.controller, this.prefixIcon}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return TextInputGeneric(
+      hintText: 'Digite o e-mail',
+      controller: controller,
+      prefixIcon: prefixIcon,
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'Falta o e-mail';
+        }
+        if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
+          return 'E-mail inválido';
+        }
+        return null;
+      },
+    );
+  }
 }

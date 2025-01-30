@@ -1,28 +1,21 @@
 import 'package:flutter/material.dart';
 
-/// This widget serves as a generic reference for creating custom text input fields.
-/// It can be extended or modified to create specific types of input fields.
-
-class TextInput extends StatelessWidget {
-  final String hintText;
-  final bool obscureText;
-  final IconData prefixIcon;
-  final IconData? suffixIcon;
-  final VoidCallback? onSuffixIconPressed;
-  final String? Function(String?)? validator;
+class TextInputGeneric extends StatelessWidget {
+  final String? hintText;
+  final Widget? prefixIcon;
+  final Widget? suffixIcon;
+  final FormFieldValidator<String>? validator;
   final TextEditingController? controller;
-  final Color hintTextColor;
+  final bool obscureText;
 
-  const TextInput({
+  const TextInputGeneric({
     super.key,
-    required this.hintText,
-    this.obscureText = false,
-    required this.prefixIcon,
+    this.hintText,
+    this.prefixIcon,
     this.suffixIcon,
-    this.onSuffixIconPressed,
     this.validator,
     this.controller,
-    this.hintTextColor = const Color.fromARGB(255, 196, 196, 196),
+    this.obscureText = false,
   });
 
   @override
@@ -32,19 +25,23 @@ class TextInput extends StatelessWidget {
       obscureText: obscureText,
       decoration: InputDecoration(
         hintText: hintText,
-        hintStyle: TextStyle(color: hintTextColor),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+        hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,
         filled: true,
         fillColor: const Color(0xFF322B47),
-        prefixIcon: Icon(prefixIcon, color: const Color(0xFFB3B3B3)),
-        suffixIcon: suffixIcon != null
-            ? IconButton(
-                icon: Icon(suffixIcon, color: const Color(0xFFB3B3B3)),
-                onPressed: onSuffixIconPressed,
-              )
-            : null,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: BorderSide.none,
+        ),
+        contentPadding: const EdgeInsets.symmetric(
+          vertical: 14,
+          horizontal: 14,
+        ),
+        prefixIcon: prefixIcon,
+        suffixIcon: suffixIcon,
       ),
-      style: const TextStyle(color: Colors.white),
+      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+        color: Colors.white,
+      ),
       validator: validator,
     );
   }

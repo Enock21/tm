@@ -28,6 +28,7 @@ class LoginScreenState extends State<LoginScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  ////The following code was commented out to remove the logo from the login screen. It shall be transfered to theme.dart once the logo is defined.
                   // const CircleAvatar
                   // (
                   //   radius: 56,
@@ -49,16 +50,8 @@ class LoginScreenState extends State<LoginScreen> {
                   ]),
                   const SizedBox(height: 24),
                   TextInputEmail(
-                    hintText: 'Digite o e-mail',
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Falta o e-mail';
-                      }
-                      if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
-                        return 'E-mail inválido';
-                      }
-                      return null;
-                    },
+                    controller: TextEditingController(),
+                    prefixIcon: Icon(Icons.email, color: Theme.of(context).primaryColor),
                   ),
                   const SizedBox(height: 16),
                   TextInputPassword(

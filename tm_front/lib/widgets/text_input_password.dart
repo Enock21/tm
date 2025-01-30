@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:tm_front/widgets/text_input_generic.dart';
 
 class TextInputPassword extends StatefulWidget {
+  final String hintText;
+  final FormFieldValidator<String>? validator;
+  final TextEditingController? controller;
+
   const TextInputPassword({
-    super.key,
+    Key? key,
     required this.hintText,
     this.validator,
     this.controller,
-  });
-
-  final String hintText;
-  final String? Function(String?)? validator;
-  final TextEditingController? controller;
+  }) : super(key: key);
 
   @override
   _TextInputPasswordState createState() => _TextInputPasswordState();
@@ -28,12 +28,17 @@ class _TextInputPasswordState extends State<TextInputPassword> {
 
   @override
   Widget build(BuildContext context) {
-    return TextInput(
+    return TextInputGeneric(
       hintText: widget.hintText,
       obscureText: obscureTextVar,
-      prefixIcon: Icons.lock,
-      suffixIcon: obscureTextVar ? Icons.visibility_off : Icons.visibility,
-      onSuffixIconPressed: togglePasswordVisibility,
+      prefixIcon: Icon(Icons.lock, color: Theme.of(context).primaryColor),
+      suffixIcon: IconButton(
+        icon: Icon(
+          obscureTextVar ? Icons.visibility_off : Icons.visibility,
+          color: Theme.of(context).primaryColor,
+        ),
+        onPressed: togglePasswordVisibility,
+      ),
       validator: widget.validator,
       controller: widget.controller,
     );
