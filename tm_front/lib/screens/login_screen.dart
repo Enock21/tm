@@ -52,13 +52,13 @@ class LoginScreenState extends State<LoginScreen> {
                   const SizedBox(height: 24),
                   TextInputEmail(
                     controller: TextEditingController(),
-                    prefixIcon: Icon(Icons.email, color: AppColors.nonInteractiveMainColor),
+                    prefixIcon: Icon(Icons.email, color: AppColors.positiveColor),
                   ),
                   const SizedBox(height: 16),
                   TextInputPassword(
                     controller: TextEditingController(),
                     prefixIcon:
-                        Icon(Icons.lock, color: AppColors.nonInteractiveMainColor),
+                        Icon(Icons.lock, color: AppColors.positiveColor),
                   ),
                   const SizedBox(height: 8),
                   TMTextButton(
@@ -70,7 +70,7 @@ class LoginScreenState extends State<LoginScreen> {
                   const SizedBox(height: 16),
                   Row(
                     children: [
-                      const Icon(Icons.login, color: AppColors.nonInteractiveMainColor),
+                      const Icon(Icons.login, color: AppColors.positiveColor),
                       const SizedBox(width: 8),
                       Expanded(
                         child: SizedBox(
@@ -98,7 +98,7 @@ class LoginScreenState extends State<LoginScreen> {
                   const SizedBox(height: 18),
                   Row(
                     children: [
-                      const Icon(Icons.person, color: AppColors.nonInteractiveMainColor),
+                      const Icon(Icons.person, color: AppColors.positiveColor),
                       const SizedBox(width: 8),
                       Expanded(
                         child: SizedBox(
@@ -124,12 +124,22 @@ class LoginScreenState extends State<LoginScreen> {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 16.0),
-              child: Center(
-                child: Text(
-                  '© 2024 Taverna Multiversal. Todos os direitos reservados.',
-                  style: AppTexts.bodySmall,
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 16.0),
+                child: Column(
+                  children: [
+                    Text(
+                      '© 2024 Taverna Multiversal.',
+                      style: AppTexts.bodySmall,
+                      textAlign: TextAlign.center,
+                    ),
+                    Text(
+                      'Todos os direitos reservados.',
+                      style: AppTexts.bodySmall,
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
                 ),
               ),
             ),
