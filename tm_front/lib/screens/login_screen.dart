@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:tm_front/widgets/tm_buttons.dart';
 import 'package:tm_front/widgets/text_input_email.dart';
 import 'package:tm_front/widgets/text_input_password.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:tm_front/widgets/theme.dart';
 
 class LoginScreen extends StatefulWidget {

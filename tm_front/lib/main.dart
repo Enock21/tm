@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Taverna Multiversal',
       //home: const LoginScreen(),
-      home: const PasswordRecoveryScreen(),
+      home: PasswordRecoveryScreen(),
     );
   }
 }
