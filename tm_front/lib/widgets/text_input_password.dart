@@ -5,7 +5,7 @@ class TextInputPassword extends StatefulWidget {
   final TextEditingController? controller;
   final Widget? prefixIcon;
 
-  const TextInputPassword({Key? key, this.controller, this.prefixIcon}) : super(key: key);
+  const TextInputPassword({super.key, this.controller, this.prefixIcon});
 
   @override
   _TextInputPasswordState createState() => _TextInputPasswordState();

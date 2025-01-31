@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tm_front/widgets/theme.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
@@ -11,8 +12,8 @@ class CustomButton extends StatelessWidget {
     required this.text,
     this.textStyle,
     required this.onPressed,
-    this.backgroundColor = const Color(0xFF7B0AAF),
-    this.textColor = const Color(0xFF00C925),
+    this.backgroundColor = AppColors.interactiveMainColor,
+    this.textColor = AppColors.positiveColor,
     super.key,
   });
 
@@ -21,8 +22,8 @@ class CustomButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        backgroundColor: backgroundColor, // Cor de fundo
-        foregroundColor: textColor, // Cor do texto
+        backgroundColor: backgroundColor,
+        foregroundColor: textColor,
       ),
       child: Text(
         text,

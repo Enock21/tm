@@ -3,6 +3,7 @@ import 'package:tm_front/widgets/custom_button.dart';
 import 'package:tm_front/widgets/text_input_email.dart';
 import 'package:tm_front/widgets/text_input_password.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tm_front/widgets/theme.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -17,7 +18,7 @@ class LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      backgroundColor: AppColors.backgroundColor,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -40,23 +41,24 @@ class LoginScreenState extends State<LoginScreen> {
                     Text(
                       'Taverna',
                       textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.headlineLarge,
+                      style: AppTexts.headlineLarge,
                     ),
                     Text(
                       'Multiversal',
                       textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.headlineLarge,
+                      style: AppTexts.headlineLarge,
                     )
                   ]),
                   const SizedBox(height: 24),
                   TextInputEmail(
                     controller: TextEditingController(),
-                    prefixIcon: Icon(Icons.email, color: Theme.of(context).primaryColor),
+                    prefixIcon: Icon(Icons.email, color: AppColors.nonInteractiveMainColor),
                   ),
                   const SizedBox(height: 16),
                   TextInputPassword(
                     controller: TextEditingController(),
-                    prefixIcon: Icon(Icons.lock, color: Theme.of(context).primaryColor),
+                    prefixIcon:
+                        Icon(Icons.lock, color: AppColors.nonInteractiveMainColor),
                   ),
                   const SizedBox(height: 8),
                   TextButton(
@@ -66,16 +68,16 @@ class LoginScreenState extends State<LoginScreen> {
                     child: Text(
                       'Esqueci minha senha',
                       style: GoogleFonts.montserrat(
-                        color: Color(0xFF03DAC6),
+                        color: AppColors.interactiveSecondColor,
                         decoration: TextDecoration.underline,
-                        decorationColor: Color(0xFF03DAC6),
+                        decorationColor: AppColors.interactiveSecondColor,
                       ),
                     ),
                   ),
                   const SizedBox(height: 16),
                   Row(
                     children: [
-                      const Icon(Icons.login, color: Color(0xFFB3B3B3)),
+                      const Icon(Icons.login, color: AppColors.nonInteractiveMainColor),
                       const SizedBox(width: 8),
                       Expanded(
                         child: SizedBox(
@@ -103,7 +105,7 @@ class LoginScreenState extends State<LoginScreen> {
                   const SizedBox(height: 18),
                   Row(
                     children: [
-                      const Icon(Icons.person, color: Color(0xFFB3B3B3)),
+                      const Icon(Icons.person, color: AppColors.nonInteractiveMainColor),
                       const SizedBox(width: 8),
                       Expanded(
                         child: SizedBox(
@@ -134,7 +136,7 @@ class LoginScreenState extends State<LoginScreen> {
               child: Center(
                 child: Text(
                   '© 2024 Taverna Multiversal. Todos os direitos reservados.',
-                  style: Theme.of(context).textTheme.bodySmall,
+                  style: AppTexts.bodySmall,
                 ),
               ),
             ),

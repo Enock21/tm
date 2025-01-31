@@ -5,7 +5,7 @@ class TextInputEmail extends StatelessWidget {
   final TextEditingController? controller;
   final Widget? prefixIcon;
 
-  const TextInputEmail({Key? key, this.controller, this.prefixIcon}) : super(key: key);
+  const TextInputEmail({super.key, this.controller, this.prefixIcon});
 
   @override
   Widget build(BuildContext context) {
