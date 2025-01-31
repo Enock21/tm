@@ -45,7 +45,7 @@ class TMTextButton extends StatelessWidget {
   final VoidCallback onPressed;
   final String text;
 
-const TMTextButton({required this.text, required this.onPressed, Key? key}) : super(key: key);
+  const TMTextButton({required this.text, required this.onPressed, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
