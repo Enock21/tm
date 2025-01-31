@@ -92,7 +92,7 @@ class LoginScreenState extends State<LoginScreen> {
                       ),
                       const SizedBox(width: 8),
                       const SizedBox(
-                          width: 24), // Espaço reservado para o ícone oculto
+                          width: 24), // Space reserved for hidden icon, used to centralize the button.
                     ],
                   ),
                   const SizedBox(height: 18),
@@ -118,7 +118,7 @@ class LoginScreenState extends State<LoginScreen> {
                       ),
                       const SizedBox(width: 8),
                       const SizedBox(
-                          width: 24), // Espaço reservado para o ícone oculto
+                          width: 24), // Space reserved for hidden icon, used to centralize the button.
                     ],
                   ),
                 ],
