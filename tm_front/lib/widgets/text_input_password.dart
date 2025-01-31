@@ -24,7 +24,7 @@ class _TextInputPasswordState extends State<TextInputPassword> {
   @override
   Widget build(BuildContext context) {
     return TextInputGeneric(
-      hintText: 'Digite a senha',
+      hintText: 'Senha aqui',
       controller: widget.controller,
       prefixIcon: widget.prefixIcon,
       obscureText: _obscureText,

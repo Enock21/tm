@@ -35,7 +35,16 @@ class TMButton extends StatelessWidget {
       onPressed: onPressed,
       child: Text(
         text,
-        style: textStyle?.copyWith(color: textColor) ?? TextStyle(color: textColor),
+        style: textStyle?.copyWith(
+        color: textColor,
+        fontWeight: FontWeight.bold,
+        fontSize: 18,
+        fontFamily: GoogleFonts.montserrat().fontFamily,
+        ) ?? GoogleFonts.montserrat(
+        color: textColor,
+        fontWeight: FontWeight.bold,
+        fontSize: 18,
+        ),
       ),
     );
   }

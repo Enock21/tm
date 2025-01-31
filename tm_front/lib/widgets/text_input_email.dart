@@ -10,7 +10,7 @@ class TextInputEmail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextInputGeneric(
-      hintText: 'Digite o e-mail',
+      hintText: 'E-mail aqui',
       controller: controller,
       prefixIcon: prefixIcon,
       validator: (value) {

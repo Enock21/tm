@@ -29,13 +29,13 @@ class AppTexts {
   );
 
   static final TextStyle bodyLarge = GoogleFonts.montserrat(
-    color: AppColors.neutralColor,
+    color: AppColors.nonInteractiveMainColor,
     fontSize: 16,
     fontWeight: FontWeight.w400,
   );
 
   static final TextStyle bodyMedium = GoogleFonts.montserrat(
-    color: AppColors.nonInteractiveSecondColor,
+    color: AppColors.nonInteractiveMainColor,
     fontSize: 14,
     fontWeight: FontWeight.w400,
   );

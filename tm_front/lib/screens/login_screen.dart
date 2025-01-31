@@ -77,10 +77,6 @@ class LoginScreenState extends State<LoginScreen> {
                           height: 50,
                           child: TMButton.positive(
                             text: 'Entrar',
-                            textStyle: GoogleFonts.montserrat(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
                             onPressed: () {
                               if (formKey.currentState!.validate()) {
                                 // TODO: Implementar ação de login
@@ -105,13 +101,9 @@ class LoginScreenState extends State<LoginScreen> {
                           height: 50,
                           child: TMButton.positive(
                             text: 'Criar conta',
-                            textStyle: GoogleFonts.montserrat(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
                             onPressed: () {
-                              // TODO: Navegar para tela de cadastro
-                              print('Criar conta');
+                                // TODO: Navegar para tela de cadastro
+                                print('Criar conta');
                             },
                           ),
                         ),
