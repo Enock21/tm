@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tm_front/widgets/custom_button.dart';
+import 'package:tm_front/widgets/tm_buttons.dart';
 import 'package:tm_front/widgets/text_input_email.dart';
 import 'package:tm_front/widgets/text_input_password.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -82,7 +82,7 @@ class LoginScreenState extends State<LoginScreen> {
                       Expanded(
                         child: SizedBox(
                           height: 50,
-                          child: CustomButton(
+                          child: TMButton.positive(
                             text: 'Entrar',
                             textStyle: GoogleFonts.montserrat(
                               fontSize: 18,
@@ -110,7 +110,7 @@ class LoginScreenState extends State<LoginScreen> {
                       Expanded(
                         child: SizedBox(
                           height: 50,
-                          child: CustomButton(
+                          child: TMButton.positive(
                             text: 'Criar conta',
                             textStyle: GoogleFonts.montserrat(
                               fontSize: 18,

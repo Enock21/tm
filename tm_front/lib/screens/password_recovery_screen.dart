@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tm_front/widgets/custom_button.dart';
+import 'package:tm_front/widgets/tm_buttons.dart';
 
 class PasswordRecoveryScreen extends StatelessWidget {
   const PasswordRecoveryScreen({super.key});
@@ -85,7 +85,7 @@ class PasswordRecoveryScreen extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(height: 30),
-                          CustomButton(
+                          TMButton.positive(
                             text: 'Enviar',
                             textStyle: Theme.of(context).textTheme.labelLarge?.copyWith(
                               fontSize: 18,
