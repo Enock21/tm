@@ -61,18 +61,11 @@ class LoginScreenState extends State<LoginScreen> {
                         Icon(Icons.lock, color: AppColors.nonInteractiveMainColor),
                   ),
                   const SizedBox(height: 8),
-                  TextButton(
+                  TMTextButton(
+                    text: 'Esqueci minha senha',
                     onPressed: () {
                       print('Esqueci minha senha'); //TODO: delete this line
                     },
-                    child: Text(
-                      'Esqueci minha senha',
-                      style: GoogleFonts.montserrat(
-                        color: AppColors.interactiveSecondColor,
-                        decoration: TextDecoration.underline,
-                        decorationColor: AppColors.interactiveSecondColor,
-                      ),
-                    ),
                   ),
                   const SizedBox(height: 16),
                   Row(
