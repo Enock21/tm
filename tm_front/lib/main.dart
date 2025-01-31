@@ -13,8 +13,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Taverna Multiversal',
-      home: const LoginScreen(),
-      //home: const PasswordRecoveryScreen(),
+      //home: const LoginScreen(),
+      home: const PasswordRecoveryScreen(),
     );
   }
 }

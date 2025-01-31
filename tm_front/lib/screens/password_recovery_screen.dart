@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tm_front/widgets/tm_buttons.dart';
+import 'package:tm_front/widgets/theme.dart';
 
 class PasswordRecoveryScreen extends StatelessWidget {
   const PasswordRecoveryScreen({super.key});
@@ -7,7 +8,7 @@ class PasswordRecoveryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      backgroundColor: AppColors.backgroundColor,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
@@ -15,11 +16,10 @@ class PasswordRecoveryScreen extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  IconButton(
-                    icon: const Icon(Icons.arrow_back),
-                    color: Theme.of(context).primaryColor,
-                    iconSize: 24,
-                    onPressed: () => Navigator.pop(context),
+                  TMBackButton(
+                    onPressed: () {
+                      print('Voltar'); //TODO: delete this line
+                    }
                   ),
                   const SizedBox(width: 20),
                   Column(
@@ -28,16 +28,16 @@ class PasswordRecoveryScreen extends StatelessWidget {
                       Text(
                         'Recuperação de',
                         style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                          color: Theme.of(context).primaryColor,
-                          fontWeight: FontWeight.w700,
-                        ),
+                              color: Theme.of(context).primaryColor,
+                              fontWeight: FontWeight.w700,
+                            ),
                       ),
                       Text(
                         'Senha',
                         style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                          color: Theme.of(context).primaryColor,
-                          fontWeight: FontWeight.w700,
-                        ),
+                              color: Theme.of(context).primaryColor,
+                              fontWeight: FontWeight.w700,
+                            ),
                       ),
                     ],
                   ),
@@ -52,9 +52,9 @@ class PasswordRecoveryScreen extends StatelessWidget {
                       'Digite o e-mail da sua conta na\nTaverna Multiversal. Um link para\nalteração de senha será enviado\npara ele.',
                       textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                        color: Colors.white,
-                        height: 1.5,
-                      ),
+                            color: Colors.white,
+                            height: 1.5,
+                          ),
                     ),
                     const SizedBox(height: 40),
                     Form(
@@ -65,7 +65,9 @@ class PasswordRecoveryScreen extends StatelessWidget {
                             child: TextFormField(
                               decoration: InputDecoration(
                                 hintText: 'Seu e-mail aqui',
-                                hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,
+                                hintStyle: Theme.of(context)
+                                    .inputDecorationTheme
+                                    .hintStyle,
                                 filled: true,
                                 fillColor: const Color(0xFF322B47),
                                 border: OutlineInputBorder(
@@ -78,19 +80,25 @@ class PasswordRecoveryScreen extends StatelessWidget {
                                 ),
                               ),
                               textAlign: TextAlign.center,
-                              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                                color: Colors.white,
-                              ),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyLarge
+                                  ?.copyWith(
+                                    color: Colors.white,
+                                  ),
                               keyboardType: TextInputType.emailAddress,
                             ),
                           ),
                           const SizedBox(height: 30),
                           TMButton.positive(
                             text: 'Enviar',
-                            textStyle: Theme.of(context).textTheme.labelLarge?.copyWith(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
+                            textStyle: Theme.of(context)
+                                .textTheme
+                                .labelLarge
+                                ?.copyWith(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
                             onPressed: () {
                               // TODO: Implement logic
                               print('ENVIADO!');

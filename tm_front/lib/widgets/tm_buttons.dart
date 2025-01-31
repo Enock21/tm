@@ -62,3 +62,19 @@ class TMTextButton extends StatelessWidget {
     );
   }
 }
+
+class TMBackButton extends StatelessWidget {
+  final VoidCallback onPressed;
+
+  const TMBackButton({required this.onPressed, Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: const Icon(Icons.arrow_back),
+      color: AppColors.interactiveMainColor,
+      iconSize: 24,
+      onPressed: onPressed,
+    );
+  }
+}
