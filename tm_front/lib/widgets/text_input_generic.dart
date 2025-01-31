@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tm_front/widgets/theme.dart';
 
 class TextInputGeneric extends StatelessWidget {
   final String? hintText;
@@ -25,9 +26,9 @@ class TextInputGeneric extends StatelessWidget {
       obscureText: obscureText,
       decoration: InputDecoration(
         hintText: hintText,
-        hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,
+        hintStyle: AppTexts.hintText,
         filled: true,
-        fillColor: const Color(0xFF322B47),
+        fillColor: AppColors.boxColor,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide.none,
@@ -39,8 +40,8 @@ class TextInputGeneric extends StatelessWidget {
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
       ),
-      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-        color: Colors.white,
+      style: AppTexts.bodyMedium.copyWith(
+        color: AppColors.neutralColor,
       ),
       validator: validator,
     );

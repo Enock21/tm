@@ -45,6 +45,12 @@ class AppTexts {
     fontSize: 18,
     fontWeight: FontWeight.bold,
   );
+
+  static final TextStyle hintText = GoogleFonts.montserrat(
+    color: AppColors.nonInteractiveSecondColor,
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+  );
 }
 
 final theme = ThemeData(
