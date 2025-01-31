@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tm_front/widgets/text_input_generic.dart';
+import 'package:tm_front/widgets/theme.dart';
 
 class TextInputPassword extends StatefulWidget {
   final TextEditingController? controller;
@@ -30,7 +31,7 @@ class _TextInputPasswordState extends State<TextInputPassword> {
       suffixIcon: IconButton(
         icon: Icon(
           _obscureText ? Icons.visibility : Icons.visibility_off,
-          color: Theme.of(context).primaryColor,
+          color: AppColors.interactiveMainColor,
         ),
         onPressed: _toggleVisibility,
       ),
