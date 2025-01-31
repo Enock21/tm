@@ -22,6 +22,12 @@ class AppTexts {
     fontWeight: FontWeight.bold,
   );
 
+  static final TextStyle headlineMedium = GoogleFonts.montserrat(
+    color: AppColors.nonInteractiveMainColor,
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+  );
+
   static final TextStyle bodyLarge = GoogleFonts.montserrat(
     color: AppColors.neutralColor,
     fontSize: 16,

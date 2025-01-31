@@ -73,7 +73,7 @@ class TMBackButton extends StatelessWidget {
     return IconButton(
       icon: const Icon(Icons.arrow_back),
       color: AppColors.interactiveMainColor,
-      iconSize: 24,
+      iconSize: 40,
       onPressed: onPressed,
     );
   }
