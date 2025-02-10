@@ -12,6 +12,7 @@ class PasswordRecoveryScreen extends StatefulWidget {
 
 class _PasswordRecoveryScreenState extends State<PasswordRecoveryScreen> {
   final formKey = GlobalKey<FormState>();
+  bool emailSent = false;
 
   @override
   Widget build(BuildContext context) {
@@ -48,9 +49,7 @@ class _PasswordRecoveryScreenState extends State<PasswordRecoveryScreen> {
                     const SizedBox(width: 10),
                     //The following Opacity widget is used to keep the above title centralized. The icon inside it won't appear, but its space will remain.
                     Opacity(
-                      opacity: 0.0,
-                      child: TMBackButton(onPressed: () {})
-                    ),
+                        opacity: 0.0, child: TMBackButton(onPressed: () {})),
                   ],
                 ),
               ),
@@ -76,12 +75,17 @@ class _PasswordRecoveryScreenState extends State<PasswordRecoveryScreen> {
                             controller: TextEditingController(),
                           ),
                           const SizedBox(height: 30),
-                          TMButton.positive(
+                          emailSent ? Text(
+                            'ENVIADO!',
+                            style: AppTexts.bodyLarge,
+                          ) : TMButton.positive(
                             text: 'Enviar',
                             onPressed: () {
                               if (formKey.currentState!.validate()) {
-                                // TODO: Implementar ação de login
-                                print('ENVIADO!');
+                                setState(() {
+                                  emailSent = true;
+                                });
+                                // TODO: Implement logic to send email
                               }
                             },
                           ),
