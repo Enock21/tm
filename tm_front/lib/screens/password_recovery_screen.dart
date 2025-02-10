@@ -3,8 +3,14 @@ import 'package:tm_front/widgets/tm_buttons.dart';
 import 'package:tm_front/widgets/theme.dart';
 import 'package:tm_front/widgets/text_input_email.dart';
 
-class PasswordRecoveryScreen extends StatelessWidget {
+class PasswordRecoveryScreen extends StatefulWidget {
   PasswordRecoveryScreen({super.key});
+
+  @override
+  _PasswordRecoveryScreenState createState() => _PasswordRecoveryScreenState();
+}
+
+class _PasswordRecoveryScreenState extends State<PasswordRecoveryScreen> {
   final formKey = GlobalKey<FormState>();
 
   @override
