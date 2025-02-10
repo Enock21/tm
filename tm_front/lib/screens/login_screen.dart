@@ -3,6 +3,7 @@ import 'package:tm_front/widgets/tm_buttons.dart';
 import 'package:tm_front/widgets/text_input_email.dart';
 import 'package:tm_front/widgets/text_input_password.dart';
 import 'package:tm_front/widgets/theme.dart';
+import 'package:tm_front/screens/password_recovery_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -51,7 +52,8 @@ class LoginScreenState extends State<LoginScreen> {
                   const SizedBox(height: 24),
                   TextInputEmail(
                     controller: TextEditingController(),
-                    prefixIcon: Icon(Icons.email, color: AppColors.positiveColor),
+                    prefixIcon:
+                        Icon(Icons.email, color: AppColors.positiveColor),
                   ),
                   const SizedBox(height: 16),
                   TextInputPassword(
@@ -63,7 +65,12 @@ class LoginScreenState extends State<LoginScreen> {
                   TMTextButton(
                     text: 'Esqueci minha senha',
                     onPressed: () {
-                      print('Esqueci minha senha'); //TODO: delete this line
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PasswordRecoveryScreen(),
+                        )
+                      );
                     },
                   ),
                   const SizedBox(height: 16),
@@ -87,7 +94,8 @@ class LoginScreenState extends State<LoginScreen> {
                       ),
                       const SizedBox(width: 8),
                       const SizedBox(
-                          width: 24), // Space reserved for hidden icon, used to centralize the button.
+                          width:
+                              24), // Space reserved for hidden icon, used to centralize the button.
                     ],
                   ),
                   const SizedBox(height: 18),
@@ -101,15 +109,16 @@ class LoginScreenState extends State<LoginScreen> {
                           child: TMButton.positive(
                             text: 'Criar conta',
                             onPressed: () {
-                                // TODO: Navegar para tela de cadastro
-                                print('Criar conta');
+                              // TODO: Navegar para tela de cadastro
+                              print('Criar conta');
                             },
                           ),
                         ),
                       ),
                       const SizedBox(width: 8),
                       const SizedBox(
-                          width: 24), // Space reserved for hidden icon, used to centralize the button.
+                          width:
+                              24), // Space reserved for hidden icon, used to centralize the button.
                     ],
                   ),
                 ],
