@@ -77,15 +77,15 @@ class _PasswordRecoveryScreenState extends State<PasswordRecoveryScreen> {
                           const SizedBox(height: 30),
                           emailSent ? Text(
                             'ENVIADO!',
-                            style: AppTexts.bodyLarge,
+                            style: AppTexts.bodyLarge.copyWith(color: AppColors.positiveColor),
                           ) : TMButton.positive(
                             text: 'Enviar',
                             onPressed: () {
                               if (formKey.currentState!.validate()) {
+                                // TODO: Implement logic to send email
                                 setState(() {
                                   emailSent = true;
                                 });
-                                // TODO: Implement logic to send email
                               }
                             },
                           ),
