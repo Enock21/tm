@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tm_front/widgets/tm_buttons.dart';
 import 'package:tm_front/widgets/theme.dart';
 import 'package:tm_front/widgets/text_input_email.dart';
+import 'package:tm_front/screens/login_screen.dart';
 
 class PasswordRecoveryScreen extends StatefulWidget {
   PasswordRecoveryScreen({super.key});
@@ -29,7 +30,12 @@ class _PasswordRecoveryScreenState extends State<PasswordRecoveryScreen> {
                   children: [
                     TMBackButton(
                       onPressed: () {
-                        print('Voltar'); //TODO: delete this line
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const LoginScreen()
+                          ),
+                        );
                       },
                     ),
                     const SizedBox(width: 10),
@@ -75,20 +81,23 @@ class _PasswordRecoveryScreenState extends State<PasswordRecoveryScreen> {
                             controller: TextEditingController(),
                           ),
                           const SizedBox(height: 30),
-                          emailSent ? Text(
-                            'ENVIADO!',
-                            style: AppTexts.bodyLarge.copyWith(color: AppColors.positiveColor),
-                          ) : TMButton.positive(
-                            text: 'Enviar',
-                            onPressed: () {
-                              if (formKey.currentState!.validate()) {
-                                // TODO: Implement logic to send email
-                                setState(() {
-                                  emailSent = true;
-                                });
-                              }
-                            },
-                          ),
+                          emailSent
+                              ? Text(
+                                  'ENVIADO!',
+                                  style: AppTexts.bodyLarge
+                                      .copyWith(color: AppColors.positiveColor),
+                                )
+                              : TMButton.positive(
+                                  text: 'Enviar',
+                                  onPressed: () {
+                                    if (formKey.currentState!.validate()) {
+                                      // TODO: Implement logic to send email
+                                      setState(() {
+                                        emailSent = true;
+                                      });
+                                    }
+                                  },
+                                ),
                         ],
                       ),
                     ),
