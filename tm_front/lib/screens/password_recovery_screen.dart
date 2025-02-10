@@ -4,7 +4,8 @@ import 'package:tm_front/widgets/theme.dart';
 import 'package:tm_front/widgets/text_input_email.dart';
 
 class PasswordRecoveryScreen extends StatelessWidget {
-  const PasswordRecoveryScreen({super.key});
+  PasswordRecoveryScreen({super.key});
+  final formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -62,15 +63,20 @@ class PasswordRecoveryScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 40),
                     Form(
+                      key: formKey,
                       child: Column(
                         children: [
-                          TextInputEmail(),
+                          TextInputEmail(
+                            controller: TextEditingController(),
+                          ),
                           const SizedBox(height: 30),
                           TMButton.positive(
                             text: 'Enviar',
                             onPressed: () {
-                              // TODO: Implement logic
-                              print('ENVIADO!');
+                              if (formKey.currentState!.validate()) {
+                                // TODO: Implementar ação de login
+                                print('ENVIADO!');
+                              }
                             },
                           ),
                         ],
