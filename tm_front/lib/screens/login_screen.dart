@@ -59,7 +59,7 @@ class LoginScreenState extends State<LoginScreen> {
                   TextInputPassword(
                     controller: TextEditingController(),
                     prefixIcon:
-                        Icon(Icons.lock, color: AppColors.positiveColor),
+                        Icon(Icons.lock, color: AppColors.positiveColor), hintText: '',
                   ),
                   const SizedBox(height: 8),
                   TMTextButton(

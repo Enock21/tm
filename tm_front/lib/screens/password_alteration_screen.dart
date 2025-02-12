@@ -1,67 +1,124 @@
 import 'package:flutter/material.dart';
-import 'package:tm_front/widgets/text_input_password.dart';
 import 'package:tm_front/widgets/tm_buttons.dart';
+import 'package:tm_front/widgets/theme.dart';
+import 'package:tm_front/widgets/text_input_password.dart';
+import 'package:tm_front/screens/login_screen.dart';
 
-class PasswordAlterationScreen extends StatelessWidget {
-  const PasswordAlterationScreen({Key? key}) : super(key: key);
+class PasswordAlterationScreen extends StatefulWidget {
+  const PasswordAlterationScreen({super.key});
+
+  @override
+  _PasswordAlterationScreenState createState() => _PasswordAlterationScreenState();
+}
+
+class _PasswordAlterationScreenState extends State<PasswordAlterationScreen> {
+  final formKey = GlobalKey<FormState>();
+  final newPasswordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
+  bool passwordChanged = false;
+
+  @override
+  void dispose() {
+    newPasswordController.dispose();
+    confirmPasswordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF1A1A1A),
-      body: SingleChildScrollView(
+      backgroundColor: AppColors.backgroundColor,
+      body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 21),
+          padding: const EdgeInsets.all(20.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Text(
-                'Recuperação de\nSenha',
-                style: TextStyle(
-                  color: Color(0xFFBB86FC),
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'Montserrat',
-                ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 179),
-              Form(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+              Center(
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Text(
-                      'Nova Senha',
-                      style: TextStyle(
-                        color: Color(0xFFBB86FC),
-                        fontSize: 16,
-                        fontFamily: 'Montserrat',
+                    TMBackButton(
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const LoginScreen()
+                          ),
+                        );
+                      },
+                    ),
+                    const SizedBox(width: 10),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Alteração de',
+                          style: AppTexts.headlineMedium,
+                        ),
+                        Text(
+                          'Senha',
+                          style: AppTexts.headlineMedium,
+                        ),
+                      ],
+                    ),
+                    const SizedBox(width: 10),
+                    //The following Opacity widget is used to keep the above title centralized. The icon inside it won't appear, but its space will remain.
+                    Opacity(
+                        opacity: 0.0, child: TMBackButton(onPressed: () {})),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 80),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Column(
+                  children: [
+                    Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        'Digite sua nova senha abaixo.',
+                        textAlign: TextAlign.left,
+                        style: AppTexts.bodyLarge,
                       ),
                     ),
-                    const SizedBox(height: 10),
-                    TextInputPassword(
-                            controller: TextEditingController(),
-                    ),
-                    const SizedBox(height: 19),
-                    const Text(
-                      'Confirmação de Senha',
-                      style: TextStyle(
-                        color: Color(0xFFBB86FC),
-                        fontSize: 16,
-                        fontFamily: 'Montserrat',
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    TextInputPassword(
-                            controller: TextEditingController(),
-                    ),
-                    const SizedBox(height: 26),
-                    Center(
-                      child: TMButton.positive(
-                        text: 'Redefinir',
-                        onPressed: () {
-                          // Handle password reset logic here
-                        },
+                    const SizedBox(height: 40),
+                    Form(
+                      key: formKey,
+                      child: Column(
+                        children: [
+                          TextInputPassword(
+                            controller: newPasswordController,
+                            prefixIcon: Icon(Icons.lock, color: AppColors.positiveColor), hintText: '',
+                          ),
+                          const SizedBox(height: 30),
+                          TextInputPassword(
+                            controller: confirmPasswordController,
+                            prefixIcon: Icon(Icons.lock, color: AppColors.positiveColor),
+                            hintText: 'Confirme sua nova senha',
+                          ),
+                          const SizedBox(height: 30),
+                          passwordChanged ? Text(
+                            'SENHA ALTERADA!',
+                            style: AppTexts.bodyLarge
+                                .copyWith(color: AppColors.positiveColor),
+                          ) : TMButton.positive(
+                            text: 'Alterar Senha',
+                            onPressed: () {
+                              if (formKey.currentState!.validate()) {
+                                if (newPasswordController.text == confirmPasswordController.text) {
+                                  // TODO: Implement logic to change password
+                                  setState(() {
+                                    passwordChanged = true;
+                                  });
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(content: Text('As senhas não correspondem')),
+                                  );
+                                }
+                              }
+                            },
+                          ),
+                        ],
                       ),
                     ),
                   ],
