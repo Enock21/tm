@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tm_front/screens/login_screen.dart';
+import 'package:tm_front/screens/password_alteration_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +13,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Taverna Multiversal',
-      home: const LoginScreen(),
+      //home: const LoginScreen(),
+      home: const PasswordAlterationScreen(),
     );
   }
 }

@@ -5,7 +5,7 @@ import 'package:tm_front/widgets/text_input_email.dart';
 import 'package:tm_front/screens/login_screen.dart';
 
 class PasswordRecoveryScreen extends StatefulWidget {
-  PasswordRecoveryScreen({super.key});
+  const PasswordRecoveryScreen({super.key});
 
   @override
   _PasswordRecoveryScreenState createState() => _PasswordRecoveryScreenState();
