@@ -73,39 +73,32 @@ class _PasswordAlterationScreenState extends State<PasswordAlterationScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
                   children: [
-                    Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        'Digite sua nova senha abaixo.',
-                        textAlign: TextAlign.left,
-                        style: AppTexts.bodyLarge,
-                      ),
-                    ),
-                    const SizedBox(height: 40),
+                    const SizedBox(height: 10),
                     Form(
                       key: formKey,
                       child: Column(
                         children: [
                           Align(
-                            alignment: Alignment.centerLeft,
+                            alignment: Alignment.center,
                             child: Text(
                               'Nova senha',
-                              style: AppTexts.bodyMedium,
+                              style: AppTexts.bodyLarge,
                             ),
                           ),
+                          const SizedBox(height: 5),
                           TextInputPassword(
                             controller: newPasswordController,
                             hintText: '',
                           ),
-                          
                           const SizedBox(height: 30),
                           Align(
-                            alignment: Alignment.centerLeft,
+                            alignment: Alignment.center,
                             child: Text(
                               'Repita a nova senha',
-                              style: AppTexts.bodyMedium,
+                              style: AppTexts.bodyLarge,
                             ),
                           ),
+                          const SizedBox(height: 5),
                           TextInputPassword(
                             controller: confirmPasswordController,
                             hintText: '',
