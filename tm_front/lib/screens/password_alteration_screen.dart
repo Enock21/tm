@@ -3,6 +3,7 @@ import 'package:tm_front/widgets/tm_buttons.dart';
 import 'package:tm_front/widgets/theme.dart';
 import 'package:tm_front/widgets/text_input_password.dart';
 import 'package:tm_front/screens/login_screen.dart';
+import 'package:tm_front/widgets/header.dart';
 
 class PasswordAlterationScreen extends StatefulWidget {
   const PasswordAlterationScreen({super.key});
@@ -33,41 +34,7 @@ class _PasswordAlterationScreenState extends State<PasswordAlterationScreen> {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              Center(
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    TMBackButton(
-                      onPressed: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const LoginScreen()
-                          ),
-                        );
-                      },
-                    ),
-                    const SizedBox(width: 10),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Alteração de',
-                          style: AppTexts.headlineMedium,
-                        ),
-                        Text(
-                          'Senha',
-                          style: AppTexts.headlineMedium,
-                        ),
-                      ],
-                    ),
-                    const SizedBox(width: 10),
-                    //The following Opacity widget is used to keep the above title centralized. The icon inside it won't appear, but its space will remain.
-                    Opacity(
-                        opacity: 0.0, child: TMBackButton(onPressed: () {})),
-                  ],
-                ),
-              ),
+              Header(title: 'Alteração de Senha'),
               const SizedBox(height: 80),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -82,7 +49,7 @@ class _PasswordAlterationScreenState extends State<PasswordAlterationScreen> {
                             alignment: Alignment.center,
                             child: Text(
                               'Nova senha',
-                              style: AppTexts.bodyLarge,
+                              style: AppTexts.bodyMedium.copyWith(fontSize: 16),
                             ),
                           ),
                           const SizedBox(height: 5),
@@ -95,7 +62,7 @@ class _PasswordAlterationScreenState extends State<PasswordAlterationScreen> {
                             alignment: Alignment.center,
                             child: Text(
                               'Repita a nova senha',
-                              style: AppTexts.bodyLarge,
+                              style: AppTexts.bodyMedium.copyWith(fontSize: 16),
                             ),
                           ),
                           const SizedBox(height: 5),
