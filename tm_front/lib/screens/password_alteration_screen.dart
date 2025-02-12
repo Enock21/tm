@@ -86,15 +86,29 @@ class _PasswordAlterationScreenState extends State<PasswordAlterationScreen> {
                       key: formKey,
                       child: Column(
                         children: [
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              'Nova senha',
+                              style: AppTexts.bodyMedium,
+                            ),
+                          ),
                           TextInputPassword(
                             controller: newPasswordController,
-                            prefixIcon: Icon(Icons.lock, color: AppColors.positiveColor), hintText: '',
+                            hintText: '',
                           ),
+                          
                           const SizedBox(height: 30),
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              'Repita a nova senha',
+                              style: AppTexts.bodyMedium,
+                            ),
+                          ),
                           TextInputPassword(
                             controller: confirmPasswordController,
-                            prefixIcon: Icon(Icons.lock, color: AppColors.positiveColor),
-                            hintText: 'Confirme sua nova senha',
+                            hintText: '',
                           ),
                           const SizedBox(height: 30),
                           passwordChanged ? Text(
