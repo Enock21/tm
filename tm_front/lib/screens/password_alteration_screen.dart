@@ -71,27 +71,49 @@ class _PasswordAlterationScreenState extends State<PasswordAlterationScreen> {
                             hintText: '',
                           ),
                           const SizedBox(height: 30),
-                          passwordChanged ? Text(
-                            'SENHA ALTERADA!',
-                            style: AppTexts.bodyLarge
-                                .copyWith(color: AppColors.positiveColor),
-                          ) : TMButton.positive(
-                            text: 'Alterar Senha',
-                            onPressed: () {
-                              if (formKey.currentState!.validate()) {
-                                if (newPasswordController.text == confirmPasswordController.text) {
-                                  // TODO: Implement logic to change password
-                                  setState(() {
-                                    passwordChanged = true;
-                                  });
-                                } else {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(content: Text('As senhas não correspondem')),
-                                  );
-                                }
-                              }
-                            },
-                          ),
+                          passwordChanged
+    ? Column(
+        children: [
+          Text(
+            'SENHA ALTERADA!',
+            style: AppTexts.bodyLarge.copyWith(color: AppColors.positiveColor),
+          ),
+          const SizedBox(height: 10), // Espaço entre os textos
+          Text(
+            'Retorne à tela de login e utilize sua nova senha para acessar.',
+            style: AppTexts.bodyMedium.copyWith(color: Colors.white),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 20),
+          TMButton.positive(
+            text: 'Voltar ao Login',
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const LoginScreen()),
+              );
+            },
+          ),
+        ],
+      )
+    : TMButton.positive(
+        text: 'Alterar Senha',
+        onPressed: () {
+          if (formKey.currentState!.validate()) {
+            if (newPasswordController.text == confirmPasswordController.text) {
+              // TODO: Implement logic to change password
+              setState(() {
+                passwordChanged = true;
+              });
+            } else {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('As senhas não correspondem')),
+              );
+            }
+          }
+        },
+      ),
+
                         ],
                       ),
                     ),
