@@ -35,7 +35,6 @@ class _PasswordAlterationScreenState extends State<PasswordAlterationScreen> {
           child: Column(
             children: [
               Header(title: 'Alteração de Senha'),
-              const SizedBox(height: 80),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
@@ -78,10 +77,12 @@ class _PasswordAlterationScreenState extends State<PasswordAlterationScreen> {
                                 style: AppTexts.confirmationFeedback,
                               ),
                               const SizedBox(height: 10), // Espaço entre os textos
-                              Text(
-                                'Retorne à tela de login e utilize sua nova senha para acessar.',
-                                style: AppTexts.bodyMedium,
-                                textAlign: TextAlign.left,
+                              Align(
+                                child: Text(
+                                  'Retorne à tela de login e utilize sua nova senha para acessar.',
+                                  style: AppTexts.bodyMedium,
+                                  textAlign: TextAlign.left,
+                                ),
                               ),
                               const SizedBox(height: 20),
                               TMButton.positive(

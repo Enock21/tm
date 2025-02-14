@@ -3,6 +3,7 @@ import 'package:tm_front/widgets/tm_buttons.dart';
 import 'package:tm_front/widgets/theme.dart';
 import 'package:tm_front/widgets/text_input_email.dart';
 import 'package:tm_front/screens/login_screen.dart';
+import 'package:tm_front/widgets/header.dart';
 
 class PasswordRecoveryScreen extends StatefulWidget {
   const PasswordRecoveryScreen({super.key});
@@ -24,39 +25,17 @@ class _PasswordRecoveryScreenState extends State<PasswordRecoveryScreen> {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              Center(
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    TMBackButton(
-                      onPressed: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const LoginScreen()
-                          ),
-                        );
-                      },
-                    ),
-                    const SizedBox(width: 10),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Recuperação de',
-                          style: AppTexts.headlineMedium,
-                        ),
-                        Text(
-                          'Senha',
-                          style: AppTexts.headlineMedium,
-                        ),
-                      ],
-                    ),
-                    const SizedBox(width: 10),
-                    //The following Opacity widget is used to keep the above title centralized. The icon inside it won't appear, but its space will remain.
-                    Opacity(
-                        opacity: 0.0, child: TMBackButton(onPressed: () {})),
-                  ],
+              Header(
+                title: 'Recuperação de Senha',
+                leading: TMBackButton(
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const LoginScreen(),
+                      ),
+                    );
+                  },
                 ),
               ),
               const SizedBox(height: 80),
@@ -81,20 +60,22 @@ class _PasswordRecoveryScreenState extends State<PasswordRecoveryScreen> {
                             controller: TextEditingController(),
                           ),
                           const SizedBox(height: 30),
-                          emailSent ? Text(
-                            'ENVIADO!',
-                            style: AppTexts.confirmationFeedback,
-                          ) : TMButton.positive(
-                            text: 'Enviar',
-                            onPressed: () {
-                              if (formKey.currentState!.validate()) {
-                                // TODO: Implement logic to send email
-                                setState(() {
-                                  emailSent = true;
-                                });
-                              }
-                            },
-                          ),
+                          emailSent
+                              ? Text(
+                                  'ENVIADO!',
+                                  style: AppTexts.confirmationFeedback,
+                                )
+                              : TMButton.positive(
+                                  text: 'Enviar',
+                                  onPressed: () {
+                                    if (formKey.currentState!.validate()) {
+                                      // TODO: Implement logic to send email
+                                      setState(() {
+                                        emailSent = true;
+                                      });
+                                    }
+                                  },
+                                ),
                         ],
                       ),
                     ),

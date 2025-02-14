@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:tm_front/widgets/theme.dart';
-import 'package:tm_front/widgets/tm_buttons.dart';
 
 class Header extends StatelessWidget {
   final String title;
-  //final double horizontalSpacing; // Unecessary?
+  final Widget? leading; // Permite definir um widget opcional no início do header
 
   const Header({
     required this.title,
-    //this.horizontalSpacing = 1.0, // Unecessary?
+    this.leading, // Pode ser nulo
     super.key,
   });
 
@@ -16,21 +15,17 @@ class Header extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 100,
-      padding: EdgeInsets.symmetric(/*horizontal: horizontalSpacing*/),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start, // Alinha tudo à esquerda
-        mainAxisSize: MainAxisSize.min, // Mantém o tamanho necessário
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: [
           Row(
             children: [
-              TMBackButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              ),
+              if (leading != null) leading!, // Renderiza apenas se não for nulo
             ],
           ),
-          const SizedBox(height: 10), // Espaçamento configurável vertical
+          const SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
