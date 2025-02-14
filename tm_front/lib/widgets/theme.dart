@@ -5,6 +5,7 @@ class AppColors {
   static const Color backgroundColor = Color(0xFF1A1A1A);
   static const Color nonInteractiveMainColor = Color(0xFFBB86FC);
   static const Color nonInteractiveSecondColor = Color(0xFFB3B3B3);
+  static const Color nonInteractiveGreen = Color(0xFF7BFF93);
   static const Color interactiveMainColor = Color(0xFF7B0AAF);
   static const Color interactiveSecondColor = Color.fromARGB(255, 183, 28, 255);
   static const Color positiveColor = Color(0xFF00C925);
@@ -28,10 +29,10 @@ class AppTexts {
     fontWeight: FontWeight.bold,
   );
 
-  static final TextStyle bodyLarge = GoogleFonts.montserrat(
+  static final TextStyle headlineSmall = GoogleFonts.montserrat(
     color: AppColors.nonInteractiveMainColor,
-    fontSize: 16,
-    fontWeight: FontWeight.w400,
+    fontSize: 14,
+    fontWeight: FontWeight.bold,
   );
 
   static final TextStyle bodyMedium = GoogleFonts.montserrat(
@@ -54,8 +55,13 @@ class AppTexts {
 
   static final TextStyle hintText = GoogleFonts.montserrat(
     color: AppColors.nonInteractiveSecondColor,
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: FontWeight.w400,
   );
-}
 
+  static final TextStyle confirmationFeedback = GoogleFonts.montserrat(
+    color: AppColors.positiveColor,
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+  );
+}

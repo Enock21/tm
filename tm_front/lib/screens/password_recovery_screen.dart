@@ -69,7 +69,7 @@ class _PasswordRecoveryScreenState extends State<PasswordRecoveryScreen> {
                       child: Text(
                         'Digite o e-mail da sua conta na\nTaverna Multiversal. Um link para\nalteração de senha será enviado\npara ele.',
                         textAlign: TextAlign.left,
-                        style: AppTexts.bodyLarge,
+                        style: AppTexts.bodyMedium,
                       ),
                     ),
                     const SizedBox(height: 40),
@@ -81,23 +81,20 @@ class _PasswordRecoveryScreenState extends State<PasswordRecoveryScreen> {
                             controller: TextEditingController(),
                           ),
                           const SizedBox(height: 30),
-                          emailSent
-                              ? Text(
-                                  'ENVIADO!',
-                                  style: AppTexts.bodyLarge
-                                      .copyWith(color: AppColors.positiveColor),
-                                )
-                              : TMButton.positive(
-                                  text: 'Enviar',
-                                  onPressed: () {
-                                    if (formKey.currentState!.validate()) {
-                                      // TODO: Implement logic to send email
-                                      setState(() {
-                                        emailSent = true;
-                                      });
-                                    }
-                                  },
-                                ),
+                          emailSent ? Text(
+                            'ENVIADO!',
+                            style: AppTexts.confirmationFeedback,
+                          ) : TMButton.positive(
+                            text: 'Enviar',
+                            onPressed: () {
+                              if (formKey.currentState!.validate()) {
+                                // TODO: Implement logic to send email
+                                setState(() {
+                                  emailSent = true;
+                                });
+                              }
+                            },
+                          ),
                         ],
                       ),
                     ),

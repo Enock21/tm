@@ -41,7 +41,7 @@ class LoginScreenState extends State<LoginScreen> {
                     Text(
                       'Taverna',
                       textAlign: TextAlign.center,
-                      style: AppTexts.headlineLarge,
+                      style: AppTexts.headlineLarge.copyWith(color: AppColors.nonInteractiveGreen),
                     ),
                     Text(
                       'Multiversal',
@@ -53,13 +53,13 @@ class LoginScreenState extends State<LoginScreen> {
                   TextInputEmail(
                     controller: TextEditingController(),
                     prefixIcon:
-                        Icon(Icons.email, color: AppColors.positiveColor),
+                        Icon(Icons.email, color: AppColors.nonInteractiveGreen),
                   ),
                   const SizedBox(height: 16),
                   TextInputPassword(
                     controller: TextEditingController(),
                     prefixIcon:
-                        Icon(Icons.lock, color: AppColors.positiveColor), hintText: '',
+                        Icon(Icons.lock, color: AppColors.nonInteractiveGreen), hintText: '',
                   ),
                   const SizedBox(height: 8),
                   TMTextButton(
@@ -76,7 +76,7 @@ class LoginScreenState extends State<LoginScreen> {
                   const SizedBox(height: 16),
                   Row(
                     children: [
-                      const Icon(Icons.login, color: AppColors.positiveColor),
+                      const Icon(Icons.login, color: AppColors.nonInteractiveGreen),
                       const SizedBox(width: 8),
                       Expanded(
                         child: SizedBox(
@@ -101,7 +101,7 @@ class LoginScreenState extends State<LoginScreen> {
                   const SizedBox(height: 18),
                   Row(
                     children: [
-                      const Icon(Icons.person, color: AppColors.positiveColor),
+                      const Icon(Icons.person, color: AppColors.nonInteractiveGreen),
                       const SizedBox(width: 8),
                       Expanded(
                         child: SizedBox(

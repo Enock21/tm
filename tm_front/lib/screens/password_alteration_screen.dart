@@ -49,7 +49,7 @@ class _PasswordAlterationScreenState extends State<PasswordAlterationScreen> {
                             alignment: Alignment.center,
                             child: Text(
                               'Nova senha',
-                              style: AppTexts.bodyMedium.copyWith(fontSize: 16),
+                              style: AppTexts.headlineSmall,
                             ),
                           ),
                           const SizedBox(height: 5),
@@ -62,7 +62,7 @@ class _PasswordAlterationScreenState extends State<PasswordAlterationScreen> {
                             alignment: Alignment.center,
                             child: Text(
                               'Repita a nova senha',
-                              style: AppTexts.bodyMedium.copyWith(fontSize: 16),
+                              style: AppTexts.headlineSmall,
                             ),
                           ),
                           const SizedBox(height: 5),
@@ -75,13 +75,13 @@ class _PasswordAlterationScreenState extends State<PasswordAlterationScreen> {
                             children: [
                               Text(
                                 'SENHA ALTERADA!',
-                                style: AppTexts.bodyLarge.copyWith(color: AppColors.positiveColor),
+                                style: AppTexts.confirmationFeedback,
                               ),
                               const SizedBox(height: 10), // Espaço entre os textos
                               Text(
                                 'Retorne à tela de login e utilize sua nova senha para acessar.',
-                                style: AppTexts.bodyMedium.copyWith(color: Colors.white),
-                                textAlign: TextAlign.center,
+                                style: AppTexts.bodyMedium,
+                                textAlign: TextAlign.left,
                               ),
                               const SizedBox(height: 20),
                               TMButton.positive(
