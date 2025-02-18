@@ -1,0 +1,2 @@
+C:/Users/enock/dev/tm/tm_front/android/app/.cxx/Debug/z27204p6/x86_64/CMakeFiles/edit_cache.dir
+C:/Users/enock/dev/tm/tm_front/android/app/.cxx/Debug/z27204p6/x86_64/CMakeFiles/rebuild_cache.dir

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tm_front/screens/login_screen.dart';
-import 'package:tm_front/screens/password_alteration_screen.dart';
+import 'package:tm_front/screens/password_recovery/alteration.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Taverna Multiversal',
       //home: const LoginScreen(),
-      home: const PasswordAlterationScreen(),
+      home: const Alteration(),
     );
   }
 }

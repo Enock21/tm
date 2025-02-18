@@ -3,16 +3,16 @@ import 'package:tm_front/widgets/tm_buttons.dart';
 import 'package:tm_front/widgets/text_input_email.dart';
 import 'package:tm_front/widgets/text_input_password.dart';
 import 'package:tm_front/widgets/theme.dart';
-import 'package:tm_front/screens/password_recovery_screen.dart';
+import 'package:tm_front/screens/password_recovery/recovery.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class Login extends StatefulWidget {
+  const Login({super.key});
 
   @override
-  LoginScreenState createState() => LoginScreenState();
+  LoginState createState() => LoginState();
 }
 
-class LoginScreenState extends State<LoginScreen> {
+class LoginState extends State<Login> {
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -41,7 +41,8 @@ class LoginScreenState extends State<LoginScreen> {
                     Text(
                       'Taverna',
                       textAlign: TextAlign.center,
-                      style: AppTexts.headlineLarge.copyWith(color: AppColors.nonInteractiveGreen),
+                      style: AppTexts.headlineLarge
+                          .copyWith(color: AppColors.nonInteractiveGreen),
                     ),
                     Text(
                       'Multiversal',
@@ -59,24 +60,25 @@ class LoginScreenState extends State<LoginScreen> {
                   TextInputPassword(
                     controller: TextEditingController(),
                     prefixIcon:
-                        Icon(Icons.lock, color: AppColors.nonInteractiveGreen), hintText: '',
+                        Icon(Icons.lock, color: AppColors.nonInteractiveGreen),
+                    hintText: '',
                   ),
                   const SizedBox(height: 8),
                   TMTextButton(
                     text: 'Esqueci minha senha',
                     onPressed: () {
                       Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => PasswordRecoveryScreen(),
-                        )
-                      );
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Recovery(),
+                          ));
                     },
                   ),
                   const SizedBox(height: 16),
                   Row(
                     children: [
-                      const Icon(Icons.login, color: AppColors.nonInteractiveGreen),
+                      const Icon(Icons.login,
+                          color: AppColors.nonInteractiveGreen),
                       const SizedBox(width: 8),
                       Expanded(
                         child: SizedBox(
@@ -101,7 +103,8 @@ class LoginScreenState extends State<LoginScreen> {
                   const SizedBox(height: 18),
                   Row(
                     children: [
-                      const Icon(Icons.person, color: AppColors.nonInteractiveGreen),
+                      const Icon(Icons.person,
+                          color: AppColors.nonInteractiveGreen),
                       const SizedBox(width: 8),
                       Expanded(
                         child: SizedBox(

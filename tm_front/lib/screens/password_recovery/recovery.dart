@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:tm_front/widgets/tm_buttons.dart';
 import 'package:tm_front/widgets/theme.dart';
 import 'package:tm_front/widgets/text_input_email.dart';
-import 'package:tm_front/screens/login_screen.dart';
+import 'package:tm_front/screens/login.dart';
 import 'package:tm_front/widgets/header.dart';
 
-class PasswordRecoveryScreen extends StatefulWidget {
-  const PasswordRecoveryScreen({super.key});
+class Recovery extends StatefulWidget {
+  const Recovery({super.key});
 
   @override
-  _PasswordRecoveryScreenState createState() => _PasswordRecoveryScreenState();
+  _RecoveryState createState() => _RecoveryState();
 }
 
-class _PasswordRecoveryScreenState extends State<PasswordRecoveryScreen> {
+class _RecoveryState extends State<Recovery> {
   final formKey = GlobalKey<FormState>();
   bool emailSent = false;
 
@@ -32,7 +32,7 @@ class _PasswordRecoveryScreenState extends State<PasswordRecoveryScreen> {
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const LoginScreen(),
+                        builder: (context) => const Login(),
                       ),
                     );
                   },
