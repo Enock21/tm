@@ -4,6 +4,7 @@ import 'package:tm_front/widgets/WAppButtons.dart';
 import 'package:tm_front/widgets/input/text/WITEmail.dart';
 import 'package:tm_front/widgets/input/text/WITPassword.dart';
 import 'package:tm_front/widgets/WHeader.dart';
+import 'package:tm_front/widgets/input/WIDate.dart';
 
 class SR1UserProf extends StatefulWidget {
   const SR1UserProf({super.key});
@@ -42,8 +43,7 @@ class _SR1UserProfState extends State<SR1UserProf> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 // Cabeçalho
-                const WHeader(title: 'Cadastro'),
-
+                const WHeader(title: 'Bem Vindo(a) à\nTaverna Multiversal!'),
                 const SizedBox(height: 24),
                 Text(
                   'Seu Avatar',
@@ -76,7 +76,7 @@ class _SR1UserProfState extends State<SR1UserProf> {
                       const SizedBox(height: 25),
                       Text('Data de Nascimento', style: AppTexts.bodyMedium),
                       const SizedBox(height: 10),
-                      //TextInputEmail(controller: birthdateController, hintText: 'Selecione sua data'),
+                      WIDate(controller: birthdateController),
 
                       const SizedBox(height: 25),
                       Text('Senha', style: AppTexts.bodyMedium),
