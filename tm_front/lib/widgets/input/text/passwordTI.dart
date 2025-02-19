@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tm_front/widgets/text_input_generic.dart';
+import 'package:tm_front/widgets/input/text/genericTI.dart';
 import 'package:tm_front/widgets/theme.dart';
 
 class TextInputPassword extends StatefulWidget {

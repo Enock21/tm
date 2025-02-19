@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tm_front/screens/login.dart';
-import 'package:tm_front/screens/password_recovery/alteration.dart';
-import 'package:tm_front/screens//password_recovery/expired_link.dart';
+import 'package:tm_front/screens/password_recovery/alterationPRS.dart';
+import 'package:tm_front/screens/password_recovery/expiredLinkPRS.dart';
 
 void main() {
   runApp(const MyApp());

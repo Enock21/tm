@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:tm_front/widgets/tm_buttons.dart';
-import 'package:tm_front/widgets/text_input_email.dart';
-import 'package:tm_front/widgets/text_input_password.dart';
+import 'package:tm_front/widgets/appButtons.dart';
+import 'package:tm_front/widgets/input/text/emailTI.dart';
+import 'package:tm_front/widgets/input/text/passwordTI.dart';
 import 'package:tm_front/widgets/theme.dart';
-import 'package:tm_front/screens/password_recovery/recovery.dart';
+import 'package:tm_front/screens/password_recovery/mainPRS.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});

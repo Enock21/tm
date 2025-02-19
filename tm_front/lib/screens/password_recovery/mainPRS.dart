@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tm_front/widgets/tm_buttons.dart';
+import 'package:tm_front/widgets/appButtons.dart';
 import 'package:tm_front/widgets/theme.dart';
-import 'package:tm_front/widgets/text_input_email.dart';
+import 'package:tm_front/widgets/input/text/emailTI.dart';
 import 'package:tm_front/screens/login.dart';
 import 'package:tm_front/widgets/header.dart';
 
