@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:tm_front/widgets/WAppButtons.dart';
 import 'package:tm_front/widgets/WTheme.dart';
-import 'package:tm_front/widgets/input/text/ITWEmail.dart';
+import 'package:tm_front/widgets/input/text/WITEmail.dart';
 import 'package:tm_front/screens/SLogin.dart';
 import 'package:tm_front/widgets/WHeader.dart';
 
-class PRSMain extends StatefulWidget {
-  const PRSMain({super.key});
+class SPRMain extends StatefulWidget {
+  const SPRMain({super.key});
 
   @override
-  _PRSMainState createState() => _PRSMainState();
+  _SPRMainState createState() => _SPRMainState();
 }
 
-class _PRSMainState extends State<PRSMain> {
+class _SPRMainState extends State<SPRMain> {
   final formKey = GlobalKey<FormState>();
   bool emailSent = false;
 
@@ -56,7 +56,7 @@ class _PRSMainState extends State<PRSMain> {
                       key: formKey,
                       child: Column(
                         children: [
-                          ITWEmail(
+                          WITEmail(
                             controller: TextEditingController(),
                           ),
                           const SizedBox(height: 30),

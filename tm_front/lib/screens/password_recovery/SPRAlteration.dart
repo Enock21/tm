@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:tm_front/widgets/WAppButtons.dart';
 import 'package:tm_front/widgets/WTheme.dart';
-import 'package:tm_front/widgets/input/text/ITWpassword.dart';
+import 'package:tm_front/widgets/input/text/WITPassword.dart';
 import 'package:tm_front/screens/SLogin.dart';
 import 'package:tm_front/widgets/WHeader.dart';
 
-class PRSAlteration extends StatefulWidget {
-  const PRSAlteration({super.key});
+class SPRAlteration extends StatefulWidget {
+  const SPRAlteration({super.key});
 
   @override
-  _PRSAlterationState createState() => _PRSAlterationState();
+  _SPRAlterationState createState() => _SPRAlterationState();
 }
 
-class _PRSAlterationState extends State<PRSAlteration> {
+class _SPRAlterationState extends State<SPRAlteration> {
   final formKey = GlobalKey<FormState>();
   final newPasswordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
@@ -52,7 +52,7 @@ class _PRSAlterationState extends State<PRSAlteration> {
                             ),
                           ),
                           const SizedBox(height: 5),
-                          ITWPassword(
+                          WITPassword(
                             controller: newPasswordController,
                             hintText: '',
                           ),
@@ -65,7 +65,7 @@ class _PRSAlterationState extends State<PRSAlteration> {
                             ),
                           ),
                           const SizedBox(height: 5),
-                          ITWPassword(
+                          WITPassword(
                             controller: confirmPasswordController,
                             hintText: '',
                           ),

@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:tm_front/widgets/input/text/ITWGeneric.dart';
+import 'package:tm_front/widgets/input/text/WITGeneric.dart';
 import 'package:tm_front/widgets/WTheme.dart';
 
-class ITWPassword extends StatefulWidget {
+class WITPassword extends StatefulWidget {
   final TextEditingController? controller;
   final Widget? prefixIcon;
 
-  const ITWPassword({super.key, this.controller, this.prefixIcon, required String hintText});
+  const WITPassword({super.key, this.controller, this.prefixIcon, required String hintText});
 
   @override
-  _ITWPasswordState createState() => _ITWPasswordState();
+  _WITPasswordState createState() => _WITPasswordState();
 }
 
-class _ITWPasswordState extends State<ITWPassword> {
+class _WITPasswordState extends State<WITPassword> {
   bool _obscureText = true;
 
   void _toggleVisibility() {
@@ -23,7 +23,7 @@ class _ITWPasswordState extends State<ITWPassword> {
 
   @override
   Widget build(BuildContext context) {
-    return ITWGeneric(
+    return WITGeneric(
       hintText: 'Senha aqui',
       controller: widget.controller,
       prefixIcon: widget.prefixIcon,

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tm_front/screens/SLogin.dart';
-import 'package:tm_front/screens/password_recovery/PRSAlteration.dart';
-import 'package:tm_front/screens/password_recovery/PRSExpiredLink.dart';
-import 'package:tm_front/screens/register/RS1UserProf.dart';
+import 'package:tm_front/screens/password_recovery/SPRAlteration.dart';
+import 'package:tm_front/screens/password_recovery/SPRExpiredLink.dart';
+import 'package:tm_front/screens/register/SR1UserProf.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,10 +15,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Taverna Multiversal',
-      //home: const LoginScreen(),
-      //home: const Alteration(),
+      //home: const SLogin(),
+      home: const SPRAlteration(),
       //home: const ExpiredLink(),
-      home: const R1UserProf(),
+      //home: const SR1UserProf(),
     );
   }
 }

@@ -4,8 +4,8 @@ import 'package:tm_front/widgets/WTheme.dart';
 import 'package:tm_front/screens/SLogin.dart';
 import 'package:tm_front/widgets/WHeader.dart';
 
-class PRSExpiredLink extends StatelessWidget {
-  const PRSExpiredLink({super.key});
+class SPRExpiredLink extends StatelessWidget {
+  const SPRExpiredLink({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,11 +34,13 @@ class PRSExpiredLink extends StatelessWidget {
                     const SizedBox(height: 20),
                     Align(
                       child: SizedBox(
-                        width: double.infinity, // Garante que o texto ocupe toda a largura disponível
+                        width: double
+                            .infinity, // Garante que o texto ocupe toda a largura disponível
                         child: Text(
                           'Retorne à tela de login e gere um novo.',
                           style: AppTexts.bodyMedium,
-                          textAlign: TextAlign.left, // Alinha o texto à esquerda
+                          textAlign:
+                              TextAlign.left, // Alinha o texto à esquerda
                         ),
                       ),
                     ),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tm_front/widgets/WAppButtons.dart';
-import 'package:tm_front/widgets/input/text/ITWEmail.dart';
-import 'package:tm_front/widgets/input/text/ITWpassword.dart';
+import 'package:tm_front/widgets/input/text/WITEmail.dart';
+import 'package:tm_front/widgets/input/text/WITPassword.dart';
 import 'package:tm_front/widgets/WTheme.dart';
-import 'package:tm_front/screens/password_recovery/PRSMain.dart';
+import 'package:tm_front/screens/password_recovery/SPRMain.dart';
 
 class SLogin extends StatefulWidget {
   const SLogin({super.key});
@@ -51,13 +51,13 @@ class SLoginState extends State<SLogin> {
                     )
                   ]),
                   const SizedBox(height: 24),
-                  ITWEmail(
+                  WITEmail(
                     controller: TextEditingController(),
                     prefixIcon:
                         Icon(Icons.email, color: AppColors.nonInteractiveGreen),
                   ),
                   const SizedBox(height: 16),
-                  ITWPassword(
+                  WITPassword(
                     controller: TextEditingController(),
                     prefixIcon:
                         Icon(Icons.lock, color: AppColors.nonInteractiveGreen),
@@ -70,7 +70,7 @@ class SLoginState extends State<SLogin> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => PRSMain(),
+                            builder: (context) => SPRMain(),
                           ));
                     },
                   ),

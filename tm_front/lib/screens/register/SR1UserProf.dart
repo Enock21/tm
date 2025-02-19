@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:tm_front/widgets/WTheme.dart';
 import 'package:tm_front/widgets/WAppButtons.dart';
-import 'package:tm_front/widgets/input/text/ITWEmail.dart';
-import 'package:tm_front/widgets/input/text/ITWPassword.dart';
+import 'package:tm_front/widgets/input/text/WITEmail.dart';
+import 'package:tm_front/widgets/input/text/WITPassword.dart';
 import 'package:tm_front/widgets/WHeader.dart';
 
-class R1UserProf extends StatefulWidget {
-  const R1UserProf({super.key});
+class SR1UserProf extends StatefulWidget {
+  const SR1UserProf({super.key});
 
   @override
-  _R1UserProfState createState() => _R1UserProfState();
+  _SR1UserProfState createState() => _SR1UserProfState();
 }
 
-class _R1UserProfState extends State<R1UserProf> {
+class _SR1UserProfState extends State<SR1UserProf> {
   final formKey = GlobalKey<FormState>();
   final usernameController = TextEditingController();
   final emailController = TextEditingController();
@@ -71,7 +71,7 @@ class _R1UserProfState extends State<R1UserProf> {
                       const SizedBox(height: 25),
                       Text('E-mail', style: AppTexts.bodyMedium),
                       const SizedBox(height: 10),
-                      ITWEmail(controller: emailController),
+                      WITEmail(controller: emailController),
 
                       const SizedBox(height: 25),
                       Text('Data de Nascimento', style: AppTexts.bodyMedium),
@@ -81,14 +81,14 @@ class _R1UserProfState extends State<R1UserProf> {
                       const SizedBox(height: 25),
                       Text('Senha', style: AppTexts.bodyMedium),
                       const SizedBox(height: 10),
-                      ITWPassword(
+                      WITPassword(
                           controller: passwordController,
                           hintText: 'Crie uma senha segura'),
 
                       const SizedBox(height: 25),
                       Text('Confirmação de Senha', style: AppTexts.bodyMedium),
                       const SizedBox(height: 10),
-                      ITWPassword(
+                      WITPassword(
                           controller: confirmPasswordController,
                           hintText: 'Repita a senha anterior'),
                     ],
