@@ -5,6 +5,7 @@ import 'package:tm_front/components/input/text/CITEmail.dart';
 import 'package:tm_front/components/input/text/CITPassword.dart';
 import 'package:tm_front/components/CHeader.dart';
 import 'package:tm_front/components/input/CIDate.dart';
+import 'package:tm_front/components/input/text/CITUsername.dart';
 
 class SR1UserProf extends StatefulWidget {
   const SR1UserProf({super.key});
@@ -67,7 +68,7 @@ class _SR1UserProfState extends State<SR1UserProf> {
                     children: [
                       Text('Nome de Usuário', style: AppTexts.headlineSmall),
                       const SizedBox(height: 10),
-                      //TextInputEmail(controller: usernameController, hintText: 'Escolha seu nome de usuário'),
+                      CITUsername(controller: usernameController),
 
                       const SizedBox(height: 25),
                       Text('E-mail', style: AppTexts.headlineSmall),
@@ -83,16 +84,16 @@ class _SR1UserProfState extends State<SR1UserProf> {
                       Text('Senha', style: AppTexts.headlineSmall),
                       const SizedBox(height: 10),
                       CITPassword(
-                          controller: passwordController,
-                          hintText: 'Crie uma senha segura'),
+                        controller: passwordController,
+                        hintText: 'Crie uma senha segura'),
 
                       const SizedBox(height: 25),
                       Text('Confirmação de Senha',
-                          style: AppTexts.headlineSmall),
+                        style: AppTexts.headlineSmall),
                       const SizedBox(height: 10),
                       CITPassword(
-                          controller: confirmPasswordController,
-                          hintText: 'Repita a senha anterior'),
+                        controller: confirmPasswordController,
+                        hintText: 'Repita a senha anterior'),
                     ],
                   ),
                 ),

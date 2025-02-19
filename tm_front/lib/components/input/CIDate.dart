@@ -48,7 +48,7 @@ class _CIDateState extends State<CIDate> {
       readOnly: true,
       onTap: () => _selectDate(context),
       decoration: InputDecoration(
-        hintText: 'Selecione sua data',
+        hintText: 'Data aqui',
         hintStyle: AppTexts.hintText,
         filled: true,
         fillColor: AppColors.boxColor,
@@ -68,7 +68,7 @@ class _CIDateState extends State<CIDate> {
       ),
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return 'Falta a data de nascimento';
+          return 'Falta a data';
         }
         return null;
       },

@@ -4,6 +4,7 @@ import 'package:tm_front/components/input/text/CITEmail.dart';
 import 'package:tm_front/components/input/text/CITPassword.dart';
 import 'package:tm_front/components/CTheme.dart';
 import 'package:tm_front/screens/password_recovery/SPRMain.dart';
+import 'package:tm_front/screens/register/SR1UserProf.dart';
 
 class SLogin extends StatefulWidget {
   const SLogin({super.key});
@@ -112,8 +113,12 @@ class SLoginState extends State<SLogin> {
                           child: TMButton.positive(
                             text: 'Criar conta',
                             onPressed: () {
-                              // TODO: Navegar para tela de cadastro
-                              print('Criar conta');
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const SR1UserProf(),
+                                ),
+                              );
                             },
                           ),
                         ),
