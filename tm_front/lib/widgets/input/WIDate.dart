@@ -12,6 +12,7 @@ class WIDate extends StatefulWidget {
 class _WIDateState extends State<WIDate> {
   Future<void> _selectDate(BuildContext context) async {
     DateTime? pickedDate = await showDatePicker(
+      locale: const Locale('pt', 'BR'),
       context: context,
       initialDate: DateTime.now(),
       firstDate: DateTime(1900),

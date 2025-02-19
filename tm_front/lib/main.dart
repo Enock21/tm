@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:tm_front/screens/SLogin.dart';
 import 'package:tm_front/screens/password_recovery/SPRAlteration.dart';
 import 'package:tm_front/screens/password_recovery/SPRExpiredLink.dart';
@@ -14,11 +15,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Taverna Multiversal',
-      //home: const SLogin(),
-      //home: const SPRAlteration(),
-      //home: const SPRExpiredLink(),
-      home: const SR1UserProf(),
+      supportedLocales: const [
+        Locale('pt', 'BR'), // Adiciona suporte para português do Brasil
+      ],
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate, // Suporte ao Material Design
+        GlobalWidgetsLocalizations.delegate, // Suporte para widgets Flutter
+        GlobalCupertinoLocalizations.delegate, // Suporte para Cupertino (iOS)
+      ],
+      home: const SR1UserProf(), // Defina a tela inicial aqui
     );
   }
 }
