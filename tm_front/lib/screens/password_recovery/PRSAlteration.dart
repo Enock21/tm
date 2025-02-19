@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:tm_front/widgets/appButtons.dart';
-import 'package:tm_front/widgets/theme.dart';
-import 'package:tm_front/widgets/input/text/passwordTI.dart';
-import 'package:tm_front/screens/login.dart';
-import 'package:tm_front/widgets/header.dart';
+import 'package:tm_front/widgets/WAppButtons.dart';
+import 'package:tm_front/widgets/WTheme.dart';
+import 'package:tm_front/widgets/input/text/ITWpassword.dart';
+import 'package:tm_front/screens/SLogin.dart';
+import 'package:tm_front/widgets/WHeader.dart';
 
-class Alteration extends StatefulWidget {
-  const Alteration({super.key});
+class PRSAlteration extends StatefulWidget {
+  const PRSAlteration({super.key});
 
   @override
-  _AlterationState createState() => _AlterationState();
+  _PRSAlterationState createState() => _PRSAlterationState();
 }
 
-class _AlterationState extends State<Alteration> {
+class _PRSAlterationState extends State<PRSAlteration> {
   final formKey = GlobalKey<FormState>();
   final newPasswordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
@@ -34,7 +34,7 @@ class _AlterationState extends State<Alteration> {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              Header(title: 'Alteração de Senha'),
+              WHeader(title: 'Alteração de Senha'),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
@@ -52,7 +52,7 @@ class _AlterationState extends State<Alteration> {
                             ),
                           ),
                           const SizedBox(height: 5),
-                          TextInputPassword(
+                          ITWPassword(
                             controller: newPasswordController,
                             hintText: '',
                           ),
@@ -65,7 +65,7 @@ class _AlterationState extends State<Alteration> {
                             ),
                           ),
                           const SizedBox(height: 5),
-                          TextInputPassword(
+                          ITWPassword(
                             controller: confirmPasswordController,
                             hintText: '',
                           ),
@@ -94,7 +94,7 @@ class _AlterationState extends State<Alteration> {
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  const Login()),
+                                                  const SLogin()),
                                         );
                                       },
                                     ),

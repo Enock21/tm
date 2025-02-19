@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:tm_front/widgets/appButtons.dart';
-import 'package:tm_front/widgets/theme.dart';
-import 'package:tm_front/widgets/input/text/emailTI.dart';
-import 'package:tm_front/screens/login.dart';
-import 'package:tm_front/widgets/header.dart';
+import 'package:tm_front/widgets/WAppButtons.dart';
+import 'package:tm_front/widgets/WTheme.dart';
+import 'package:tm_front/widgets/input/text/ITWEmail.dart';
+import 'package:tm_front/screens/SLogin.dart';
+import 'package:tm_front/widgets/WHeader.dart';
 
-class Recovery extends StatefulWidget {
-  const Recovery({super.key});
+class PRSMain extends StatefulWidget {
+  const PRSMain({super.key});
 
   @override
-  _RecoveryState createState() => _RecoveryState();
+  _PRSMainState createState() => _PRSMainState();
 }
 
-class _RecoveryState extends State<Recovery> {
+class _PRSMainState extends State<PRSMain> {
   final formKey = GlobalKey<FormState>();
   bool emailSent = false;
 
@@ -25,14 +25,14 @@ class _RecoveryState extends State<Recovery> {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              Header(
+              WHeader(
                 title: 'Recuperação de Senha',
                 leading: TMBackButton(
                   onPressed: () {
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const Login(),
+                        builder: (context) => const SLogin(),
                       ),
                     );
                   },
@@ -44,21 +44,19 @@ class _RecoveryState extends State<Recovery> {
                 child: Column(
                   children: [
                     Align(
-                      child: SizedBox(
-                        
-                        child: Text(
-                          'Digite o e-mail da sua conta na Taverna Multiversal. Um link para alteração de senha será enviado para ele.',
-                          textAlign: TextAlign.left,
-                          style: AppTexts.bodyMedium,
-                        ),
-                      )
-                    ),
+                        child: SizedBox(
+                      child: Text(
+                        'Digite o e-mail da sua conta na Taverna Multiversal. Um link para alteração de senha será enviado para ele.',
+                        textAlign: TextAlign.left,
+                        style: AppTexts.bodyMedium,
+                      ),
+                    )),
                     const SizedBox(height: 40),
                     Form(
                       key: formKey,
                       child: Column(
                         children: [
-                          TextInputEmail(
+                          ITWEmail(
                             controller: TextEditingController(),
                           ),
                           const SizedBox(height: 30),

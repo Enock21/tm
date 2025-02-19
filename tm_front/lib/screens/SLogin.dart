@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:tm_front/widgets/appButtons.dart';
-import 'package:tm_front/widgets/input/text/emailTI.dart';
-import 'package:tm_front/widgets/input/text/passwordTI.dart';
-import 'package:tm_front/widgets/theme.dart';
-import 'package:tm_front/screens/password_recovery/mainPRS.dart';
+import 'package:tm_front/widgets/WAppButtons.dart';
+import 'package:tm_front/widgets/input/text/ITWEmail.dart';
+import 'package:tm_front/widgets/input/text/ITWpassword.dart';
+import 'package:tm_front/widgets/WTheme.dart';
+import 'package:tm_front/screens/password_recovery/PRSMain.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class SLogin extends StatefulWidget {
+  const SLogin({super.key});
 
   @override
-  LoginState createState() => LoginState();
+  SLoginState createState() => SLoginState();
 }
 
-class LoginState extends State<Login> {
+class SLoginState extends State<SLogin> {
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -51,13 +51,13 @@ class LoginState extends State<Login> {
                     )
                   ]),
                   const SizedBox(height: 24),
-                  TextInputEmail(
+                  ITWEmail(
                     controller: TextEditingController(),
                     prefixIcon:
                         Icon(Icons.email, color: AppColors.nonInteractiveGreen),
                   ),
                   const SizedBox(height: 16),
-                  TextInputPassword(
+                  ITWPassword(
                     controller: TextEditingController(),
                     prefixIcon:
                         Icon(Icons.lock, color: AppColors.nonInteractiveGreen),
@@ -70,7 +70,7 @@ class LoginState extends State<Login> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => Recovery(),
+                            builder: (context) => PRSMain(),
                           ));
                     },
                   ),

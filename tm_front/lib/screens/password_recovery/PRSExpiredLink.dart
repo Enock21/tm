@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:tm_front/widgets/appButtons.dart';
-import 'package:tm_front/widgets/theme.dart';
-import 'package:tm_front/screens/login.dart';
-import 'package:tm_front/widgets/header.dart';
+import 'package:tm_front/widgets/WAppButtons.dart';
+import 'package:tm_front/widgets/WTheme.dart';
+import 'package:tm_front/screens/SLogin.dart';
+import 'package:tm_front/widgets/WHeader.dart';
 
-class ExpiredLink extends StatelessWidget {
-  const ExpiredLink({super.key});
+class PRSExpiredLink extends StatelessWidget {
+  const PRSExpiredLink({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class ExpiredLink extends StatelessWidget {
           child: Column(
             children: [
               // Cabeçalho com botão de retorno
-              Header(
+              WHeader(
                 title: 'Alteração de Senha',
               ),
               const SizedBox(height: 80),
@@ -50,7 +50,7 @@ class ExpiredLink extends StatelessWidget {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const Login(),
+                            builder: (context) => const SLogin(),
                           ),
                         );
                       },

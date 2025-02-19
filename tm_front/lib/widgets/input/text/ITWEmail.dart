@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:tm_front/widgets/input/text/genericTI.dart';
+import 'package:tm_front/widgets/input/text/ITWGeneric.dart';
 
-class TextInputEmail extends StatelessWidget {
+class ITWEmail extends StatelessWidget {
   final TextEditingController? controller;
   final Widget? prefixIcon;
 
-  const TextInputEmail({super.key, this.controller, this.prefixIcon});
+  const ITWEmail({super.key, this.controller, this.prefixIcon});
 
   @override
   Widget build(BuildContext context) {
-    return TextInputGeneric(
+    return ITWGeneric(
       hintText: 'E-mail aqui',
       controller: controller,
       prefixIcon: prefixIcon,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:tm_front/widgets/theme.dart';
+import 'package:tm_front/widgets/WTheme.dart';
 
 class TMButton extends StatelessWidget {
   final String text;

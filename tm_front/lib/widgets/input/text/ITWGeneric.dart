@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tm_front/widgets/theme.dart';
+import 'package:tm_front/widgets/WTheme.dart';
 
-class TextInputGeneric extends StatelessWidget {
+class ITWGeneric extends StatelessWidget {
   final String? hintText;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
@@ -9,7 +9,7 @@ class TextInputGeneric extends StatelessWidget {
   final TextEditingController? controller;
   final bool obscureText;
 
-  const TextInputGeneric({
+  const ITWGeneric({
     super.key,
     this.hintText,
     this.prefixIcon,
