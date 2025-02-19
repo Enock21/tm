@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:tm_front/widgets/WAppButtons.dart';
-import 'package:tm_front/widgets/WTheme.dart';
-import 'package:tm_front/widgets/input/text/WITEmail.dart';
+import 'package:tm_front/components/CAppButtons.dart';
+import 'package:tm_front/components/CTheme.dart';
+import 'package:tm_front/components/input/text/CITEmail.dart';
 import 'package:tm_front/screens/SLogin.dart';
-import 'package:tm_front/widgets/WHeader.dart';
+import 'package:tm_front/components/CHeader.dart';
 
 class SPRMain extends StatefulWidget {
   const SPRMain({super.key});
@@ -25,7 +25,7 @@ class _SPRMainState extends State<SPRMain> {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              WHeader(
+              CHeader(
                 title: 'Recuperação de Senha',
                 leading: TMBackButton(
                   onPressed: () {
@@ -56,7 +56,7 @@ class _SPRMainState extends State<SPRMain> {
                       key: formKey,
                       child: Column(
                         children: [
-                          WITEmail(
+                          CITEmail(
                             controller: TextEditingController(),
                           ),
                           const SizedBox(height: 30),

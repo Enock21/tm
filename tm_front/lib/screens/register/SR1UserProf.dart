@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:tm_front/widgets/WTheme.dart';
-import 'package:tm_front/widgets/WAppButtons.dart';
-import 'package:tm_front/widgets/input/text/WITEmail.dart';
-import 'package:tm_front/widgets/input/text/WITPassword.dart';
-import 'package:tm_front/widgets/WHeader.dart';
-import 'package:tm_front/widgets/input/WIDate.dart';
+import 'package:tm_front/components/CTheme.dart';
+import 'package:tm_front/components/CAppButtons.dart';
+import 'package:tm_front/components/input/text/CITEmail.dart';
+import 'package:tm_front/components/input/text/CITPassword.dart';
+import 'package:tm_front/components/CHeader.dart';
+import 'package:tm_front/components/input/CIDate.dart';
 
 class SR1UserProf extends StatefulWidget {
   const SR1UserProf({super.key});
@@ -43,7 +43,8 @@ class _SR1UserProfState extends State<SR1UserProf> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 // Cabeçalho
-                const WHeader(title: 'Bem Vindo(a) à\nTaverna Multiversal!'),
+                const CHeader(
+                    title: 'Bem Vindo(a) à\nTaverna Multiversal!'),
                 const SizedBox(height: 24),
                 Text(
                   'Seu Avatar',
@@ -64,31 +65,32 @@ class _SR1UserProfState extends State<SR1UserProf> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Nome de Usuário', style: AppTexts.bodyMedium),
+                      Text('Nome de Usuário', style: AppTexts.headlineSmall),
                       const SizedBox(height: 10),
                       //TextInputEmail(controller: usernameController, hintText: 'Escolha seu nome de usuário'),
 
                       const SizedBox(height: 25),
-                      Text('E-mail', style: AppTexts.bodyMedium),
+                      Text('E-mail', style: AppTexts.headlineSmall),
                       const SizedBox(height: 10),
-                      WITEmail(controller: emailController),
+                      CITEmail(controller: emailController),
 
                       const SizedBox(height: 25),
-                      Text('Data de Nascimento', style: AppTexts.bodyMedium),
+                      Text('Data de Nascimento', style: AppTexts.headlineSmall),
                       const SizedBox(height: 10),
-                      WIDate(controller: birthdateController),
+                      CIDate(controller: birthdateController),
 
                       const SizedBox(height: 25),
-                      Text('Senha', style: AppTexts.bodyMedium),
+                      Text('Senha', style: AppTexts.headlineSmall),
                       const SizedBox(height: 10),
-                      WITPassword(
+                      CITPassword(
                           controller: passwordController,
                           hintText: 'Crie uma senha segura'),
 
                       const SizedBox(height: 25),
-                      Text('Confirmação de Senha', style: AppTexts.bodyMedium),
+                      Text('Confirmação de Senha',
+                          style: AppTexts.headlineSmall),
                       const SizedBox(height: 10),
-                      WITPassword(
+                      CITPassword(
                           controller: confirmPasswordController,
                           hintText: 'Repita a senha anterior'),
                     ],
@@ -108,7 +110,7 @@ class _SR1UserProfState extends State<SR1UserProf> {
                         //TODO: replace for textButton
                         text: 'Termos de Serviço',
                         style: AppTexts.bodySmall.copyWith(
-                          color: AppColors.interactiveMainColor,
+                          color: AppColors.interactiveSecondColor,
                           decoration: TextDecoration.underline,
                         ),
                       ),
@@ -117,7 +119,7 @@ class _SR1UserProfState extends State<SR1UserProf> {
                         //TODO: replace for textButton
                         text: 'Política de Privacidade',
                         style: AppTexts.bodySmall.copyWith(
-                          color: AppColors.interactiveMainColor,
+                          color: AppColors.interactiveSecondColor,
                           decoration: TextDecoration.underline,
                         ),
                       ),

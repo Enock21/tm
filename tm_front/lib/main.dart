@@ -25,7 +25,8 @@ class MyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate, // Suporte para widgets Flutter
         GlobalCupertinoLocalizations.delegate, // Suporte para Cupertino (iOS)
       ],
-      home: const SR1UserProf(), // Defina a tela inicial aqui
+      home: const SR1UserProf(),
+      //home: const SLogin(),
     );
   }
 }

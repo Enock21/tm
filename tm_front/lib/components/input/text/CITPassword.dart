@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:tm_front/widgets/input/text/WITGeneric.dart';
-import 'package:tm_front/widgets/WTheme.dart';
+import 'package:tm_front/components/input/text/CITGeneric.dart';
+import 'package:tm_front/components/CTheme.dart';
 
-class WITPassword extends StatefulWidget {
+class CITPassword extends StatefulWidget {
   final TextEditingController? controller;
   final Widget? prefixIcon;
 
-  const WITPassword({super.key, this.controller, this.prefixIcon, required String hintText});
+  const CITPassword(
+      {super.key, this.controller, this.prefixIcon, required String hintText});
 
   @override
-  _WITPasswordState createState() => _WITPasswordState();
+  _CITPasswordState createState() => _CITPasswordState();
 }
 
-class _WITPasswordState extends State<WITPassword> {
+class _CITPasswordState extends State<CITPassword> {
   bool _obscureText = true;
 
   void _toggleVisibility() {
@@ -23,7 +24,7 @@ class _WITPasswordState extends State<WITPassword> {
 
   @override
   Widget build(BuildContext context) {
-    return WITGeneric(
+    return CITGeneric(
       hintText: 'Senha aqui',
       controller: widget.controller,
       prefixIcon: widget.prefixIcon,
@@ -31,7 +32,7 @@ class _WITPasswordState extends State<WITPassword> {
       suffixIcon: IconButton(
         icon: Icon(
           _obscureText ? Icons.visibility : Icons.visibility_off,
-          color: AppColors.interactiveMainColor,
+          color: AppColors.interactiveSecondColor,
         ),
         onPressed: _toggleVisibility,
       ),

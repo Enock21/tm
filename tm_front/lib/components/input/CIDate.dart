@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:tm_front/widgets/WTheme.dart';
+import 'package:tm_front/components/CTheme.dart';
 
-class WIDate extends StatefulWidget {
+class CIDate extends StatefulWidget {
   final TextEditingController? controller;
-  const WIDate({super.key, this.controller});
+  const CIDate({super.key, this.controller});
 
   @override
-  _WIDateState createState() => _WIDateState();
+  _CIDateState createState() => _CIDateState();
 }
 
-class _WIDateState extends State<WIDate> {
+class _CIDateState extends State<CIDate> {
   Future<void> _selectDate(BuildContext context) async {
     DateTime? pickedDate = await showDatePicker(
       locale: const Locale('pt', 'BR'),
@@ -22,12 +22,11 @@ class _WIDateState extends State<WIDate> {
           data: ThemeData.dark().copyWith(
             primaryColor: AppColors.interactiveMainColor,
             colorScheme: ColorScheme.dark(
-              primary: AppColors.interactiveMainColor,
-              onPrimary: Colors.white,
+              primary: AppColors.interactiveSecondColor,
+              onPrimary: AppColors.neutralColor,
               surface: AppColors.boxColor,
-              onSurface: Colors.white,
+              onSurface: AppColors.neutralColor,
             ),
-            dialogBackgroundColor: AppColors.backgroundColor,
           ),
           child: child!,
         );
@@ -61,7 +60,8 @@ class _WIDateState extends State<WIDate> {
           vertical: 14,
           horizontal: 14,
         ),
-        prefixIcon: Icon(Icons.calendar_today, color: AppColors.interactiveMainColor),
+        prefixIcon:
+            Icon(Icons.calendar_today, color: AppColors.interactiveSecondColor),
       ),
       style: AppTexts.bodyMedium.copyWith(
         color: AppColors.neutralColor,

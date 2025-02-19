@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:tm_front/widgets/WTheme.dart';
+import 'package:tm_front/components/CTheme.dart';
 
 class TMButton extends StatelessWidget {
   final String text;
@@ -81,7 +81,7 @@ class TMBackButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       icon: const Icon(Icons.arrow_back),
-      color: AppColors.interactiveMainColor,
+      color: AppColors.interactiveSecondColor,
       iconSize: 40,
       onPressed: onPressed,
     );

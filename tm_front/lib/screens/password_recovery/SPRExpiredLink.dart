@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:tm_front/widgets/WAppButtons.dart';
-import 'package:tm_front/widgets/WTheme.dart';
+import 'package:tm_front/components/CAppButtons.dart';
+import 'package:tm_front/components/CTheme.dart';
 import 'package:tm_front/screens/SLogin.dart';
-import 'package:tm_front/widgets/WHeader.dart';
+import 'package:tm_front/components/CHeader.dart';
 
 class SPRExpiredLink extends StatelessWidget {
   const SPRExpiredLink({super.key});
@@ -17,7 +17,7 @@ class SPRExpiredLink extends StatelessWidget {
           child: Column(
             children: [
               // Cabeçalho com botão de retorno
-              WHeader(
+              CHeader(
                 title: 'Alteração de Senha',
               ),
               const SizedBox(height: 80),

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:tm_front/widgets/WTheme.dart';
+import 'package:tm_front/components/CTheme.dart';
 
-class WHeader extends StatelessWidget {
+class CHeader extends StatelessWidget {
   final String title;
-  final Widget? leading; // Permite definir um widget opcional no início do header
+  final Widget?
+      leading; // Permite definir um widget opcional no início do header
 
-  const WHeader({
+  const CHeader({
     required this.title,
     this.leading, // Pode ser nulo
     super.key,

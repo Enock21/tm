@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tm_front/widgets/WTheme.dart';
+import 'package:tm_front/components/CTheme.dart';
 
-class WITGeneric extends StatelessWidget {
+class CITGeneric extends StatelessWidget {
   final String? hintText;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
@@ -9,7 +9,7 @@ class WITGeneric extends StatelessWidget {
   final TextEditingController? controller;
   final bool obscureText;
 
-  const WITGeneric({
+  const CITGeneric({
     super.key,
     this.hintText,
     this.prefixIcon,

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:tm_front/widgets/WAppButtons.dart';
-import 'package:tm_front/widgets/input/text/WITEmail.dart';
-import 'package:tm_front/widgets/input/text/WITPassword.dart';
-import 'package:tm_front/widgets/WTheme.dart';
+import 'package:tm_front/components/CAppButtons.dart';
+import 'package:tm_front/components/input/text/CITEmail.dart';
+import 'package:tm_front/components/input/text/CITPassword.dart';
+import 'package:tm_front/components/CTheme.dart';
 import 'package:tm_front/screens/password_recovery/SPRMain.dart';
 
 class SLogin extends StatefulWidget {
@@ -51,13 +51,13 @@ class SLoginState extends State<SLogin> {
                     )
                   ]),
                   const SizedBox(height: 24),
-                  WITEmail(
+                  CITEmail(
                     controller: TextEditingController(),
                     prefixIcon:
                         Icon(Icons.email, color: AppColors.nonInteractiveGreen),
                   ),
                   const SizedBox(height: 16),
-                  WITPassword(
+                  CITPassword(
                     controller: TextEditingController(),
                     prefixIcon:
                         Icon(Icons.lock, color: AppColors.nonInteractiveGreen),

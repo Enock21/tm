@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:tm_front/widgets/WAppButtons.dart';
-import 'package:tm_front/widgets/WTheme.dart';
-import 'package:tm_front/widgets/input/text/WITPassword.dart';
+import 'package:tm_front/components/CAppButtons.dart';
+import 'package:tm_front/components/CTheme.dart';
+import 'package:tm_front/components/input/text/CITPassword.dart';
 import 'package:tm_front/screens/SLogin.dart';
-import 'package:tm_front/widgets/WHeader.dart';
+import 'package:tm_front/components/CHeader.dart';
 
 class SPRAlteration extends StatefulWidget {
   const SPRAlteration({super.key});
@@ -34,7 +34,7 @@ class _SPRAlterationState extends State<SPRAlteration> {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              WHeader(title: 'Alteração de Senha'),
+              CHeader(title: 'Alteração de Senha'),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
@@ -52,7 +52,7 @@ class _SPRAlterationState extends State<SPRAlteration> {
                             ),
                           ),
                           const SizedBox(height: 5),
-                          WITPassword(
+                          CITPassword(
                             controller: newPasswordController,
                             hintText: '',
                           ),
@@ -65,7 +65,7 @@ class _SPRAlterationState extends State<SPRAlteration> {
                             ),
                           ),
                           const SizedBox(height: 5),
-                          WITPassword(
+                          CITPassword(
                             controller: confirmPasswordController,
                             hintText: '',
                           ),
