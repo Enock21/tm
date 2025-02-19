@@ -64,4 +64,10 @@ class AppTexts {
     fontSize: 16,
     fontWeight: FontWeight.bold,
   );
+
+  static final TextStyle denialFeedback = GoogleFonts.montserrat(
+    color: AppColors.negativeColor,
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+  );
 }

@@ -44,12 +44,14 @@ class _RecoveryState extends State<Recovery> {
                 child: Column(
                   children: [
                     Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        'Digite o e-mail da sua conta na\nTaverna Multiversal. Um link para\nalteração de senha será enviado\npara ele.',
-                        textAlign: TextAlign.left,
-                        style: AppTexts.bodyMedium,
-                      ),
+                      child: SizedBox(
+                        
+                        child: Text(
+                          'Digite o e-mail da sua conta na Taverna Multiversal. Um link para alteração de senha será enviado para ele.',
+                          textAlign: TextAlign.left,
+                          style: AppTexts.bodyMedium,
+                        ),
+                      )
                     ),
                     const SizedBox(height: 40),
                     Form(
