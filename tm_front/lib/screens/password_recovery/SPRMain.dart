@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:tm_front/components/CAppButtons.dart';
 import 'package:tm_front/components/CTheme.dart';
 import 'package:tm_front/components/input/text/CITEmail.dart';
-import 'package:tm_front/screens/SLogin.dart';
 import 'package:tm_front/components/CHeader.dart';
 
 class SPRMain extends StatefulWidget {
@@ -27,16 +26,6 @@ class _SPRMainState extends State<SPRMain> {
             children: [
               CHeader(
                 title: 'Recuperação de Senha',
-                leading: TMBackButton(
-                  onPressed: () {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const SLogin(),
-                      ),
-                    );
-                  },
-                ),
               ),
               const SizedBox(height: 80),
               Padding(

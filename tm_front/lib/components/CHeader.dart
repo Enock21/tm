@@ -23,7 +23,7 @@ class CHeader extends StatelessWidget {
         children: [
           Row(
             children: [
-              if (leading != null) leading!, // Renderiza apenas se não for nulo
+              if (leading != null) leading!, // Renderiza apenas se não for nulo. Servia pro ícone do backbutton.
             ],
           ),
           const SizedBox(height: 10),

@@ -8,6 +8,7 @@ class CITGeneric extends StatelessWidget {
   final FormFieldValidator<String>? validator;
   final TextEditingController? controller;
   final bool obscureText;
+  final ValueChanged<String>? onChanged; // Adiciona suporte ao onChanged
 
   const CITGeneric({
     super.key,
@@ -17,6 +18,7 @@ class CITGeneric extends StatelessWidget {
     this.validator,
     this.controller,
     this.obscureText = false,
+    this.onChanged, // Novo parâmetro onChanged
   });
 
   @override
@@ -24,6 +26,7 @@ class CITGeneric extends StatelessWidget {
     return TextFormField(
       controller: controller,
       obscureText: obscureText,
+      onChanged: onChanged, // Agora o onChanged está funcional
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle: AppTexts.hintText,

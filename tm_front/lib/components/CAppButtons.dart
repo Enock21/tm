@@ -72,6 +72,7 @@ class TMTextButton extends StatelessWidget {
   }
 }
 
+//TODO: decide if it should be deleted or not
 class TMBackButton extends StatelessWidget {
   final VoidCallback onPressed;
 
