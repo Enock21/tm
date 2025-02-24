@@ -54,7 +54,6 @@ class _SPRAlterationState extends State<SPRAlteration> {
                           const SizedBox(height: 5),
                           CITPassword(
                             controller: newPasswordController,
-                            hintText: '',
                           ),
                           const SizedBox(height: 30),
                           Align(
@@ -67,7 +66,6 @@ class _SPRAlterationState extends State<SPRAlteration> {
                           const SizedBox(height: 5),
                           CITPassword(
                             controller: confirmPasswordController,
-                            hintText: '',
                           ),
                           const SizedBox(height: 30),
                           passwordChanged

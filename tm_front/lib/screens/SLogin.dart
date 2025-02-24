@@ -62,7 +62,6 @@ class SLoginState extends State<SLogin> {
                     controller: TextEditingController(),
                     prefixIcon:
                         Icon(Icons.lock, color: AppColors.nonInteractiveGreen),
-                    hintText: '',
                   ),
                   const SizedBox(height: 8),
                   TMTextButton(

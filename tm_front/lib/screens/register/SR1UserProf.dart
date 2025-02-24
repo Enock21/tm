@@ -85,15 +85,15 @@ class _SR1UserProfState extends State<SR1UserProf> {
                       const SizedBox(height: 10),
                       CITPassword(
                         controller: passwordController,
-                        hintText: 'Crie uma senha segura'),
-
+                      ),
+                      
                       const SizedBox(height: 25),
                       Text('Confirmação de Senha',
                         style: AppTexts.headlineSmall),
                       const SizedBox(height: 10),
                       CITPassword(
                         controller: confirmPasswordController,
-                        hintText: 'Repita a senha anterior'),
+                      ),
                     ],
                   ),
                 ),

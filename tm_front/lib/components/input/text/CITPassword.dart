@@ -6,8 +6,7 @@ class CITPassword extends StatefulWidget {
   final TextEditingController? controller;
   final Widget? prefixIcon;
 
-  const CITPassword(
-      {super.key, this.controller, this.prefixIcon, required String hintText});
+  const CITPassword({super.key, this.controller, this.prefixIcon});
 
   @override
   _CITPasswordState createState() => _CITPasswordState();
