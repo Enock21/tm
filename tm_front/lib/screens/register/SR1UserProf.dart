@@ -133,14 +133,15 @@ class _SR1UserProfState extends State<SR1UserProf> {
                 const SizedBox(height: 21),
                 TMButton.positive(
                   text: 'Próximo',
-                  onPressed: () {
+                  onPressed: () async {
                     setState(() {
                       _formSubmitted = true; // 🔹 Agora o form sabe que foi enviado
                     });
 
                     if (formKey.currentState!.validate()) {
-                      // TODO: Implementar lógica de cadastro
                       print("Todos os campos estão preenchidos corretamente!");
+                      // 🔹 FUTURAMENTE: Aqui será chamada a função do Firebase
+                      print("Futuro: Criar conta no Firebase com ${emailController.text} e senha");
                     } else {
                       print("Preencha os campos obrigatórios.");
                     }
