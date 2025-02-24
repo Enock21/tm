@@ -43,6 +43,11 @@ class _CITGenericState extends State<CITGeneric> {
         controller: widget.controller,
         obscureText: widget.obscureText,
         onChanged: widget.onChanged,
+        onFieldSubmitted: (value) {
+          if (widget.validateOnFocusLost) {
+            _fieldKey.currentState?.validate(); // 🔹 Valida a ser submetido
+          }
+        },
         decoration: InputDecoration(
           hintText: widget.hintText,
           hintStyle: AppTexts.hintText,

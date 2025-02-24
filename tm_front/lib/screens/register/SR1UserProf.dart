@@ -22,6 +22,8 @@ class _SR1UserProfState extends State<SR1UserProf> {
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
 
+  bool _formSubmitted = false;
+
   @override
   void dispose() {
     usernameController.dispose();
@@ -68,7 +70,7 @@ class _SR1UserProfState extends State<SR1UserProf> {
                     children: [
                       Text('Nome de Usuário', style: AppTexts.headlineSmall),
                       const SizedBox(height: 10),
-                      CITUsername(controller: usernameController),
+                      CITUsername(controller: usernameController, formSubmitted: _formSubmitted), // 🔹 Agora passa `_formSubmitted`
 
                       const SizedBox(height: 25),
                       Text('E-mail', style: AppTexts.headlineSmall),
@@ -86,7 +88,7 @@ class _SR1UserProfState extends State<SR1UserProf> {
                       CITPassword(
                         controller: passwordController,
                       ),
-                      
+
                       const SizedBox(height: 25),
                       Text('Confirmação de Senha',
                         style: AppTexts.headlineSmall),
@@ -128,13 +130,19 @@ class _SR1UserProfState extends State<SR1UserProf> {
                     ],
                   ),
                 ),
-
                 const SizedBox(height: 21),
                 TMButton.positive(
                   text: 'Próximo',
                   onPressed: () {
+                    setState(() {
+                      _formSubmitted = true; // 🔹 Agora o form sabe que foi enviado
+                    });
+
                     if (formKey.currentState!.validate()) {
                       // TODO: Implementar lógica de cadastro
+                      print("Todos os campos estão preenchidos corretamente!");
+                    } else {
+                      print("Preencha os campos obrigatórios.");
                     }
                   },
                 ),
