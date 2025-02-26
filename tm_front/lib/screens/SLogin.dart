@@ -55,7 +55,9 @@ class SLoginState extends State<SLogin> {
                   CITEmail(
                     controller: TextEditingController(),
                     prefixIcon:
-                        Icon(Icons.email, color: AppColors.nonInteractiveGreen),
+                      Icon(Icons.email, color: AppColors.nonInteractiveGreen),
+                    isLoginMode: true,
+                    formSubmitted: false,
                   ),
                   const SizedBox(height: 16),
                   CITPassword(

@@ -53,7 +53,7 @@ class _CITUsernameState extends State<CITUsername> {
             }
           }
           if (_showError && _isUsernameTaken) {
-            return 'Nome já escolhido. Escolha outro.';
+            return 'Nome já escolhido. Por favor escolha outro.';
           }
           return null;
         },

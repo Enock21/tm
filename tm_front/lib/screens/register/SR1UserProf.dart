@@ -75,7 +75,10 @@ class _SR1UserProfState extends State<SR1UserProf> {
                       const SizedBox(height: 25),
                       Text('E-mail', style: AppTexts.headlineSmall),
                       const SizedBox(height: 10),
-                      CITEmail(controller: emailController),
+                      CITEmail(
+                        controller: emailController,
+                        formSubmitted: _formSubmitted,
+                      ),
 
                       const SizedBox(height: 25),
                       Text('Data de Nascimento', style: AppTexts.headlineSmall),
