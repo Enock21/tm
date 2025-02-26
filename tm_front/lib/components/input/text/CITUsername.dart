@@ -32,9 +32,7 @@ class _CITUsernameState extends State<CITUsername> {
     return Focus(
       onFocusChange: (hasFocus) {
         if (!hasFocus) {
-          setState(() {
             _checkUsernameAvailability(widget.controller?.text ?? "");
-          });
         }
       },
       child: CITGeneric(
