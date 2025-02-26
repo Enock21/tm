@@ -48,7 +48,11 @@ class _CITEmailState extends State<CITEmail> {
           if (widget.formSubmitted && (value == null || value.isEmpty)) {
             return 'Falta o e-mail';
           }
-          if (value != null && !RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
+          if (value != null &&
+              value.isNotEmpty &&
+              !RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
+            print(value);
+            print('TEST');
             return 'E-mail inválido';
           }
           if (!widget.isLoginMode && _showError && _isEmailTaken) {
