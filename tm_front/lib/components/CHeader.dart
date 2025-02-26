@@ -18,7 +18,6 @@ class CHeader extends StatelessWidget {
       height: 100,
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
           Row(
@@ -33,6 +32,7 @@ class CHeader extends StatelessWidget {
               Text(
                 title,
                 style: AppTexts.headlineMedium,
+                textAlign: TextAlign.center,
               ),
             ],
           ),
