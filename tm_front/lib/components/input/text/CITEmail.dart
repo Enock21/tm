@@ -51,8 +51,7 @@ class _CITEmailState extends State<CITEmail> {
           if (value == null || value.isEmpty) {
             return 'Falta o e-mail';
           }
-          if (value != null &&
-              value.isNotEmpty &&
+          if (value.isNotEmpty &&
               !RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
             return 'E-mail inválido';
           }

@@ -68,36 +68,44 @@ class _SR1UserProfState extends State<SR1UserProf> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Nome de Usuário', style: AppTexts.headlineSmall),
-                      const SizedBox(height: 10),
-                      CITUsername(controller: usernameController, formSubmitted: _formSubmitted), // 🔹 Agora passa `_formSubmitted`
-
-                      const SizedBox(height: 25),
-                      Text('E-mail', style: AppTexts.headlineSmall),
-                      const SizedBox(height: 10),
-                      CITEmail(
-                        controller: emailController,
+                      Align(
+                        alignment: Alignment.center,
+                        child: Text('Nome de Usuário', style: AppTexts.headlineSmall),
                       ),
+                      const SizedBox(height: 10),
+                      CITUsername(controller: usernameController, formSubmitted: _formSubmitted),
 
                       const SizedBox(height: 25),
-                      Text('Data de Nascimento', style: AppTexts.headlineSmall),
+                      Align(
+                        alignment: Alignment.center,
+                        child: Text('E-mail', style: AppTexts.headlineSmall),
+                      ),
+                      const SizedBox(height: 10),
+                      CITEmail(controller: emailController),
+
+                      const SizedBox(height: 25),
+                      Align(
+                        alignment: Alignment.center,
+                        child: Text('Data de Nascimento', style: AppTexts.headlineSmall),
+                      ),
                       const SizedBox(height: 10),
                       CIDate(controller: birthdateController),
 
                       const SizedBox(height: 25),
-                      Text('Senha', style: AppTexts.headlineSmall),
-                      const SizedBox(height: 10),
-                      CITPassword(
-                        controller: passwordController,
+                      Align(
+                        alignment: Alignment.center,
+                        child: Text('Senha', style: AppTexts.headlineSmall),
                       ),
+                      const SizedBox(height: 10),
+                      CITPassword(controller: passwordController),
 
                       const SizedBox(height: 25),
-                      Text('Confirmação de Senha',
-                        style: AppTexts.headlineSmall),
-                      const SizedBox(height: 10),
-                      CITPassword(
-                        controller: confirmPasswordController,
+                      Align(
+                        alignment: Alignment.center,
+                        child: Text('Confirmação de Senha', style: AppTexts.headlineSmall),
                       ),
+                      const SizedBox(height: 10),
+                      CITPassword(controller: confirmPasswordController),
                     ],
                   ),
                 ),
