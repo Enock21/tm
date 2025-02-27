@@ -47,7 +47,6 @@ class _SPRMainState extends State<SPRMain> {
                         children: [
                           CITEmail(
                             controller: TextEditingController(),
-                            formSubmitted: false,
                           ),
                           const SizedBox(height: 30),
                           emailSent

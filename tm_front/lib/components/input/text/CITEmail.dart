@@ -5,14 +5,12 @@ class CITEmail extends StatefulWidget {
   final TextEditingController? controller;
   final Widget? prefixIcon;
   final bool isLoginMode;
-  final bool formSubmitted;
 
   const CITEmail({
     super.key,
     this.controller,
     this.prefixIcon,
     this.isLoginMode = false,
-    required this.formSubmitted,
   });
 
   @override
@@ -22,6 +20,8 @@ class CITEmail extends StatefulWidget {
 class _CITEmailState extends State<CITEmail> {
   bool _isEmailTaken = false;
   bool _showError = false;
+  bool _emailChecked = false;
+  bool _formSubmitted = false;
 
   void _checkEmailAvailability(String email) {
     setState(() {
@@ -43,16 +43,17 @@ class _CITEmailState extends State<CITEmail> {
         prefixIcon: widget.prefixIcon,
         controller: widget.controller,
         validateOnFocusLost: true,
-        onChanged: (value) => _checkEmailAvailability(value),
+        onChanged: (value) {
+          _emailChecked = false;
+          _checkEmailAvailability(value);
+        },
         validator: (value) {
-          if (widget.formSubmitted && (value == null || value.isEmpty)) {
+          if (value == null || value.isEmpty) {
             return 'Falta o e-mail';
           }
           if (value != null &&
               value.isNotEmpty &&
               !RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
-            print(value);
-            print('TEST');
             return 'E-mail inválido';
           }
           if (!widget.isLoginMode && _showError && _isEmailTaken) {

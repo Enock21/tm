@@ -57,7 +57,6 @@ class SLoginState extends State<SLogin> {
                     prefixIcon:
                       Icon(Icons.email, color: AppColors.nonInteractiveGreen),
                     isLoginMode: true,
-                    formSubmitted: false,
                   ),
                   const SizedBox(height: 16),
                   CITPassword(
