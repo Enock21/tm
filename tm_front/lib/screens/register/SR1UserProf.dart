@@ -48,18 +48,23 @@ class _SR1UserProfState extends State<SR1UserProf> {
                 // Cabeçalho
                 const CHeader(
                     title: 'Bem Vindo(a) à\nTaverna Multiversal!'),
+
                 const SizedBox(height: 24),
+
                 Text(
                   'Seu Avatar',
                   style: AppTexts.headlineSmall,
                 ),
+
                 const SizedBox(height: 29),
+                
                 Image.network(
                   'https://cdn.builder.io/api/v1/image/assets/TEMP/568072e900496fdc1943030b761d86a66e943802325c73f03b43f7c5f6831f7f',
                   width: 48,
                   height: 48,
                   fit: BoxFit.contain,
                 ),
+
                 const SizedBox(height: 29),
 
                 // Formulário
@@ -81,7 +86,7 @@ class _SR1UserProfState extends State<SR1UserProf> {
                         child: Text('E-mail', style: AppTexts.headlineSmall),
                       ),
                       const SizedBox(height: 10),
-                      CITEmail(controller: emailController),
+                      CITEmail(controller: emailController, isRegisterScreen: true),
 
                       const SizedBox(height: 25),
                       Align(
@@ -144,10 +149,6 @@ class _SR1UserProfState extends State<SR1UserProf> {
                 TMButton.positive(
                   text: 'Próximo',
                   onPressed: () async {
-                    setState(() {
-                      _formSubmitted = true; // 🔹 Agora o form sabe que foi enviado
-                    });
-
                     if (formKey.currentState!.validate()) {
                       print("Todos os campos estão preenchidos corretamente!");
                       // 🔹 FUTURAMENTE: Aqui será chamada a função do Firebase

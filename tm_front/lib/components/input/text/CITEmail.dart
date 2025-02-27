@@ -4,13 +4,13 @@ import 'package:tm_front/components/input/text/CITGeneric.dart';
 class CITEmail extends StatefulWidget {
   final TextEditingController? controller;
   final Widget? prefixIcon;
-  final bool isLoginMode;
+  final bool isRegisterScreen;
 
   const CITEmail({
     super.key,
     this.controller,
     this.prefixIcon,
-    this.isLoginMode = false,
+    this.isRegisterScreen = false,
   });
 
   @override
@@ -21,7 +21,6 @@ class _CITEmailState extends State<CITEmail> {
   bool _isEmailTaken = false;
   bool _showError = false;
   bool _emailChecked = false;
-  bool _formSubmitted = false;
 
   void _checkEmailAvailability(String email) {
     setState(() {
@@ -34,7 +33,7 @@ class _CITEmailState extends State<CITEmail> {
   Widget build(BuildContext context) {
     return Focus(
       onFocusChange: (hasFocus) {
-        if (!hasFocus && !widget.isLoginMode) {
+        if (!hasFocus && widget.isRegisterScreen) {
           _checkEmailAvailability(widget.controller?.text ?? "");
         }
       },
@@ -55,7 +54,7 @@ class _CITEmailState extends State<CITEmail> {
               !RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
             return 'E-mail inválido';
           }
-          if (!widget.isLoginMode && _showError && _isEmailTaken) {
+          if (widget.isRegisterScreen && _showError && _isEmailTaken) {
             return 'Já existe uma conta com este e-mail.\nPor favor escolha outro.';
           }
           return null;
