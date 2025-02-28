@@ -14,6 +14,16 @@ void main() {
       expect(find.text('E-mail inválido'), findsOneWidget);
     });
 
+    testWidgets('Verifica falso positivo para formato de e-mail inválido', (WidgetTester tester) async {
+      await tester.pumpWidget(const MaterialApp(home: SLogin()));
+      
+      await tester.enterText(find.byType(TextFormField).first, 'email_valido@mail.com');
+      await tester.tap(find.text('Entrar'));
+      await tester.pump();
+      
+      expect(find.text('E-mail inválido'), findsNothing);
+    });
+
     testWidgets('Exibe erro quando o campo de e-mail está vazio', (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(home: SLogin()));
       
