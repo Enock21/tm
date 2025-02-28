@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:tm_front/components/CAppButtons.dart';
-import 'package:tm_front/components/input/text/CITEmail.dart';
-import 'package:tm_front/components/input/text/CITPassword.dart';
-import 'package:tm_front/components/CTheme.dart';
-import 'package:tm_front/screens/password_recovery/SPRMain.dart';
-import 'package:tm_front/screens/register/SR1UserProf.dart';
+import 'package:tm_front/components/c_buttons.dart';
+import 'package:tm_front/components/input/text/cit_email.dart';
+import 'package:tm_front/components/input/text/cit_password.dart';
+import 'package:tm_front/components/c_theme.dart';
+import 'package:tm_front/screens/password_recovery/spr_main.dart';
+import 'package:tm_front/screens/register/sr1_userprof.dart';
 
 class SLogin extends StatefulWidget {
   const SLogin({super.key});

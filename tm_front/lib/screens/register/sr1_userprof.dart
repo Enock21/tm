@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:tm_front/components/CTheme.dart';
-import 'package:tm_front/components/CAppButtons.dart';
-import 'package:tm_front/components/input/text/CITEmail.dart';
-import 'package:tm_front/components/input/text/CITPassword.dart';
-import 'package:tm_front/components/CHeader.dart';
-import 'package:tm_front/components/input/CIDate.dart';
-import 'package:tm_front/components/input/text/CITUsername.dart';
+import 'package:tm_front/components/c_theme.dart';
+import 'package:tm_front/components/c_buttons.dart';
+import 'package:tm_front/components/input/text/cit_email.dart';
+import 'package:tm_front/components/input/text/cit_password.dart';
+import 'package:tm_front/components/c_header.dart';
+import 'package:tm_front/components/input/ci_date.dart';
+import 'package:tm_front/components/input/text/cit_username.dart';
 
 class SR1UserProf extends StatefulWidget {
   const SR1UserProf({super.key});

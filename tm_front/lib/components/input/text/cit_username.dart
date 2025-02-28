@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tm_front/components/input/text/CITGeneric.dart';
+import 'package:tm_front/components/input/text/cit_generic.dart';
 
 class CITUsername extends StatefulWidget {
   final TextEditingController? controller;

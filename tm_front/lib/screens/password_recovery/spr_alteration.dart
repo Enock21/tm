@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:tm_front/components/CAppButtons.dart';
-import 'package:tm_front/components/CTheme.dart';
-import 'package:tm_front/components/input/text/CITPassword.dart';
-import 'package:tm_front/screens/SLogin.dart';
-import 'package:tm_front/components/CHeader.dart';
+import 'package:tm_front/components/c_buttons.dart';
+import 'package:tm_front/components/c_theme.dart';
+import 'package:tm_front/components/input/text/cit_password.dart';
+import 'package:tm_front/screens/s_login.dart';
+import 'package:tm_front/components/c_header.dart';
 
 class SPRAlteration extends StatefulWidget {
   const SPRAlteration({super.key});

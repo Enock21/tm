@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:tm_front/screens/SLogin.dart';
-import 'package:tm_front/screens/password_recovery/SPRAlteration.dart';
-import 'package:tm_front/screens/password_recovery/SPRExpiredLink.dart';
+import 'package:tm_front/screens/s_login.dart';
+import 'package:tm_front/screens/password_recovery/spr_alteration.dart';
+import 'package:tm_front/screens/password_recovery/spr_expired_link.dart';
 
 void main() {
   runApp(const MyApp());
