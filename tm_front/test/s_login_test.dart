@@ -74,5 +74,17 @@ void main() {
 
       expect(find.text(CITPassword.passwordEmptyError), findsNothing);
     });
+
+    testWidgets('Verifica se o erro de repetição de email não aparece na tela de login',
+        (WidgetTester tester) async {
+      await tester.pumpWidget(const MaterialApp(home: SLogin()));
+
+      await tester.enterText(
+          find.byType(TextFormField).first, CITEmail.registeredEmail);
+      await tester.tap(find.text('Entrar'));
+      await tester.pump();
+
+      expect(find.text(CITEmail.emailTakenError), findsNothing);
+    });
   });
 }
