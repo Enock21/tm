@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tm_front/components/input/text/cit_email.dart';
 import 'package:tm_front/components/input/text/cit_password.dart';
-import 'package:tm_front/screens/homepage.dart';
+import 'package:tm_front/screens/s_homepage.dart';
 import 'package:tm_front/screens/s_login.dart';
 
 void main() {

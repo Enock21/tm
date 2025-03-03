@@ -13,7 +13,24 @@ class SPRMain extends StatefulWidget {
 
 class _SPRMainState extends State<SPRMain> {
   final formKey = GlobalKey<FormState>();
+  final emailController = TextEditingController();
   bool emailSent = false;
+  bool emailNotFound = false;
+
+  // Simulação de banco de dados de e-mails cadastrados
+  final List<String> registeredEmails = ["user@email.com", "test@example.com"];
+
+  void _validateEmailAndSend() {
+    setState(() {
+      emailNotFound = !registeredEmails.contains(emailController.text.trim());
+    });
+
+    if (formKey.currentState!.validate() && !emailNotFound) {
+      setState(() {
+        emailSent = true;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,8 +63,16 @@ class _SPRMainState extends State<SPRMain> {
                       child: Column(
                         children: [
                           CITEmail(
-                            controller: TextEditingController(),
+                            controller: emailController,
                           ),
+                          if (emailNotFound) // Exibe erro se o e-mail não estiver cadastrado
+                            Padding(
+                              padding: const EdgeInsets.only(top: 8.0),
+                              child: Text(
+                                'E-mail não encontrado',
+                                style: TextStyle(color: AppColors.negativeColor),
+                              ),
+                            ),
                           const SizedBox(height: 30),
                           emailSent
                               ? Text(
@@ -56,14 +81,7 @@ class _SPRMainState extends State<SPRMain> {
                                 )
                               : TMButton.positive(
                                   text: 'Enviar',
-                                  onPressed: () {
-                                    if (formKey.currentState!.validate()) {
-                                      // TODO: Implement logic to send email
-                                      setState(() {
-                                        emailSent = true;
-                                      });
-                                    }
-                                  },
+                                  onPressed: _validateEmailAndSend,
                                 ),
                         ],
                       ),
