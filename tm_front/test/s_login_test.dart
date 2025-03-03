@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:tm_front/components/input/text/cit_email.dart';
+import 'package:tm_front/components/input/text/cit_password.dart';
 import 'package:tm_front/screens/s_login.dart';
 
 void main() {
@@ -13,10 +15,10 @@ void main() {
       await tester.tap(find.text('Entrar'));
       await tester.pump();
 
-      expect(find.text('E-mail inválido'), findsOneWidget);
+      expect(find.text(CITEmail.emailInvalidError), findsOneWidget);
     });
 
-    testWidgets('Verifica falso positivo para formato de e-mail inválido',
+    testWidgets('Verifica aparição indevida do erro de formato de e-mail inválido',
         (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(home: SLogin()));
 
@@ -25,7 +27,7 @@ void main() {
       await tester.tap(find.text('Entrar'));
       await tester.pump();
 
-      expect(find.text('E-mail inválido'), findsNothing);
+      expect(find.text(CITEmail.emailInvalidError), findsNothing);
     });
 
     testWidgets('Exibe erro quando o campo de e-mail está vazio',
@@ -35,19 +37,19 @@ void main() {
       await tester.tap(find.text('Entrar'));
       await tester.pump();
 
-      expect(find.text('Falta o e-mail'), findsOneWidget);
+      expect(find.text(CITEmail.emailEmptyError), findsOneWidget);
     });
 
-    testWidgets('Verifica falso positivo para campo de e-mail vazio',
+    testWidgets('Verifica aparição indevida do erro de campo de e-mail vazio',
         (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(home: SLogin()));
 
       await tester.enterText(
-          find.byType(TextFormField).first, 'email_incompleto');
+          find.byType(TextFormField).first, 'entrada_qualquer');
       await tester.tap(find.text('Entrar'));
       await tester.pump();
 
-      expect(find.text('Falta o e-mail'), findsNothing);
+      expect(find.text(CITEmail.emailEmptyError), findsNothing);
     });
 
     testWidgets('Exibe erro quando o campo de senha está vazio',
@@ -57,10 +59,10 @@ void main() {
       await tester.tap(find.text('Entrar'));
       await tester.pump();
 
-      expect(find.text('Falta a senha'), findsOneWidget);
+      expect(find.text(CITPassword.passwordEmptyError), findsOneWidget);
     });
 
-    testWidgets('Verifica falso positivo para campo de senha vazio',
+    testWidgets('Verifica aparição indevida do erro de campo de senha vazio',
         (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(home: SLogin()));
 
@@ -70,7 +72,7 @@ void main() {
       await tester.tap(find.text('Entrar'));
       await tester.pump();
 
-      expect(find.text('Falta a senha'), findsNothing);
+      expect(find.text(CITPassword.passwordEmptyError), findsNothing);
     });
   });
 }

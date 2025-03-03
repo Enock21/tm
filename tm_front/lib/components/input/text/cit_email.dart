@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:tm_front/components/input/text/cit_generic.dart';
 
 class CITEmail extends StatefulWidget {
+  static const String emailEmptyError = 'Falta o e-mail';
+  static const String emailInvalidError = 'E-mail inválido';
+  static const String emailTakenError = 'Já existe uma conta com este e-mail.\nPor favor escolha outro.';
+
+  static const String registeredEmail = 'email@existente.com';
+
   final TextEditingController? controller;
   final Widget? prefixIcon;
   final bool isRegisterScreen;
@@ -20,11 +26,16 @@ class CITEmail extends StatefulWidget {
 class _CITEmailState extends State<CITEmail> {
   bool _isEmailTaken = false;
   bool _showError = false;
-  bool _emailChecked = false;
+  bool _emailChecked = false; //É mesmo desnecessário?
+  
+  String get emailEmptyError => CITEmail.emailEmptyError;
+  String get emailInvalidError => CITEmail.emailInvalidError;
+  String get emailTakenError => CITEmail.emailTakenError;
+  String get registeredEmail => CITEmail.registeredEmail;
 
   void _checkEmailAvailability(String email) {
     setState(() {
-      _isEmailTaken = email == "email@existente.com"; // Simulação
+      _isEmailTaken = email == registeredEmail; // Simulação de e-mail já cadastrado
       _showError = true;
     });
   }
@@ -48,14 +59,14 @@ class _CITEmailState extends State<CITEmail> {
         },
         validator: (value) {
           if (value == null || value.isEmpty) {
-            return 'Falta o e-mail';
+            return emailEmptyError;
           }
           if (value.isNotEmpty &&
               !RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
-            return 'E-mail inválido';
+            return emailInvalidError;
           }
           if (widget.isRegisterScreen && _showError && _isEmailTaken) {
-            return 'Já existe uma conta com este e-mail.\nPor favor escolha outro.';
+            return emailTakenError;
           }
           return null;
         },
