@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tm_front/components/input/text/cit_email.dart';
 import 'package:tm_front/components/input/text/cit_password.dart';
+import 'package:tm_front/screens/homepage.dart';
 import 'package:tm_front/screens/s_login.dart';
 
 void main() {
@@ -87,4 +88,20 @@ void main() {
       expect(find.text(CITEmail.emailTakenError), findsNothing);
     });
   });
+
+  testWidgets('Login válido redireciona para HomePage sem erro',
+    (WidgetTester tester) async {
+  await tester.pumpWidget(const MaterialApp(home: SLogin()));
+
+  await tester.enterText(find.byType(TextFormField).first, "user@email.com");
+  await tester.enterText(find.byType(TextFormField).at(1), "123456");
+
+  await tester.tap(find.text('Entrar'));
+  await tester.pumpAndSettle();
+
+  expect(find.byType(HomePage), findsOneWidget);
+
+  expect(find.text("E-mail ou senha não encontrados"), findsNothing);
+});
+
 }

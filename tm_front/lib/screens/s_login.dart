@@ -16,12 +16,41 @@ class SLogin extends StatefulWidget {
 
 class SLoginState extends State<SLogin> {
   final formKey = GlobalKey<FormState>();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  String? loginErrorMessage;
+
+  // 🔹 Simulação do "banco de dados"
+  final Map<String, String> fakeDatabase = {
+    "user@email.com": "123456", // Simulação de usuário existente
+  };
+
+  void _validateLogin() {
+    setState(() {
+      loginErrorMessage = null;
+    });
+
+    if (formKey.currentState!.validate()) {
+      final email = emailController.text.trim();
+      final password = passwordController.text.trim();
+
+      if (fakeDatabase[email] == password) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const HomePage()),
+        );
+      } else {
+        setState(() {
+          loginErrorMessage = "E-mail ou senha não encontrado";
+        });
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset:
-          false, // 🔹 Impede que o teclado empurre o conteúdo
+      resizeToAvoidBottomInset: false, 
       backgroundColor: AppColors.backgroundColor,
       body: Stack(
         children: [
@@ -53,13 +82,13 @@ class SLoginState extends State<SLogin> {
                           ),
                           const SizedBox(height: 24),
                           CITEmail(
-                            controller: TextEditingController(),
+                            controller: emailController,
                             prefixIcon: Icon(Icons.email,
                                 color: AppColors.nonInteractiveGreen),
                           ),
                           const SizedBox(height: 16),
                           CITPassword(
-                            controller: TextEditingController(),
+                            controller: passwordController,
                             prefixIcon: Icon(Icons.lock,
                                 color: AppColors.nonInteractiveGreen),
                           ),
@@ -86,16 +115,7 @@ class SLoginState extends State<SLogin> {
                                   height: 50,
                                   child: TMButton.positive(
                                     text: 'Entrar',
-                                    onPressed: () {
-                                      if (formKey.currentState!.validate()) {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => const HomePage(),
-                                          ),
-                                        );
-                                      }
-                                    },
+                                    onPressed: _validateLogin,
                                   ),
                                 ),
                               ),
@@ -103,6 +123,18 @@ class SLoginState extends State<SLogin> {
                               const SizedBox(width: 24),
                             ],
                           ),
+                          if (loginErrorMessage != null) ...[
+                            const SizedBox(height: 12),
+                            Text(
+                              loginErrorMessage!,
+                              style: TextStyle(
+                                color: Colors.red,
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
                           const SizedBox(height: 18),
                           Row(
                             children: [
@@ -138,10 +170,8 @@ class SLoginState extends State<SLogin> {
               ),
             ],
           ),
-
-          // 🔹 Rodapé fixo no fundo da tela
           Positioned(
-            bottom: 16, // Mantém no rodapé
+            bottom: 16, 
             left: 0,
             right: 0,
             child: Column(
