@@ -18,7 +18,7 @@ class _SPRMainState extends State<SPRMain> {
   bool emailNotFound = false;
 
   // Simulação de banco de dados de e-mails cadastrados
-  final List<String> registeredEmails = ["user@email.com", "test@example.com"];
+  final List<String> registeredEmails = ["user@email.com"];
 
   void _validateEmailAndSend() {
     setState(() {

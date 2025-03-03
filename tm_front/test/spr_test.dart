@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:tm_front/screens/password_recovery/spr_alteration.dart';
 import 'package:tm_front/screens/password_recovery/spr_main.dart';
 
 void main() {
@@ -36,17 +37,17 @@ void main() {
     testWidgets('Exibe feedback positivo para email válido', (tester) async {
       await tester.pumpWidget(const MaterialApp(home: SPRMain()));
 
-      await tester.enterText(find.byType(TextFormField).first, 'valido@email.com');
+      await tester.enterText(find.byType(TextFormField).first, 'user@email.com');
       await tester.tap(find.text('Enviar'));
       await tester.pumpAndSettle();
 
-      expect(find.text('E-mail enviado com sucesso!'), findsOneWidget);
+      expect(find.text('ENVIADO!'), findsOneWidget);
     });
 
     testWidgets('Não exibe erro para email válido', (tester) async {
       await tester.pumpWidget(const MaterialApp(home: SPRMain()));
 
-      await tester.enterText(find.byType(TextFormField).first, 'valido@email.com');
+      await tester.enterText(find.byType(TextFormField).first, 'user@email.com');
       await tester.tap(find.text('Enviar'));
       await tester.pumpAndSettle();
 
@@ -57,58 +58,68 @@ void main() {
   });
 
   group('Tela de Alteração de Senha - Validações', () {
-    testWidgets('Erro de nova senha vazia', (tester) async {
-      await tester.pumpWidget(const MaterialApp(home: SPRMain()));
+    testWidgets('Erro de senhas vazias', (tester) async {
+      await tester.pumpWidget(const MaterialApp(home: SPRAlteration()));
 
-      await tester.tap(find.text('Alterar senha'));
+      await tester.tap(find.text('Alterar Senha'));
       await tester.pump();
 
-      expect(find.text('Falta a nova senha'), findsOneWidget);
+      expect(find.text('Falta a senha'), findsNWidgets(2));
     });
 
-    testWidgets('Erro de confirmação de senha vazia', (tester) async {
-      await tester.pumpWidget(const MaterialApp(home: SPRMain()));
+    testWidgets('Erro de senha 1 vazia', (tester) async {
+      await tester.pumpWidget(const MaterialApp(home: SPRAlteration()));
 
       await tester.enterText(find.byType(TextFormField).at(0), 'NovaSenha123');
-      await tester.tap(find.text('Alterar senha'));
+      await tester.tap(find.text('Alterar Senha'));
       await tester.pump();
 
-      expect(find.text('Confirme a nova senha'), findsOneWidget);
+      expect(find.text('Falta a senha'), findsOneWidget);
+    });
+
+    
+    testWidgets('Erro de senha 2 vazia', (tester) async {
+      await tester.pumpWidget(const MaterialApp(home: SPRAlteration()));
+
+      await tester.enterText(find.byType(TextFormField).at(1), 'NovaSenha123');
+      await tester.tap(find.text('Alterar Senha'));
+      await tester.pump();
+
+      expect(find.text('Falta a senha'), findsOneWidget);
     });
 
     testWidgets('Erro de senhas diferentes', (tester) async {
-      await tester.pumpWidget(const MaterialApp(home: SPRMain()));
+      await tester.pumpWidget(const MaterialApp(home: SPRAlteration()));
 
       await tester.enterText(find.byType(TextFormField).at(0), 'NovaSenha123');
-      await tester.enterText(find.byType(TextFormField).at(1), 'SenhaErrada321');
-      await tester.tap(find.text('Alterar senha'));
+      await tester.enterText(find.byType(TextFormField).at(1), 'NovaSenha12');
+      await tester.tap(find.text('Alterar Senha'));
       await tester.pump();
 
-      expect(find.text('As senhas não coincidem'), findsOneWidget);
+      expect(find.text('As senhas não correspondem'), findsOneWidget);
     });
 
     testWidgets('Exibe feedback positivo para alteração realizada com êxito', (tester) async {
-      await tester.pumpWidget(const MaterialApp(home: SPRMain()));
+      await tester.pumpWidget(const MaterialApp(home: SPRAlteration()));
 
       await tester.enterText(find.byType(TextFormField).at(0), 'NovaSenha123');
       await tester.enterText(find.byType(TextFormField).at(1), 'NovaSenha123');
-      await tester.tap(find.text('Alterar senha'));
+      await tester.tap(find.text('Alterar Senha'));
       await tester.pumpAndSettle();
 
-      expect(find.text('Senha alterada com sucesso!'), findsOneWidget);
+      expect(find.text('SENHA ALTERADA!'), findsOneWidget);
     });
 
     testWidgets('Não exibe erro para alteração realizada com êxito', (tester) async {
-      await tester.pumpWidget(const MaterialApp(home: SPRMain()));
+      await tester.pumpWidget(const MaterialApp(home: SPRAlteration()));
 
       await tester.enterText(find.byType(TextFormField).at(0), 'NovaSenha123');
       await tester.enterText(find.byType(TextFormField).at(1), 'NovaSenha123');
-      await tester.tap(find.text('Alterar senha'));
+      await tester.tap(find.text('Alterar Senha'));
       await tester.pumpAndSettle();
 
-      expect(find.text('Falta a nova senha'), findsNothing);
-      expect(find.text('Confirme a nova senha'), findsNothing);
-      expect(find.text('As senhas não coincidem'), findsNothing);
+      expect(find.text('Falta a senha'), findsNothing);
+      expect(find.text('As senhas não correspondem'), findsNothing);
     });
   });
 }
