@@ -18,30 +18,29 @@ class SLoginState extends State<SLogin> {
   final formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-  String? loginErrorMessage;
+  String? _loginError; // 🔹 Estado para armazenar erro de login
 
-  // 🔹 Simulação do "banco de dados"
-  final Map<String, String> fakeDatabase = {
-    "user@email.com": "123456", // Simulação de usuário existente
-  };
-
-  void _validateLogin() {
-    setState(() {
-      loginErrorMessage = null;
-    });
-
+  void _attemptLogin() {
     if (formKey.currentState!.validate()) {
-      final email = emailController.text.trim();
-      final password = passwordController.text.trim();
+      // Simulação de credenciais válidas
+      const validEmail = "user@email.com";
+      const validPassword = "123456";
 
-      if (fakeDatabase[email] == password) {
-        Navigator.pushReplacement(
+      if (emailController.text == validEmail &&
+          passwordController.text == validPassword) {
+        // 🔹 Remove mensagem de erro antes de navegar
+        setState(() {
+          _loginError = null;
+        });
+
+        Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => const HomePage()),
         );
       } else {
+        // 🔹 Exibe erro se credenciais forem inválidas
         setState(() {
-          loginErrorMessage = "E-mail ou senha não encontrado";
+          _loginError = "E-mail ou senha não encontrado";
         });
       }
     }
@@ -50,7 +49,8 @@ class SLoginState extends State<SLogin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false, 
+      resizeToAvoidBottomInset:
+          false, // 🔹 Impede que o teclado empurre o conteúdo
       backgroundColor: AppColors.backgroundColor,
       body: Stack(
         children: [
@@ -93,6 +93,20 @@ class SLoginState extends State<SLogin> {
                                 color: AppColors.nonInteractiveGreen),
                           ),
                           const SizedBox(height: 8),
+
+                          // 🔹 Exibe a mensagem de erro aqui
+                          if (_loginError != null)
+                            Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 8.0),
+                              child: Text(
+                                _loginError!,
+                                style: TextStyle(
+                                  color: AppColors.negativeColor,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ),
+
                           TMTextButton(
                             text: 'Esqueci minha senha',
                             onPressed: () {
@@ -115,7 +129,7 @@ class SLoginState extends State<SLogin> {
                                   height: 50,
                                   child: TMButton.positive(
                                     text: 'Entrar',
-                                    onPressed: _validateLogin,
+                                    onPressed: _attemptLogin, // 🔹 Chama função de login
                                   ),
                                 ),
                               ),
@@ -123,18 +137,6 @@ class SLoginState extends State<SLogin> {
                               const SizedBox(width: 24),
                             ],
                           ),
-                          if (loginErrorMessage != null) ...[
-                            const SizedBox(height: 12),
-                            Text(
-                              loginErrorMessage!,
-                              style: TextStyle(
-                                color: Colors.red,
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ],
                           const SizedBox(height: 18),
                           Row(
                             children: [
@@ -170,8 +172,10 @@ class SLoginState extends State<SLogin> {
               ),
             ],
           ),
+
+          // 🔹 Rodapé fixo no fundo da tela
           Positioned(
-            bottom: 16, 
+            bottom: 16,
             left: 0,
             right: 0,
             child: Column(
