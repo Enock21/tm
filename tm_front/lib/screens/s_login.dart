@@ -3,6 +3,7 @@ import 'package:tm_front/components/c_buttons.dart';
 import 'package:tm_front/components/input/text/cit_email.dart';
 import 'package:tm_front/components/input/text/cit_password.dart';
 import 'package:tm_front/components/c_theme.dart';
+import 'package:tm_front/screens/homepage.dart';
 import 'package:tm_front/screens/password_recovery/spr_main.dart';
 import 'package:tm_front/screens/register/sr1_userprof.dart';
 
@@ -87,7 +88,12 @@ class SLoginState extends State<SLogin> {
                                     text: 'Entrar',
                                     onPressed: () {
                                       if (formKey.currentState!.validate()) {
-                                        print('Entrar');
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => const HomePage(),
+                                          ),
+                                        );
                                       }
                                     },
                                   ),
