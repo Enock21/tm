@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tm_front/components/c_buttons.dart';
+import 'package:tm_front/components/c_error_msgs.dart';
 import 'package:tm_front/components/input/text/cit_email.dart';
 import 'package:tm_front/components/input/text/cit_password.dart';
 import 'package:tm_front/components/c_theme.dart';
@@ -40,7 +41,7 @@ class SLoginState extends State<SLogin> {
       } else {
         // 🔹 Exibe erro se credenciais forem inválidas
         setState(() {
-          _loginError = "E-mail ou senha não encontrado";
+          _loginError = CErrorMsgs.loginNotFound;
         });
       }
     }

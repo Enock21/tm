@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:tm_front/components/c_error_msgs.dart';
 import 'package:tm_front/components/input/text/cit_email.dart';
 import 'package:tm_front/components/input/text/cit_password.dart';
 import 'package:tm_front/screens/s_homepage.dart';
@@ -16,7 +17,7 @@ void main() {
       await tester.tap(find.text('Entrar'));
       await tester.pump();
 
-      expect(find.text(CITEmail.emailInvalidError), findsOneWidget);
+      expect(find.text(CErrorMsgs.emailInvalid), findsOneWidget);
     });
 
     testWidgets('Verifica aparição indevida do erro de formato de e-mail inválido',
@@ -28,7 +29,7 @@ void main() {
       await tester.tap(find.text('Entrar'));
       await tester.pump();
 
-      expect(find.text(CITEmail.emailInvalidError), findsNothing);
+      expect(find.text(CErrorMsgs.emailInvalid), findsNothing);
     });
 
     testWidgets('Exibe erro quando o campo de e-mail está vazio',
@@ -38,7 +39,7 @@ void main() {
       await tester.tap(find.text('Entrar'));
       await tester.pump();
 
-      expect(find.text(CITEmail.emailEmptyError), findsOneWidget);
+      expect(find.text(CErrorMsgs.emailEmpty), findsOneWidget);
     });
 
     testWidgets('Verifica aparição indevida do erro de campo de e-mail vazio',
@@ -50,7 +51,7 @@ void main() {
       await tester.tap(find.text('Entrar'));
       await tester.pump();
 
-      expect(find.text(CITEmail.emailEmptyError), findsNothing);
+      expect(find.text(CErrorMsgs.emailEmpty), findsNothing);
     });
 
     testWidgets('Exibe erro quando o campo de senha está vazio',
@@ -60,7 +61,7 @@ void main() {
       await tester.tap(find.text('Entrar'));
       await tester.pump();
 
-      expect(find.text(CITPassword.passwordEmptyError), findsOneWidget);
+      expect(find.text(CErrorMsgs.passwordEmpty), findsOneWidget);
     });
 
     testWidgets('Verifica aparição indevida do erro de campo de senha vazio',
@@ -73,7 +74,7 @@ void main() {
       await tester.tap(find.text('Entrar'));
       await tester.pump();
 
-      expect(find.text(CITPassword.passwordEmptyError), findsNothing);
+      expect(find.text(CErrorMsgs.passwordEmpty), findsNothing);
     });
 
     testWidgets('Verifica se o erro de repetição de email não aparece na tela de login',
@@ -85,7 +86,7 @@ void main() {
       await tester.tap(find.text('Entrar'));
       await tester.pump();
 
-      expect(find.text(CITEmail.emailTakenError), findsNothing);
+      expect(find.text(CErrorMsgs.emailTaken), findsNothing);
     });
   });
 
@@ -101,7 +102,7 @@ void main() {
 
   expect(find.byType(HomePage), findsOneWidget);
 
-  expect(find.text("E-mail ou senha não encontrados"), findsNothing);
+  expect(find.text(CErrorMsgs.loginNotFound), findsNothing);
 });
 
 }

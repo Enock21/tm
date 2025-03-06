@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:tm_front/components/c_buttons.dart';
+import 'package:tm_front/components/c_error_msgs.dart';
 import 'package:tm_front/components/c_theme.dart';
 import 'package:tm_front/components/input/text/cit_email.dart';
 import 'package:tm_front/components/c_header.dart';
 
 class SPRMain extends StatefulWidget {
-  static const String emailNotFoundError = 'E-mail não encontrado';
-  static const String passwordMismatchError = 'As senhas não correspondem';
-
   const SPRMain({super.key});
 
   @override
@@ -72,7 +70,7 @@ class _SPRMainState extends State<SPRMain> {
                             Padding(
                               padding: const EdgeInsets.only(top: 8.0),
                               child: Text(
-                                'E-mail não encontrado',
+                                CErrorMsgs.emailNotFound,
                                 style: TextStyle(color: AppColors.negativeColor),
                               ),
                             ),

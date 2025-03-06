@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:tm_front/components/c_error_msgs.dart';
 import 'package:tm_front/screens/password_recovery/spr_alteration.dart';
 import 'package:tm_front/screens/password_recovery/spr_main.dart';
 
@@ -12,7 +13,7 @@ void main() {
       await tester.tap(find.text('Enviar'));
       await tester.pump();
 
-      expect(find.text('E-mail inválido'), findsOneWidget);
+      expect(find.text(CErrorMsgs.emailInvalid), findsOneWidget);
     });
 
     testWidgets('Exibe erro quando o campo de e-mail está vazio', (tester) async {
@@ -21,7 +22,7 @@ void main() {
       await tester.tap(find.text('Enviar'));
       await tester.pump();
 
-      expect(find.text('Falta o e-mail'), findsOneWidget);
+      expect(find.text(CErrorMsgs.emailEmpty), findsOneWidget);
     });
 
     testWidgets('Exibe erro para email não encontrado', (tester) async {
@@ -31,7 +32,7 @@ void main() {
       await tester.tap(find.text('Enviar'));
       await tester.pump();
 
-      expect(find.text('E-mail não encontrado'), findsOneWidget);
+      expect(find.text(CErrorMsgs.emailNotFound), findsOneWidget);
     });
 
     testWidgets('Exibe feedback positivo para email válido', (tester) async {
@@ -51,9 +52,9 @@ void main() {
       await tester.tap(find.text('Enviar'));
       await tester.pumpAndSettle();
 
-      expect(find.text('E-mail inválido'), findsNothing);
-      expect(find.text('Falta o e-mail'), findsNothing);
-      expect(find.text('E-mail não encontrado'), findsNothing);
+      expect(find.text(CErrorMsgs.emailInvalid), findsNothing);
+      expect(find.text(CErrorMsgs.emailEmpty), findsNothing);
+      expect(find.text(CErrorMsgs.emailNotFound), findsNothing);
     });
   });
 
@@ -64,7 +65,7 @@ void main() {
       await tester.tap(find.text('Alterar Senha'));
       await tester.pump();
 
-      expect(find.text('Falta a senha'), findsNWidgets(2));
+      expect(find.text(CErrorMsgs.passwordEmpty), findsNWidgets(2));
     });
 
     testWidgets('Erro de senha 1 vazia', (tester) async {
@@ -74,7 +75,7 @@ void main() {
       await tester.tap(find.text('Alterar Senha'));
       await tester.pump();
 
-      expect(find.text('Falta a senha'), findsOneWidget);
+      expect(find.text(CErrorMsgs.passwordEmpty), findsOneWidget);
     });
 
     
@@ -85,7 +86,7 @@ void main() {
       await tester.tap(find.text('Alterar Senha'));
       await tester.pump();
 
-      expect(find.text('Falta a senha'), findsOneWidget);
+      expect(find.text(CErrorMsgs.passwordEmpty), findsOneWidget);
     });
 
     testWidgets('Erro de senhas diferentes', (tester) async {
@@ -96,7 +97,7 @@ void main() {
       await tester.tap(find.text('Alterar Senha'));
       await tester.pump();
 
-      expect(find.text('As senhas não correspondem'), findsOneWidget);
+      expect(find.text(CErrorMsgs.passwordMismatch), findsOneWidget);
     });
 
     testWidgets('Exibe feedback positivo para alteração realizada com êxito', (tester) async {
@@ -118,8 +119,8 @@ void main() {
       await tester.tap(find.text('Alterar Senha'));
       await tester.pumpAndSettle();
 
-      expect(find.text('Falta a senha'), findsNothing);
-      expect(find.text('As senhas não correspondem'), findsNothing);
+      expect(find.text(CErrorMsgs.passwordEmpty), findsNothing);
+      expect(find.text(CErrorMsgs.passwordMismatch), findsNothing);
     });
   });
 }

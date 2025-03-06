@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tm_front/components/c_error_msgs.dart';
 import 'package:tm_front/components/input/text/cit_generic.dart';
 
 class CITUsername extends StatefulWidget {
@@ -42,18 +43,18 @@ class _CITUsernameState extends State<CITUsername> {
         onChanged: (value) => _checkUsernameAvailability(value),
         validator: (value) {
           if (widget.formSubmitted && (value == null || value.isEmpty)) {
-            return 'Falta o nome';
+            return CErrorMsgs.usernameEmpty;
           }
           if (value != null) {
             if (value.length < 3 || value.length > 20) {
-              return 'O nome deve ter entre 3 e 20 caracteres';
+              return CErrorMsgs.usernameLength;
             }
             if (!_isValidUsernameFormat(value)) {
-              return 'Formato inválido.';
+              return CErrorMsgs.usernameInvalid;
             }
           }
           if (_showError && _isUsernameTaken) {
-            return 'Nome já escolhido. Por favor escolha outro.';
+            return CErrorMsgs.usernameTaken;
           }
           return null;
         },

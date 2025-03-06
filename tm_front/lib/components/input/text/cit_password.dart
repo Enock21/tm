@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:tm_front/components/c_error_msgs.dart';
 import 'package:tm_front/components/input/text/cit_generic.dart';
 import 'package:tm_front/components/c_theme.dart';
 
 class CITPassword extends StatefulWidget {
-  static const String passwordEmptyError = 'Falta a senha';
-  
   final TextEditingController? controller;
   final Widget? prefixIcon;
 
@@ -16,8 +15,6 @@ class CITPassword extends StatefulWidget {
 
 class _CITPasswordState extends State<CITPassword> {
   bool _obscureText = true;
-
-  String get passwordEmptyError => CITPassword.passwordEmptyError;
 
   void _toggleVisibility() {
     setState(() {
@@ -41,7 +38,7 @@ class _CITPasswordState extends State<CITPassword> {
       ),
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return passwordEmptyError;
+          return CErrorMsgs.passwordEmpty;
         }
         return null;
       },

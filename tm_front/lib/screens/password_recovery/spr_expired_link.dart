@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tm_front/components/c_buttons.dart';
+import 'package:tm_front/components/c_error_msgs.dart';
 import 'package:tm_front/components/c_theme.dart';
 import 'package:tm_front/screens/s_login.dart';
 import 'package:tm_front/components/c_header.dart';
@@ -27,7 +28,7 @@ class SPRExpiredLink extends StatelessWidget {
                   children: [
                     // Mensagem de link expirado
                     Text(
-                      'LINK EXPIRADO!',
+                      CErrorMsgs.expiredLink,
                       style: AppTexts.denialFeedback,
                       textAlign: TextAlign.center,
                     ),

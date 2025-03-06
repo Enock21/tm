@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tm_front/components/c_error_msgs.dart';
 import 'package:tm_front/components/c_theme.dart';
 
 class CIDate extends StatefulWidget {
@@ -68,7 +69,7 @@ class _CIDateState extends State<CIDate> {
       ),
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return 'Falta a data';
+          return CErrorMsgs.dateEmpty;
         }
         return null;
       },
