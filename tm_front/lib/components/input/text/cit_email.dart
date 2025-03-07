@@ -35,11 +35,11 @@ class CITEmail extends StatefulWidget {
 }
 
 class _CITEmailState extends State<CITEmail> {
-  bool _emailChecked = false;
+  //bool _emailChecked = false;
 
   void _checkEmailAvailability(String email) {
     setState(() {
-      _emailChecked = true; // Marca que já verificamos o e-mail
+      //_emailChecked = true; // Marca que já verificamos o e-mail
     });
   }
 
@@ -57,7 +57,7 @@ class _CITEmailState extends State<CITEmail> {
         controller: widget.controller,
         validateOnFocusLost: true,
         onChanged: (value) {
-          _emailChecked = false;
+          //_emailChecked = false;
           _checkEmailAvailability(value);
         },
         validator: widget.validator, // Usa a validação incorporada ao widget
