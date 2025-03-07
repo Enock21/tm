@@ -72,7 +72,6 @@ void main() {
       expect(find.text(CErrorMsgs.emailInvalid), findsNothing);
     });
 
-    //Teste automatico abaixo acusa erro, porém o teste manual funciona como esperado.
     testWidgets('Erro de email já cadastrado na tela de cadastro ao perder o foco', (WidgetTester tester) async {
       final controller = TextEditingController(text: CITEmail.registeredEmail);
 
