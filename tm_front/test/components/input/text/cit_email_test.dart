@@ -4,7 +4,7 @@ import 'package:tm_front/components/input/text/cit_email.dart';
 import 'package:tm_front/components/c_error_msgs.dart';
 
 void main() {
-  group('CITEmail - Validações Diretas', () {
+  group('CITEmail - Validações', () {
     test('Erro quando o campo de e-mail está vazio', () {
       final emailField = CITEmail(controller: TextEditingController());
       final validator = emailField.validator!;

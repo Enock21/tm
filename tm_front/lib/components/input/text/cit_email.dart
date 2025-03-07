@@ -16,36 +16,32 @@ class CITEmail extends StatefulWidget {
     this.isRegisterScreen = false,
   });
 
+  /// Getter para validação do e-mail
+  FormFieldValidator<String> get validator => (value) {
+        if (value == null || value.isEmpty) {
+          return CErrorMsgs.emailEmpty;
+        }
+        if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
+          return CErrorMsgs.emailInvalid;
+        }
+        if (isRegisterScreen && value == registeredEmail) {
+          return CErrorMsgs.emailTaken;
+        }
+        return null;
+      };
+
   @override
   _CITEmailState createState() => _CITEmailState();
-  
 }
 
 class _CITEmailState extends State<CITEmail> {
-  bool _isEmailTaken = false;
-  bool _showError = false;
   bool _emailChecked = false;
 
   void _checkEmailAvailability(String email) {
     setState(() {
-      _isEmailTaken = email == CITEmail.registeredEmail;
-      _showError = true;
+      _emailChecked = true; // Marca que já verificamos o e-mail
     });
   }
-
-  /// Getter que expõe a validação diretamente para os testes
-  FormFieldValidator<String>? get validator => (value) {
-    if (value == null || value.isEmpty) {
-      return CErrorMsgs.emailEmpty;
-    }
-    if (value.isNotEmpty && !RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
-      return CErrorMsgs.emailInvalid;
-    }
-    if (widget.isRegisterScreen && _showError && _isEmailTaken) {
-      return CErrorMsgs.emailTaken;
-    }
-    return null;
-  };
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +60,7 @@ class _CITEmailState extends State<CITEmail> {
           _emailChecked = false;
           _checkEmailAvailability(value);
         },
-        validator: validator,
+        validator: widget.validator, // Usa a validação incorporada ao widget
       ),
     );
   }
