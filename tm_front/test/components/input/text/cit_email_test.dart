@@ -22,7 +22,7 @@ void main() {
 
     test('Erro de email já cadastrado na tela de cadastro', () {
       final emailField = CITEmail(controller: TextEditingController(), isRegisterScreen: true);
-      final validator = emailField.validator!;
+      final validator = emailField.validator;
 
       expect(validator(CITEmail.registeredEmail), CErrorMsgs.emailTaken);
     });
@@ -71,5 +71,24 @@ void main() {
       // Verifica se a mensagem de erro está visível na tela
       expect(find.text(CErrorMsgs.emailInvalid), findsNothing);
     });
+
+    //Teste automatico abaixo acusa erro, porém o teste manual funciona como esperado.
+    testWidgets('Erro de email já cadastrado na tela de cadastro ao perder o foco', (WidgetTester tester) async {
+      final controller = TextEditingController(text: CITEmail.registeredEmail);
+
+      await tester.pumpWidget(MaterialApp(
+        home: Scaffold(
+          body: CITEmail(controller: controller, isRegisterScreen: true),
+        ),
+      ));
+
+      // Simula a perda de foco
+      FocusManager.instance.primaryFocus?.unfocus();
+      await tester.pump();
+
+      // Verifica se a mensagem de erro "email já cadastrado" aparece na tela
+      expect(find.text(CErrorMsgs.emailTaken), findsOneWidget);
+    });
+
   });
 }
