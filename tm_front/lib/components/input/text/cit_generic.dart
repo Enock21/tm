@@ -35,9 +35,12 @@ class _CITGenericState extends State<CITGeneric> {
     return Focus(
       onFocusChange: (hasFocus) {
         if (!hasFocus && widget.validateOnFocusLost) {
-          _fieldKey.currentState?.validate(); // 🔹 Agora valida corretamente
+          print('Validando campo ao perder o foco...'); // Debug
+          final isValid = _fieldKey.currentState?.validate();
+          print('Campo válido? $isValid'); // Debug para ver se a validação ocorreu
         }
       },
+
       child: TextFormField(
         key: _fieldKey, // 🔹 Associa a chave ao campo
         controller: widget.controller,
