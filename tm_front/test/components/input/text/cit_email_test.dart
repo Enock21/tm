@@ -33,5 +33,24 @@ void main() {
 
       expect(validator('email@valido.com'), null);
     });
+
+     testWidgets('Erro de formato de e-mail inválido ao perder o foco', (WidgetTester tester) async {
+      final controller = TextEditingController();
+
+      await tester.pumpWidget(MaterialApp(
+        home: Scaffold(
+          body: CITEmail(controller: controller),
+        ),
+      ));
+
+      // Digita um e-mail inválido
+      await tester.enterText(find.byType(TextFormField), 'email_invalido');
+      
+      FocusManager.instance.primaryFocus?.unfocus();
+      await tester.pump();
+
+      // Verifica se a mensagem de erro está visível na tela
+      expect(find.text(CErrorMsgs.emailInvalid), findsOneWidget);
+    });
   });
 }
