@@ -82,6 +82,9 @@ void main() {
         ),
       ));
 
+      //Digitando email já cadastrado
+      await tester.enterText(find.byType(TextFormField), 'email@existente.com');
+
       // Simula a perda de foco
       FocusManager.instance.primaryFocus?.unfocus();
       await tester.pump();
