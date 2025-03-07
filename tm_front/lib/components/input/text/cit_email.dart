@@ -18,22 +18,34 @@ class CITEmail extends StatefulWidget {
 
   @override
   _CITEmailState createState() => _CITEmailState();
+  
 }
 
 class _CITEmailState extends State<CITEmail> {
   bool _isEmailTaken = false;
   bool _showError = false;
-  bool _emailChecked = false; //É mesmo desnecessário?
-
-  String get registeredEmail => CITEmail.registeredEmail;
+  bool _emailChecked = false;
 
   void _checkEmailAvailability(String email) {
     setState(() {
-      _isEmailTaken =
-          email == registeredEmail; // Simulação de e-mail já cadastrado
+      _isEmailTaken = email == CITEmail.registeredEmail;
       _showError = true;
     });
   }
+
+  /// Getter que expõe a validação diretamente para os testes
+  FormFieldValidator<String>? get validator => (value) {
+    if (value == null || value.isEmpty) {
+      return CErrorMsgs.emailEmpty;
+    }
+    if (value.isNotEmpty && !RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
+      return CErrorMsgs.emailInvalid;
+    }
+    if (widget.isRegisterScreen && _showError && _isEmailTaken) {
+      return CErrorMsgs.emailTaken;
+    }
+    return null;
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -52,19 +64,7 @@ class _CITEmailState extends State<CITEmail> {
           _emailChecked = false;
           _checkEmailAvailability(value);
         },
-        validator: (value) {
-          if (value == null || value.isEmpty) {
-            return CErrorMsgs.emailEmpty;
-          }
-          if (value.isNotEmpty &&
-              !RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
-            return CErrorMsgs.emailInvalid;
-          }
-          if (widget.isRegisterScreen && _showError && _isEmailTaken) {
-            return CErrorMsgs.emailTaken;
-          }
-          return null;
-        },
+        validator: validator,
       ),
     );
   }
