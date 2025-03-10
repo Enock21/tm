@@ -46,7 +46,7 @@ class _CITUsernameState extends State<CITUsername> {
             return CErrorMsgs.usernameEmpty;
           }
           if (value != null) {
-            if (value.length < 3 || value.length > 20) {
+            if (value.length < 3 && value.isNotEmpty || value.length > 20) {
               return CErrorMsgs.usernameLength;
             }
             if (!_isValidUsernameFormat(value)) {
