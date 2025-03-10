@@ -18,10 +18,7 @@ class CITEmail extends StatefulWidget {
 
   /// Validação ao perder o foco
   FormFieldValidator<String> get focusValidator => (value) {
-        if (value == null || value.isEmpty) {
-          return null; // Não valida campo vazio ao perder o foco
-        }
-        if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
+        if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value!)) {
           return CErrorMsgs.emailInvalid;
         }
         if (isRegisterScreen && value == registeredEmail) {
