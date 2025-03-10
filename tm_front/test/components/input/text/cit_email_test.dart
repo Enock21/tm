@@ -7,7 +7,7 @@ void main() {
   group('CITEmail - Validações', () {
     test('Erro quando o campo de e-mail está vazio', () {
       final emailField = CITEmail(controller: TextEditingController());
-      final validator = emailField.validator;
+      final validator = emailField.submitValidator;
 
       expect(validator(null), CErrorMsgs.emailEmpty);
       expect(validator(''), CErrorMsgs.emailEmpty);
@@ -15,7 +15,7 @@ void main() {
 
     test('Erro de formato de e-mail inválido', () {
       final emailField = CITEmail(controller: TextEditingController());
-      final validator = emailField.validator;
+      final validator = emailField.submitValidator;
 
       expect(validator('email_invalido'), CErrorMsgs.emailInvalid);
     });
@@ -23,14 +23,14 @@ void main() {
     test('Erro de email já cadastrado na tela de cadastro', () {
       final emailField =
           CITEmail(controller: TextEditingController(), isRegisterScreen: true);
-      final validator = emailField.validator;
+      final validator = emailField.submitValidator;
 
       expect(validator(CITEmail.registeredEmail), CErrorMsgs.emailTaken);
     });
 
     test('Não exibe erro para e-mail válido', () {
       final emailField = CITEmail(controller: TextEditingController());
-      final validator = emailField.validator;
+      final validator = emailField.submitValidator;
 
       expect(validator('email@valido.com'), null);
     });

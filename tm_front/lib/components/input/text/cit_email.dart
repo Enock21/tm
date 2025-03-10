@@ -16,8 +16,22 @@ class CITEmail extends StatefulWidget {
     this.isRegisterScreen = false,
   });
 
-  /// Getter para validação do e-mail
-  FormFieldValidator<String> get validator => (value) {
+  /// Validação ao perder o foco
+  FormFieldValidator<String> get focusValidator => (value) {
+        if (value == null || value.isEmpty) {
+          return null; // Não valida campo vazio ao perder o foco
+        }
+        if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
+          return CErrorMsgs.emailInvalid;
+        }
+        if (isRegisterScreen && value == registeredEmail) {
+          return CErrorMsgs.emailTaken;
+        }
+        return null;
+      };
+
+  /// Validação ao enviar o formulário
+  FormFieldValidator<String> get submitValidator => (value) {
         if (value == null || value.isEmpty) {
           return CErrorMsgs.emailEmpty;
         }
@@ -60,7 +74,7 @@ class _CITEmailState extends State<CITEmail> {
           //_emailChecked = false;
           _checkEmailAvailability(value);
         },
-        validator: widget.validator, // Usa a validação incorporada ao widget
+        validator: widget.focusValidator, // Usa a validação ao perder o foco
       ),
     );
   }
