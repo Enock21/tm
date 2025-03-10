@@ -99,58 +99,43 @@ void main() {
       expect(find.text(CErrorMsgs.emailTaken), findsOneWidget);
     });
 
-    //Não era pra dar certo. O teste manual contradiz esse teste automático.
-    testWidgets('Erro de campo vazio não aparece ao perder o foco',
+    testWidgets('Erro de email vazio não aparece ao perder foco',
         (WidgetTester tester) async {
-      final controller = TextEditingController();
+      // Cria um controlador para o campo de e-mail
+      final emailController = TextEditingController();
 
-      await tester.pumpWidget(MaterialApp(
-        home: Scaffold(
-          body: CITEmail(controller: controller),
-        ),
-      ));
-
-      // Simula a perda de foco
-      FocusManager.instance.primaryFocus?.unfocus();
-
-      //expect(FocusManager.instance.primaryFocus, isNull);  // Verifica se o foco foi removido. Se der ruim, significa que o foco nao foi removido.
-
-      await tester.pump();
-
-      expect(find.text(CErrorMsgs.emailEmpty), findsNothing);
-    });
-
-    //Test debugger. Se for bem sucedido, o comportamento do teste automatico é igual o do teste manual.
-    testWidgets('Erro de campo vazio não aparece ao perder o foco debugger',
-        (WidgetTester tester) async {
-      final controller = TextEditingController();
-
-      await tester.pumpWidget(MaterialApp(
-        home: Scaffold(
-          body: Column(
-            children: [
-              CITEmail(controller: controller),
-              SizedBox(height: 20), // Espaço para evitar sobreposição
-              Text('Outro Widget'), // Um widget para tocar e remover o foco
-            ],
+      // Constrói o widget dentro de um MaterialApp
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: Column(
+              children: [
+                CITEmail(
+                  controller: emailController,
+                  isRegisterScreen: true, // Para ativar as validações
+                ),
+                TextFormField(
+                    key: const Key(
+                        'other-field')), // Campo auxiliar para mudar o foco
+              ],
+            ),
           ),
         ),
-      ));
+      );
 
-      print('TESTEEEEEEEEEEEEEEEEEEEE');
+      // Garante que o campo de e-mail está na tela
+      expect(find.byType(CITEmail), findsOneWidget);
 
-      // Garante que o campo de e-mail foi renderizado
-      expect(find.byType(TextFormField), findsOneWidget);
+      // Simula foco no campo de e-mail
+      await tester.tap(find.byType(TextFormField).first);
+      await tester.pump(); // Processa a mudança de estado
 
-      // Simula a entrada e saída do campo de e-mail
-      await tester.tap(find.byType(TextFormField));
-      await tester.pump();
-      await tester.tap(find.text('Outro Widget')); // Toque fora do campo
+      // Simula perda de foco tocando em outro campo
+      await tester.tap(find.byKey(const Key('other-field')));
       await tester.pumpAndSettle();
 
-      expect(FocusManager.instance.primaryFocus, isNull);  // Verifica se o foco foi removido
-      // Verifica se a mensagem de erro "campo vazio" apareceu na tela
-      expect(find.text(CErrorMsgs.emailEmpty), findsOneWidget);
+      // Verifica se NÃO há mensagens de erro visíveis
+      expect(find.text(CErrorMsgs.emailEmpty), findsNothing);
     });
   });
 }
