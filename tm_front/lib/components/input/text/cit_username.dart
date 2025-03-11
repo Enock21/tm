@@ -24,7 +24,8 @@ class _CITUsernameState extends State<CITUsername> {
   }
 
   bool _isValidUsernameFormat(String username) {
-    final regex = RegExp(r'^(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]{3,20}(?<![_.])$');
+    final regex =
+        RegExp(r'^(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]{3,20}(?<![_.])$');
     return regex.hasMatch(username);
   }
 
@@ -33,7 +34,7 @@ class _CITUsernameState extends State<CITUsername> {
     return Focus(
       onFocusChange: (hasFocus) {
         if (!hasFocus) {
-            _checkUsernameAvailability(widget.controller?.text ?? "");
+          _checkUsernameAvailability(widget.controller?.text ?? "");
         }
       },
       child: CITGeneric(
@@ -44,19 +45,18 @@ class _CITUsernameState extends State<CITUsername> {
         validator: (value) {
           if (widget.formSubmitted && (value == null || value.isEmpty)) {
             return CErrorMsgs.usernameEmpty;
-          }
-          if (value != null) {
-            if (value.length < 3 && value.isNotEmpty || value.length > 20) {
+          } else { //Por que a verificação de isEmpty acima é ignorada no teste manual????
+            if (value!.length < 3 || value.length > 20) {
               return CErrorMsgs.usernameLength;
             }
             if (!_isValidUsernameFormat(value)) {
               return CErrorMsgs.usernameInvalid;
             }
+            if (_showError && _isUsernameTaken) {
+              return CErrorMsgs.usernameTaken;
+            }
+            return null;
           }
-          if (_showError && _isUsernameTaken) {
-            return CErrorMsgs.usernameTaken;
-          }
-          return null;
         },
       ),
     );
