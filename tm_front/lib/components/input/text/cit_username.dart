@@ -45,8 +45,8 @@ class _CITUsernameState extends State<CITUsername> {
         validator: (value) {
           if (widget.formSubmitted && (value == null || value.isEmpty)) {
             return CErrorMsgs.usernameEmpty;
-          } else { //Por que a verificação de isEmpty acima é ignorada no teste manual????
-            if (value!.length < 3 || value.length > 20) {
+          } else if (value != null && value.isNotEmpty) {
+            if (value.length < 3 || value.length > 20) {
               return CErrorMsgs.usernameLength;
             }
             if (!_isValidUsernameFormat(value)) {
@@ -55,8 +55,9 @@ class _CITUsernameState extends State<CITUsername> {
             if (_showError && _isUsernameTaken) {
               return CErrorMsgs.usernameTaken;
             }
-            return null;
           }
+          return null;
+          //Obs: pode meter um feedback positivo pro user.
         },
       ),
     );

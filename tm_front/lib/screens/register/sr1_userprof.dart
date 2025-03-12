@@ -149,6 +149,7 @@ class _SR1UserProfState extends State<SR1UserProf> {
                 TMButton.positive(
                   text: 'Próximo',
                   onPressed: () async {
+                    _formSubmitted = true;
                     if (formKey.currentState!.validate()) {
                       print("Todos os campos estão preenchidos corretamente!");
                       // 🔹 FUTURAMENTE: Aqui será chamada a função do Firebase
