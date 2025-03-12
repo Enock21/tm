@@ -96,40 +96,46 @@ void main() {
       expect(find.text(CErrorMsgs.usernameEmpty), findsNothing);
     });
 
-    // testWidgets(
-    //     'Mostrar erro de tamanho ao perder o foco e ao enviar form (username muito curto)',
-    //     (WidgetTester tester) async {
-    //   final controller = TextEditingController();
-    //   // Utilizamos formSubmitted true para simular o comportamento na tela de cadastro
-    //   await tester.pumpWidget(
-    //     MaterialApp(
-    //       home: Scaffold(
-    //         body: Column(
-    //           children: [
-    //             CITUsername(controller: controller, formSubmitted: true),
-    //             TextFormField(key: const Key('other-field')),
-    //           ],
-    //         ),
-    //       ),
-    //     ),
-    //   );
+    testWidgets(
+        'TST5: Mostrar erro de tamanho ao perder o foco e ao enviar form (username muito curto)',
+        (WidgetTester tester) async {
+      final controller = TextEditingController();
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: Column(
+              children: [
+                CITUsername(controller: controller, formSubmitted: true),
+                TextFormField(key: const Key('other-field')),
+              ],
+            ),
+          ),
+        ),
+      );
 
-    //   // Digita um username com tamanho inválido (menos de 3 caracteres)
-    //   await tester.enterText(find.byType(TextFormField).first, 'ab');
+      // Digita um username com tamanho inválido (menos de 3 caracteres)
+      await tester.enterText(find.byType(TextFormField).first, 'ab');
 
-    //   // Simula perda de foco
-    //   await tester.tap(find.byKey(const Key('other-field')));
-    //   await tester.pumpAndSettle();
+      // Simula perda de foco
+      await tester.tap(find.byKey(const Key('other-field')));
+      await tester.pumpAndSettle();
 
-    //   expect(find.text(CErrorMsgs.usernameLength), findsOneWidget);
+      expect(find.text(CErrorMsgs.usernameLength), findsOneWidget);
 
-    //   // Agora simula o envio do form (submissão)
-    //   await tester.enterText(find.byType(TextFormField).first, 'ab');
-    //   await tester.testTextInput.receiveAction(TextInputAction.done);
-    //   await tester.pump();
+      // Agora simula o envio do form (submissão)
+      await tester.enterText(find.byType(TextFormField).first, 'ab');
+      await tester.testTextInput.receiveAction(TextInputAction.done);
+      await tester.pump();
 
-    //   expect(find.text(CErrorMsgs.usernameLength), findsOneWidget);
-    // });
+      expect(find.text(CErrorMsgs.usernameLength), findsOneWidget);
+
+      // Teste do teste. Verifica se o status do componente está realmente resetando como esperado. Isto é, verifica que as mensagens de erro emitidas anteriormente somem quando um valor correto é adicionado.
+      await tester.enterText(find.byType(TextFormField).first, 'abc');
+      await tester.testTextInput.receiveAction(TextInputAction.done);
+      await tester.pump();
+
+      expect(find.text(CErrorMsgs.usernameLength), findsNothing);
+    });
 
     // testWidgets('Não mostrar erro de tamanho indevidamente para username válido',
     //     (WidgetTester tester) async {
