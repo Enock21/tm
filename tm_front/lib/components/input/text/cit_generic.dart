@@ -35,9 +35,7 @@ class _CITGenericState extends State<CITGeneric> {
     return Focus(
       onFocusChange: (hasFocus) {
         if (!hasFocus && widget.validateOnFocusLost) {
-          print('Validando campo ao perder o foco...'); // Debug
-          final isValid = _fieldKey.currentState?.validate();
-          print('Campo válido? $isValid'); // Debug para ver se a validação ocorreu
+          _fieldKey.currentState?.validate();
         }
       },
 

@@ -5,14 +5,16 @@ import 'package:tm_front/components/c_error_msgs.dart';
 
 void main() {
   group('CITUsername - Validações', () {
-    testWidgets(
-        'TST1: Mostrar erro de username vazio ao enviar form',
+    testWidgets('TST1: Mostrar erro de username vazio ao enviar form',
         (WidgetTester tester) async {
       final controller = TextEditingController();
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
-            body: CITUsername(controller: controller, formSubmitted: true), // Assumindo que o widget que usa cit_username faz sua invocação com esses mesmos valores
+            body: CITUsername(
+                controller: controller,
+                formSubmitted:
+                    true), // Assumindo que o widget que usa cit_username faz sua invocação com esses mesmos valores
           ),
         ),
       );
@@ -24,14 +26,16 @@ void main() {
       expect(find.text(CErrorMsgs.usernameEmpty), findsOneWidget);
     });
 
-    testWidgets(
-        'TST2: Não mostrar erro de username vazio sem enviar o form',
+    testWidgets('TST2: Não mostrar erro de username vazio sem enviar o form',
         (WidgetTester tester) async {
       final controller = TextEditingController();
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
-            body: CITUsername(controller: controller, formSubmitted: false), // Simulando que o form ainda não foi submetido.
+            body: CITUsername(
+                controller: controller,
+                formSubmitted:
+                    false), // Simulando que o form ainda não foi submetido.
           ),
         ),
       );
@@ -43,8 +47,7 @@ void main() {
       expect(find.text(CErrorMsgs.usernameEmpty), findsNothing);
     });
 
-    testWidgets(
-        'TST3: Não mostrar erro de username vazio com campo preenchido',
+    testWidgets('TST3: Não mostrar erro de username vazio com campo preenchido',
         (WidgetTester tester) async {
       final controller = TextEditingController();
       await tester.pumpWidget(
@@ -62,56 +65,36 @@ void main() {
       expect(find.text(CErrorMsgs.usernameEmpty), findsNothing);
     });
 
-    // //Realmente necessário?
-    // testWidgets(
-    //     'Não mostrar erro de username vazio indevidamente (sem submeter)',
-    //     (WidgetTester tester) async {
-    //   final controller = TextEditingController();
-    //   // Aqui simulamos uma tela que não está em modo de cadastro (formSubmitted false)
-    //   await tester.pumpWidget(
-    //     MaterialApp(
-    //       home: Scaffold(
-    //         body: CITUsername(controller: controller, formSubmitted: false),
-    //       ),
-    //     ),
-    //   );
+    testWidgets(
+        'TST4: Não mostrar erro de username vazio ao perder o foco no text field',
+        (WidgetTester tester) async {
+      final controller = TextEditingController();
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: Column(
+              children: [
+                CITUsername(
+                    controller: controller,
+                    formSubmitted: false), //Simulando uma invocação do CITUsername sem submissão de seu form.
+                TextFormField(key: const Key('other-field')),
+              ],
+            ),
+          ),
+        ),
+      );
 
-    //   await tester.enterText(find.byType(TextFormField), '');
-    //   await tester.testTextInput.receiveAction(TextInputAction.done);
-    //   await tester.pump();
+      // Garante que o widget CITUsername está na tela
+      expect(find.byType(CITUsername), findsOneWidget);
 
-    //   expect(find.text(CErrorMsgs.usernameEmpty), findsNothing);
-    // });
+      // Foca no text field e depois muda o foco para outro campo
+      await tester.tap(find.byType(TextFormField).first);
+      await tester.pump();
+      await tester.tap(find.byKey(const Key('other-field')));
+      await tester.pumpAndSettle();
 
-    // testWidgets(
-    //     'Não mostrar erro de username vazio ao perder o foco no text field',
-    //     (WidgetTester tester) async {
-    //   final controller = TextEditingController();
-    //   // Utilizando formSubmitted false para que o erro vazio não seja exibido ao perder o foco
-    //   await tester.pumpWidget(
-    //     MaterialApp(
-    //       home: Scaffold(
-    //         body: Column(
-    //           children: [
-    //             CITUsername(controller: controller, formSubmitted: false),
-    //             TextFormField(key: const Key('other-field')),
-    //           ],
-    //         ),
-    //       ),
-    //     ),
-    //   );
-
-    //   // Garante que o widget CITUsername está na tela
-    //   expect(find.byType(CITUsername), findsOneWidget);
-
-    //   // Foca no text field e depois muda o foco para outro campo
-    //   await tester.tap(find.byType(TextFormField).first);
-    //   await tester.pump();
-    //   await tester.tap(find.byKey(const Key('other-field')));
-    //   await tester.pumpAndSettle();
-
-    //   expect(find.text(CErrorMsgs.usernameEmpty), findsNothing);
-    // });
+      expect(find.text(CErrorMsgs.usernameEmpty), findsNothing);
+    });
 
     // testWidgets(
     //     'Mostrar erro de tamanho ao perder o foco e ao enviar form (username muito curto)',
@@ -187,7 +170,7 @@ void main() {
 
     //   // Digita um username com formato inválido (ex: contém "!" que não é permitido)
     //   await tester.enterText(find.byType(TextFormField).first, 'abc!');
-      
+
     //   // Simula perda de foco
     //   await tester.tap(find.byKey(const Key('other-field')));
     //   await tester.pumpAndSettle();
@@ -217,7 +200,7 @@ void main() {
 
     //   // Digita um username com formato válido (exemplo: pode conter ponto e underscore de forma válida)
     //   await tester.enterText(find.byType(TextFormField), 'usuario.valido');
-      
+
     //   // Simula perda de foco
     //   FocusManager.instance.primaryFocus?.unfocus();
     //   await tester.pump();
