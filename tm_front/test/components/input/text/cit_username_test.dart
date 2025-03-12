@@ -137,24 +137,23 @@ void main() {
       expect(find.text(CErrorMsgs.usernameLength), findsNothing);
     });
 
-    // testWidgets('Não mostrar erro de tamanho indevidamente para username válido',
-    //     (WidgetTester tester) async {
-    //   final controller = TextEditingController();
-    //   // Mesmo em tela de cadastro (formSubmitted true), se o username tiver tamanho válido não deve exibir erro
-    //   await tester.pumpWidget(
-    //     MaterialApp(
-    //       home: Scaffold(
-    //         body: CITUsername(controller: controller, formSubmitted: true),
-    //       ),
-    //     ),
-    //   );
+    testWidgets('TST6: Não mostrar erro de tamanho indevidamente para username válido',
+        (WidgetTester tester) async {
+      final controller = TextEditingController();
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: CITUsername(controller: controller, formSubmitted: true),
+          ),
+        ),
+      );
 
-    //   await tester.enterText(find.byType(TextFormField), 'abc');
-    //   await tester.testTextInput.receiveAction(TextInputAction.done);
-    //   await tester.pump();
+      await tester.enterText(find.byType(TextFormField), 'abc');
+      await tester.testTextInput.receiveAction(TextInputAction.done);
+      await tester.pump();
 
-    //   expect(find.text(CErrorMsgs.usernameLength), findsNothing);
-    // });
+      expect(find.text(CErrorMsgs.usernameLength), findsNothing);
+    });
 
     // testWidgets(
     //     'Mostrar erro de formato ao perder o foco e ao enviar form (username com caracteres inválidos)',
