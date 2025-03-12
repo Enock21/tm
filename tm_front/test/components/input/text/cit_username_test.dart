@@ -7,14 +7,14 @@ void main() {
   group('CITUsername - Validações', () {
     //Não mostra o erro no teste manual
     testWidgets(
-        'Mostrar erro de username vazio ao enviar form (apenas ao submeter)',
+        'Mostrar erro de username vazio ao enviar form',
         (WidgetTester tester) async {
       final controller = TextEditingController();
       // Aqui simulamos a tela de cadastro (formSubmitted true)
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
-            body: CITUsername(controller: controller, formSubmitted: true),
+            body: CITUsername(controller: controller, formSubmitted: true), // Assumindo que o widget que usa cit_username faz a invocação com esses mesmos valores
           ),
         ),
       );
@@ -25,6 +25,27 @@ void main() {
       await tester.pump();
 
       expect(find.text(CErrorMsgs.usernameEmpty), findsOneWidget);
+    });
+
+    testWidgets(
+        'Não mostrar erro de username vazio sem enviar o form',
+        (WidgetTester tester) async {
+      final controller = TextEditingController();
+      // Aqui simulamos a tela de cadastro (formSubmitted true)
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: CITUsername(controller: controller, formSubmitted: false), // Simulando que o form ainda não foi submetido.
+          ),
+        ),
+      );
+
+      // Campo vazio e submete (simulando "enter")
+      await tester.enterText(find.byType(TextFormField), '');
+      await tester.testTextInput.receiveAction(TextInputAction.done);
+      await tester.pump();
+
+      expect(find.text(CErrorMsgs.usernameEmpty), findsNothing);
     });
 
     // //Realmente necessário?
