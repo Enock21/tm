@@ -155,40 +155,39 @@ void main() {
       expect(find.text(CErrorMsgs.usernameLength), findsNothing);
     });
 
-    // testWidgets(
-    //     'Mostrar erro de formato ao perder o foco e ao enviar form (username com caracteres inválidos)',
-    //     (WidgetTester tester) async {
-    //   final controller = TextEditingController();
-    //   // Utiliza formSubmitted true para simular a tela de cadastro
-    //   await tester.pumpWidget(
-    //     MaterialApp(
-    //       home: Scaffold(
-    //         body: Column(
-    //           children: [
-    //             CITUsername(controller: controller, formSubmitted: true),
-    //             TextFormField(key: const Key('other-field')),
-    //           ],
-    //         ),
-    //       ),
-    //     ),
-    //   );
+    testWidgets(
+        'TST7: Mostrar erro de formato ao perder o foco e ao enviar form (username com caracteres inválidos)',
+        (WidgetTester tester) async {
+      final controller = TextEditingController();
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: Column(
+              children: [
+                CITUsername(controller: controller, formSubmitted: true),
+                TextFormField(key: const Key('other-field')),
+              ],
+            ),
+          ),
+        ),
+      );
 
-    //   // Digita um username com formato inválido (ex: contém "!" que não é permitido)
-    //   await tester.enterText(find.byType(TextFormField).first, 'abc!');
+      // Digita um username com formato inválido (ex: contém "!" que não é permitido)
+      await tester.enterText(find.byType(TextFormField).first, 'abc!');
 
-    //   // Simula perda de foco
-    //   await tester.tap(find.byKey(const Key('other-field')));
-    //   await tester.pumpAndSettle();
+      // Simula perda de foco
+      await tester.tap(find.byKey(const Key('other-field')));
+      await tester.pumpAndSettle();
 
-    //   expect(find.text(CErrorMsgs.usernameInvalid), findsOneWidget);
+      expect(find.text(CErrorMsgs.usernameInvalid), findsOneWidget);
 
-    //   // Agora simula o envio do form (submissão)
-    //   await tester.enterText(find.byType(TextFormField).first, 'abc!');
-    //   await tester.testTextInput.receiveAction(TextInputAction.done);
-    //   await tester.pump();
+      // Agora simula o envio do form (submissão)
+      await tester.enterText(find.byType(TextFormField).first, 'abc!');
+      await tester.testTextInput.receiveAction(TextInputAction.done);
+      await tester.pump();
 
-    //   expect(find.text(CErrorMsgs.usernameInvalid), findsOneWidget);
-    // });
+      expect(find.text(CErrorMsgs.usernameInvalid), findsOneWidget);
+    });
 
     // testWidgets(
     //     'Não mostrar erro de formato indevidamente para username com formato válido',
