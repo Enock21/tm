@@ -6,6 +6,8 @@ class CITUsername extends StatefulWidget {
   final TextEditingController? controller;
   final bool formSubmitted;
 
+  static String registeredUsername = "UsuarioExistente"; // Para simulação
+
   const CITUsername({super.key, this.controller, required this.formSubmitted});
 
   @override
@@ -18,7 +20,7 @@ class _CITUsernameState extends State<CITUsername> {
 
   void _checkUsernameAvailability(String username) {
     setState(() {
-      _isUsernameTaken = username == "UsuarioExistente"; // Simulação
+      _isUsernameTaken = username == CITUsername.registeredUsername; // Simulação
       _showError = true;
     });
   }

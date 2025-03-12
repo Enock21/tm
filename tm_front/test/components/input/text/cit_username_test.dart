@@ -189,70 +189,69 @@ void main() {
       expect(find.text(CErrorMsgs.usernameInvalid), findsOneWidget);
     });
 
-    // testWidgets(
-    //     'Não mostrar erro de formato indevidamente para username com formato válido',
-    //     (WidgetTester tester) async {
-    //   final controller = TextEditingController();
-    //   // Mesmo na tela de cadastro, se o formato estiver correto não deve haver erro
-    //   await tester.pumpWidget(
-    //     MaterialApp(
-    //       home: Scaffold(
-    //         body: CITUsername(controller: controller, formSubmitted: true),
-    //       ),
-    //     ),
-    //   );
+    testWidgets(
+        'TST8: Não mostrar erro de formato indevidamente para username com formato válido',
+        (WidgetTester tester) async {
+      final controller = TextEditingController();
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: CITUsername(controller: controller, formSubmitted: true),
+          ),
+        ),
+      );
 
-    //   // Digita um username com formato válido (exemplo: pode conter ponto e underscore de forma válida)
-    //   await tester.enterText(find.byType(TextFormField), 'usuario.valido');
+      // Digita um username com formato válido (exemplo: pode conter ponto e underscore de forma válida)
+      await tester.enterText(find.byType(TextFormField), 'usuario.valido');
 
-    //   // Simula perda de foco
-    //   FocusManager.instance.primaryFocus?.unfocus();
-    //   await tester.pump();
+      // Simula perda de foco
+      FocusManager.instance.primaryFocus?.unfocus();
+      await tester.pump();
 
-    //   expect(find.text(CErrorMsgs.usernameInvalid), findsNothing);
+      expect(find.text(CErrorMsgs.usernameInvalid), findsNothing);
 
-    //   // Simula envio do form
-    //   await tester.testTextInput.receiveAction(TextInputAction.done);
-    //   await tester.pump();
+      // Simula envio do form
+      await tester.testTextInput.receiveAction(TextInputAction.done);
+      await tester.pump();
 
-    //   expect(find.text(CErrorMsgs.usernameInvalid), findsNothing);
-    // });
+      expect(find.text(CErrorMsgs.usernameInvalid), findsNothing);
+    });
 
-    // testWidgets(
-    //     'Mostrar erro de username repetido ao perder o foco e ao enviar form (tela de cadastro)',
-    //     (WidgetTester tester) async {
-    //   final controller = TextEditingController();
-    //   // Para simular a tela de cadastro, usamos formSubmitted true.
-    //   await tester.pumpWidget(
-    //     MaterialApp(
-    //       home: Scaffold(
-    //         body: Column(
-    //           children: [
-    //             CITUsername(controller: controller, formSubmitted: true),
-    //             TextFormField(key: const Key('other-field')),
-    //           ],
-    //         ),
-    //       ),
-    //     ),
-    //   );
+    testWidgets(
+        'TST9: Mostrar erro de username repetido ao perder o foco e ao enviar form (tela de cadastro)',
+        (WidgetTester tester) async {
+      final controller = TextEditingController();
+      // Para simular a tela de cadastro, usamos formSubmitted true.
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: Column(
+              children: [
+                CITUsername(controller: controller, formSubmitted: true),
+                TextFormField(key: const Key('other-field')),
+              ],
+            ),
+          ),
+        ),
+      );
 
-    //   // Digita o username que já existe
-    //   await tester.enterText(
-    //       find.byType(TextFormField).first, 'UsuarioExistente');
+      // Digita o username que já existe
+      await tester.enterText(
+          find.byType(TextFormField).first, CITUsername.registeredUsername);
 
-    //   // Simula perda de foco
-    //   await tester.tap(find.byKey(const Key('other-field')));
-    //   await tester.pumpAndSettle();
+      // Simula perda de foco
+      await tester.tap(find.byKey(const Key('other-field')));
+      await tester.pumpAndSettle();
 
-    //   expect(find.text(CErrorMsgs.usernameTaken), findsOneWidget);
+      expect(find.text(CErrorMsgs.usernameTaken), findsOneWidget);
 
-    //   // Agora simula o envio do form (submissão)
-    //   await tester.enterText(
-    //       find.byType(TextFormField).first, 'UsuarioExistente');
-    //   await tester.testTextInput.receiveAction(TextInputAction.done);
-    //   await tester.pump();
+      // Agora simula o envio do form (submissão)
+      await tester.enterText(
+          find.byType(TextFormField).first, CITUsername.registeredUsername);
+      await tester.testTextInput.receiveAction(TextInputAction.done);
+      await tester.pump();
 
-    //   expect(find.text(CErrorMsgs.usernameTaken), findsOneWidget);
-    // });
+      expect(find.text(CErrorMsgs.usernameTaken), findsOneWidget);
+    });
   });
 }
