@@ -6,7 +6,7 @@ import 'package:tm_front/components/c_error_msgs.dart';
 void main() {
   group('CITUsername - Validações', () {
     testWidgets(
-        'Mostrar erro de username vazio ao enviar form',
+        'TST1: Mostrar erro de username vazio ao enviar form',
         (WidgetTester tester) async {
       final controller = TextEditingController();
       await tester.pumpWidget(
@@ -25,7 +25,7 @@ void main() {
     });
 
     testWidgets(
-        'Não mostrar erro de username vazio sem enviar o form',
+        'TST2: Não mostrar erro de username vazio sem enviar o form',
         (WidgetTester tester) async {
       final controller = TextEditingController();
       await tester.pumpWidget(
@@ -37,6 +37,25 @@ void main() {
       );
 
       await tester.enterText(find.byType(TextFormField), '');
+      await tester.testTextInput.receiveAction(TextInputAction.done);
+      await tester.pump();
+
+      expect(find.text(CErrorMsgs.usernameEmpty), findsNothing);
+    });
+
+    testWidgets(
+        'TST3: Não mostrar erro de username vazio com campo preenchido',
+        (WidgetTester tester) async {
+      final controller = TextEditingController();
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: CITUsername(controller: controller, formSubmitted: true),
+          ),
+        ),
+      );
+
+      await tester.enterText(find.byType(TextFormField), 'a');
       await tester.testTextInput.receiveAction(TextInputAction.done);
       await tester.pump();
 
