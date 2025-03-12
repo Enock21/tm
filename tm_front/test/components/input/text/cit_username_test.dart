@@ -5,21 +5,18 @@ import 'package:tm_front/components/c_error_msgs.dart';
 
 void main() {
   group('CITUsername - Validações', () {
-    //Não mostra o erro no teste manual
     testWidgets(
         'Mostrar erro de username vazio ao enviar form',
         (WidgetTester tester) async {
       final controller = TextEditingController();
-      // Aqui simulamos a tela de cadastro (formSubmitted true)
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
-            body: CITUsername(controller: controller, formSubmitted: true), // Assumindo que o widget que usa cit_username faz a invocação com esses mesmos valores
+            body: CITUsername(controller: controller, formSubmitted: true), // Assumindo que o widget que usa cit_username faz sua invocação com esses mesmos valores
           ),
         ),
       );
 
-      // Campo vazio e submete (simulando "enter")
       await tester.enterText(find.byType(TextFormField), '');
       await tester.testTextInput.receiveAction(TextInputAction.done);
       await tester.pump();
@@ -31,7 +28,6 @@ void main() {
         'Não mostrar erro de username vazio sem enviar o form',
         (WidgetTester tester) async {
       final controller = TextEditingController();
-      // Aqui simulamos a tela de cadastro (formSubmitted true)
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
@@ -40,7 +36,6 @@ void main() {
         ),
       );
 
-      // Campo vazio e submete (simulando "enter")
       await tester.enterText(find.byType(TextFormField), '');
       await tester.testTextInput.receiveAction(TextInputAction.done);
       await tester.pump();
