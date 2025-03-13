@@ -45,7 +45,6 @@ class _CITUsernameState extends State<CITUsername> {
         validateOnFocusLost: true,
         onChanged: (value) => _checkUsernameAvailability(value),
         validator: (value) {
-          //Obs: teste automatico nao identificou o comportamento estranho que tava dando antes aqui. Ver isso
           if (widget.formSubmitted && (value == null || value.isEmpty)) {
             return CErrorMsgs.usernameEmpty;
           } else if (value != null && value.isNotEmpty) {

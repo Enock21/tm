@@ -86,6 +86,7 @@ class SLoginState extends State<SLogin> {
                             controller: emailController,
                             prefixIcon: Icon(Icons.email,
                                 color: AppColors.nonInteractiveGreen),
+                            formSubmitted: false,
                           ),
                           const SizedBox(height: 16),
                           CITPassword(

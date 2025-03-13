@@ -65,6 +65,7 @@ class _SPRMainState extends State<SPRMain> {
                         children: [
                           CITEmail(
                             controller: emailController,
+                            formSubmitted: false,
                           ),
                           if (emailNotFound) // Exibe erro se o e-mail não estiver cadastrado
                             Padding(

@@ -86,7 +86,7 @@ class _SR1UserProfState extends State<SR1UserProf> {
                         child: Text('E-mail', style: AppTexts.headlineSmall),
                       ),
                       const SizedBox(height: 10),
-                      CITEmail(controller: emailController, isRegisterScreen: true),
+                      CITEmail(controller: emailController, isRegisterScreen: true, formSubmitted: _formSubmitted),
 
                       const SizedBox(height: 25),
                       Align(
