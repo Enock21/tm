@@ -21,8 +21,11 @@ class SLoginState extends State<SLogin> {
   final passwordController = TextEditingController();
   String? _loginError; // 🔹 Estado para armazenar erro de login
 
+  bool _formSubmitted = false;
+
   void _attemptLogin() {
     if (formKey.currentState!.validate()) {
+
       // Simulação de credenciais válidas
       const validEmail = "user@email.com";
       const validPassword = "123456";
@@ -99,7 +102,8 @@ class SLoginState extends State<SLogin> {
                           // 🔹 Exibe a mensagem de erro aqui
                           if (_loginError != null)
                             Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 8.0),
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 8.0),
                               child: Text(
                                 _loginError!,
                                 style: TextStyle(
@@ -130,9 +134,12 @@ class SLoginState extends State<SLogin> {
                                 child: SizedBox(
                                   height: 50,
                                   child: TMButton.positive(
-                                    text: 'Entrar',
-                                    onPressed: _attemptLogin, // 🔹 Chama função de login
-                                  ),
+                                      text: 'Entrar',
+                                      onPressed: () async {
+                                        _formSubmitted = true;
+                                        _attemptLogin;
+                                      } // 🔹 Chama função de login
+                                      ),
                                 ),
                               ),
                               const SizedBox(width: 8),
