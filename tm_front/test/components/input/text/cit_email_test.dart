@@ -1,144 +1,189 @@
-import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:tm_front/components/input/text/cit_email.dart';
 import 'package:tm_front/components/c_error_msgs.dart';
 
 void main() {
   group('CITEmail - Validações', () {
-    
+    testWidgets(
+        'TST1: Erro de formato de email inválido é ativado ao perder o foco',
+        (WidgetTester tester) async {
+      final controller = TextEditingController();
+      // formSubmitted false para não acionar o erro de email vazio ao perder o foco
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: Column(
+              children: [
+                CITEmail(
+                  controller: controller,
+                  formSubmitted: false,
+                ),
+                // Campo auxiliar para forçar a perda de foco
+                TextFormField(key: const Key('dummy')),
+              ],
+            ),
+          ),
+        ),
+      );
 
+      // Digita um email com formato inválido
+      await tester.enterText(
+          find.byType(TextFormField).first, 'email_invalido');
 
-    // test('Erro quando o campo de e-mail está vazio', () {
-    //   final emailField = CITEmail(controller: TextEditingController());
-    //   final validator = emailField.submitValidator;
+      // Simula perda de foco ao tocar no campo auxiliar
+      await tester.tap(find.byKey(const Key('dummy')));
+      await tester.pumpAndSettle();
 
-    //   expect(validator(null), CErrorMsgs.emailEmpty);
-    //   expect(validator(''), CErrorMsgs.emailEmpty);
-    // });
+      // Verifica se o erro de formato é exibido
+      expect(find.text(CErrorMsgs.emailInvalid), findsOneWidget);
+    });
 
-    // test('Erro de formato de e-mail inválido', () {
-    //   final emailField = CITEmail(controller: TextEditingController());
-    //   final validator = emailField.submitValidator;
+    testWidgets(
+        'TST2: Erro de formato de email inválido é ativado ao enviar form',
+        (WidgetTester tester) async {
+      final controller = TextEditingController();
+      // formSubmitted true para simular tentativa de envio do formulário
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: CITEmail(
+              controller: controller,
+              formSubmitted: true,
+            ),
+          ),
+        ),
+      );
 
-    //   expect(validator('email_invalido'), CErrorMsgs.emailInvalid);
-    // });
+      // Digita um email com formato inválido
+      await tester.enterText(
+          find.byType(TextFormField), 'email_invalido');
 
-    // test('Erro de email já cadastrado na tela de cadastro', () {
-    //   final emailField =
-    //       CITEmail(controller: TextEditingController(), isRegisterScreen: true);
-    //   final validator = emailField.submitValidator;
+      // Simula a ação de envio do formulário
+      await tester.testTextInput.receiveAction(TextInputAction.done);
+      await tester.pumpAndSettle();
 
-    //   expect(validator(CITEmail.registeredEmail), CErrorMsgs.emailTaken);
-    // });
+      // Verifica se o erro de formato é exibido
+      expect(find.text(CErrorMsgs.emailInvalid), findsOneWidget);
+    });
 
-    // test('Não exibe erro para e-mail válido', () {
-    //   final emailField = CITEmail(controller: TextEditingController());
-    //   final validator = emailField.submitValidator;
+    testWidgets(
+        'TST3: Erro de email já cadastrado na tela de cadastro ocorre ao perder o foco',
+        (WidgetTester tester) async {
+      final controller = TextEditingController();
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: Column(
+              children: [
+                CITEmail(
+                  controller: controller,
+                  formSubmitted: true,
+                  isRegisterScreen: true,
+                ),
+                // Campo auxiliar para forçar a perda de foco
+                TextFormField(key: const Key('dummy')),
+              ],
+            ),
+          ),
+        ),
+      );
 
-    //   expect(validator('email@valido.com'), null);
-    // });
+      // Digita o email já cadastrado
+      await tester.enterText(
+          find.byType(TextFormField).first, CITEmail.registeredEmail);
 
-    // testWidgets('Erro de formato de e-mail inválido ao perder o foco',
-    //     (WidgetTester tester) async {
-    //   final controller = TextEditingController();
+      // Simula a perda de foco ao tocar no campo auxiliar
+      await tester.tap(find.byKey(const Key('dummy')));
+      await tester.pumpAndSettle();
 
-    //   await tester.pumpWidget(MaterialApp(
-    //     home: Scaffold(
-    //       body: CITEmail(controller: controller),
-    //     ),
-    //   ));
+      // Verifica se o erro de email já cadastrado é exibido
+      expect(find.text(CErrorMsgs.emailTaken), findsOneWidget);
+    });
 
-    //   // Digita um e-mail inválido
-    //   await tester.enterText(find.byType(TextFormField), 'email_invalido');
+    testWidgets(
+        'TST4: Erro de email já cadastrado na tela de cadastro ocorre ao enviar form',
+        (WidgetTester tester) async {
+      final controller = TextEditingController();
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: CITEmail(
+              controller: controller,
+              formSubmitted: true,
+              isRegisterScreen: true,
+            ),
+          ),
+        ),
+      );
 
-    //   FocusManager.instance.primaryFocus?.unfocus();
-    //   await tester.pump();
+      // Digita o email já cadastrado
+      await tester.enterText(
+          find.byType(TextFormField), CITEmail.registeredEmail);
 
-    //   // Verifica se a mensagem de erro está visível na tela
-    //   expect(find.text(CErrorMsgs.emailInvalid), findsOneWidget);
-    // });
+      // Simula a ação de envio do formulário
+      await tester.testTextInput.receiveAction(TextInputAction.done);
+      await tester.pumpAndSettle();
 
-    // testWidgets(
-    //     'Não exibe erro de formato de e-mail inválido ao perder o foco com email válido',
-    //     (WidgetTester tester) async {
-    //   final controller = TextEditingController();
+      // Verifica se o erro de email já cadastrado é exibido
+      expect(find.text(CErrorMsgs.emailTaken), findsOneWidget);
+    });
 
-    //   await tester.pumpWidget(MaterialApp(
-    //     home: Scaffold(
-    //       body: CITEmail(controller: controller),
-    //     ),
-    //   ));
+    testWidgets(
+        'TST5: Erro de falta de email não aparece ao perder o foco',
+        (WidgetTester tester) async {
+      final controller = TextEditingController();
+      // formSubmitted false para que o erro de email vazio não seja disparado ao perder o foco
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: Column(
+              children: [
+                CITEmail(
+                  controller: controller,
+                  formSubmitted: false,
+                ),
+                // Campo auxiliar para forçar a perda de foco
+                TextFormField(key: const Key('dummy')),
+              ],
+            ),
+          ),
+        ),
+      );
 
-    //   await tester.enterText(
-    //       find.byType(TextFormField), CITEmail.registeredEmail);
+      // Deixa o campo vazio e simula a perda de foco
+      await tester.tap(find.byType(TextFormField).first);
+      await tester.pump();
+      await tester.tap(find.byKey(const Key('dummy')));
+      await tester.pumpAndSettle();
 
-    //   FocusManager.instance.primaryFocus?.unfocus();
-    //   await tester.pump();
+      // Verifica que o erro de falta de email não é exibido
+      expect(find.text(CErrorMsgs.emailEmpty), findsNothing);
+    });
 
-    //   // Verifica se a mensagem de erro está visível na tela
-    //   expect(find.text(CErrorMsgs.emailInvalid), findsNothing);
-    // });
+    testWidgets(
+        'TST6: Erro de falta de email é ativado ao enviar form com campo vazio',
+        (WidgetTester tester) async {
+      final controller = TextEditingController();
+      // formSubmitted true para que a tentativa de envio dispare a validação de campo vazio
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: CITEmail(
+              controller: controller,
+              formSubmitted: true,
+            ),
+          ),
+        ),
+      );
 
-    // testWidgets(
-    //     'Erro de email já cadastrado na tela de cadastro ao perder o foco',
-    //     (WidgetTester tester) async {
-    //   final controller = TextEditingController();
+      // Deixa o campo vazio e simula o envio do formulário
+      await tester.enterText(find.byType(TextFormField), '');
+      await tester.testTextInput.receiveAction(TextInputAction.done);
+      await tester.pumpAndSettle();
 
-    //   await tester.pumpWidget(MaterialApp(
-    //     home: Scaffold(
-    //       body: CITEmail(controller: controller, isRegisterScreen: true),
-    //     ),
-    //   ));
-
-    //   //Digitando email já cadastrado
-    //   await tester.enterText(
-    //       find.byType(TextFormField), CITEmail.registeredEmail);
-
-    //   // Simula a perda de foco
-    //   FocusManager.instance.primaryFocus?.unfocus();
-    //   await tester.pump();
-
-    //   // Verifica se a mensagem de erro "email já cadastrado" aparece na tela
-    //   expect(find.text(CErrorMsgs.emailTaken), findsOneWidget);
-    // });
-
-    // testWidgets('Erro de email vazio não aparece ao perder foco',
-    //     (WidgetTester tester) async {
-    //   // Cria um controlador para o campo de e-mail
-    //   final emailController = TextEditingController();
-
-    //   // Constrói o widget dentro de um MaterialApp
-    //   await tester.pumpWidget(
-    //     MaterialApp(
-    //       home: Scaffold(
-    //         body: Column(
-    //           children: [
-    //             CITEmail(
-    //               controller: emailController,
-    //               isRegisterScreen: true, // Para ativar as validações
-    //             ),
-    //             TextFormField(
-    //                 key: const Key(
-    //                     'other-field')), // Campo auxiliar para mudar o foco
-    //           ],
-    //         ),
-    //       ),
-    //     ),
-    //   );
-
-    //   // Garante que o campo de e-mail está na tela
-    //   expect(find.byType(CITEmail), findsOneWidget);
-
-    //   // Simula foco no campo de e-mail
-    //   await tester.tap(find.byType(TextFormField).first);
-    //   await tester.pump(); // Processa a mudança de estado
-
-    //   // Simula perda de foco tocando em outro campo
-    //   await tester.tap(find.byKey(const Key('other-field')));
-    //   await tester.pumpAndSettle();
-
-    //   // Verifica se NÃO há mensagens de erro visíveis
-    //   expect(find.text(CErrorMsgs.emailEmpty), findsNothing);
-    // });
+      // Verifica se o erro de falta de email é exibido
+      expect(find.text(CErrorMsgs.emailEmpty), findsOneWidget);
+    });
   });
 }

@@ -18,32 +18,6 @@ class CITEmail extends StatefulWidget {
     required this.formSubmitted
   });
 
-  // /// Validação ao perder o foco
-  // FormFieldValidator<String> get focusValidator => (value) {
-  //       if (widget.formSubmitted && !RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value!)) {
-  //         return CErrorMsgs.emailInvalid;
-  //       }
-  //       if (isRegisterScreen && value == registeredEmail) {
-  //         return CErrorMsgs.emailTaken;
-  //       }
-  //       return null;
-  //     };
-
-  // /// Validação ao enviar o formulário
-  // FormFieldValidator<String> get submitValidator => (value) {
-  //       if (value == null || value.isEmpty) {
-  //         return CErrorMsgs.emailEmpty;
-  //       } else if (value != null && value.isNotEmpty && value != '') {
-  //         if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
-  //           return CErrorMsgs.emailInvalid;
-  //         }
-  //         if (isRegisterScreen && value == registeredEmail) {
-  //           return CErrorMsgs.emailTaken;
-  //         }
-  //       }
-  //       return null;
-  //     };
-
   @override
   _CITEmailState createState() => _CITEmailState();
 }
