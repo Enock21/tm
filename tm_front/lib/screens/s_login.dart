@@ -25,7 +25,6 @@ class SLoginState extends State<SLogin> {
 
   void _attemptLogin() {
     if (formKey.currentState!.validate()) {
-
       // Simulação de credenciais válidas
       const validEmail = "user@email.com";
       const validPassword = "123456";
@@ -89,7 +88,7 @@ class SLoginState extends State<SLogin> {
                             controller: emailController,
                             prefixIcon: Icon(Icons.email,
                                 color: AppColors.nonInteractiveGreen),
-                            formSubmitted: false,
+                            formSubmitted: _formSubmitted,
                           ),
                           const SizedBox(height: 16),
                           CITPassword(
@@ -134,12 +133,16 @@ class SLoginState extends State<SLogin> {
                                 child: SizedBox(
                                   height: 50,
                                   child: TMButton.positive(
-                                      text: 'Entrar',
-                                      onPressed: () async {
+                                    text: 'Entrar',
+                                    onPressed: () async {
+                                      setState(() {
                                         _formSubmitted = true;
-                                        _attemptLogin;
-                                      } // 🔹 Chama função de login
-                                      ),
+                                      });
+                                      WidgetsBinding.instance.addPostFrameCallback((_) {
+                                        _attemptLogin();
+                                      });
+                                    } // 🔹 Chama função de login
+                                  ),
                                 ),
                               ),
                               const SizedBox(width: 8),

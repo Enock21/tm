@@ -20,7 +20,8 @@ void main() {
       expect(find.text(CErrorMsgs.emailInvalid), findsOneWidget);
     });
 
-    testWidgets('Verifica aparição indevida do erro de formato de e-mail inválido',
+    testWidgets(
+        'Verifica aparição indevida do erro de formato de e-mail inválido',
         (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(home: SLogin()));
 
@@ -35,7 +36,6 @@ void main() {
     testWidgets('Exibe erro quando o campo de e-mail está vazio',
         (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(home: SLogin()));
-
       await tester.tap(find.text('Entrar'));
       await tester.pump();
 
@@ -68,8 +68,7 @@ void main() {
         (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(home: SLogin()));
 
-      await tester.enterText(
-          find.byType(TextFormField).at(1), 'senha');
+      await tester.enterText(find.byType(TextFormField).at(1), 'senha');
 
       await tester.tap(find.text('Entrar'));
       await tester.pump();
@@ -77,7 +76,8 @@ void main() {
       expect(find.text(CErrorMsgs.passwordEmpty), findsNothing);
     });
 
-    testWidgets('Verifica se o erro de repetição de email não aparece na tela de login',
+    testWidgets(
+        'Verifica se o erro de repetição de email não aparece na tela de login',
         (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(home: SLogin()));
 
@@ -90,45 +90,48 @@ void main() {
     });
 
     testWidgets('Login válido redireciona para HomePage sem erro',
-      (WidgetTester tester) async {
-    await tester.pumpWidget(const MaterialApp(home: SLogin()));
+        (WidgetTester tester) async {
+      await tester.pumpWidget(const MaterialApp(home: SLogin()));
 
-    await tester.enterText(find.byType(TextFormField).first, "user@email.com");
-    await tester.enterText(find.byType(TextFormField).at(1), "123456");
+      await tester.enterText(
+          find.byType(TextFormField).first, "user@email.com");
+      await tester.enterText(find.byType(TextFormField).at(1), "123456");
 
-    await tester.tap(find.text('Entrar'));
-    await tester.pumpAndSettle();
+      await tester.tap(find.text('Entrar'));
+      await tester.pumpAndSettle();
 
-    expect(find.byType(HomePage), findsOneWidget);
-    expect(find.text(CErrorMsgs.loginNotFound), findsNothing);
+      expect(find.byType(HomePage), findsOneWidget);
+      expect(find.text(CErrorMsgs.loginNotFound), findsNothing);
+    });
+
+    testWidgets('Tentativa de login com email não registrado',
+        (WidgetTester tester) async {
+      await tester.pumpWidget(const MaterialApp(home: SLogin()));
+
+      await tester.enterText(
+          find.byType(TextFormField).first, "email@inexistente.com");
+      await tester.enterText(find.byType(TextFormField).at(1), "123456");
+
+      await tester.tap(find.text('Entrar'));
+      await tester.pumpAndSettle();
+
+      expect(find.byType(HomePage), findsNothing);
+      expect(find.text(CErrorMsgs.loginNotFound), findsOneWidget);
+    });
+
+    testWidgets('Tentativa de login com senha errada',
+        (WidgetTester tester) async {
+      await tester.pumpWidget(const MaterialApp(home: SLogin()));
+
+      await tester.enterText(
+          find.byType(TextFormField).first, "user@email.com");
+      await tester.enterText(find.byType(TextFormField).at(1), "12345");
+
+      await tester.tap(find.text('Entrar'));
+      await tester.pumpAndSettle();
+
+      expect(find.byType(HomePage), findsNothing);
+      expect(find.text(CErrorMsgs.loginNotFound), findsOneWidget);
+    });
   });
-
-  testWidgets('Tentativa de login com email não registrado',
-      (WidgetTester tester) async {
-    await tester.pumpWidget(const MaterialApp(home: SLogin()));
-
-    await tester.enterText(find.byType(TextFormField).first, "email@inexistente.com");
-    await tester.enterText(find.byType(TextFormField).at(1), "123456");
-
-    await tester.tap(find.text('Entrar'));
-    await tester.pumpAndSettle();
-
-    expect(find.byType(HomePage), findsNothing);
-    expect(find.text(CErrorMsgs.loginNotFound), findsOneWidget);
-  });
-
-  testWidgets('Tentativa de login com senha errada',
-      (WidgetTester tester) async {
-    await tester.pumpWidget(const MaterialApp(home: SLogin()));
-
-    await tester.enterText(find.byType(TextFormField).first, "user@email.com");
-    await tester.enterText(find.byType(TextFormField).at(1), "12345");
-
-    await tester.tap(find.text('Entrar'));
-    await tester.pumpAndSettle();
-
-    expect(find.byType(HomePage), findsNothing);
-    expect(find.text(CErrorMsgs.loginNotFound), findsOneWidget);
-  });
-});
 }
