@@ -5,7 +5,7 @@ import 'package:tm_front/components/c_error_msgs.dart';
 
 void main() {
   group('CITUsername - Validações', () {
-    testWidgets('TST1: Mostrar erro de username vazio ao enviar form',
+    testWidgets('CITUsername-TST1: Mostrar erro de username vazio ao enviar form',
         (WidgetTester tester) async {
       final controller = TextEditingController();
       await tester.pumpWidget(
@@ -26,7 +26,7 @@ void main() {
       expect(find.text(CErrorMsgs.usernameEmpty), findsOneWidget);
     });
 
-    testWidgets('TST2: Não mostrar erro de username vazio sem enviar o form',
+    testWidgets('CITUsername-TST2: Não mostrar erro de username vazio sem enviar o form',
         (WidgetTester tester) async {
       final controller = TextEditingController();
       await tester.pumpWidget(
@@ -47,7 +47,7 @@ void main() {
       expect(find.text(CErrorMsgs.usernameEmpty), findsNothing);
     });
 
-    testWidgets('TST3: Não mostrar erro de username vazio com campo preenchido',
+    testWidgets('CITUsername-TST3: Não mostrar erro de username vazio com campo preenchido',
         (WidgetTester tester) async {
       final controller = TextEditingController();
       await tester.pumpWidget(
@@ -66,7 +66,7 @@ void main() {
     });
 
     testWidgets(
-        'TST4: Não mostrar erro de username vazio ao perder o foco no text field',
+        'CITUsername-TST4: Não mostrar erro de username vazio ao perder o foco no text field',
         (WidgetTester tester) async {
       final controller = TextEditingController();
       await tester.pumpWidget(
@@ -97,7 +97,7 @@ void main() {
     });
 
     testWidgets(
-        'TST5: Mostrar erro de tamanho ao perder o foco e ao enviar form (username muito curto)',
+        'CITUsername-TST5: Mostrar erro de tamanho ao perder o foco e ao enviar form (username muito curto)',
         (WidgetTester tester) async {
       final controller = TextEditingController();
       await tester.pumpWidget(
@@ -137,7 +137,7 @@ void main() {
       expect(find.text(CErrorMsgs.usernameLength), findsNothing);
     });
 
-    testWidgets('TST6: Não mostrar erro de tamanho indevidamente para username válido',
+    testWidgets('CITUsername-TST6: Não mostrar erro de tamanho indevidamente para username válido',
         (WidgetTester tester) async {
       final controller = TextEditingController();
       await tester.pumpWidget(
@@ -156,7 +156,7 @@ void main() {
     });
 
     testWidgets(
-        'TST7: Mostrar erro de formato ao perder o foco e ao enviar form (username com caracteres inválidos)',
+        'CITUsername-TST7: Mostrar erro de formato ao perder o foco e ao enviar form (username com caracteres inválidos)',
         (WidgetTester tester) async {
       final controller = TextEditingController();
       await tester.pumpWidget(
@@ -190,7 +190,7 @@ void main() {
     });
 
     testWidgets(
-        'TST8: Não mostrar erro de formato indevidamente para username com formato válido',
+        'CITUsername-TST8: Não mostrar erro de formato indevidamente para username com formato válido',
         (WidgetTester tester) async {
       final controller = TextEditingController();
       await tester.pumpWidget(
@@ -218,7 +218,7 @@ void main() {
     });
 
     testWidgets(
-        'TST9: Mostrar erro de username repetido ao perder o foco e ao enviar form (tela de cadastro)',
+        'CITUsername-TST9: Mostrar erro de username repetido ao perder o foco e ao enviar form (tela de cadastro)',
         (WidgetTester tester) async {
       final controller = TextEditingController();
       // Para simular a tela de cadastro, usamos formSubmitted true.

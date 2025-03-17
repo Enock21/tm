@@ -6,7 +6,7 @@ import 'package:tm_front/components/c_error_msgs.dart';
 void main() {
   group('CITEmail - Validações', () {
     testWidgets(
-        'TST1: Erro de formato de email inválido é ativado ao perder o foco',
+        'CITEmail-TST1: Erro de formato de email inválido é ativado ao perder o foco',
         (WidgetTester tester) async {
       final controller = TextEditingController();
       // formSubmitted false para não acionar o erro de email vazio ao perder o foco
@@ -40,7 +40,7 @@ void main() {
     });
 
     testWidgets(
-        'TST2: Erro de formato de email inválido é ativado ao enviar form',
+        'CITEmail-TST2: Erro de formato de email inválido é ativado ao enviar form',
         (WidgetTester tester) async {
       final controller = TextEditingController();
       // formSubmitted true para simular tentativa de envio do formulário
@@ -68,7 +68,7 @@ void main() {
     });
 
     testWidgets(
-        'TST3: Erro de email já cadastrado na tela de cadastro ocorre ao perder o foco',
+        'CITEmail-TST3: Erro de email já cadastrado na tela de cadastro ocorre ao perder o foco',
         (WidgetTester tester) async {
       final controller = TextEditingController();
       await tester.pumpWidget(
@@ -102,7 +102,7 @@ void main() {
     });
 
     testWidgets(
-        'TST4: Erro de email já cadastrado na tela de cadastro ocorre ao enviar form',
+        'CITEmail-TST4: Erro de email já cadastrado na tela de cadastro ocorre ao enviar form',
         (WidgetTester tester) async {
       final controller = TextEditingController();
       await tester.pumpWidget(
@@ -130,7 +130,7 @@ void main() {
     });
 
     testWidgets(
-        'TST5: Erro de falta de email não aparece ao perder o foco',
+        'CITEmail-TST5: Erro de falta de email não aparece ao perder o foco',
         (WidgetTester tester) async {
       final controller = TextEditingController();
       // formSubmitted false para que o erro de email vazio não seja disparado ao perder o foco
@@ -162,7 +162,7 @@ void main() {
     });
 
     testWidgets(
-        'TST6: Erro de falta de email é ativado ao enviar form com campo vazio',
+        'CITEmail-TST6: Erro de falta de email é ativado ao enviar form com campo vazio',
         (WidgetTester tester) async {
       final controller = TextEditingController();
       // formSubmitted true para que a tentativa de envio dispare a validação de campo vazio

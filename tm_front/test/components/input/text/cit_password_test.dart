@@ -6,7 +6,7 @@ import 'package:tm_front/components/c_error_msgs.dart';
 
 void main() {
   group('CITPassword - Validações', () {
-  testWidgets('Verificar campo de senha vazia', (WidgetTester tester) async {
+  testWidgets('CITPassword-TST1: Verificar campo de senha vazia', (WidgetTester tester) async {
       final controller = TextEditingController();
 
       await tester.pumpWidget(MaterialApp(
@@ -26,7 +26,7 @@ void main() {
       expect(find.text(CErrorMsgs.passwordEmpty), findsOneWidget);
     });
 
-    testWidgets('Não exibe erro para senha preenchida',
+    testWidgets('CITPassword-TST2: Não exibe erro para senha preenchida',
         (WidgetTester tester) async {
       final controller = TextEditingController();
 
@@ -47,7 +47,7 @@ void main() {
       expect(find.text(CErrorMsgs.passwordEmpty), findsNothing);
     });
 
-    testWidgets('Verificar comando de revelar/ocultar texto', (WidgetTester tester) async {
+    testWidgets('CITPassword-TST3: Verificar comando de revelar/ocultar texto', (WidgetTester tester) async {
       final controller = TextEditingController();
 
       await tester.pumpWidget(MaterialApp(
