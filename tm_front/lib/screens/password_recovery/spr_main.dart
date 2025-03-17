@@ -17,19 +17,21 @@ class _SPRMainState extends State<SPRMain> {
   final emailController = TextEditingController();
   bool emailSent = false;
   bool emailNotFound = false;
+  bool _formSubmitted = false;
 
   // Simulação de banco de dados de e-mails cadastrados
   final List<String> registeredEmails = ["user@email.com"];
 
   void _validateEmailAndSend() {
-    setState(() {
-      emailNotFound = !registeredEmails.contains(emailController.text.trim());
-    });
-
-    if (formKey.currentState!.validate() && !emailNotFound) {
+    if (formKey.currentState!.validate()) {
       setState(() {
-        emailSent = true;
+        emailNotFound = !registeredEmails.contains(emailController.text.trim());
       });
+      if (!emailNotFound) {
+        setState(() {
+          emailSent = true;
+        });
+      }
     }
   }
 
@@ -65,14 +67,15 @@ class _SPRMainState extends State<SPRMain> {
                         children: [
                           CITEmail(
                             controller: emailController,
-                            formSubmitted: false,
+                            formSubmitted: _formSubmitted,
                           ),
                           if (emailNotFound) // Exibe erro se o e-mail não estiver cadastrado
                             Padding(
                               padding: const EdgeInsets.only(top: 8.0),
                               child: Text(
                                 CErrorMsgs.emailNotFound,
-                                style: TextStyle(color: AppColors.negativeColor),
+                                style:
+                                    TextStyle(color: AppColors.negativeColor),
                               ),
                             ),
                           const SizedBox(height: 30),
@@ -83,7 +86,14 @@ class _SPRMainState extends State<SPRMain> {
                                 )
                               : TMButton.positive(
                                   text: 'Enviar',
-                                  onPressed: _validateEmailAndSend,
+                                  onPressed: () async {
+                                      setState(() {
+                                        _formSubmitted = true;
+                                      });
+                                      WidgetsBinding.instance.addPostFrameCallback((_) {
+                                        _validateEmailAndSend();
+                                      });
+                                    }
                                 ),
                         ],
                       ),

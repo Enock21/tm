@@ -11,7 +11,7 @@ void main() {
 
       await tester.enterText(find.byType(TextFormField).first, 'email_invalido');
       await tester.tap(find.text('Enviar'));
-      await tester.pump();
+      await tester.pumpAndSettle();
 
       expect(find.text(CErrorMsgs.emailInvalid), findsOneWidget);
     });
@@ -30,7 +30,7 @@ void main() {
 
       await tester.enterText(find.byType(TextFormField).first, 'naoexiste@email.com');
       await tester.tap(find.text('Enviar'));
-      await tester.pump();
+      await tester.pumpAndSettle();
 
       expect(find.text(CErrorMsgs.emailNotFound), findsOneWidget);
     });
