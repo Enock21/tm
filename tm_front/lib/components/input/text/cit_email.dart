@@ -41,11 +41,8 @@ class _CITEmailState extends State<CITEmail> {
           validateOnFocusLost: true,
           onChanged: (value) => _checkEmailAvailability(value),
           validator: (value) {
-            print(
-                "No validator do cit_email.dart, widget.formSubmitted é igual a ${widget.formSubmitted}"); //TODO: remover
             if (widget.formSubmitted &&
                 (value == null || value.isEmpty)) {
-              print("Mensagem de emailEmpty retornada"); //TODO: remover;
               return CErrorMsgs.emailEmpty;
             } else if (value != null && value.isNotEmpty) {
               if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
