@@ -33,11 +33,12 @@ void main() {
       expect(find.text(CErrorMsgs.emailInvalid), findsNothing);
     });
 
+    //No teste manual isso dá certo
     testWidgets('Exibe erro quando o campo de e-mail está vazio',
         (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(home: SLogin()));
       await tester.tap(find.text('Entrar'));
-      await tester.pump();
+      await tester.pumpAndSettle();
 
       expect(find.text(CErrorMsgs.emailEmpty), findsOneWidget);
     });
