@@ -33,7 +33,7 @@ class _CITGenericState extends State<CITGeneric> {
   @override
   Widget build(BuildContext context) {
     return Focus(
-      onFocusChange: (hasFocus) {
+      onFocusChange: (hasFocus) { //Obs: Isso aqui é realmente necessário?
         if (!hasFocus && widget.validateOnFocusLost) {
           _fieldKey.currentState?.validate();
         }

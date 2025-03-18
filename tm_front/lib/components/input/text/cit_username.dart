@@ -21,7 +21,7 @@ class _CITUsernameState extends State<CITUsername> {
   void _checkUsernameAvailability(String username) {
     setState(() {
       _isUsernameTaken = username == CITUsername.registeredUsername; // Simulação
-      _showError = true;
+      _showError = true;//Obs: Isso aqui faz sentido? Parece que não. Mostrar erro assim que a checagem de nome disponível é feita parece errado.
     });
   }
 

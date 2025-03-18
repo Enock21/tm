@@ -8,7 +8,7 @@ class CErrorMsgs {
   static const String passwordMismatch = 'As senhas não correspondem';
   static const String usernameInvalid = 'Formato inválido.';
   static const String usernameEmpty = 'Falta o nome';
-  static const String usernameTaken = 'Nome já escolhido. Escolha outro.';
+  static const String usernameTaken = 'Nome já escolhido. Por favor escolha outro.';
   static const String usernameLength = 'O nome deve ter entre 3 e 20 caracteres';
   static const String dateEmpty = 'Falta a data';
   static const String expiredLink = 'LINK EXPIRADO!';

@@ -46,8 +46,7 @@ class _SR1UserProfState extends State<SR1UserProf> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 // Cabeçalho
-                const CHeader(
-                    title: 'Bem Vindo(a) à\nTaverna Multiversal!'),
+                const CHeader(title: 'Bem Vindo(a) à\nTaverna Multiversal!'),
 
                 const SizedBox(height: 24),
 
@@ -57,13 +56,13 @@ class _SR1UserProfState extends State<SR1UserProf> {
                 ),
 
                 const SizedBox(height: 29),
-                
-                Image.network(
-                  'https://cdn.builder.io/api/v1/image/assets/TEMP/568072e900496fdc1943030b761d86a66e943802325c73f03b43f7c5f6831f7f',
-                  width: 48,
-                  height: 48,
-                  fit: BoxFit.contain,
-                ),
+
+                // Image.network(
+                //   'https://cdn.builder.io/api/v1/image/assets/TEMP/568072e900496fdc1943030b761d86a66e943802325c73f03b43f7c5f6831f7f',
+                //   width: 48,
+                //   height: 48,
+                //   fit: BoxFit.contain,
+                // ),
 
                 const SizedBox(height: 29),
 
@@ -75,27 +74,31 @@ class _SR1UserProfState extends State<SR1UserProf> {
                     children: [
                       Align(
                         alignment: Alignment.center,
-                        child: Text('Nome de Usuário', style: AppTexts.headlineSmall),
+                        child: Text('Nome de Usuário',
+                            style: AppTexts.headlineSmall),
                       ),
                       const SizedBox(height: 10),
-                      CITUsername(controller: usernameController, formSubmitted: _formSubmitted),
-
+                      CITUsername(
+                          controller: usernameController,
+                          formSubmitted: _formSubmitted),
                       const SizedBox(height: 25),
                       Align(
                         alignment: Alignment.center,
                         child: Text('E-mail', style: AppTexts.headlineSmall),
                       ),
                       const SizedBox(height: 10),
-                      CITEmail(controller: emailController, isRegisterScreen: true, formSubmitted: _formSubmitted),
-
+                      CITEmail(
+                          controller: emailController,
+                          isRegisterScreen: true,
+                          formSubmitted: _formSubmitted),
                       const SizedBox(height: 25),
                       Align(
                         alignment: Alignment.center,
-                        child: Text('Data de Nascimento', style: AppTexts.headlineSmall),
+                        child: Text('Data de Nascimento',
+                            style: AppTexts.headlineSmall),
                       ),
                       const SizedBox(height: 10),
                       CIDate(controller: birthdateController),
-
                       const SizedBox(height: 25),
                       Align(
                         alignment: Alignment.center,
@@ -103,11 +106,11 @@ class _SR1UserProfState extends State<SR1UserProf> {
                       ),
                       const SizedBox(height: 10),
                       CITPassword(controller: passwordController),
-
                       const SizedBox(height: 25),
                       Align(
                         alignment: Alignment.center,
-                        child: Text('Confirmação de Senha', style: AppTexts.headlineSmall),
+                        child: Text('Confirmação de Senha',
+                            style: AppTexts.headlineSmall),
                       ),
                       const SizedBox(height: 10),
                       CITPassword(controller: confirmPasswordController),
@@ -149,11 +152,14 @@ class _SR1UserProfState extends State<SR1UserProf> {
                 TMButton.positive(
                   text: 'Próximo',
                   onPressed: () async {
-                    _formSubmitted = true;
+                    setState(() {
+                      _formSubmitted = true;
+                    });
                     if (formKey.currentState!.validate()) {
                       print("Todos os campos estão preenchidos corretamente!");
                       // 🔹 FUTURAMENTE: Aqui será chamada a função do Firebase
-                      print("Futuro: Criar conta no Firebase com ${emailController.text} e senha");
+                      print(
+                          "Futuro: Criar conta no Firebase com ${emailController.text} e senha");
                     } else {
                       print("Preencha os campos obrigatórios.");
                     }
