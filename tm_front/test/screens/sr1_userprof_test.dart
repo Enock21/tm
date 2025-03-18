@@ -18,7 +18,7 @@ class TestNavigatorObserver extends NavigatorObserver {
 
 void main() {
   group('Testes do widget SR1UserProf', () {
-    testWidgets('Senhas não coincidem exibe erro "As senhas não correspondem"',
+    testWidgets('SR1-TST1: Senhas não coincidem exibe erro "As senhas não correspondem"',
         (WidgetTester tester) async {
       // Monte o widget dentro de um MaterialApp.
       await tester.pumpWidget(const MaterialApp(home: SR1UserProf()));
@@ -27,7 +27,7 @@ void main() {
       // Como há dois CITPassword (o primeiro para senha e o segundo para confirmação),
       // usamos .at(3) para o primeiro (posição: username, email, data, senha, confirmação)
       await tester.enterText(find.byType(TextFormField).at(3), 'password123');
-      await tester.enterText(find.byType(TextFormField).at(4), 'differentPassword');
+      await tester.enterText(find.byType(TextFormField).at(4), 'password124');
 
       // Tenta submeter o formulário.
       final nextButton = find.text('Próximo');
