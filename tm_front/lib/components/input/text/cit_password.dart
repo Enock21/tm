@@ -6,8 +6,9 @@ import 'package:tm_front/components/c_theme.dart';
 class CITPassword extends StatefulWidget {
   final TextEditingController? controller;
   final Widget? prefixIcon;
+  final FormFieldValidator<String>? validator;
 
-  const CITPassword({super.key, this.controller, this.prefixIcon});
+  const CITPassword({super.key, this.controller, this.prefixIcon, this.validator});
 
   @override
   _CITPasswordState createState() => _CITPasswordState();
@@ -36,12 +37,14 @@ class _CITPasswordState extends State<CITPassword> {
         ),
         onPressed: _toggleVisibility,
       ),
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return CErrorMsgs.passwordEmpty;
-        }
-        return null;
-      },
+      // Se o validator foi passado, usa-o; caso contrário, usa o padrão que checa se o campo está vazio.
+      validator: widget.validator ??
+          (value) {
+            if (value == null || value.isEmpty) {
+              return CErrorMsgs.passwordEmpty;
+            }
+            return null;
+          },
     );
   }
 }

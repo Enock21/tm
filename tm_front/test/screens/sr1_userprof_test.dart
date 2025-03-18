@@ -116,5 +116,22 @@ void main() {
       expect(find.text(CErrorMsgs.usernameTaken), findsOneWidget);
       expect(find.text(CErrorMsgs.emailTaken), findsOneWidget);
     });
+
+    testWidgets('Erro de tamanho para CITUsername é detectado corretamente', (WidgetTester tester) async {
+      await tester.pumpWidget(const MaterialApp(home: SR1UserProf()));
+
+      // Insere um username com tamanho inválido (menos de 3 caracteres, por exemplo "ab")
+      await tester.enterText(find.byType(TextFormField).at(0), 'ab');
+
+      // Aciona a validação submetendo o formulário
+      final nextButton = find.text('Próximo');
+      await tester.ensureVisible(nextButton);
+      await tester.tap(nextButton);
+      await tester.pumpAndSettle();
+
+      // Verifica se a mensagem de erro referente ao tamanho do username é exibida
+      expect(find.text(CErrorMsgs.usernameLength), findsOneWidget);
+    });
+
   });
 }

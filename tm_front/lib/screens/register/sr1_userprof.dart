@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tm_front/components/c_error_msgs.dart';
 import 'package:tm_front/components/c_theme.dart';
 import 'package:tm_front/components/c_buttons.dart';
 import 'package:tm_front/components/input/text/cit_email.dart';
@@ -113,7 +114,18 @@ class _SR1UserProfState extends State<SR1UserProf> {
                             style: AppTexts.headlineSmall),
                       ),
                       const SizedBox(height: 10),
-                      CITPassword(controller: confirmPasswordController),
+                      CITPassword(
+                        controller: confirmPasswordController,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return CErrorMsgs.passwordEmpty;
+                          }
+                          if (value != passwordController.text) {
+                            return CErrorMsgs.passwordMismatch;
+                          }
+                          return null;
+                        },
+                      ),
                     ],
                   ),
                 ),
@@ -155,13 +167,8 @@ class _SR1UserProfState extends State<SR1UserProf> {
                     setState(() {
                       _formSubmitted = true;
                     });
-                    if (formKey.currentState!.validate()) {
-                      print("Todos os campos estão preenchidos corretamente!");
-                      // 🔹 FUTURAMENTE: Aqui será chamada a função do Firebase
-                      print(
-                          "Futuro: Criar conta no Firebase com ${emailController.text} e senha");
-                    } else {
-                      print("Preencha os campos obrigatórios.");
+                    if (formKey.currentState!.validate()) {                
+                      print("Futuro: Criar conta no Firebase com ${emailController.text} e senha");
                     }
                   },
                 ),
