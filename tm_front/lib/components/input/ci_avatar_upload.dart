@@ -15,18 +15,18 @@ class CIAvatarUpload extends StatelessWidget {
         height: 120,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: Colors.grey[200],
+          color: AppColors.nonInteractiveMainColor,
         ),
         child: Stack(
           alignment: Alignment.center,
           children: [
             CircleAvatar(
               radius: 50,
-              backgroundColor: Colors.grey[300],
+              backgroundColor: AppColors.boxColor,
               child: Icon(
                 Icons.person,
                 size: 50,
-                color: Colors.grey[600],
+                color: AppColors.nonInteractiveGreen,
               ),
             ),
             // Ícone de upload posicionado na parte inferior do círculo
@@ -38,7 +38,7 @@ class CIAvatarUpload extends StatelessWidget {
                 child: const Icon(
                   Icons.file_upload,
                   size: 18,
-                  color: Colors.white,
+                  color: AppColors.nonInteractiveGreen,
                 ),
               ),
             ),
