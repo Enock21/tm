@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:tm_front/screens/register/sr1_userprof.dart';
+import 'package:tm_front/screens/register/sr2_player_choice.dart';
 import 'package:tm_front/screens/s_login.dart';
 import 'package:tm_front/screens/password_recovery/spr_alteration.dart';
 import 'package:tm_front/screens/password_recovery/spr_expired_link.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate, // Suporte para Cupertino (iOS)
       ],
       //home: const SLogin(),
-      home: const SR1UserProf(),
+      home: const SR2PlayerChoice(),
     );
   }
 }
