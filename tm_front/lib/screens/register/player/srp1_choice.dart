@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class SR2PlayerChoice extends StatelessWidget {
+class SRP1Choice extends StatelessWidget {
   final VoidCallback? onConfirm;
   final VoidCallback? onDecline;
 
-  const SR2PlayerChoice({
+  const SRP1Choice({
     Key? key,
     this.onConfirm,
     this.onDecline,
@@ -18,7 +18,8 @@ class SR2PlayerChoice extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
+            padding:
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
             child: Center(
               child: ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 390),
@@ -37,7 +38,8 @@ class SR2PlayerChoice extends StatelessWidget {
                         ),
                         children: [
                           TextSpan(
-                            text: 'Você deseja participar da Taverna Multiversal como ',
+                            text:
+                                'Você deseja participar da Taverna Multiversal como ',
                             style: TextStyle(fontWeight: FontWeight.w400),
                           ),
                           TextSpan(
@@ -91,7 +93,8 @@ class SR2PlayerChoice extends StatelessWidget {
                             style: TextStyle(fontWeight: FontWeight.w700),
                           ),
                           TextSpan(
-                            text: ' em RPGs, participar de grupos de Jogadores, criar propostas de jogos para Mestres narrarem e exibir suas preferências como ',
+                            text:
+                                ' em RPGs, participar de grupos de Jogadores, criar propostas de jogos para Mestres narrarem e exibir suas preferências como ',
                             style: TextStyle(fontWeight: FontWeight.w400),
                           ),
                           TextSpan(
@@ -99,7 +102,8 @@ class SR2PlayerChoice extends StatelessWidget {
                             style: TextStyle(fontWeight: FontWeight.w700),
                           ),
                           TextSpan(
-                            text: '. Para aproveitar o máximo que a Taverna Multiversal tem para te oferecer, é recomendado que você personalize seu perfil de ',
+                            text:
+                                '. Para aproveitar o máximo que a Taverna Multiversal tem para te oferecer, é recomendado que você personalize seu perfil de ',
                             style: TextStyle(fontWeight: FontWeight.w400),
                           ),
                           TextSpan(
@@ -107,7 +111,8 @@ class SR2PlayerChoice extends StatelessWidget {
                             style: TextStyle(fontWeight: FontWeight.w700),
                           ),
                           TextSpan(
-                            text: ' com algumas informações. Isso vai te ajudar a encontrar RPGs e RPGistas adequados aos seus gostos como ',
+                            text:
+                                ' com algumas informações. Isso vai te ajudar a encontrar RPGs e RPGistas adequados aos seus gostos como ',
                             style: TextStyle(fontWeight: FontWeight.w400),
                           ),
                           TextSpan(
@@ -115,7 +120,8 @@ class SR2PlayerChoice extends StatelessWidget {
                             style: TextStyle(fontWeight: FontWeight.w700),
                           ),
                           TextSpan(
-                            text: '. Esta escolha pode ser alterada a qualquer momento através do seu perfil.',
+                            text:
+                                '. Esta escolha pode ser alterada a qualquer momento através do seu perfil.',
                             style: TextStyle(fontWeight: FontWeight.w400),
                           ),
                         ],

@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:tm_front/utils/u_error_msgs.dart';
 import 'package:tm_front/components/input/text/cit_email.dart';
 import 'package:tm_front/components/input/text/cit_username.dart';
-import 'package:tm_front/screens/register/sr1_userprof.dart'; // ajuste o import conforme a organização do seu projeto
+import 'package:tm_front/screens/register/user/sru.dart'; // ajuste o import conforme a organização do seu projeto
 
 /// Navigator observer para verificar se houve transição de rota.
 class TestNavigatorObserver extends NavigatorObserver {

@@ -6,7 +6,7 @@ import 'package:tm_front/components/input/text/cit_password.dart';
 import 'package:tm_front/utils/u_theme.dart';
 import 'package:tm_front/screens/s_homepage.dart';
 import 'package:tm_front/screens/password_recovery/spr_main.dart';
-import 'package:tm_front/screens/register/sr1_userprof.dart';
+import 'package:tm_front/screens/register/user/sru.dart';
 
 class SLogin extends StatefulWidget {
   const SLogin({super.key});
