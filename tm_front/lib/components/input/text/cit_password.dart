@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tm_front/components/c_error_msgs.dart';
+import 'package:tm_front/utils/u_error_msgs.dart';
 import 'package:tm_front/components/input/text/cit_generic.dart';
-import 'package:tm_front/components/c_theme.dart';
+import 'package:tm_front/utils/u_theme.dart';
 
 class CITPassword extends StatefulWidget {
   final TextEditingController? controller;

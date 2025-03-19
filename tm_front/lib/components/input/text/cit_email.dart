@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tm_front/components/input/text/cit_generic.dart';
-import 'package:tm_front/components/c_error_msgs.dart';
+import 'package:tm_front/utils/u_error_msgs.dart';
 
 class CITEmail extends StatefulWidget {
   static const String registeredEmail = 'email@existente.com';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tm_front/components/input/text/cit_username.dart';
-import 'package:tm_front/components/c_error_msgs.dart';
+import 'package:tm_front/utils/u_error_msgs.dart';
 
 void main() {
   group('CITUsername - Validações', () {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tm_front/components/c_error_msgs.dart';
-import 'package:tm_front/components/c_theme.dart';
+import 'package:tm_front/utils/u_error_msgs.dart';
+import 'package:tm_front/utils/u_theme.dart';
 import 'package:tm_front/components/c_buttons.dart';
 import 'package:tm_front/components/input/text/cit_email.dart';
 import 'package:tm_front/components/input/text/cit_password.dart';
@@ -58,12 +58,7 @@ class _SR1UserProfState extends State<SR1UserProf> {
 
                 const SizedBox(height: 29),
 
-                // Image.network(
-                //   'https://cdn.builder.io/api/v1/image/assets/TEMP/568072e900496fdc1943030b761d86a66e943802325c73f03b43f7c5f6831f7f',
-                //   width: 48,
-                //   height: 48,
-                //   fit: BoxFit.contain,
-                // ),
+                // PLACEHOLDER PARA UPLOAD DE IMAGEM DO AVATAR
 
                 const SizedBox(height: 29),
 
