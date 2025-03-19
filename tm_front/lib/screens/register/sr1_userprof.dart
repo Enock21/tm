@@ -167,9 +167,15 @@ class _SR1UserProfState extends State<SR1UserProf> {
                     setState(() {
                       _formSubmitted = true;
                     });
-                    if (formKey.currentState!.validate()) {                
-                      print("Futuro: Criar conta no Firebase com ${emailController.text} e senha");
-                    }
+                    WidgetsBinding.instance.addPostFrameCallback((_) {
+                      if (formKey.currentState!.validate()) {
+                        print("Formulário válido – irá navegar"); //TODO: remover
+                        print(
+                          "Futuro: Criar conta no Firebase com ${emailController.text} e senha");
+                      } else {
+                        print("Formulário inválido – não irá navegar"); //TODO: remover
+                      }
+                    });
                   },
                 ),
               ],
