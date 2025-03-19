@@ -78,7 +78,7 @@ void main() {
     });
 
     testWidgets(
-        'Erros de formato inválido de email e username são lançados simultaneamente',
+        'SR1-TST3: Erros de formato inválido de email e username são lançados simultaneamente',
         (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(home: SR1UserProf()));
 
@@ -97,7 +97,7 @@ void main() {
     });
 
     testWidgets(
-        'Erros de username e email repetidos aparecem simultaneamente quando apropriado',
+        'SR1-TST4: Erros de username e email repetidos aparecem simultaneamente quando apropriado',
         (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(home: SR1UserProf()));
 
@@ -116,7 +116,7 @@ void main() {
       expect(find.text(CErrorMsgs.emailTaken), findsOneWidget);
     });
 
-    testWidgets('Erro de tamanho para CITUsername é detectado corretamente', (WidgetTester tester) async {
+    testWidgets('SR1-TST5: Erro de tamanho para CITUsername é detectado corretamente', (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(home: SR1UserProf()));
 
       // Insere um username com tamanho inválido (menos de 3 caracteres, por exemplo "ab")
