@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tm_front/components/input/ci_avatar_upload.dart';
 import 'package:tm_front/utils/u_error_msgs.dart';
 import 'package:tm_front/utils/u_theme.dart';
 import 'package:tm_front/components/c_buttons.dart';
@@ -58,7 +59,12 @@ class _SR1UserProfState extends State<SR1UserProf> {
 
                 const SizedBox(height: 29),
 
-                // PLACEHOLDER PARA UPLOAD DE IMAGEM DO AVATAR
+                CIAvatarUpload(
+                  onTap: (){
+                    print("Selecionar imagem"); //TODO: remover
+                    //Implementar lógica para seleção/upload da imagem
+                  }
+                ),
 
                 const SizedBox(height: 29),
 
