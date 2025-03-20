@@ -67,67 +67,74 @@ class SRP1Choice extends StatelessWidget {
                     const SizedBox(height: 48),
                     
                     // Description text
-                    RichText(
-                      textAlign: TextAlign.center,
-                      text: const TextSpan(
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'Montserrat',
-                          fontSize: 16,
-                          height: 1.5,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        RichText(
+                          textAlign: TextAlign.justify,
+                          text: TextSpan(
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'Montserrat',
+                              fontSize: 16,
+                              height: 1.5,
+                            ),
+                            children: const [
+                              TextSpan(text: 'Como um '),
+                              TextSpan(text: 'Jogador', style: TextStyle(fontWeight: FontWeight.w700)),
+                              TextSpan(text: ', você pode se inscrever para '),
+                              TextSpan(text: 'jogar', style: TextStyle(fontWeight: FontWeight.w700)),
+                              TextSpan(
+                                  text:
+                                      ' em RPGs, participar de grupos de Jogadores, criar propostas de jogos para Mestres narrarem e exibir suas preferências como '),
+                              TextSpan(text: 'Jogador', style: TextStyle(fontWeight: FontWeight.w700)),
+                              TextSpan(text: '.'),
+                            ],
+                          ),
                         ),
-                        children: [
-                          TextSpan(
-                            text: 'Como um ',
-                            style: TextStyle(fontWeight: FontWeight.w400),
+                        const SizedBox(height: 15), // Espaço entre os parágrafos
+                        RichText(
+                          textAlign: TextAlign.justify,
+                          text: TextSpan(
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'Montserrat',
+                              fontSize: 16,
+                              height: 1.5,
+                            ),
+                            children: const [
+                              TextSpan(
+                                  text:
+                                      'Para aproveitar o máximo que a Taverna Multiversal tem para te oferecer, é recomendado que você personalize seu perfil de '),
+                              TextSpan(text: 'Jogador', style: TextStyle(fontWeight: FontWeight.w700)),
+                              TextSpan(
+                                  text:
+                                      ' com algumas informações. Isso vai te ajudar a encontrar RPGs e RPGistas adequados aos seus gostos como '),
+                              TextSpan(text: 'Jogador', style: TextStyle(fontWeight: FontWeight.w700)),
+                              TextSpan(text: '.'),
+                            ],
                           ),
-                          TextSpan(
-                            text: 'Jogador',
-                            style: TextStyle(fontWeight: FontWeight.w700),
+                        ),
+                        const SizedBox(height: 15),
+                        RichText(
+                          textAlign: TextAlign.justify,
+                          text: const TextSpan(
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'Montserrat',
+                              fontSize: 16,
+                              height: 1.5,
+                            ),
+                            children: [
+                              TextSpan(
+                                  text:
+                                      'Esta escolha pode ser alterada a qualquer momento através do seu perfil.'),
+                            ],
                           ),
-                          TextSpan(
-                            text: ', você pode se inscrever para ',
-                            style: TextStyle(fontWeight: FontWeight.w400),
-                          ),
-                          TextSpan(
-                            text: 'jogar',
-                            style: TextStyle(fontWeight: FontWeight.w700),
-                          ),
-                          TextSpan(
-                            text:
-                                ' em RPGs, participar de grupos de Jogadores, criar propostas de jogos para Mestres narrarem e exibir suas preferências como ',
-                            style: TextStyle(fontWeight: FontWeight.w400),
-                          ),
-                          TextSpan(
-                            text: 'Jogador',
-                            style: TextStyle(fontWeight: FontWeight.w700),
-                          ),
-                          TextSpan(
-                            text:
-                                '. Para aproveitar o máximo que a Taverna Multiversal tem para te oferecer, é recomendado que você personalize seu perfil de ',
-                            style: TextStyle(fontWeight: FontWeight.w400),
-                          ),
-                          TextSpan(
-                            text: 'Jogador',
-                            style: TextStyle(fontWeight: FontWeight.w700),
-                          ),
-                          TextSpan(
-                            text:
-                                ' com algumas informações. Isso vai te ajudar a encontrar RPGs e RPGistas adequados aos seus gostos como ',
-                            style: TextStyle(fontWeight: FontWeight.w400),
-                          ),
-                          TextSpan(
-                            text: 'Jogador',
-                            style: TextStyle(fontWeight: FontWeight.w700),
-                          ),
-                          TextSpan(
-                            text:
-                                '. Esta escolha pode ser alterada a qualquer momento através do seu perfil.',
-                            style: TextStyle(fontWeight: FontWeight.w400),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
+
                     const SizedBox(height: 80),
                   ],
                 ),
