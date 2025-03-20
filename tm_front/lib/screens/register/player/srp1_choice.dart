@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tm_front/components/c_buttons.dart'; // Certifique-se de importar onde o TMButton está definido.
 
 class SRP1Choice extends StatelessWidget {
   final VoidCallback? onConfirm;
@@ -129,84 +130,51 @@ class SRP1Choice extends StatelessWidget {
                     ),
                     const SizedBox(height: 80),
 
-                    // Buttons row
+                    // Botões lado a lado (NÃO à esquerda, SIM à direita)
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        // No button
-                        Column(
-                          children: [
-                            GestureDetector(
-                              onTap: onDecline,
-                              child: Container(
-                                width: 143,
-                                height: 42,
-                                decoration: BoxDecoration(
-                                  color: const Color(0xFF616161),
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                                alignment: Alignment.center,
-                                child: const Text(
-                                  'NÃO!',
-                                  style: TextStyle(
-                                    color: Color(0xFFCE0000),
-                                    fontFamily: 'Montserrat',
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 16,
-                                  ),
+                        Expanded(
+                          child: Column(
+                            children: [
+                              TMButton.negative(
+                                text: 'NÃO!',
+                                onPressed: onDecline ?? () {},
+                              ),
+                              const SizedBox(height: 8),
+                              const Text(
+                                'Não quero ser Jogador',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Color(0xFFCE0000),
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 16,
                                 ),
                               ),
-                            ),
-                            const SizedBox(height: 16),
-                            const Text(
-                              'Não quero ser Jogador',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Color(0xFFCE0000),
-                                fontFamily: 'Montserrat',
-                                fontWeight: FontWeight.w700,
-                                fontSize: 16,
-                              ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                        const SizedBox(width: 70),
-                        // Yes button
-                        Column(
-                          children: [
-                            GestureDetector(
-                              onTap: onConfirm,
-                              child: Container(
-                                width: 143,
-                                height: 42,
-                                decoration: BoxDecoration(
-                                  color: const Color(0xFF7B0AAF),
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                                alignment: Alignment.center,
-                                child: const Text(
-                                  'SIM!',
-                                  style: TextStyle(
-                                    color: Color(0xFF00C925),
-                                    fontFamily: 'Montserrat',
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 16,
-                                  ),
+                        const SizedBox(width: 16),
+                        Expanded(
+                          child: Column(
+                            children: [
+                              TMButton.positive(
+                                text: 'SIM!',
+                                onPressed: onConfirm ?? () {},
+                              ),
+                              const SizedBox(height: 8),
+                              const Text(
+                                'Quero ser Jogador',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Color(0xFF00C925),
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 16,
                                 ),
                               ),
-                            ),
-                            const SizedBox(height: 16),
-                            const Text(
-                              'Quero ser Jogador',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Color(0xFF00C925),
-                                fontFamily: 'Montserrat',
-                                fontWeight: FontWeight.w700,
-                                fontSize: 16,
-                              ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ],
                     ),

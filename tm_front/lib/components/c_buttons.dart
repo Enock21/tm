@@ -26,6 +26,14 @@ class TMButton extends StatelessWidget {
   })  : backgroundColor = AppColors.interactiveMainColor,
         textColor = AppColors.positiveColor;
 
+  const TMButton.negative({
+    required this.text,
+    this.textStyle,
+    required this.onPressed,
+    super.key,
+  })  : backgroundColor = AppColors.negativeAreaColor,
+        textColor = AppColors.negativeColor;
+
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
