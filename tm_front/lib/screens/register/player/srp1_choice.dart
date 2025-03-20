@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tm_front/components/c_buttons.dart'; // Certifique-se de importar onde o TMButton está definido.
+import 'package:tm_front/components/c_buttons.dart'; // Importa o TMButton
 
 class SRP1Choice extends StatelessWidget {
   final VoidCallback? onConfirm;
@@ -16,6 +16,7 @@ class SRP1Choice extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF1A1A1A),
+      // O conteúdo que pode rolar fica no body:
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -55,7 +56,7 @@ class SRP1Choice extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 48),
-
+                    
                     // Dice SVG Icon
                     SvgPicture.string(
                       '''<svg width="63" height="63" viewBox="0 0 63 63" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -65,7 +66,7 @@ class SRP1Choice extends StatelessWidget {
                       height: 63,
                     ),
                     const SizedBox(height: 48),
-
+                    
                     // Description text
                     RichText(
                       textAlign: TextAlign.center,
@@ -129,60 +130,38 @@ class SRP1Choice extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 80),
-
-                    // Botões lado a lado (NÃO à esquerda, SIM à direita)
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Column(
-                            children: [
-                              TMButton.negative(
-                                text: 'NÃO!',
-                                onPressed: onDecline ?? () {},
-                              ),
-                              const SizedBox(height: 8),
-                              const Text(
-                                'Não quero ser Jogador',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color: Color(0xFFCE0000),
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 16,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(width: 16),
-                        Expanded(
-                          child: Column(
-                            children: [
-                              TMButton.positive(
-                                text: 'SIM!',
-                                onPressed: onConfirm ?? () {},
-                              ),
-                              const SizedBox(height: 8),
-                              const Text(
-                                'Quero ser Jogador',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color: Color(0xFF00C925),
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 16,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
                   ],
                 ),
               ),
             ),
           ),
+        ),
+      ),
+      // Rodapé fixo com os botões:
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
+        child: Row(
+          children: [
+            Expanded(
+              child: SizedBox(
+                height: 42,
+                child: TMButton.negative(
+                  text: 'NÃO!',
+                  onPressed: onDecline ?? () {},
+                ),
+              ),
+            ),
+            const SizedBox(width: 16),
+            Expanded(
+              child: SizedBox(
+                height: 42,
+                child: TMButton.positive(
+                  text: 'SIM!',
+                  onPressed: onConfirm ?? () {},
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
