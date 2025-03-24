@@ -5,6 +5,7 @@ import 'package:tm_front/screens/register/player/srp1_choice.dart';
 import 'package:tm_front/screens/s_login.dart';
 import 'package:tm_front/screens/password_recovery/spr_alteration.dart';
 import 'package:tm_front/screens/password_recovery/spr_expired_link.dart';
+import 'package:tm_front/routes/app_routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,8 +27,9 @@ class MyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate, // Suporte para widgets Flutter
         GlobalCupertinoLocalizations.delegate, // Suporte para Cupertino (iOS)
       ],
-      //home: const SLogin(),
-      home: const SRP1Choice(),
+      initialRoute: AppRoutes.sLogin,
+      //initialRoute: AppRoutes.srp1Choice,
+      onGenerateRoute: AppRoutes.generateRoute,
     );
   }
 }

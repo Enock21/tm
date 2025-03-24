@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:tm_front/screens/password_recovery/spr_main.dart';
+import 'package:tm_front/screens/register/user/sru.dart';
 import 'package:tm_front/utils/u_error_msgs.dart';
 import 'package:tm_front/components/input/text/cit_email.dart';
 import 'package:tm_front/screens/s_homepage.dart';
@@ -132,5 +134,28 @@ void main() {
       expect(find.byType(HomePage), findsNothing);
       expect(find.text(CErrorMsgs.loginNotFound), findsOneWidget);
     });
+
+    testWidgets('SLogin-TST11: Redirecionamento para SR1UserProf ao clicar em "Criar conta"', (WidgetTester tester) async {
+      await tester.pumpWidget(const MaterialApp(home: SLogin()));
+
+      // Realiza o tap no botão "Criar conta"
+      await tester.tap(find.text('Criar conta'));
+      await tester.pumpAndSettle();
+
+      // Verifica se a tela de criação de conta (SR1UserProf) foi exibida
+      expect(find.byType(SR1UserProf), findsOneWidget);
+    });
+
+    testWidgets('SLogin-TST12: Redirecionamento para SPRMain ao clicar em "Esqueci minha senha"', (WidgetTester tester) async {
+      await tester.pumpWidget(const MaterialApp(home: SLogin()));
+
+      // Realiza o tap no botão "Esqueci minha senha"
+      await tester.tap(find.text('Esqueci minha senha'));
+      await tester.pumpAndSettle();
+
+      // Verifica se a tela de recuperação de senha (SPRMain) foi exibida
+      expect(find.byType(SPRMain), findsOneWidget);
+    });
+
   });
 }

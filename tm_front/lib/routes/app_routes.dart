@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tm_front/screens/s_login.dart';
 import '../screens/register/user/sru.dart';
 import '../screens/register/player/srp1_choice.dart';
 import '../screens/register/gm/srgm1_choice.dart';
@@ -7,7 +8,8 @@ import '../screens/register/gm/srgm2_intro.dart';
 import '../screens/s_homepage.dart';
 
 class AppRoutes {
-  static const String sr1UserProf = '/';
+  static const String sLogin = '/sLogin';
+  static const String sr1UserProf = '/sr1UserProf';
   static const String srp1Choice = '/srp1Choice';
   static const String srgm1Choice = '/srgm1Choice';
   static const String srp2Intro = '/srp2Intro';
@@ -16,6 +18,8 @@ class AppRoutes {
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
+      case sLogin:
+        return MaterialPageRoute(builder: (_) => const SLogin());
       case sr1UserProf:
         return MaterialPageRoute(builder: (_) => const SR1UserProf());
       case srp1Choice:
@@ -29,7 +33,7 @@ class AppRoutes {
       // case homepage:
       //   return MaterialPageRoute(builder: (_) => const Homepage());
       default:
-        return MaterialPageRoute(builder: (_) => const SR1UserProf());
+        return MaterialPageRoute(builder: (_) => const SLogin());
     }
   }
 }
