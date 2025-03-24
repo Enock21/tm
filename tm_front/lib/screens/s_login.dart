@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tm_front/components/c_buttons.dart';
+import 'package:tm_front/routes/app_routes.dart';
 import 'package:tm_front/utils/u_error_msgs.dart';
 import 'package:tm_front/components/input/text/cit_email.dart';
 import 'package:tm_front/components/input/text/cit_password.dart';
@@ -36,10 +37,7 @@ class SLoginState extends State<SLogin> {
           _loginError = null;
         });
 
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const HomePage()),
-        );
+        Navigator.pushNamed(context, AppRoutes.homepage);
       } else {
         // 🔹 Exibe erro se credenciais forem inválidas
         setState(() {
@@ -115,12 +113,7 @@ class SLoginState extends State<SLogin> {
                           TMTextButton(
                             text: 'Esqueci minha senha',
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => SPRMain(),
-                                ),
-                              );
+                              Navigator.pushNamed(context, AppRoutes.sprMain);
                             },
                           ),
                           const SizedBox(height: 16),
@@ -133,16 +126,17 @@ class SLoginState extends State<SLogin> {
                                 child: SizedBox(
                                   height: 50,
                                   child: TMButton.positive(
-                                    text: 'Entrar',
-                                    onPressed: () async {
-                                      setState(() {
-                                        _formSubmitted = true;
-                                      });
-                                      WidgetsBinding.instance.addPostFrameCallback((_) {
-                                        _attemptLogin();
-                                      });
-                                    } // 🔹 Chama função de login
-                                  ),
+                                      text: 'Entrar',
+                                      onPressed: () async {
+                                        setState(() {
+                                          _formSubmitted = true;
+                                        });
+                                        WidgetsBinding.instance
+                                            .addPostFrameCallback((_) {
+                                          _attemptLogin();
+                                        });
+                                      } // 🔹 Chama função de login
+                                      ),
                                 ),
                               ),
                               const SizedBox(width: 8),
@@ -161,12 +155,9 @@ class SLoginState extends State<SLogin> {
                                   child: TMButton.positive(
                                     text: 'Criar conta',
                                     onPressed: () {
-                                      Navigator.push(
+                                      Navigator.pushNamed(
                                         context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              const SR1UserProf(),
-                                        ),
+                                        AppRoutes.sr1UserProf,
                                       );
                                     },
                                   ),
