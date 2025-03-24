@@ -22,12 +22,12 @@ class AppRoutes {
     switch (settings.name) {
       case sLogin:
         return MaterialPageRoute(builder: (_) => const SLogin());
+      case sprMain:
+        return MaterialPageRoute(builder: (_) => const SPRMain());
       case sr1UserProf:
         return MaterialPageRoute(builder: (_) => const SR1UserProf());
       case srp1Choice:
         return MaterialPageRoute(builder: (_) => const SRP1Choice());
-      case sprMain:
-        return MaterialPageRoute(builder: (_) => const SPRMain());
       // case srgm1Choice:
       //   return MaterialPageRoute(builder: (_) => const SRGM1Choice());
       // case srp2Intro:

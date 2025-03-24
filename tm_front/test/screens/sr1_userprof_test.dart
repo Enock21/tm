@@ -18,7 +18,8 @@ class TestNavigatorObserver extends NavigatorObserver {
 
 void main() {
   group('Testes do widget SR1UserProf', () {
-    testWidgets('SR1-TST1: Senhas não coincidem exibe erro "As senhas não correspondem"',
+    testWidgets(
+        'SR1-TST1: Senhas não coincidem exibe erro "As senhas não correspondem"',
         (WidgetTester tester) async {
       // Monte o widget dentro de um MaterialApp.
       await tester.pumpWidget(const MaterialApp(home: SR1UserProf()));
@@ -60,8 +61,8 @@ void main() {
     // });
 
     testWidgets(
-      'SR1-TST2: Todos os erros de campo vazio são emitidos simultaneamente ao tentar enviar o form',
-      (WidgetTester tester) async {
+        'SR1-TST2: Todos os erros de campo vazio são emitidos simultaneamente ao tentar enviar o form',
+        (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(home: SR1UserProf()));
 
       // Submete o formulário sem preencher nenhum campo.
@@ -116,7 +117,9 @@ void main() {
       expect(find.text(CErrorMsgs.emailTaken), findsOneWidget);
     });
 
-    testWidgets('SR1-TST5: Erro de tamanho para CITUsername é detectado corretamente', (WidgetTester tester) async {
+    testWidgets(
+        'SR1-TST5: Erro de tamanho para CITUsername é detectado corretamente',
+        (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(home: SR1UserProf()));
 
       // Insere um username com tamanho inválido (menos de 3 caracteres, por exemplo "ab")
@@ -132,5 +135,10 @@ void main() {
       expect(find.text(CErrorMsgs.usernameLength), findsOneWidget);
     });
 
+    testWidgets(
+      'SR1-TST6: Transição de tela para SRP1Choice ao submeter form válido',
+      (WidgetTester tester) async {
+          
+      });
   });
 }

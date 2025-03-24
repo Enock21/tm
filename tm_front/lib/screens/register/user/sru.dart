@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tm_front/components/input/ci_avatar_upload.dart';
+import 'package:tm_front/routes/app_routes.dart';
 import 'package:tm_front/utils/u_error_msgs.dart';
 import 'package:tm_front/utils/u_theme.dart';
 import 'package:tm_front/components/c_buttons.dart';
@@ -59,12 +60,10 @@ class _SR1UserProfState extends State<SR1UserProf> {
 
                 const SizedBox(height: 29),
 
-                CIAvatarUpload(
-                  onTap: (){
-                    print("Selecionar imagem"); //TODO: remover
-                    //Implementar lógica para seleção/upload da imagem
-                  }
-                ),
+                CIAvatarUpload(onTap: () {
+                  print("Selecionar imagem"); //TODO: remover
+                  //Implementar lógica para seleção/upload da imagem
+                }),
 
                 const SizedBox(height: 29),
 
@@ -170,11 +169,9 @@ class _SR1UserProfState extends State<SR1UserProf> {
                     });
                     WidgetsBinding.instance.addPostFrameCallback((_) {
                       if (formKey.currentState!.validate()) {
-                        print("Formulário válido – irá navegar"); //TODO: remover
-                        print(
-                          "Futuro: Criar conta no Firebase com ${emailController.text} e senha");
-                      } else {
-                        print("Formulário inválido – não irá navegar"); //TODO: remover
+                        print("Futuro: Criar conta no Firebase com ${emailController.text} e senha");
+
+                        Navigator.pushNamed(context, AppRoutes.srp1Choice);
                       }
                     });
                   },
