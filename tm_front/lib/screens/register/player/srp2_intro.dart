@@ -8,8 +8,8 @@ class SRP2Intro extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).size;
-    final isSmallScreen = screenSize.width <= 640;
+    //final screenSize = MediaQuery.of(context).size;
+    //final isSmallScreen = screenSize.width <= 640;
 
     return Scaffold(
       backgroundColor: const Color(0xFF1A1A1A),
@@ -114,8 +114,8 @@ class SRP2Intro extends StatelessWidget {
             // Bottom Buttons
             Positioned(
               bottom: 26,
-              left: isSmallScreen ? 27 : 17,
-              right: isSmallScreen ? 27 : 17,
+              //left: isSmallScreen ? 27 : 17,
+              //right: isSmallScreen ? 27 : 17,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

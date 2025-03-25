@@ -28,8 +28,9 @@ class MyApp extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate, // Suporte para Cupertino (iOS)
       ],
       //initialRoute: AppRoutes.sLogin,
-      //initialRoute: AppRoutes.srp1Choice,
-      initialRoute: AppRoutes.srp2Intro,
+      initialRoute: AppRoutes.srp1Choice,
+      //initialRoute: AppRoutes.srgm1Choice,
+      //initialRoute: AppRoutes.srp2Intro,
       onGenerateRoute: AppRoutes.generateRoute,
     );
   }

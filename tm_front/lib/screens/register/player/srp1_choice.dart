@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tm_front/components/c_bottom_butt.dart';
 import 'package:tm_front/components/c_buttons.dart';
 import 'package:tm_front/components/c_header.dart';
 import 'package:tm_front/routes/app_routes.dart';
@@ -117,38 +118,21 @@ class SRP1Choice extends StatelessWidget {
         ),
       ),
       // Rodapé fixo com os botões:
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
-        child: Row(
-          children: [
-            Expanded(
-              child: SizedBox(
-                height: 42,
-                child: TMButton.negative(
-                  text: 'NÃO',
-                  onPressed: onDecline ?? () {
-                    //TODO: variável que indica interesse em ser jogador fica false
-                    Navigator.pushNamed(context, AppRoutes.srgm1Choice);
-                  },
-                ),
-              ),
-            ),
-            const SizedBox(width: 16),
-            Expanded(
-              child: SizedBox(
-                height: 42,
-                child: TMButton.positive(
-                  text: 'SIM',
-                  onPressed: onConfirm ?? () {
-                    //TODO: variável que indica interesse em ser jogador fica true
-                    Navigator.pushNamed(context, AppRoutes.srgm1Choice);
-                  },
-                ),
-              ),
-            ),
-          ],
-        ),
+      bottomNavigationBar: CBottomButt(
+        positiveText: 'SIM',
+        negativeText: 'NÃO',
+        onConfirm: onConfirm ??
+        () {
+          //TODO: variável que indica se o user quer ser player fica true
+          Navigator.pushNamed(context, AppRoutes.srgm1Choice);
+        },
+        onDecline: onDecline ??
+        () {
+          //TODO: variável que indica se o user quer ser player fica false
+          Navigator.pushNamed(context, AppRoutes.srgm1Choice);
+        },
       ),
+
     );
   }
 }
