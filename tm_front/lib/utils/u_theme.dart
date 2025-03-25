@@ -26,6 +26,7 @@ class AppTexts {
   static final TextStyle headlineMedium = GoogleFonts.montserrat(
     color: AppColors.nonInteractiveMainColor,
     fontSize: 20,
+    height: 1.5,
     fontWeight: FontWeight.bold,
   );
 
@@ -37,8 +38,15 @@ class AppTexts {
 
   static final TextStyle bodyMedium = GoogleFonts.montserrat(
     color: AppColors.neutralColor,
-    fontSize: 14,
-    fontWeight: FontWeight.w400,
+    fontSize: 16,
+    height: 1.5,
+  );
+
+  static final TextStyle bodyMediumBold = GoogleFonts.montserrat(
+    color: AppColors.neutralColor,
+    fontSize: 16,
+    height: 1.5,
+    fontWeight: FontWeight.bold,
   );
 
   static final TextStyle bodySmall = GoogleFonts.montserrat(

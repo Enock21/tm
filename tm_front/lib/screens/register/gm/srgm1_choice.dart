@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tm_front/components/c_buttons.dart';
+import 'package:tm_front/routes/app_routes.dart';
 import 'package:tm_front/utils/u_theme.dart'; // Importa o TMButton
 
 class SRGM1Choice extends StatelessWidget {
@@ -32,26 +33,15 @@ class SRGM1Choice extends StatelessWidget {
                     // Title text
                     RichText(
                       textAlign: TextAlign.center,
-                      text: const TextSpan(
-                        style: TextStyle(
-                          color: AppColors.nonInteractiveMainColor,
-                          fontFamily: 'Montserrat',
-                          fontSize: 20,
-                          height: 1.5,
-                        ),
+                      text: TextSpan(
+                        style: AppTexts.headlineMedium,
                         children: [
                           TextSpan(
                             text:
                                 'Você deseja participar da Taverna Multiversal como ',
-                            style: TextStyle(fontWeight: FontWeight.w400),
                           ),
                           TextSpan(
-                            text: 'Mestre',
-                            style: TextStyle(fontWeight: FontWeight.w700),
-                          ),
-                          TextSpan(
-                            text: '?',
-                            style: TextStyle(fontWeight: FontWeight.w400),
+                            text: 'Mestre?',
                           ),
                         ],
                       ),
@@ -73,17 +63,12 @@ class SRGM1Choice extends StatelessWidget {
                         RichText(
                           textAlign: TextAlign.justify,
                           text: TextSpan(
-                            style: const TextStyle(
-                              color: AppColors.neutralColor,
-                              fontFamily: 'Montserrat',
-                              fontSize: 16,
-                              height: 1.5,
-                            ),
-                            children: const [
+                            style: AppTexts.bodyMedium,
+                            children: [
                               TextSpan(text: 'Como um '),
-                              TextSpan(text: 'Mestre', style: TextStyle(fontWeight: FontWeight.w700)),
-                              TextSpan(text: ', você pode criar e organizar RPGs, recrutar Jogadores para seus jogos, aceitar mestrar propostas de RPGs de outros jogadores ou mestres, convidar outros Mestres para uma mestragem colaborativa e exibir suas preferências como '),
-                              TextSpan(text: 'Mestre', style: TextStyle(fontWeight: FontWeight.w700)),
+                              TextSpan(text: 'mestre', style: AppTexts.bodyMediumBold),
+                              TextSpan(text: ', você pode criar e organizar RPGs, recrutar jogadores para seus jogos, aceitar mestrar propostas de RPGs de outros jogadores ou mestres, convidar outros mestres para uma mestragem colaborativa e exibir suas preferências como '),
+                              TextSpan(text: 'mestre', style: AppTexts.bodyMediumBold),
                               TextSpan(text: '.'),
                             ],
                           ),
@@ -98,15 +83,11 @@ class SRGM1Choice extends StatelessWidget {
                               fontSize: 16,
                               height: 1.5,
                             ),
-                            children: const [
-                              TextSpan(
-                                  text:
-                                      'Para aproveitar o máximo que a Taverna Multiversal tem para te oferecer, é recomendado que você personalize seu perfil de '),
-                              TextSpan(text: 'Mestre', style: TextStyle(fontWeight: FontWeight.w700)),
-                              TextSpan(
-                                  text:
-                                      ' com algumas informações. Isso vai te ajudar a encontrar RPGs e RPGistas adequados aos seus gostos como '),
-                              TextSpan(text: 'Mestre', style: TextStyle(fontWeight: FontWeight.w700)),
+                            children: [
+                              TextSpan(text: 'Para aproveitar o máximo que a Taverna Multiversal tem para te oferecer, é recomendado que você personalize seu perfil de '),
+                              TextSpan(text: 'mestre', style: AppTexts.bodyMediumBold),
+                              TextSpan(text: ' com algumas informações. Isso vai te ajudar a encontrar RPGs e RPGistas adequados aos seus gostos como '),
+                              TextSpan(text: 'mestre', style: AppTexts.bodyMediumBold),
                               TextSpan(text: '.'),
                             ],
                           ),
@@ -122,16 +103,12 @@ class SRGM1Choice extends StatelessWidget {
                               height: 1.5,
                             ),
                             children: [
-                              TextSpan(
-                                  text:
-                                      'Esta escolha pode ser alterada a qualquer momento através do seu perfil.'),
+                              TextSpan(text: 'Esta escolha pode ser alterada a qualquer momento através do seu perfil.'),
                             ],
                           ),
                         ),
                       ],
                     ),
-
-                    const SizedBox(height: 80),
                   ],
                 ),
               ),
@@ -148,8 +125,11 @@ class SRGM1Choice extends StatelessWidget {
               child: SizedBox(
                 height: 42,
                 child: TMButton.negative(
-                  text: 'NÃO!',
-                  onPressed: onDecline ?? () {},
+                  text: 'NÃO',
+                  onPressed: onDecline ?? () {
+                    //TODO: variável que indica interesse em ser mestre fica false
+                    Navigator.pushNamed(context, AppRoutes.srp2Intro);
+                  },
                 ),
               ),
             ),
@@ -158,8 +138,11 @@ class SRGM1Choice extends StatelessWidget {
               child: SizedBox(
                 height: 42,
                 child: TMButton.positive(
-                  text: 'SIM!',
-                  onPressed: onConfirm ?? () {},
+                  text: 'SIM',
+                  onPressed: onConfirm ?? () {
+                    //TODO: variável que indica interesse em ser mestre fica true
+                    Navigator.pushNamed(context, AppRoutes.srp2Intro);
+                  },
                 ),
               ),
             ),

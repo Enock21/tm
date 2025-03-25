@@ -33,26 +33,15 @@ class SRP1Choice extends StatelessWidget {
                   children: [
                     RichText(
                       textAlign: TextAlign.center,
-                      text: const TextSpan(
-                        style: TextStyle(
-                          color: AppColors.nonInteractiveMainColor,
-                          fontFamily: 'Montserrat',
-                          fontSize: 20,
-                          height: 1.5,
-                        ),
+                      text: TextSpan(
+                        style: AppTexts.headlineMedium,
                         children: [
                           TextSpan(
                             text:
                                 'Você deseja participar da Taverna Multiversal como ',
-                            style: TextStyle(fontWeight: FontWeight.w400),
                           ),
                           TextSpan(
-                            text: 'Jogador',
-                            style: TextStyle(fontWeight: FontWeight.w700),
-                          ),
-                          TextSpan(
-                            text: '?',
-                            style: TextStyle(fontWeight: FontWeight.w400),
+                            text: 'Jogador?',
                           ),
                         ],
                       ),
@@ -74,21 +63,16 @@ class SRP1Choice extends StatelessWidget {
                         RichText(
                           textAlign: TextAlign.justify,
                           text: TextSpan(
-                            style: const TextStyle(
-                              color: AppColors.neutralColor,
-                              fontFamily: 'Montserrat',
-                              fontSize: 16,
-                              height: 1.5,
-                            ),
-                            children: const [
+                            style: AppTexts.bodyMedium,
+                            children: [
                               TextSpan(text: 'Como um '),
-                              TextSpan(text: 'Jogador', style: TextStyle(fontWeight: FontWeight.w700)),
+                              TextSpan(text: 'jogador', style: AppTexts.bodyMediumBold),
                               TextSpan(text: ', você pode se inscrever para '),
-                              TextSpan(text: 'jogar', style: TextStyle(fontWeight: FontWeight.w700)),
+                              TextSpan(text: 'jogar', style: AppTexts.bodyMediumBold),
                               TextSpan(
                                   text:
-                                      ' em RPGs, participar de grupos de Jogadores, criar propostas de jogos para Mestres narrarem e exibir suas preferências como '),
-                              TextSpan(text: 'Jogador', style: TextStyle(fontWeight: FontWeight.w700)),
+                                      ' em RPGs, participar de grupos de jogadores, criar propostas de jogos para mestres narrarem e exibir suas preferências como '),
+                              TextSpan(text: 'jogador', style: AppTexts.bodyMediumBold),
                               TextSpan(text: '.'),
                             ],
                           ),
@@ -97,21 +81,16 @@ class SRP1Choice extends StatelessWidget {
                         RichText(
                           textAlign: TextAlign.justify,
                           text: TextSpan(
-                            style: const TextStyle(
-                              color: AppColors.neutralColor,
-                              fontFamily: 'Montserrat',
-                              fontSize: 16,
-                              height: 1.5,
-                            ),
-                            children: const [
+                            style: AppTexts.bodyMedium,
+                            children: [
                               TextSpan(
                                   text:
                                       'Para aproveitar o máximo que a Taverna Multiversal tem para te oferecer, é recomendado que você personalize seu perfil de '),
-                              TextSpan(text: 'Jogador', style: TextStyle(fontWeight: FontWeight.w700)),
+                              TextSpan(text: 'jogador', style: AppTexts.bodyMediumBold),
                               TextSpan(
                                   text:
                                       ' com algumas informações. Isso vai te ajudar a encontrar RPGs e RPGistas adequados aos seus gostos como '),
-                              TextSpan(text: 'Jogador', style: TextStyle(fontWeight: FontWeight.w700)),
+                              TextSpan(text: 'jogador', style: AppTexts.bodyMediumBold),
                               TextSpan(text: '.'),
                             ],
                           ),
@@ -119,24 +98,17 @@ class SRP1Choice extends StatelessWidget {
                         const SizedBox(height: 15),
                         RichText(
                           textAlign: TextAlign.justify,
-                          text: const TextSpan(
-                            style: TextStyle(
-                              color: AppColors.neutralColor,
-                              fontFamily: 'Montserrat',
-                              fontSize: 16,
-                              height: 1.5,
-                            ),
+                          text: TextSpan(
+                            style: AppTexts.bodyMedium,
                             children: [
-                              TextSpan(
-                                  text:
-                                      'Esta escolha pode ser alterada a qualquer momento através do seu perfil.'),
+                              TextSpan(text: 'Esta escolha pode ser alterada a qualquer momento através do seu perfil.'),
                             ],
                           ),
                         ),
                       ],
                     ),
 
-                    const SizedBox(height: 80),
+                    //const SizedBox(height: 80),
                   ],
                 ),
               ),
@@ -153,7 +125,7 @@ class SRP1Choice extends StatelessWidget {
               child: SizedBox(
                 height: 42,
                 child: TMButton.negative(
-                  text: 'NÃO!',
+                  text: 'NÃO',
                   onPressed: onDecline ?? () {
                     //TODO: variável que indica interesse em ser jogador fica false
                     Navigator.pushNamed(context, AppRoutes.srgm1Choice);
@@ -166,7 +138,7 @@ class SRP1Choice extends StatelessWidget {
               child: SizedBox(
                 height: 42,
                 child: TMButton.positive(
-                  text: 'SIM!',
+                  text: 'SIM',
                   onPressed: onConfirm ?? () {
                     //TODO: variável que indica interesse em ser jogador fica true
                     Navigator.pushNamed(context, AppRoutes.srgm1Choice);
