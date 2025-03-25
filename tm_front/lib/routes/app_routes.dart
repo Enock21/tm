@@ -30,8 +30,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const SRP1Choice());
       case srgm1Choice:
         return MaterialPageRoute(builder: (_) => const SRGM1Choice());
-      // case srp2Intro:
-      //   return MaterialPageRoute(builder: (_) => const SRP2Intro());
+      case srp2Intro:
+        return MaterialPageRoute(builder: (_) => const SRP2Intro());
       // case srgm2Intro:
       //   return MaterialPageRoute(builder: (_) => const SRGM2Intro());
       case homepage:
