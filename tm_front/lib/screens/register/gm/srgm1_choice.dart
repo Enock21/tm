@@ -39,10 +39,7 @@ class SRGM1Choice extends StatelessWidget {
                         children: [
                           TextSpan(
                             text:
-                                'Você deseja participar da Taverna Multiversal como ',
-                          ),
-                          TextSpan(
-                            text: 'Mestre?',
+                                'Você deseja participar da Taverna Multiversal como Mestre?',
                           ),
                         ],
                       ),
