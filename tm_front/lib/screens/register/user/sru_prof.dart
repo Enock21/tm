@@ -116,10 +116,10 @@ class _SRUProfState extends State<SRUProf> {
                         controller: confirmPasswordController,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return CErrorMsgs.passwordEmpty;
+                            return ErrorMsgs.passwordEmpty;
                           }
                           if (value != passwordController.text) {
-                            return CErrorMsgs.passwordMismatch;
+                            return ErrorMsgs.passwordMismatch;
                           }
                           return null;
                         },

@@ -36,7 +36,7 @@ void main() {
       await tester.pumpAndSettle();
 
       // Verifica se o erro de formato é exibido
-      expect(find.text(CErrorMsgs.emailInvalid), findsOneWidget);
+      expect(find.text(ErrorMsgs.emailInvalid), findsOneWidget);
     });
 
     testWidgets(
@@ -56,15 +56,14 @@ void main() {
       );
 
       // Digita um email com formato inválido
-      await tester.enterText(
-          find.byType(TextFormField), 'email_invalido');
+      await tester.enterText(find.byType(TextFormField), 'email_invalido');
 
       // Simula a ação de envio do formulário
       await tester.testTextInput.receiveAction(TextInputAction.done);
       await tester.pumpAndSettle();
 
       // Verifica se o erro de formato é exibido
-      expect(find.text(CErrorMsgs.emailInvalid), findsOneWidget);
+      expect(find.text(ErrorMsgs.emailInvalid), findsOneWidget);
     });
 
     testWidgets(
@@ -98,7 +97,7 @@ void main() {
       await tester.pumpAndSettle();
 
       // Verifica se o erro de email já cadastrado é exibido
-      expect(find.text(CErrorMsgs.emailTaken), findsOneWidget);
+      expect(find.text(ErrorMsgs.emailTaken), findsOneWidget);
     });
 
     testWidgets(
@@ -126,7 +125,7 @@ void main() {
       await tester.pumpAndSettle();
 
       // Verifica se o erro de email já cadastrado é exibido
-      expect(find.text(CErrorMsgs.emailTaken), findsOneWidget);
+      expect(find.text(ErrorMsgs.emailTaken), findsOneWidget);
     });
 
     testWidgets(
@@ -158,7 +157,7 @@ void main() {
       await tester.pumpAndSettle();
 
       // Verifica que o erro de falta de email não é exibido
-      expect(find.text(CErrorMsgs.emailEmpty), findsNothing);
+      expect(find.text(ErrorMsgs.emailEmpty), findsNothing);
     });
 
     testWidgets(
@@ -183,7 +182,7 @@ void main() {
       await tester.pumpAndSettle();
 
       // Verifica se o erro de falta de email é exibido
-      expect(find.text(CErrorMsgs.emailEmpty), findsOneWidget);
+      expect(find.text(ErrorMsgs.emailEmpty), findsOneWidget);
     });
   });
 }

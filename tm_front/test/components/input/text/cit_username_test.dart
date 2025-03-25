@@ -5,7 +5,8 @@ import 'package:tm_front/utils/u_error_msgs.dart';
 
 void main() {
   group('CITUsername - Validações', () {
-    testWidgets('CITUsername-TST1: Mostrar erro de username vazio ao enviar form',
+    testWidgets(
+        'CITUsername-TST1: Mostrar erro de username vazio ao enviar form',
         (WidgetTester tester) async {
       final controller = TextEditingController();
       await tester.pumpWidget(
@@ -23,10 +24,11 @@ void main() {
       await tester.testTextInput.receiveAction(TextInputAction.done);
       await tester.pump();
 
-      expect(find.text(CErrorMsgs.usernameEmpty), findsOneWidget);
+      expect(find.text(ErrorMsgs.usernameEmpty), findsOneWidget);
     });
 
-    testWidgets('CITUsername-TST2: Não mostrar erro de username vazio sem enviar o form',
+    testWidgets(
+        'CITUsername-TST2: Não mostrar erro de username vazio sem enviar o form',
         (WidgetTester tester) async {
       final controller = TextEditingController();
       await tester.pumpWidget(
@@ -44,10 +46,11 @@ void main() {
       await tester.testTextInput.receiveAction(TextInputAction.done);
       await tester.pump();
 
-      expect(find.text(CErrorMsgs.usernameEmpty), findsNothing);
+      expect(find.text(ErrorMsgs.usernameEmpty), findsNothing);
     });
 
-    testWidgets('CITUsername-TST3: Não mostrar erro de username vazio com campo preenchido',
+    testWidgets(
+        'CITUsername-TST3: Não mostrar erro de username vazio com campo preenchido',
         (WidgetTester tester) async {
       final controller = TextEditingController();
       await tester.pumpWidget(
@@ -62,7 +65,7 @@ void main() {
       await tester.testTextInput.receiveAction(TextInputAction.done);
       await tester.pump();
 
-      expect(find.text(CErrorMsgs.usernameEmpty), findsNothing);
+      expect(find.text(ErrorMsgs.usernameEmpty), findsNothing);
     });
 
     testWidgets(
@@ -76,7 +79,8 @@ void main() {
               children: [
                 CITUsername(
                     controller: controller,
-                    formSubmitted: false), //Simulando uma invocação do CITUsername sem submissão de seu form.
+                    formSubmitted:
+                        false), //Simulando uma invocação do CITUsername sem submissão de seu form.
                 TextFormField(key: const Key('other-field')),
               ],
             ),
@@ -93,7 +97,7 @@ void main() {
       await tester.tap(find.byKey(const Key('other-field')));
       await tester.pumpAndSettle();
 
-      expect(find.text(CErrorMsgs.usernameEmpty), findsNothing);
+      expect(find.text(ErrorMsgs.usernameEmpty), findsNothing);
     });
 
     testWidgets(
@@ -120,24 +124,25 @@ void main() {
       await tester.tap(find.byKey(const Key('other-field')));
       await tester.pumpAndSettle();
 
-      expect(find.text(CErrorMsgs.usernameLength), findsOneWidget);
+      expect(find.text(ErrorMsgs.usernameLength), findsOneWidget);
 
       // Agora simula o envio do form (submissão)
       await tester.enterText(find.byType(TextFormField).first, 'ab');
       await tester.testTextInput.receiveAction(TextInputAction.done);
       await tester.pump();
 
-      expect(find.text(CErrorMsgs.usernameLength), findsOneWidget);
+      expect(find.text(ErrorMsgs.usernameLength), findsOneWidget);
 
       // Teste do teste. Verifica se o status do componente está realmente resetando como esperado. Isto é, verifica que as mensagens de erro emitidas anteriormente somem quando um valor correto é adicionado.
       await tester.enterText(find.byType(TextFormField).first, 'abc');
       await tester.testTextInput.receiveAction(TextInputAction.done);
       await tester.pump();
 
-      expect(find.text(CErrorMsgs.usernameLength), findsNothing);
+      expect(find.text(ErrorMsgs.usernameLength), findsNothing);
     });
 
-    testWidgets('CITUsername-TST6: Não mostrar erro de tamanho indevidamente para username válido',
+    testWidgets(
+        'CITUsername-TST6: Não mostrar erro de tamanho indevidamente para username válido',
         (WidgetTester tester) async {
       final controller = TextEditingController();
       await tester.pumpWidget(
@@ -152,7 +157,7 @@ void main() {
       await tester.testTextInput.receiveAction(TextInputAction.done);
       await tester.pump();
 
-      expect(find.text(CErrorMsgs.usernameLength), findsNothing);
+      expect(find.text(ErrorMsgs.usernameLength), findsNothing);
     });
 
     testWidgets(
@@ -179,14 +184,14 @@ void main() {
       await tester.tap(find.byKey(const Key('other-field')));
       await tester.pumpAndSettle();
 
-      expect(find.text(CErrorMsgs.usernameInvalid), findsOneWidget);
+      expect(find.text(ErrorMsgs.usernameInvalid), findsOneWidget);
 
       // Agora simula o envio do form (submissão)
       await tester.enterText(find.byType(TextFormField).first, 'abc!');
       await tester.testTextInput.receiveAction(TextInputAction.done);
       await tester.pump();
 
-      expect(find.text(CErrorMsgs.usernameInvalid), findsOneWidget);
+      expect(find.text(ErrorMsgs.usernameInvalid), findsOneWidget);
     });
 
     testWidgets(
@@ -208,13 +213,13 @@ void main() {
       FocusManager.instance.primaryFocus?.unfocus();
       await tester.pump();
 
-      expect(find.text(CErrorMsgs.usernameInvalid), findsNothing);
+      expect(find.text(ErrorMsgs.usernameInvalid), findsNothing);
 
       // Simula envio do form
       await tester.testTextInput.receiveAction(TextInputAction.done);
       await tester.pump();
 
-      expect(find.text(CErrorMsgs.usernameInvalid), findsNothing);
+      expect(find.text(ErrorMsgs.usernameInvalid), findsNothing);
     });
 
     testWidgets(
@@ -243,7 +248,7 @@ void main() {
       await tester.tap(find.byKey(const Key('other-field')));
       await tester.pumpAndSettle();
 
-      expect(find.text(CErrorMsgs.usernameTaken), findsOneWidget);
+      expect(find.text(ErrorMsgs.usernameTaken), findsOneWidget);
 
       // Agora simula o envio do form (submissão)
       await tester.enterText(
@@ -251,7 +256,7 @@ void main() {
       await tester.testTextInput.receiveAction(TextInputAction.done);
       await tester.pump();
 
-      expect(find.text(CErrorMsgs.usernameTaken), findsOneWidget);
+      expect(find.text(ErrorMsgs.usernameTaken), findsOneWidget);
     });
   });
 }

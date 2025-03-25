@@ -28,7 +28,7 @@ class SPRExpiredLink extends StatelessWidget {
                   children: [
                     // Mensagem de link expirado
                     Text(
-                      CErrorMsgs.expiredLink,
+                      ErrorMsgs.expiredLink,
                       style: AppTexts.denialFeedback,
                       textAlign: TextAlign.center,
                     ),

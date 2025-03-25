@@ -20,8 +20,10 @@ class _CITUsernameState extends State<CITUsername> {
 
   void _checkUsernameAvailability(String username) {
     setState(() {
-      _isUsernameTaken = username == CITUsername.registeredUsername; // Simulação
-      _showError = true;//Obs: Isso aqui faz sentido? Parece que não. Mostrar erro assim que a checagem de nome disponível é feita parece errado.
+      _isUsernameTaken =
+          username == CITUsername.registeredUsername; // Simulação
+      _showError =
+          true; //Obs: Isso aqui faz sentido? Parece que não. Mostrar erro assim que a checagem de nome disponível é feita parece errado.
     });
   }
 
@@ -46,16 +48,16 @@ class _CITUsernameState extends State<CITUsername> {
         onChanged: (value) => _checkUsernameAvailability(value),
         validator: (value) {
           if (widget.formSubmitted && (value == null || value.isEmpty)) {
-            return CErrorMsgs.usernameEmpty;
+            return ErrorMsgs.usernameEmpty;
           } else if (value != null && value.isNotEmpty) {
             if (value.length < 3 || value.length > 20) {
-              return CErrorMsgs.usernameLength;
+              return ErrorMsgs.usernameLength;
             }
             if (!_isValidUsernameFormat(value)) {
-              return CErrorMsgs.usernameInvalid;
+              return ErrorMsgs.usernameInvalid;
             }
             if (_showError && _isUsernameTaken) {
-              return CErrorMsgs.usernameTaken;
+              return ErrorMsgs.usernameTaken;
             }
           }
           return null;

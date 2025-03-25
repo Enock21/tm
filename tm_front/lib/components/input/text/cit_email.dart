@@ -41,16 +41,15 @@ class _CITEmailState extends State<CITEmail> {
           validateOnFocusLost: true,
           onChanged: (value) => _checkEmailAvailability(value),
           validator: (value) {
-            if (widget.formSubmitted &&
-                (value == null || value.isEmpty)) {
-              return CErrorMsgs.emailEmpty;
+            if (widget.formSubmitted && (value == null || value.isEmpty)) {
+              return ErrorMsgs.emailEmpty;
             } else if (value != null && value.isNotEmpty) {
               if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
-                return CErrorMsgs.emailInvalid;
+                return ErrorMsgs.emailInvalid;
               }
               if (widget.isRegisterScreen &&
                   value == CITEmail.registeredEmail) {
-                return CErrorMsgs.emailTaken;
+                return ErrorMsgs.emailTaken;
               }
             }
             return null;

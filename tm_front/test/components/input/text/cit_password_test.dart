@@ -6,7 +6,8 @@ import 'package:tm_front/utils/u_error_msgs.dart';
 
 void main() {
   group('CITPassword - Validações', () {
-  testWidgets('CITPassword-TST1: Verificar campo de senha vazia', (WidgetTester tester) async {
+    testWidgets('CITPassword-TST1: Verificar campo de senha vazia',
+        (WidgetTester tester) async {
       final controller = TextEditingController();
 
       await tester.pumpWidget(MaterialApp(
@@ -23,7 +24,7 @@ void main() {
       await tester.pump();
 
       // Verifica se a mensagem de erro é exibida
-      expect(find.text(CErrorMsgs.passwordEmpty), findsOneWidget);
+      expect(find.text(ErrorMsgs.passwordEmpty), findsOneWidget);
     });
 
     testWidgets('CITPassword-TST2: Não exibe erro para senha preenchida',
@@ -44,10 +45,11 @@ void main() {
       await tester.pump();
 
       // Verifica que a mensagem de erro não está presente
-      expect(find.text(CErrorMsgs.passwordEmpty), findsNothing);
+      expect(find.text(ErrorMsgs.passwordEmpty), findsNothing);
     });
 
-    testWidgets('CITPassword-TST3: Verificar comando de revelar/ocultar texto', (WidgetTester tester) async {
+    testWidgets('CITPassword-TST3: Verificar comando de revelar/ocultar texto',
+        (WidgetTester tester) async {
       final controller = TextEditingController();
 
       await tester.pumpWidget(MaterialApp(
@@ -69,7 +71,8 @@ void main() {
       await tester.pump();
 
       // Verifica se obscureText se tornou false
-      final updatedCitGenericWidget = tester.widget<CITGeneric>(citGenericFinder);
+      final updatedCitGenericWidget =
+          tester.widget<CITGeneric>(citGenericFinder);
       expect(updatedCitGenericWidget.obscureText, isFalse);
 
       // Clica novamente no botão para ocultar a senha
@@ -77,7 +80,8 @@ void main() {
       await tester.pump();
 
       // Verifica se obscureText voltou a ser true
-      final secondUpdatedCitGenericWidget = tester.widget<CITGeneric>(citGenericFinder);
+      final secondUpdatedCitGenericWidget =
+          tester.widget<CITGeneric>(citGenericFinder);
       expect(secondUpdatedCitGenericWidget.obscureText, isTrue);
     });
   });

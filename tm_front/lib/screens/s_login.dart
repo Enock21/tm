@@ -41,7 +41,7 @@ class SLoginState extends State<SLogin> {
       } else {
         // 🔹 Exibe erro se credenciais forem inválidas
         setState(() {
-          _loginError = CErrorMsgs.loginNotFound;
+          _loginError = ErrorMsgs.loginNotFound;
         });
       }
     }

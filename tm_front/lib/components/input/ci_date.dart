@@ -69,7 +69,7 @@ class _CIDateState extends State<CIDate> {
       ),
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return CErrorMsgs.dateEmpty;
+          return ErrorMsgs.dateEmpty;
         }
         return null;
       },

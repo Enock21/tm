@@ -35,7 +35,7 @@ class AppRoutes {
       // case srgm2Intro:
       //   return MaterialPageRoute(builder: (_) => const SRGM2Intro());
       case homepage:
-        return MaterialPageRoute(builder: (_) => const HomePage());
+        return MaterialPageRoute(builder: (_) => const SHomePage());
       default:
         return MaterialPageRoute(builder: (_) => const SLogin());
     }

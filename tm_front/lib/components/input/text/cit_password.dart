@@ -8,7 +8,8 @@ class CITPassword extends StatefulWidget {
   final Widget? prefixIcon;
   final FormFieldValidator<String>? validator;
 
-  const CITPassword({super.key, this.controller, this.prefixIcon, this.validator});
+  const CITPassword(
+      {super.key, this.controller, this.prefixIcon, this.validator});
 
   @override
   _CITPasswordState createState() => _CITPasswordState();
@@ -41,7 +42,7 @@ class _CITPasswordState extends State<CITPassword> {
       validator: widget.validator ??
           (value) {
             if (value == null || value.isEmpty) {
-              return CErrorMsgs.passwordEmpty;
+              return ErrorMsgs.passwordEmpty;
             }
             return null;
           },

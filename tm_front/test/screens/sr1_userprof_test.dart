@@ -72,10 +72,10 @@ void main() {
       await tester.pumpAndSettle();
 
       // Verifica os erros esperados:
-      expect(find.text(CErrorMsgs.usernameEmpty), findsOneWidget);
-      expect(find.text(CErrorMsgs.emailEmpty), findsOneWidget);
-      expect(find.text(CErrorMsgs.passwordEmpty), findsNWidgets(2));
-      expect(find.text(CErrorMsgs.dateEmpty), findsOneWidget);
+      expect(find.text(ErrorMsgs.usernameEmpty), findsOneWidget);
+      expect(find.text(ErrorMsgs.emailEmpty), findsOneWidget);
+      expect(find.text(ErrorMsgs.passwordEmpty), findsNWidgets(2));
+      expect(find.text(ErrorMsgs.dateEmpty), findsOneWidget);
     });
 
     testWidgets(
@@ -93,8 +93,8 @@ void main() {
       await tester.tap(nextButton);
       await tester.pumpAndSettle();
 
-      expect(find.text(CErrorMsgs.usernameInvalid), findsOneWidget);
-      expect(find.text(CErrorMsgs.emailInvalid), findsOneWidget);
+      expect(find.text(ErrorMsgs.usernameInvalid), findsOneWidget);
+      expect(find.text(ErrorMsgs.emailInvalid), findsOneWidget);
     });
 
     testWidgets(
@@ -113,8 +113,8 @@ void main() {
       await tester.tap(nextButton);
       await tester.pumpAndSettle();
 
-      expect(find.text(CErrorMsgs.usernameTaken), findsOneWidget);
-      expect(find.text(CErrorMsgs.emailTaken), findsOneWidget);
+      expect(find.text(ErrorMsgs.usernameTaken), findsOneWidget);
+      expect(find.text(ErrorMsgs.emailTaken), findsOneWidget);
     });
 
     testWidgets(
@@ -132,7 +132,7 @@ void main() {
       await tester.pumpAndSettle();
 
       // Verifica se a mensagem de erro referente ao tamanho do username é exibida
-      expect(find.text(CErrorMsgs.usernameLength), findsOneWidget);
+      expect(find.text(ErrorMsgs.usernameLength), findsOneWidget);
     });
 
     testWidgets(

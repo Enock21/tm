@@ -20,7 +20,7 @@ void main() {
       await tester.tap(find.text('Entrar'));
       await tester.pumpAndSettle();
 
-      expect(find.text(CErrorMsgs.emailInvalid), findsOneWidget);
+      expect(find.text(ErrorMsgs.emailInvalid), findsOneWidget);
     });
 
     testWidgets(
@@ -34,7 +34,7 @@ void main() {
       await tester.tap(find.text('Entrar'));
       await tester.pump();
 
-      expect(find.text(CErrorMsgs.emailInvalid), findsNothing);
+      expect(find.text(ErrorMsgs.emailInvalid), findsNothing);
     });
 
     testWidgets('SLogin-TST3: Exibe erro quando o campo de e-mail está vazio',
@@ -44,7 +44,7 @@ void main() {
       await tester.tap(find.text('Entrar'));
       await tester.pumpAndSettle();
 
-      expect(find.text(CErrorMsgs.emailEmpty), findsOneWidget);
+      expect(find.text(ErrorMsgs.emailEmpty), findsOneWidget);
     });
 
     testWidgets(
@@ -58,7 +58,7 @@ void main() {
       await tester.tap(find.text('Entrar'));
       await tester.pump();
 
-      expect(find.text(CErrorMsgs.emailEmpty), findsNothing);
+      expect(find.text(ErrorMsgs.emailEmpty), findsNothing);
     });
 
     testWidgets('SLogin-TST5: Exibe erro quando o campo de senha está vazio',
@@ -69,7 +69,7 @@ void main() {
       await tester.tap(find.text('Entrar'));
       await tester.pumpAndSettle();
 
-      expect(find.text(CErrorMsgs.passwordEmpty), findsOneWidget);
+      expect(find.text(ErrorMsgs.passwordEmpty), findsOneWidget);
     });
 
     testWidgets(
@@ -83,7 +83,7 @@ void main() {
       await tester.tap(find.text('Entrar'));
       await tester.pump();
 
-      expect(find.text(CErrorMsgs.passwordEmpty), findsNothing);
+      expect(find.text(ErrorMsgs.passwordEmpty), findsNothing);
     });
 
     testWidgets(
@@ -97,7 +97,7 @@ void main() {
       await tester.tap(find.text('Entrar'));
       await tester.pump();
 
-      expect(find.text(CErrorMsgs.emailTaken), findsNothing);
+      expect(find.text(ErrorMsgs.emailTaken), findsNothing);
     });
 
     testWidgets('SLogin-TST8: Login válido redireciona para HomePage sem erro',
@@ -112,8 +112,8 @@ void main() {
       await tester.tap(find.text('Entrar'));
       await tester.pumpAndSettle();
 
-      expect(find.byType(HomePage), findsOneWidget);
-      expect(find.text(CErrorMsgs.loginNotFound), findsNothing);
+      expect(find.byType(SHomePage), findsOneWidget);
+      expect(find.text(ErrorMsgs.loginNotFound), findsNothing);
     });
 
     testWidgets('SLogin-TST9: Tentativa de login com email não registrado',
@@ -128,8 +128,8 @@ void main() {
       await tester.tap(find.text('Entrar'));
       await tester.pumpAndSettle();
 
-      expect(find.byType(HomePage), findsNothing);
-      expect(find.text(CErrorMsgs.loginNotFound), findsOneWidget);
+      expect(find.byType(SHomePage), findsNothing);
+      expect(find.text(ErrorMsgs.loginNotFound), findsOneWidget);
     });
 
     testWidgets('SLogin-TST10: Tentativa de login com senha errada',
@@ -144,8 +144,8 @@ void main() {
       await tester.tap(find.text('Entrar'));
       await tester.pumpAndSettle();
 
-      expect(find.byType(HomePage), findsNothing);
-      expect(find.text(CErrorMsgs.loginNotFound), findsOneWidget);
+      expect(find.byType(SHomePage), findsNothing);
+      expect(find.text(ErrorMsgs.loginNotFound), findsOneWidget);
     });
 
     testWidgets(

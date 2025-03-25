@@ -114,7 +114,7 @@ class _SPRAlterationState extends State<SPRAlteration> {
                                             .showSnackBar(
                                           SnackBar(
                                             content: Text(
-                                              CErrorMsgs.passwordMismatch,
+                                              ErrorMsgs.passwordMismatch,
                                               textAlign: TextAlign.center,
                                               style: const TextStyle(
                                                 color: AppColors.negativeColor,

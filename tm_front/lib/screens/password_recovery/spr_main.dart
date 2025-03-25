@@ -73,7 +73,7 @@ class _SPRMainState extends State<SPRMain> {
                             Padding(
                               padding: const EdgeInsets.only(top: 8.0),
                               child: Text(
-                                CErrorMsgs.emailNotFound,
+                                ErrorMsgs.emailNotFound,
                                 style:
                                     TextStyle(color: AppColors.negativeColor),
                               ),
@@ -87,14 +87,14 @@ class _SPRMainState extends State<SPRMain> {
                               : TMButton.positive(
                                   text: 'Enviar',
                                   onPressed: () async {
-                                      setState(() {
-                                        _formSubmitted = true;
-                                      });
-                                      WidgetsBinding.instance.addPostFrameCallback((_) {
-                                        _validateEmailAndSend();
-                                      });
-                                    }
-                                ),
+                                    setState(() {
+                                      _formSubmitted = true;
+                                    });
+                                    WidgetsBinding.instance
+                                        .addPostFrameCallback((_) {
+                                      _validateEmailAndSend();
+                                    });
+                                  }),
                         ],
                       ),
                     ),
