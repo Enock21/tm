@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tm_front/components/c_bottom_butt.dart';
 import 'package:tm_front/components/c_buttons.dart';
 import 'package:tm_front/components/c_header.dart';
+import 'package:tm_front/components/visual/cv_gm_icon.dart';
 import 'package:tm_front/routes/app_routes.dart';
 import 'package:tm_front/utils/u_theme.dart'; // Importa o TMButton
 
@@ -34,16 +35,8 @@ class SRGM1Choice extends StatelessWidget {
                   children: [
                     CHeader(title: 'Você deseja participar da Taverna Multiversal como Mestre?'),
                     const SizedBox(height: 48),
-                    
-                    SvgPicture.asset(
-                      'assets/icons/book-opened-svgrepo-com.svg',
-                      width: 63,
-                      height: 63,
-                      colorFilter: ColorFilter.mode(AppColors.nonInteractiveMainColor, BlendMode.srcIn),
-                    ),
+                    CVGMIcon(),
                     const SizedBox(height: 48),
-                    
-                    // Description text
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [

@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tm_front/components/c_bottom_butt.dart';
 import 'package:tm_front/components/c_buttons.dart';
 import 'package:tm_front/components/c_header.dart';
+import 'package:tm_front/components/visual/cv_player_icon.dart';
 import 'package:tm_front/routes/app_routes.dart';
 import 'package:tm_front/utils/u_theme.dart'; // Importa o TMButton
 
@@ -34,13 +35,7 @@ class SRP1Choice extends StatelessWidget {
                   children: [
                     const CHeader(title: 'Você deseja participar da Taverna Multiversal como Jogador?'),
                     const SizedBox(height: 48),
-                    SvgPicture.asset(
-                      'assets/icons/game-icons--dice-twenty-faces-twenty.svg',
-                      width: 63,
-                      height: 63,
-                      colorFilter: ColorFilter.mode(
-                          AppColors.nonInteractiveMainColor, BlendMode.srcIn),
-                    ),
+                    CVPlayerIcon(),
                     const SizedBox(height: 48),
                     // Texto descritivo
                     Column(
