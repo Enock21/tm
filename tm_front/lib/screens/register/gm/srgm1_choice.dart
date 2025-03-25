@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tm_front/components/c_bottom_butt.dart';
 import 'package:tm_front/components/c_buttons.dart';
+import 'package:tm_front/components/c_header.dart';
 import 'package:tm_front/routes/app_routes.dart';
 import 'package:tm_front/utils/u_theme.dart'; // Importa o TMButton
 
@@ -31,19 +32,7 @@ class SRGM1Choice extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    // Title text
-                    RichText(
-                      textAlign: TextAlign.center,
-                      text: TextSpan(
-                        style: AppTexts.headlineMedium,
-                        children: [
-                          TextSpan(
-                            text:
-                                'Você deseja participar da Taverna Multiversal como Mestre?',
-                          ),
-                        ],
-                      ),
-                    ),
+                    CHeader(title: 'Você deseja participar da Taverna Multiversal como Mestre?'),
                     const SizedBox(height: 48),
                     
                     SvgPicture.asset(
