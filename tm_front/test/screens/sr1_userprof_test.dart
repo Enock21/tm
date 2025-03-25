@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:tm_front/utils/u_error_msgs.dart';
 import 'package:tm_front/components/input/text/cit_email.dart';
 import 'package:tm_front/components/input/text/cit_username.dart';
-import 'package:tm_front/screens/register/user/sru.dart'; // ajuste o import conforme a organização do seu projeto
+import 'package:tm_front/screens/register/user/sru_prof.dart'; // ajuste o import conforme a organização do seu projeto
 
 /// Navigator observer para verificar se houve transição de rota.
 class TestNavigatorObserver extends NavigatorObserver {
@@ -22,7 +22,7 @@ void main() {
         'SR1-TST1: Senhas não coincidem exibe erro "As senhas não correspondem"',
         (WidgetTester tester) async {
       // Monte o widget dentro de um MaterialApp.
-      await tester.pumpWidget(const MaterialApp(home: SR1UserProf()));
+      await tester.pumpWidget(const MaterialApp(home: SRUProf()));
 
       // Preenche os campos de senha e confirmação com valores diferentes.
       // Como há dois CITPassword (o primeiro para senha e o segundo para confirmação),
@@ -63,7 +63,7 @@ void main() {
     testWidgets(
         'SR1-TST2: Todos os erros de campo vazio são emitidos simultaneamente ao tentar enviar o form',
         (WidgetTester tester) async {
-      await tester.pumpWidget(const MaterialApp(home: SR1UserProf()));
+      await tester.pumpWidget(const MaterialApp(home: SRUProf()));
 
       // Submete o formulário sem preencher nenhum campo.
       final nextButton = find.text('Próximo');
@@ -81,7 +81,7 @@ void main() {
     testWidgets(
         'SR1-TST3: Erros de formato inválido de email e username são lançados simultaneamente',
         (WidgetTester tester) async {
-      await tester.pumpWidget(const MaterialApp(home: SR1UserProf()));
+      await tester.pumpWidget(const MaterialApp(home: SRUProf()));
 
       // Preenche username com formato inválido e email inválido.
       // O primeiro TextFormField é o do username; o segundo, o de email.
@@ -100,7 +100,7 @@ void main() {
     testWidgets(
         'SR1-TST4: Erros de username e email repetidos aparecem simultaneamente quando apropriado',
         (WidgetTester tester) async {
-      await tester.pumpWidget(const MaterialApp(home: SR1UserProf()));
+      await tester.pumpWidget(const MaterialApp(home: SRUProf()));
 
       // Preenche com username e email já registrados.
       await tester.enterText(
@@ -120,7 +120,7 @@ void main() {
     testWidgets(
         'SR1-TST5: Erro de tamanho para CITUsername é detectado corretamente',
         (WidgetTester tester) async {
-      await tester.pumpWidget(const MaterialApp(home: SR1UserProf()));
+      await tester.pumpWidget(const MaterialApp(home: SRUProf()));
 
       // Insere um username com tamanho inválido (menos de 3 caracteres, por exemplo "ab")
       await tester.enterText(find.byType(TextFormField).at(0), 'ab');
@@ -136,9 +136,7 @@ void main() {
     });
 
     testWidgets(
-      'SR1-TST6: Transição de tela para SRP1Choice ao submeter form válido',
-      (WidgetTester tester) async {
-          
-      });
+        'SR1-TST6: Transição de tela para SRP1Choice ao submeter form válido',
+        (WidgetTester tester) async {});
   });
 }

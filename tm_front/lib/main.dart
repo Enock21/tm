@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:tm_front/screens/register/user/sru.dart';
+import 'package:tm_front/screens/register/user/sru_prof.dart';
 import 'package:tm_front/screens/register/player/srp1_choice.dart';
 import 'package:tm_front/screens/s_login.dart';
 import 'package:tm_front/screens/password_recovery/spr_alteration.dart';
@@ -27,8 +27,8 @@ class MyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate, // Suporte para widgets Flutter
         GlobalCupertinoLocalizations.delegate, // Suporte para Cupertino (iOS)
       ],
-      initialRoute: AppRoutes.sLogin,
-      //initialRoute: AppRoutes.srp1Choice,
+      //initialRoute: AppRoutes.sLogin,
+      initialRoute: AppRoutes.srp1Choice,
       onGenerateRoute: AppRoutes.generateRoute,
     );
   }

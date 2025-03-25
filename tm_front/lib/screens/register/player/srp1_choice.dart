@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tm_front/components/c_buttons.dart';
+import 'package:tm_front/components/c_header.dart';
+import 'package:tm_front/routes/app_routes.dart';
 import 'package:tm_front/utils/u_theme.dart'; // Importa o TMButton
 
 class SRP1Choice extends StatelessWidget {
@@ -16,7 +18,7 @@ class SRP1Choice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF1A1A1A),
+      backgroundColor: AppColors.backgroundColor,
       // O conteúdo que pode rolar fica no body:
       body: SafeArea(
         child: SingleChildScrollView(
@@ -29,12 +31,11 @@ class SRP1Choice extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    // Title text
                     RichText(
                       textAlign: TextAlign.center,
                       text: const TextSpan(
                         style: TextStyle(
-                          color: Color(0xFFBB86FC),
+                          color: AppColors.nonInteractiveMainColor,
                           fontFamily: 'Montserrat',
                           fontSize: 20,
                           height: 1.5,
@@ -74,7 +75,7 @@ class SRP1Choice extends StatelessWidget {
                           textAlign: TextAlign.justify,
                           text: TextSpan(
                             style: const TextStyle(
-                              color: Colors.white,
+                              color: AppColors.neutralColor,
                               fontFamily: 'Montserrat',
                               fontSize: 16,
                               height: 1.5,
@@ -97,7 +98,7 @@ class SRP1Choice extends StatelessWidget {
                           textAlign: TextAlign.justify,
                           text: TextSpan(
                             style: const TextStyle(
-                              color: Colors.white,
+                              color: AppColors.neutralColor,
                               fontFamily: 'Montserrat',
                               fontSize: 16,
                               height: 1.5,
@@ -120,7 +121,7 @@ class SRP1Choice extends StatelessWidget {
                           textAlign: TextAlign.justify,
                           text: const TextSpan(
                             style: TextStyle(
-                              color: Colors.white,
+                              color: AppColors.neutralColor,
                               fontFamily: 'Montserrat',
                               fontSize: 16,
                               height: 1.5,
@@ -153,7 +154,10 @@ class SRP1Choice extends StatelessWidget {
                 height: 42,
                 child: TMButton.negative(
                   text: 'NÃO!',
-                  onPressed: onDecline ?? () {},
+                  onPressed: onDecline ?? () {
+                    //TODO: variável que indica interesse em ser jogador fica false
+                    Navigator.pushNamed(context, AppRoutes.srgm1Choice);
+                  },
                 ),
               ),
             ),
@@ -163,7 +167,10 @@ class SRP1Choice extends StatelessWidget {
                 height: 42,
                 child: TMButton.positive(
                   text: 'SIM!',
-                  onPressed: onConfirm ?? () {},
+                  onPressed: onConfirm ?? () {
+                    //TODO: variável que indica interesse em ser jogador fica true
+                    Navigator.pushNamed(context, AppRoutes.srgm1Choice);
+                  },
                 ),
               ),
             ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tm_front/screens/password_recovery/spr_main.dart';
 import 'package:tm_front/screens/s_login.dart';
-import '../screens/register/user/sru.dart';
+import '../screens/register/user/sru_prof.dart';
 import '../screens/register/player/srp1_choice.dart';
 import '../screens/register/gm/srgm1_choice.dart';
 import '../screens/register/player/srp2_intro.dart';
@@ -25,11 +25,11 @@ class AppRoutes {
       case sprMain:
         return MaterialPageRoute(builder: (_) => const SPRMain());
       case sr1UserProf:
-        return MaterialPageRoute(builder: (_) => const SR1UserProf());
+        return MaterialPageRoute(builder: (_) => const SRUProf());
       case srp1Choice:
         return MaterialPageRoute(builder: (_) => const SRP1Choice());
-      // case srgm1Choice:
-      //   return MaterialPageRoute(builder: (_) => const SRGM1Choice());
+      case srgm1Choice:
+        return MaterialPageRoute(builder: (_) => const SRGM1Choice());
       // case srp2Intro:
       //   return MaterialPageRoute(builder: (_) => const SRP2Intro());
       // case srgm2Intro:

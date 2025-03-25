@@ -10,14 +10,14 @@ import 'package:tm_front/components/c_header.dart';
 import 'package:tm_front/components/input/ci_date.dart';
 import 'package:tm_front/components/input/text/cit_username.dart';
 
-class SR1UserProf extends StatefulWidget {
-  const SR1UserProf({super.key});
+class SRUProf extends StatefulWidget {
+  const SRUProf({super.key});
 
   @override
-  _SR1UserProfState createState() => _SR1UserProfState();
+  _SRUProfState createState() => _SRUProfState();
 }
 
-class _SR1UserProfState extends State<SR1UserProf> {
+class _SRUProfState extends State<SRUProf> {
   final formKey = GlobalKey<FormState>();
   final usernameController = TextEditingController();
   final emailController = TextEditingController();
@@ -50,9 +50,7 @@ class _SR1UserProfState extends State<SR1UserProf> {
               children: [
                 // Cabeçalho
                 const CHeader(title: 'Bem Vindo(a) à\nTaverna Multiversal!'),
-
                 const SizedBox(height: 24),
-
                 Text(
                   'Seu Avatar',
                   style: AppTexts.headlineSmall,
@@ -169,7 +167,7 @@ class _SR1UserProfState extends State<SR1UserProf> {
                     });
                     WidgetsBinding.instance.addPostFrameCallback((_) {
                       if (formKey.currentState!.validate()) {
-                        print("Futuro: Criar conta no Firebase com ${emailController.text} e senha");
+                        //TODO: Criar conta no Firebase com ${emailController.text} e senha
 
                         Navigator.pushNamed(context, AppRoutes.srp1Choice);
                       }
