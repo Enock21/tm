@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tm_front/components/c_buttons.dart';
-import 'package:tm_front/routes/app_routes.dart';
+import 'package:tm_front/utils/u_routes.dart';
 import 'package:tm_front/utils/u_error_msgs.dart';
 import 'package:tm_front/components/input/text/cit_email.dart';
 import 'package:tm_front/components/input/text/cit_password.dart';
@@ -37,7 +37,7 @@ class SLoginState extends State<SLogin> {
           _loginError = null;
         });
 
-        Navigator.pushNamed(context, AppRoutes.homepage);
+        Navigator.pushNamed(context, URoutes.homepage);
       } else {
         // 🔹 Exibe erro se credenciais forem inválidas
         setState(() {
@@ -88,13 +88,14 @@ class SLoginState extends State<SLogin> {
                                 color: AppColors.nonInteractiveGreen),
                             formSubmitted: _formSubmitted,
                           ),
-                          const SizedBox(height: 16),
+                          AppBoxes.rowVSeparator,
                           CITPassword(
                             controller: passwordController,
                             prefixIcon: Icon(Icons.lock,
                                 color: AppColors.nonInteractiveGreen),
                           ),
-                          const SizedBox(height: 8),
+
+                          AppBoxes.rowVSeparator,
 
                           // 🔹 Exibe a mensagem de erro aqui
                           if (_loginError != null)
@@ -113,10 +114,12 @@ class SLoginState extends State<SLogin> {
                           TMTextButton(
                             text: 'Esqueci minha senha',
                             onPressed: () {
-                              Navigator.pushNamed(context, AppRoutes.sprMain);
+                              Navigator.pushNamed(context, URoutes.sprMain);
                             },
                           ),
-                          const SizedBox(height: 16),
+
+                          AppBoxes.rowVSeparator,
+
                           Row(
                             children: [
                               const Icon(Icons.login,
@@ -143,7 +146,9 @@ class SLoginState extends State<SLogin> {
                               const SizedBox(width: 24),
                             ],
                           ),
-                          const SizedBox(height: 18),
+
+                          AppBoxes.rowVSeparator,
+                          
                           Row(
                             children: [
                               const Icon(Icons.person,
@@ -157,7 +162,7 @@ class SLoginState extends State<SLogin> {
                                     onPressed: () {
                                       Navigator.pushNamed(
                                         context,
-                                        AppRoutes.sr1UserProf,
+                                        URoutes.sruProf,
                                       );
                                     },
                                   ),

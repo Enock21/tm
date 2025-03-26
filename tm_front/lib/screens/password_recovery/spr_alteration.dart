@@ -37,12 +37,11 @@ class _SPRAlterationState extends State<SPRAlteration> {
           child: Column(
             children: [
               CHeader(title: 'Alteração de Senha'),
-              SizedBox(height: 80),
+              AppBoxes.bellowTitleVSeparator,
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
                   children: [
-                    const SizedBox(height: 10),
                     Form(
                       key: formKey,
                       child: Column(
@@ -54,11 +53,11 @@ class _SPRAlterationState extends State<SPRAlteration> {
                               style: AppTexts.headlineSmall,
                             ),
                           ),
-                          const SizedBox(height: 5),
+                          AppBoxes.fieldLableVSeparator,
                           CITPassword(
                             controller: newPasswordController,
                           ),
-                          const SizedBox(height: 30),
+                          AppBoxes.rowVSeparator,
                           Align(
                             alignment: Alignment.center,
                             child: Text(
@@ -66,11 +65,11 @@ class _SPRAlterationState extends State<SPRAlteration> {
                               style: AppTexts.headlineSmall,
                             ),
                           ),
-                          const SizedBox(height: 5),
+                          AppBoxes.fieldLableVSeparator,
                           CITPassword(
                             controller: confirmPasswordController,
                           ),
-                          const SizedBox(height: 30),
+                          AppBoxes.rowVSeparator,
                           passwordChanged
                               ? Column(
                                   children: [
@@ -78,15 +77,14 @@ class _SPRAlterationState extends State<SPRAlteration> {
                                       'SENHA ALTERADA!',
                                       style: AppTexts.confirmationFeedback,
                                     ),
-                                    const SizedBox(
-                                        height: 10), // Espaço entre os textos
+                                    AppBoxes.textVSeparator,
                                     Align(
                                       child: CJustBodyMedium(
                                         text:
                                             'Retorne à tela de login e utilize sua nova senha para acessar.',
                                       ),
                                     ),
-                                    const SizedBox(height: 20),
+                                    AppBoxes.rowVSeparator,
                                     TMButton.positive(
                                       text: 'Voltar ao Login',
                                       onPressed: () {

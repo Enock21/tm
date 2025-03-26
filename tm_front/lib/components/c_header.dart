@@ -23,7 +23,6 @@ class CHeader extends StatelessWidget {
               alignment: Alignment.centerLeft,
               child: leading!,
             ),
-          const SizedBox(height: 10),
           RichText(
             textAlign: TextAlign.center,
             text: TextSpan(

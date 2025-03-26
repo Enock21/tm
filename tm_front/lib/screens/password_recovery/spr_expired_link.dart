@@ -22,7 +22,7 @@ class SPRExpiredLink extends StatelessWidget {
               CHeader(
                 title: 'Alteração de Senha',
               ),
-              const SizedBox(height: 80),
+              AppBoxes.bellowTitleVSeparator,
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
@@ -43,7 +43,7 @@ class SPRExpiredLink extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 30),
+                    const SizedBox(height: 25),
                     // Botão de retorno ao login
                     TMButton.positive(
                       text: 'Voltar ao Login',

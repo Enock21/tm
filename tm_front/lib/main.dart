@@ -5,7 +5,7 @@ import 'package:tm_front/screens/register/player/srp1_choice.dart';
 import 'package:tm_front/screens/s_login.dart';
 import 'package:tm_front/screens/password_recovery/spr_alteration.dart';
 import 'package:tm_front/screens/password_recovery/spr_expired_link.dart';
-import 'package:tm_front/routes/app_routes.dart';
+import 'package:tm_front/utils/u_routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,13 +27,15 @@ class MyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate, // Suporte para widgets Flutter
         GlobalCupertinoLocalizations.delegate, // Suporte para Cupertino (iOS)
       ],
-      //initialRoute: AppRoutes.sLogin,
-      //initialRoute: AppRoutes.sprMain,
-      //initialRoute: AppRoutes.sprExpiredLink,
-      //initialRoute: AppRoutes.sprAlteration,
-      initialRoute: AppRoutes.srp1Choice,
-      //initialRoute: AppRoutes.srgm1Choice,
-      onGenerateRoute: AppRoutes.generateRoute,
+      initialRoute: URoutes.sLogin,
+      //initialRoute: URoutes.sprMain,
+      //initialRoute: URoutes.sprExpiredLink,
+      //initialRoute: URoutes.sprAlteration,
+      //initialRoute: URoutes.sruProf,
+      //initialRoute: URoutes.srp1Choice,
+      //initialRoute: URoutes.srgm1Choice,
+      //initialRoute: URoutes.srp2Intro,
+      onGenerateRoute: URoutes.generateRoute,
     );
   }
 }

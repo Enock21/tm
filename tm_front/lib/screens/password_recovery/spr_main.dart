@@ -48,19 +48,18 @@ class _SPRMainState extends State<SPRMain> {
               CHeader(
                 title: 'Recuperação de Senha',
               ),
-              const SizedBox(height: 80),
+              AppBoxes.bellowTitleVSeparator,
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
                   children: [
                     Align(
-                        child: SizedBox(
                       child: CJustBodyMedium(
                         text:
                             'Digite o e-mail da sua conta na Taverna Multiversal. Um link para alteração de senha será enviado para ele.',
                       ),
-                    )),
-                    const SizedBox(height: 40),
+                    ),
+                    AppBoxes.rowVSeparator,
                     Form(
                       key: formKey,
                       child: Column(
@@ -78,7 +77,7 @@ class _SPRMainState extends State<SPRMain> {
                                     TextStyle(color: AppColors.negativeColor),
                               ),
                             ),
-                          const SizedBox(height: 30),
+                          AppBoxes.rowVSeparator,
                           emailSent
                               ? Text(
                                   'ENVIADO!',

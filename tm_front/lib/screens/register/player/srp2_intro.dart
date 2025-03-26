@@ -25,57 +25,11 @@ class SRP2Intro extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     CHeader(title: 'JOGADOR'),
-                    const SizedBox(height: 27),
+                    const SizedBox(height: 20),
                     const CVPlayerIcon(),
-                    const SizedBox(height: 19),
-                    Text(
-                      'Pronto para Começar?',
-                      style: GoogleFonts.montserrat(
-                        color: const Color(0xFFBB86FC),
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    // Texto de Instrução
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(28, 43, 28, 0),
-                      child: RichText(
-                        text: TextSpan(
-                          style: GoogleFonts.montserrat(
-                            color: Colors.white,
-                            fontSize: 16,
-                          ),
-                          children: const [
-                            TextSpan(
-                              text:
-                                  'Preencha as informações seguintes para personalizar seu perfil de ',
-                            ),
-                            TextSpan(
-                              text: 'jogador',
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            TextSpan(text: '.\n\n'),
-                            TextSpan(
-                              text:
-                                  'Todos os campos a seguir são opcionais e você pode alterá-los depois.\n\n',
-                            ),
-                            TextSpan(
-                              text:
-                                  'Caso deseje interromper a personalização do seu perfil de ',
-                            ),
-                            TextSpan(
-                              text: 'jogador',
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            TextSpan(
-                              text:
-                                  ', você pode selecionar "Pular Tudo" a qualquer momento. Se fizer isso, o que já foi preenchido ficará salvo no seu perfil.',
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
+                    const SizedBox(height: 20),
+                    CHeader(title: 'Pronto para Começar?'),
+                    
                   ],
                 ),
               ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:tm_front/routes/app_routes.dart';
+import 'package:tm_front/utils/u_routes.dart';
 import 'package:tm_front/screens/password_recovery/spr_main.dart';
 import 'package:tm_front/screens/register/user/sru_prof.dart';
 import 'package:tm_front/utils/u_error_msgs.dart';
@@ -13,7 +13,7 @@ void main() {
     testWidgets('SLogin-TST1: Exibe erro quando o formato do e-mail é inválido',
         (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(
-          onGenerateRoute: AppRoutes.generateRoute, home: SLogin()));
+          onGenerateRoute: URoutes.generateRoute, home: SLogin()));
 
       await tester.enterText(
           find.byType(TextFormField).first, 'email_invalido.com');
@@ -27,7 +27,7 @@ void main() {
         'SLogin-TST2: Verifica aparição indevida do erro de formato de e-mail inválido',
         (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(
-          onGenerateRoute: AppRoutes.generateRoute, home: SLogin()));
+          onGenerateRoute: URoutes.generateRoute, home: SLogin()));
 
       await tester.enterText(
           find.byType(TextFormField).first, 'email_valido@mail.com');
@@ -40,7 +40,7 @@ void main() {
     testWidgets('SLogin-TST3: Exibe erro quando o campo de e-mail está vazio',
         (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(
-          onGenerateRoute: AppRoutes.generateRoute, home: SLogin()));
+          onGenerateRoute: URoutes.generateRoute, home: SLogin()));
       await tester.tap(find.text('Entrar'));
       await tester.pumpAndSettle();
 
@@ -51,7 +51,7 @@ void main() {
         'SLogin-TST4: Verifica aparição indevida do erro de campo de e-mail vazio',
         (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(
-          onGenerateRoute: AppRoutes.generateRoute, home: SLogin()));
+          onGenerateRoute: URoutes.generateRoute, home: SLogin()));
 
       await tester.enterText(
           find.byType(TextFormField).first, 'entrada_qualquer');
@@ -64,7 +64,7 @@ void main() {
     testWidgets('SLogin-TST5: Exibe erro quando o campo de senha está vazio',
         (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(
-          onGenerateRoute: AppRoutes.generateRoute, home: SLogin()));
+          onGenerateRoute: URoutes.generateRoute, home: SLogin()));
 
       await tester.tap(find.text('Entrar'));
       await tester.pumpAndSettle();
@@ -76,7 +76,7 @@ void main() {
         'SLogin-TST6: Verifica aparição indevida do erro de campo de senha vazio',
         (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(
-          onGenerateRoute: AppRoutes.generateRoute, home: SLogin()));
+          onGenerateRoute: URoutes.generateRoute, home: SLogin()));
 
       await tester.enterText(find.byType(TextFormField).at(1), 'senha');
 
@@ -90,7 +90,7 @@ void main() {
         'SLogin-TST7: Verifica se o erro de repetição de email não aparece na tela de login',
         (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(
-          onGenerateRoute: AppRoutes.generateRoute, home: SLogin()));
+          onGenerateRoute: URoutes.generateRoute, home: SLogin()));
 
       await tester.enterText(
           find.byType(TextFormField).first, CITEmail.registeredEmail);
@@ -102,8 +102,8 @@ void main() {
 
     testWidgets('SLogin-TST8: Login válido redireciona para HomePage sem erro',
         (WidgetTester tester) async {
-      await tester.pumpWidget(MaterialApp(
-          onGenerateRoute: AppRoutes.generateRoute, home: SLogin()));
+      await tester.pumpWidget(
+          MaterialApp(onGenerateRoute: URoutes.generateRoute, home: SLogin()));
 
       await tester.enterText(
           find.byType(TextFormField).first, "user@email.com");
@@ -119,7 +119,7 @@ void main() {
     testWidgets('SLogin-TST9: Tentativa de login com email não registrado',
         (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(
-          onGenerateRoute: AppRoutes.generateRoute, home: SLogin()));
+          onGenerateRoute: URoutes.generateRoute, home: SLogin()));
 
       await tester.enterText(
           find.byType(TextFormField).first, "email@inexistente.com");
@@ -135,7 +135,7 @@ void main() {
     testWidgets('SLogin-TST10: Tentativa de login com senha errada',
         (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(
-          onGenerateRoute: AppRoutes.generateRoute, home: SLogin()));
+          onGenerateRoute: URoutes.generateRoute, home: SLogin()));
 
       await tester.enterText(
           find.byType(TextFormField).first, "user@email.com");
@@ -152,7 +152,7 @@ void main() {
         'SLogin-TST11: Redirecionamento para SR1UserProf ao clicar em "Criar conta"',
         (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(
-          onGenerateRoute: AppRoutes.generateRoute, home: SLogin()));
+          onGenerateRoute: URoutes.generateRoute, home: SLogin()));
 
       // Realiza o tap no botão "Criar conta"
       await tester.tap(find.text('Criar conta'));
@@ -165,8 +165,8 @@ void main() {
     testWidgets(
         'SLogin-TST12: Redirecionamento para SPRMain ao clicar em "Esqueci minha senha"',
         (WidgetTester tester) async {
-      await tester.pumpWidget(MaterialApp(
-          onGenerateRoute: AppRoutes.generateRoute, home: SLogin()));
+      await tester.pumpWidget(
+          MaterialApp(onGenerateRoute: URoutes.generateRoute, home: SLogin()));
 
       // Realiza o tap no botão "Esqueci minha senha"
       await tester.tap(find.text('Esqueci minha senha'));

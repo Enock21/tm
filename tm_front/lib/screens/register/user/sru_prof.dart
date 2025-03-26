@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tm_front/components/input/ci_avatar_upload.dart';
-import 'package:tm_front/routes/app_routes.dart';
+import 'package:tm_front/utils/u_routes.dart';
 import 'package:tm_front/utils/u_error_msgs.dart';
 import 'package:tm_front/utils/u_theme.dart';
 import 'package:tm_front/components/c_buttons.dart';
@@ -50,20 +50,18 @@ class _SRUProfState extends State<SRUProf> {
               children: [
                 // Cabeçalho
                 const CHeader(title: 'Bem Vindo(a) à\nTaverna Multiversal!'),
-                const SizedBox(height: 24),
+                AppBoxes.bellowTitleVSeparator,
                 Text(
                   'Seu Avatar',
                   style: AppTexts.headlineSmall,
                 ),
-
-                const SizedBox(height: 29),
-
+                AppBoxes.fieldLableVSeparator,
                 CIAvatarUpload(onTap: () {
                   print("Selecionar imagem"); //TODO: remover
                   //Implementar lógica para seleção/upload da imagem
                 }),
 
-                const SizedBox(height: 29),
+                AppBoxes.rowVSeparator,
 
                 // Formulário
                 Form(
@@ -76,42 +74,42 @@ class _SRUProfState extends State<SRUProf> {
                         child: Text('Nome de Usuário',
                             style: AppTexts.headlineSmall),
                       ),
-                      const SizedBox(height: 10),
+                      AppBoxes.fieldLableVSeparator,
                       CITUsername(
                           controller: usernameController,
                           formSubmitted: _formSubmitted),
-                      const SizedBox(height: 25),
+                      AppBoxes.rowVSeparator,
                       Align(
                         alignment: Alignment.center,
                         child: Text('E-mail', style: AppTexts.headlineSmall),
                       ),
-                      const SizedBox(height: 10),
+                      AppBoxes.fieldLableVSeparator,
                       CITEmail(
                           controller: emailController,
                           isRegisterScreen: true,
                           formSubmitted: _formSubmitted),
-                      const SizedBox(height: 25),
+                      AppBoxes.rowVSeparator,
                       Align(
                         alignment: Alignment.center,
                         child: Text('Data de Nascimento',
                             style: AppTexts.headlineSmall),
                       ),
-                      const SizedBox(height: 10),
+                      AppBoxes.fieldLableVSeparator,
                       CIDate(controller: birthdateController),
-                      const SizedBox(height: 25),
+                      AppBoxes.rowVSeparator,
                       Align(
                         alignment: Alignment.center,
                         child: Text('Senha', style: AppTexts.headlineSmall),
                       ),
-                      const SizedBox(height: 10),
+                      AppBoxes.fieldLableVSeparator,
                       CITPassword(controller: passwordController),
-                      const SizedBox(height: 25),
+                      AppBoxes.rowVSeparator,
                       Align(
                         alignment: Alignment.center,
                         child: Text('Confirmação de Senha',
                             style: AppTexts.headlineSmall),
                       ),
-                      const SizedBox(height: 10),
+                      AppBoxes.fieldLableVSeparator,
                       CITPassword(
                         controller: confirmPasswordController,
                         validator: (value) {
@@ -127,8 +125,7 @@ class _SRUProfState extends State<SRUProf> {
                     ],
                   ),
                 ),
-
-                const SizedBox(height: 25),
+                AppBoxes.setVSeparator,
                 RichText(
                   textAlign: TextAlign.center,
                   text: TextSpan(
@@ -158,7 +155,7 @@ class _SRUProfState extends State<SRUProf> {
                     ],
                   ),
                 ),
-                const SizedBox(height: 21),
+                AppBoxes.setVSeparator,
                 TMButton.positive(
                   text: 'Próximo',
                   onPressed: () async {
@@ -169,7 +166,7 @@ class _SRUProfState extends State<SRUProf> {
                       if (formKey.currentState!.validate()) {
                         //TODO: Criar conta no Firebase com ${emailController.text} e senha
 
-                        Navigator.pushNamed(context, AppRoutes.srp1Choice);
+                        Navigator.pushNamed(context, URoutes.srp1Choice);
                       }
                     });
                   },

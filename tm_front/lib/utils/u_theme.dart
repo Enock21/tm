@@ -79,3 +79,19 @@ class AppTexts {
     fontWeight: FontWeight.bold,
   );
 }
+
+class AppBoxes {
+  static const SizedBox textVSeparator = SizedBox(height: 15);
+  static const SizedBox rowVSeparator = SizedBox(height: 16);
+  static const SizedBox bellowTitleVSeparator = SizedBox(height: 50);
+  static const SizedBox fieldLableVSeparator = SizedBox(height: 5);
+  static const SizedBox setVSeparator = SizedBox(height: 30);
+  static const SizedBox sectionVSeparator = SizedBox(height: 50);
+
+  static const SizedBox smallHBox = SizedBox(width: 8);
+  static const SizedBox mediumHBox = SizedBox(width: 16);
+  static const SizedBox largeHBox = SizedBox(width: 24);
+  static const SizedBox smallVBox = SizedBox(height: 8);
+  static const SizedBox mediumVBox = SizedBox(height: 16);
+  static const SizedBox largeVBox = SizedBox(height: 24);
+}

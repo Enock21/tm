@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tm_front/components/c_buttons.dart';
-import 'package:tm_front/routes/app_routes.dart';
+import 'package:tm_front/utils/u_routes.dart';
 import 'package:tm_front/utils/u_theme.dart';
 
 class CBottomButt extends StatelessWidget {
@@ -31,7 +31,7 @@ class CBottomButt extends StatelessWidget {
                 onPressed: onDecline ??
                     () {
                       // Exemplo de ação padrão para o botão negativo
-                      Navigator.pushNamed(context, AppRoutes.srgm1Choice);
+                      Navigator.pushNamed(context, URoutes.srgm1Choice);
                     },
               ),
             ),
@@ -45,7 +45,7 @@ class CBottomButt extends StatelessWidget {
                 onPressed: onConfirm ??
                     () {
                       // Exemplo de ação padrão para o botão positivo
-                      Navigator.pushNamed(context, AppRoutes.srgm1Choice);
+                      Navigator.pushNamed(context, URoutes.srgm1Choice);
                     },
               ),
             ),

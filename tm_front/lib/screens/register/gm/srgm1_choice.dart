@@ -4,7 +4,7 @@ import 'package:tm_front/components/c_bottom_butt.dart';
 import 'package:tm_front/components/c_buttons.dart';
 import 'package:tm_front/components/c_header.dart';
 import 'package:tm_front/components/visual/cv_gm_icon.dart';
-import 'package:tm_front/routes/app_routes.dart';
+import 'package:tm_front/utils/u_routes.dart';
 import 'package:tm_front/components/c_just_body_medium.dart';
 import 'package:tm_front/utils/u_theme.dart'; // Importa o TMButton
 
@@ -37,20 +37,20 @@ class SRGM1Choice extends StatelessWidget {
                     CHeader(
                         title:
                             'Você deseja participar da Taverna Multiversal como Mestre?'),
-                    const SizedBox(height: 48),
-                    CVGMIcon(),
-                    const SizedBox(height: 48),
+                    AppBoxes.rowVSeparator,
+                    CVGMIcon(color: AppColors.nonInteractiveGreen),
+                    AppBoxes.bellowTitleVSeparator,
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         CJustBodyMedium(
                             text:
                                 'Como um mestre, você pode criar e organizar RPGs, recrutar jogadores para seus jogos, aceitar mestrar propostas de RPGs de outros jogadores ou mestres, convidar outros mestres para uma mestragem colaborativa e exibir suas preferências como mestre.'),
-                        SizedBox(height: 15),
+                        AppBoxes.textVSeparator,
                         CJustBodyMedium(
                             text:
                                 'Para aproveitar o máximo que a Taverna Multiversal tem para te oferecer, é recomendado que você personalize seu perfil de mestre com algumas informações. Isso vai te ajudar a encontrar RPGs e RPGistas adequados aos seus gostos como mestre.'),
-                        SizedBox(height: 15),
+                        AppBoxes.textVSeparator,
                         CJustBodyMedium(
                             text:
                                 'Esta escolha pode ser alterada a qualquer momento através do seu perfil.')
@@ -69,12 +69,12 @@ class SRGM1Choice extends StatelessWidget {
         onConfirm: onConfirm ??
             () {
               //TODO: variável que indica se o user quer ser gm fica true
-              Navigator.pushNamed(context, AppRoutes.srp2Intro);
+              Navigator.pushNamed(context, URoutes.srp2Intro);
             },
         onDecline: onDecline ??
             () {
               //TODO: variável que indica se o user quer ser gm fica false
-              Navigator.pushNamed(context, AppRoutes.srp2Intro);
+              Navigator.pushNamed(context, URoutes.srp2Intro);
             },
       ),
     );

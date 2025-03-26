@@ -10,18 +10,17 @@ import '../screens/register/player/srp2_intro.dart';
 import '../screens/register/gm/srgm2_intro.dart';
 import '../screens/s_homepage.dart';
 
-class AppRoutes {
+class URoutes {
   static const String sLogin = '/sLogin';
   static const String sprMain = '/sprMain';
   static const String sprAlteration = '/sprAlteration';
   static const String sprExpiredLink = '/sprExpiredLink';
-  static const String sr1UserProf = '/sr1UserProf';
+  static const String sruProf = '/sruProf';
   static const String srp1Choice = '/srp1Choice';
   static const String srgm1Choice = '/srgm1Choice';
   static const String srp2Intro = '/srp2Intro';
   static const String srgm2Intro = '/srgm2Intro';
   static const String homepage = '/homepage';
-
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -33,7 +32,7 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const SPRExpiredLink());
       case sprAlteration:
         return MaterialPageRoute(builder: (_) => const SPRAlteration());
-      case sr1UserProf:
+      case sruProf:
         return MaterialPageRoute(builder: (_) => const SRUProf());
       case srp1Choice:
         return MaterialPageRoute(builder: (_) => const SRP1Choice());
