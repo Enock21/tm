@@ -40,8 +40,9 @@ class MyApp extends StatelessWidget {
       //initialRoute: URoutes.sprAlteration,
       //initialRoute: URoutes.sruProf,
       initialRoute: URoutes.srp1Choice,
-      //initialRoute: URoutes.srgm1Choice,
       //initialRoute: URoutes.srp2Intro,
+      //initialRoute: URoutes.srgm1Choice,
+      //initialRoute: URoutes.srgm2Intro,
       onGenerateRoute: URoutes.generateRoute,
     );
   }

@@ -6,6 +6,7 @@ import 'package:tm_front/components/c_header.dart';
 import 'package:tm_front/components/c_just_body_medium.dart';
 import 'package:tm_front/components/visual/cv_gm_icon.dart';
 import 'package:tm_front/components/visual/cv_player_icon.dart';
+import 'package:tm_front/utils/u_routes.dart';
 import 'package:tm_front/utils/u_theme.dart';
 
 class SRGM2Intro extends StatelessWidget {
@@ -32,12 +33,17 @@ class SRGM2Intro extends StatelessWidget {
                     AppBoxes.rowVSeparator,
                     CHeader(title: 'Pronto para Começar?'),
                     AppBoxes.bellowTitleVSeparator,
-                    CJustBodyMedium(text: 'Preencha as informações seguintes para personalizar seu perfil de mestre.'),
+                    CJustBodyMedium(
+                        text:
+                            'Preencha as informações seguintes para personalizar seu perfil de mestre.'),
                     AppBoxes.textVSeparator,
-                    CJustBodyMedium(text: 'Todos os campos a seguir são opcionais e você pode alterá-los depois.'),
+                    CJustBodyMedium(
+                        text:
+                            'Todos os campos a seguir são opcionais e você pode alterá-los depois.'),
                     AppBoxes.textVSeparator,
-                    CJustBodyMedium(text: 'Caso deseje interromper a personalização do seu perfil de mestre, você pode selecionar “Pular Tudo” a qualquer momento. Se fizer isso, o que já foi preenchido ficará salvo no seu perfil.')
-                    
+                    CJustBodyMedium(
+                        text:
+                            'Caso deseje interromper a personalização do seu perfil de mestre, você pode selecionar “Pular Tudo” a qualquer momento. Se fizer isso, o que já foi preenchido ficará salvo no seu perfil.')
                   ],
                 ),
               ),
@@ -54,6 +60,7 @@ class SRGM2Intro extends StatelessWidget {
         },
         onDecline: () {
           // Ação para o botão "Pular Tudo"
+          Navigator.pushNamed(context, URoutes.homepage);
         },
       ),
     );

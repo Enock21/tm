@@ -69,22 +69,27 @@ class SRGM1Choice extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: CBottomButt(
-          positiveText: 'SIM',
-          negativeText: 'NÃO',
-          onConfirm: () {
-            if (isPlayer == true) {
-              Navigator.pushNamed(context, URoutes.srp2Intro);
-            } else {
-              Navigator.pushNamed(context, URoutes.srgm2Intro);
-            }
-          },
-          onDecline: () {
-            if (isPlayer == true) {
-              Navigator.pushNamed(context, URoutes.srp2Intro);
-            } else {
-              Navigator.pushNamed(context, URoutes.homepage);
-            }
-          }),
+        positiveText: 'SIM',
+        negativeText: 'NÃO',
+        onConfirm: () {
+          Provider.of<UserProfileState>(context, listen: false)
+            .setGMChoice(true);
+          if (isPlayer == true) {
+            Navigator.pushNamed(context, URoutes.srp2Intro);
+          } else {
+            Navigator.pushNamed(context, URoutes.srgm2Intro);
+          }
+        },
+        onDecline: () {
+          Provider.of<UserProfileState>(context, listen: false)
+            .setGMChoice(false);
+          if (isPlayer == true) {
+            Navigator.pushNamed(context, URoutes.srp2Intro);
+          } else {
+            Navigator.pushNamed(context, URoutes.homepage);
+          }
+        }
+      ),
     );
   }
 }

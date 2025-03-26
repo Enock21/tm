@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:tm_front/components/c_bottom_butt.dart';
 import 'package:tm_front/components/c_header.dart';
 import 'package:tm_front/components/c_just_body_medium.dart';
 import 'package:tm_front/components/visual/cv_player_icon.dart';
+import 'package:tm_front/providers/user_profile_state.dart';
+import 'package:tm_front/utils/u_routes.dart';
 import 'package:tm_front/utils/u_theme.dart';
 
 class SRP2Intro extends StatelessWidget {
@@ -12,6 +15,8 @@ class SRP2Intro extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final userProfile = Provider.of<UserProfileState>(context, listen: false);
+    
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
       body: SafeArea(
@@ -31,12 +36,17 @@ class SRP2Intro extends StatelessWidget {
                     AppBoxes.rowVSeparator,
                     CHeader(title: 'Pronto para Começar?'),
                     AppBoxes.bellowTitleVSeparator,
-                    CJustBodyMedium(text: 'Preencha as informações seguintes para personalizar seu perfil de jogador.'),
+                    CJustBodyMedium(
+                        text:
+                            'Preencha as informações seguintes para personalizar seu perfil de jogador.'),
                     AppBoxes.textVSeparator,
-                    CJustBodyMedium(text: 'Todos os campos a seguir são opcionais e você pode alterá-los depois.'),
+                    CJustBodyMedium(
+                        text:
+                            'Todos os campos a seguir são opcionais e você pode alterá-los depois.'),
                     AppBoxes.textVSeparator,
-                    CJustBodyMedium(text: 'Caso deseje interromper a personalização do seu perfil de jogador, você pode selecionar “Pular Tudo” a qualquer momento. Se fizer isso, o que já foi preenchido ficará salvo no seu perfil.')
-                    
+                    CJustBodyMedium(
+                        text:
+                            'Caso deseje interromper a personalização do seu perfil de jogador, você pode selecionar “Pular Tudo” a qualquer momento. Se fizer isso, o que já foi preenchido ficará salvo no seu perfil.')
                   ],
                 ),
               ),
@@ -52,7 +62,10 @@ class SRP2Intro extends StatelessWidget {
           // Ação para o botão "Continuar"
         },
         onDecline: () {
-          // Ação para o botão "Pular Tudo"
+          if (userProfile.isGM == true) {
+            Navigator.pushNamed(context, URoutes.srgm2Intro);
+          }
+          Navigator.pushNamed(context, URoutes.homepage);
         },
       ),
     );
