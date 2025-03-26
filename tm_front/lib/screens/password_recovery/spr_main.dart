@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tm_front/components/c_buttons.dart';
 import 'package:tm_front/utils/u_error_msgs.dart';
+import 'package:tm_front/components/c_just_body_medium.dart';
 import 'package:tm_front/utils/u_theme.dart';
 import 'package:tm_front/components/input/text/cit_email.dart';
 import 'package:tm_front/components/c_header.dart';
@@ -54,10 +55,9 @@ class _SPRMainState extends State<SPRMain> {
                   children: [
                     Align(
                         child: SizedBox(
-                      child: Text(
-                        'Digite o e-mail da sua conta na Taverna Multiversal. Um link para alteração de senha será enviado para ele.',
-                        textAlign: TextAlign.left,
-                        style: AppTexts.bodyMedium,
+                      child: CJustBodyMedium(
+                        text:
+                            'Digite o e-mail da sua conta na Taverna Multiversal. Um link para alteração de senha será enviado para ele.',
                       ),
                     )),
                     const SizedBox(height: 40),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tm_front/components/c_buttons.dart';
 import 'package:tm_front/utils/u_error_msgs.dart';
+import 'package:tm_front/components/c_just_body_medium.dart';
 import 'package:tm_front/utils/u_theme.dart';
 import 'package:tm_front/components/input/text/cit_password.dart';
 import 'package:tm_front/screens/s_login.dart';
@@ -36,6 +37,7 @@ class _SPRAlterationState extends State<SPRAlteration> {
           child: Column(
             children: [
               CHeader(title: 'Alteração de Senha'),
+              SizedBox(height: 80),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
@@ -79,10 +81,9 @@ class _SPRAlterationState extends State<SPRAlteration> {
                                     const SizedBox(
                                         height: 10), // Espaço entre os textos
                                     Align(
-                                      child: Text(
-                                        'Retorne à tela de login e utilize sua nova senha para acessar.',
-                                        style: AppTexts.bodyMedium,
-                                        textAlign: TextAlign.left,
+                                      child: CJustBodyMedium(
+                                        text:
+                                            'Retorne à tela de login e utilize sua nova senha para acessar.',
                                       ),
                                     ),
                                     const SizedBox(height: 20),

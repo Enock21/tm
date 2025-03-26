@@ -5,6 +5,7 @@ import 'package:tm_front/components/c_buttons.dart';
 import 'package:tm_front/components/c_header.dart';
 import 'package:tm_front/components/visual/cv_player_icon.dart';
 import 'package:tm_front/routes/app_routes.dart';
+import 'package:tm_front/components/c_just_body_medium.dart';
 import 'package:tm_front/utils/u_theme.dart'; // Importa o TMButton
 
 class SRP1Choice extends StatelessWidget {
@@ -33,7 +34,9 @@ class SRP1Choice extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const CHeader(title: 'Você deseja participar da Taverna Multiversal como Jogador?'),
+                    const CHeader(
+                        title:
+                            'Você deseja participar da Taverna Multiversal como Jogador?'),
                     const SizedBox(height: 48),
                     CVPlayerIcon(),
                     const SizedBox(height: 48),
@@ -41,65 +44,17 @@ class SRP1Choice extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        RichText(
-                          textAlign: TextAlign.justify,
-                          text: TextSpan(
-                            style: AppTexts.bodyMedium,
-                            children: [
-                              const TextSpan(text: 'Como um '),
-                              TextSpan(
-                                  text: 'jogador',
-                                  style: AppTexts.bodyMediumBold),
-                              const TextSpan(
-                                  text:
-                                      ', você pode se inscrever para '),
-                              TextSpan(
-                                  text: 'jogar',
-                                  style: AppTexts.bodyMediumBold),
-                              const TextSpan(
-                                  text:
-                                      ' em RPGs, participar de grupos de jogadores, criar propostas de jogos para mestres narrarem e exibir suas preferências como '),
-                              TextSpan(
-                                  text: 'jogador',
-                                  style: AppTexts.bodyMediumBold),
-                              const TextSpan(text: '.'),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(height: 15), // Espaço entre os parágrafos
-                        RichText(
-                          textAlign: TextAlign.justify,
-                          text: TextSpan(
-                            style: AppTexts.bodyMedium,
-                            children: [
-                              const TextSpan(
-                                  text:
-                                      'Para aproveitar o máximo que a Taverna Multiversal tem para te oferecer, é recomendado que você personalize seu perfil de '),
-                              TextSpan(
-                                  text: 'jogador',
-                                  style: AppTexts.bodyMediumBold),
-                              const TextSpan(
-                                  text:
-                                      ' com algumas informações. Isso vai te ajudar a encontrar RPGs e RPGistas adequados aos seus gostos como '),
-                              TextSpan(
-                                  text: 'jogador',
-                                  style: AppTexts.bodyMediumBold),
-                              const TextSpan(text: '.'),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(height: 15),
-                        RichText(
-                          textAlign: TextAlign.justify,
-                          text: TextSpan(
-                            style: AppTexts.bodyMedium,
-                            children: const [
-                              TextSpan(
-                                  text:
-                                      'Esta escolha pode ser alterada a qualquer momento através do seu perfil.'),
-                            ],
-                          ),
-                        ),
+                        CJustBodyMedium(
+                            text:
+                                'Como um jogador, você pode se inscrever para jogar em RPGs, participar de grupos de jogadores, criar propostas de jogos para mestres narrarem e exibir suas preferências como jogador.'),
+                        SizedBox(height: 15),
+                        CJustBodyMedium(
+                            text:
+                                'Para aproveitar o máximo que a Taverna Multiversal tem para te oferecer, é recomendado que você personalize seu perfil de jogador com algumas informações. Isso vai te ajudar a encontrar RPGs e RPGistas adequados aos seus gostos como jogador.'),
+                        SizedBox(height: 15),
+                        CJustBodyMedium(
+                            text:
+                                'Esta escolha pode ser alterada a qualquer momento através do seu perfil.'),
                       ],
                     ),
                   ],

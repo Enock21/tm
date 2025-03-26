@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tm_front/components/c_buttons.dart';
 import 'package:tm_front/utils/u_error_msgs.dart';
+import 'package:tm_front/components/c_just_body_medium.dart';
 import 'package:tm_front/utils/u_theme.dart';
 import 'package:tm_front/screens/s_login.dart';
 import 'package:tm_front/components/c_header.dart';
@@ -37,11 +38,8 @@ class SPRExpiredLink extends StatelessWidget {
                       child: SizedBox(
                         width: double
                             .infinity, // Garante que o texto ocupe toda a largura disponível
-                        child: Text(
-                          'Retorne à tela de login e gere um novo.',
-                          style: AppTexts.bodyMedium,
-                          textAlign:
-                              TextAlign.left, // Alinha o texto à esquerda
+                        child: CJustBodyMedium(
+                          text: 'Retorne à tela de login e gere um novo.',
                         ),
                       ),
                     ),
