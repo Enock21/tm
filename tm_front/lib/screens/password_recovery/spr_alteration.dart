@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tm_front/components/c_buttons.dart';
 import 'package:tm_front/utils/u_error_msgs.dart';
 import 'package:tm_front/components/c_just_body_medium.dart';
+import 'package:tm_front/utils/u_routes.dart';
 import 'package:tm_front/utils/u_theme.dart';
 import 'package:tm_front/components/input/text/cit_password.dart';
 import 'package:tm_front/screens/s_login.dart';
@@ -88,11 +89,8 @@ class _SPRAlterationState extends State<SPRAlteration> {
                                     TMButton.positive(
                                       text: 'Voltar ao Login',
                                       onPressed: () {
-                                        Navigator.pushReplacement(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  const SLogin()),
+                                        Navigator.pushNamed(
+                                          context, URoutes.sLogin
                                         );
                                       },
                                     ),

@@ -38,7 +38,7 @@ class SRGM1Choice extends StatelessWidget {
                         title:
                             'Você deseja participar da Taverna Multiversal como Mestre?'),
                     AppBoxes.rowVSeparator,
-                    CVGMIcon(color: AppColors.nonInteractiveGreen),
+                    CVGMIcon(),
                     AppBoxes.bellowTitleVSeparator,
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,

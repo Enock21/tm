@@ -27,12 +27,12 @@ class MyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate, // Suporte para widgets Flutter
         GlobalCupertinoLocalizations.delegate, // Suporte para Cupertino (iOS)
       ],
-      initialRoute: URoutes.sLogin,
+      //initialRoute: URoutes.sLogin,
       //initialRoute: URoutes.sprMain,
       //initialRoute: URoutes.sprExpiredLink,
       //initialRoute: URoutes.sprAlteration,
       //initialRoute: URoutes.sruProf,
-      //initialRoute: URoutes.srp1Choice,
+      initialRoute: URoutes.srp1Choice,
       //initialRoute: URoutes.srgm1Choice,
       //initialRoute: URoutes.srp2Intro,
       onGenerateRoute: URoutes.generateRoute,

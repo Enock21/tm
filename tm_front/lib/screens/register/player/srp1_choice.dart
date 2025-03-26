@@ -38,7 +38,7 @@ class SRP1Choice extends StatelessWidget {
                         title:
                             'Você deseja participar da Taverna Multiversal como Jogador?'),
                     AppBoxes.rowVSeparator,
-                    CVPlayerIcon(color: AppColors.nonInteractiveGreen),
+                    CVPlayerIcon(),
                     AppBoxes.bellowTitleVSeparator,
                     // Texto descritivo
                     Column(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tm_front/components/c_buttons.dart';
 import 'package:tm_front/utils/u_error_msgs.dart';
 import 'package:tm_front/components/c_just_body_medium.dart';
+import 'package:tm_front/utils/u_routes.dart';
 import 'package:tm_front/utils/u_theme.dart';
 import 'package:tm_front/screens/s_login.dart';
 import 'package:tm_front/components/c_header.dart';
@@ -48,11 +49,8 @@ class SPRExpiredLink extends StatelessWidget {
                     TMButton.positive(
                       text: 'Voltar ao Login',
                       onPressed: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const SLogin(),
-                          ),
+                        Navigator.pushNamed(
+                          context, URoutes.sLogin
                         );
                       },
                     ),

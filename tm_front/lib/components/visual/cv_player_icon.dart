@@ -21,7 +21,7 @@ class CVPlayerIcon extends StatelessWidget {
       width: width,
       height: height,
       colorFilter: ColorFilter.mode(
-        color ?? AppColors.nonInteractiveMainColor,
+        color ?? AppColors.nonInteractiveGreen,
         BlendMode.srcIn,
       ),
     );
