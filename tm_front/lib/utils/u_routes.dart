@@ -40,8 +40,8 @@ class URoutes {
         return MaterialPageRoute(builder: (_) => const SRGM1Choice());
       case srp2Intro:
         return MaterialPageRoute(builder: (_) => const SRP2Intro());
-      // case srgm2Intro:
-      //   return MaterialPageRoute(builder: (_) => const SRGM2Intro());
+       case srgm2Intro:
+         return MaterialPageRoute(builder: (_) => const SRGM2Intro());
       case homepage:
         return MaterialPageRoute(builder: (_) => const SHomePage());
       default:

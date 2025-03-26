@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 import 'package:tm_front/components/c_bottom_butt.dart';
 import 'package:tm_front/components/c_buttons.dart';
 import 'package:tm_front/components/c_header.dart';
 import 'package:tm_front/components/visual/cv_player_icon.dart';
+import 'package:tm_front/providers/user_profile_state.dart';
 import 'package:tm_front/utils/u_routes.dart';
 import 'package:tm_front/components/c_just_body_medium.dart';
 import 'package:tm_front/utils/u_theme.dart'; // Importa o TMButton
@@ -68,16 +70,18 @@ class SRP1Choice extends StatelessWidget {
       bottomNavigationBar: CBottomButt(
         positiveText: 'SIM',
         negativeText: 'NÃO',
-        onConfirm: onConfirm ??
-            () {
-              //TODO: variável que indica se o user quer ser player fica true
-              Navigator.pushNamed(context, URoutes.srgm1Choice);
-            },
-        onDecline: onDecline ??
-            () {
-              //TODO: variável que indica se o user quer ser player fica false
-              Navigator.pushNamed(context, URoutes.srgm1Choice);
-            },
+        onConfirm: () {
+          //TODO: variável que indica se o user quer ser player fica true
+          Provider.of<UserProfileState>(context, listen: false)
+              .setPlayerChoice(true);
+          Navigator.pushNamed(context, URoutes.srgm1Choice);
+        },
+        onDecline: () {
+          //TODO: variável que indica se o user quer ser player fica false
+          Provider.of<UserProfileState>(context, listen: false)
+            .setPlayerChoice(false);
+          Navigator.pushNamed(context, URoutes.srgm1Choice);
+        },
       ),
     );
   }

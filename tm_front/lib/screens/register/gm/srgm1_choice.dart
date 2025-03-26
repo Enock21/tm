@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 import 'package:tm_front/components/c_bottom_butt.dart';
 import 'package:tm_front/components/c_buttons.dart';
 import 'package:tm_front/components/c_header.dart';
 import 'package:tm_front/components/visual/cv_gm_icon.dart';
+import 'package:tm_front/providers/user_profile_state.dart';
 import 'package:tm_front/utils/u_routes.dart';
 import 'package:tm_front/components/c_just_body_medium.dart';
 import 'package:tm_front/utils/u_theme.dart'; // Importa o TMButton
@@ -20,6 +22,9 @@ class SRGM1Choice extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final userState = Provider.of<UserProfileState>(context);
+    final bool? isPlayer = userState.isPlayer;
+
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
       // O conteúdo que pode rolar fica no body:
@@ -64,19 +69,22 @@ class SRGM1Choice extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: CBottomButt(
-        positiveText: 'SIM',
-        negativeText: 'NÃO',
-        onConfirm: onConfirm ??
-            () {
-              //TODO: variável que indica se o user quer ser gm fica true
+          positiveText: 'SIM',
+          negativeText: 'NÃO',
+          onConfirm: () {
+            if (isPlayer == true) {
               Navigator.pushNamed(context, URoutes.srp2Intro);
-            },
-        onDecline: onDecline ??
-            () {
-              //TODO: variável que indica se o user quer ser gm fica false
+            } else {
+              Navigator.pushNamed(context, URoutes.srgm2Intro);
+            }
+          },
+          onDecline: () {
+            if (isPlayer == true) {
               Navigator.pushNamed(context, URoutes.srp2Intro);
-            },
-      ),
+            } else {
+              Navigator.pushNamed(context, URoutes.homepage);
+            }
+          }),
     );
   }
 }
