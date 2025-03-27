@@ -16,7 +16,7 @@ class SRP2Intro extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final userProfile = Provider.of<UserProfileState>(context, listen: false);
-    
+
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
       body: SafeArea(
@@ -64,8 +64,9 @@ class SRP2Intro extends StatelessWidget {
         onDecline: () {
           if (userProfile.isGM == true) {
             Navigator.pushNamed(context, URoutes.srgm2Intro);
+          } else {
+            Navigator.pushNamed(context, URoutes.homepage);
           }
-          Navigator.pushNamed(context, URoutes.homepage);
         },
       ),
     );

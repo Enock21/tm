@@ -60,6 +60,7 @@ class SRGM2Intro extends StatelessWidget {
         },
         onDecline: () {
           // Ação para o botão "Pular Tudo"
+          print('Pular tudo em SRGM2Intro');
           Navigator.pushNamed(context, URoutes.homepage);
         },
       ),
