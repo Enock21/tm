@@ -25,27 +25,38 @@ class URoutes {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case sLogin:
-        return MaterialPageRoute(builder: (_) => const SLogin());
+        return MaterialPageRoute(
+            settings: settings, builder: (_) => const SLogin());
       case sprMain:
-        return MaterialPageRoute(builder: (_) => const SPRMain());
+        return MaterialPageRoute(
+            settings: settings, builder: (_) => const SPRMain());
       case sprExpiredLink:
-        return MaterialPageRoute(builder: (_) => const SPRExpiredLink());
+        return MaterialPageRoute(
+            settings: settings, builder: (_) => const SPRExpiredLink());
       case sprAlteration:
-        return MaterialPageRoute(builder: (_) => const SPRAlteration());
+        return MaterialPageRoute(
+            settings: settings, builder: (_) => const SPRAlteration());
       case sruProf:
-        return MaterialPageRoute(builder: (_) => const SRUProf());
+        return MaterialPageRoute(
+            settings: settings, builder: (_) => const SRUProf());
       case srp1Choice:
-        return MaterialPageRoute(builder: (_) => const SRP1Choice());
+        return MaterialPageRoute(
+            settings: settings, builder: (_) => const SRP1Choice());
       case srgm1Choice:
-        return MaterialPageRoute(builder: (_) => const SRGM1Choice());
+        return MaterialPageRoute(
+            settings: settings, builder: (_) => const SRGM1Choice());
       case srp2Intro:
-        return MaterialPageRoute(builder: (_) => const SRP2Intro());
-       case srgm2Intro:
-        return MaterialPageRoute(builder: (_) => const SRGM2Intro());
+        return MaterialPageRoute(
+            settings: settings, builder: (_) => const SRP2Intro());
+      case srgm2Intro:
+        return MaterialPageRoute(
+            settings: settings, builder: (_) => const SRGM2Intro());
       case homepage:
-        return MaterialPageRoute(builder: (_) => const SHomePage());
+        return MaterialPageRoute(
+            settings: settings, builder: (_) => const SHomePage());
       default:
-        return MaterialPageRoute(builder: (_) => const SLogin());
+        return MaterialPageRoute(
+            settings: settings, builder: (_) => const SLogin());
     }
   }
 }
