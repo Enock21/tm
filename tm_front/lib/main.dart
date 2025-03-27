@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
       //initialRoute: URoutes.sLogin,
       //initialRoute: URoutes.sprMain,
       //initialRoute: URoutes.sprExpiredLink,
-      //initialRoute: URoutes.sprAlteration,
+      initialRoute: URoutes.sprAlteration,
       //initialRoute: URoutes.sruProf,
       //initialRoute: URoutes.srp1Choice,
       //initialRoute: URoutes.srp2Intro,

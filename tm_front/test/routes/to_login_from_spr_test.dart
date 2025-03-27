@@ -21,8 +21,7 @@ class TestNavigatorObserver extends NavigatorObserver {
 
 void main() {
   group('Testes de Navegação - Recuperação de Senha', () {
-    testWidgets(
-        'SPRAlteration -> SLogin: Retorno ao login após alterar senha',
+    testWidgets('TLFS-TST1 - SPRAlteration -> SLogin: Retorno ao login após alterar senha',
         (WidgetTester tester) async {
       final observer = TestNavigatorObserver();
 
@@ -37,7 +36,13 @@ void main() {
 
       // Verifica que, inicialmente, o botão "Voltar ao Login" não está visível.
       expect(find.text('Voltar ao Login'), findsNothing);
-
+      
+      await tester.enterText(
+        find.byType(TextFormField).first, "123456"
+      );
+      await tester.enterText(
+        find.byType(TextFormField).at(1), "123456"
+      );
       // Simula o fluxo de alteração de senha:
       // Aqui, pressionamos o botão "Alterar Senha". Na implementação do SPRAlteration,
       // quando as validações são aprovadas, o estado é atualizado (passwordChanged = true)
@@ -59,8 +64,7 @@ void main() {
       expect(observer.routes.last.settings.name, URoutes.sLogin);
     });
 
-    testWidgets(
-        'SPRExpiredLink -> SLogin: Retorno ao login após link expirar',
+    testWidgets('TLFS-TST2 - SPRExpiredLink -> SLogin: Retorno ao login após link expirar',
         (WidgetTester tester) async {
       final observer = TestNavigatorObserver();
 
