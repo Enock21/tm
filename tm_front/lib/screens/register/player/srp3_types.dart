@@ -78,7 +78,6 @@ class SRP3Types extends StatelessWidget {
                     AppBoxes.setVSeparator,
                     CBoxSelection(
                       title: 'Genérico',
-                      leadingIcon: const Icon(Icons.gamepad, color: AppColors.nonInteractiveGreen),
                       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                       initialSelection: TripleSelection.neutral,
                       onChanged: (selection){

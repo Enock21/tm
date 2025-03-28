@@ -74,8 +74,18 @@ class _CBoxSelectionState extends State<CBoxSelection>
             onTap: _toggleExpansion,
             child: Row(
               children: [
-                if (widget.leadingIcon != null) widget.leadingIcon!,
-                if (widget.leadingIcon != null) const SizedBox(width: 8),
+                // Espaço reservado para o ícone ou um SizedBox vazio com tamanho fixo
+                widget.leadingIcon != null
+                    ? SizedBox(
+                        width: 24.0, // Largura fixa para o ícone
+                        height: 24.0, // Altura fixa para o ícone
+                        child: widget.leadingIcon,
+                      )
+                    : const SizedBox(
+                        width: 24.0, // Mesma largura do ícone
+                        height: 24.0, // Mesma altura do ícone
+                      ),
+                const SizedBox(width: 8), // Espaçamento entre o ícone e o título
                 Expanded(
                   child: Text(
                     widget.title,
@@ -83,13 +93,23 @@ class _CBoxSelectionState extends State<CBoxSelection>
                     textAlign: TextAlign.center,
                   ),
                 ),
-                RotationTransition(
-                  turns: _arrowAnimation,
-                  child: const Icon(Icons.keyboard_arrow_down),
+                const SizedBox(width: 8), // Espaçamento entre o título e a seta
+                SizedBox(
+                  width: 24.0, // Largura fixa para a seta
+                  height: 24.0, // Altura fixa para a seta
+                  child: RotationTransition(
+                    turns: _arrowAnimation,
+                    child: const Icon(
+                      Icons.keyboard_arrow_down,
+                      color: AppColors.interactiveSecondColor,
+                    ),
+                  ),
                 ),
               ],
             ),
           ),
+
+
           // Parte intermediária: descrição (oculta por padrão)
           if (_isExpanded) ...[
             const SizedBox(height: 8),
