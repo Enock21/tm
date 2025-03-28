@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:tm_front/components/c_bottom_butt.dart';
+import 'package:tm_front/components/c_box_selection.dart';
 import 'package:tm_front/components/c_header.dart';
 import 'package:tm_front/components/c_just_body_medium.dart';
 import 'package:tm_front/components/c_triple_selection.dart';
@@ -75,11 +76,14 @@ class SRP3Types extends StatelessWidget {
                       ],
                     ),
                     AppBoxes.setVSeparator,
-                    CTripleSelection(
+                    CBoxSelection(
+                      title: 'Genérico',
+                      leadingIcon: const Icon(Icons.gamepad, color: AppColors.nonInteractiveGreen),
+                      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                       initialSelection: TripleSelection.neutral,
-                      onChanged: (selection) {
-                        print('Seleção: $selection');
-                      },
+                      onChanged: (selection){
+                        print('Seleção $selection');
+                      }
                     )
                   ],
                 ),
