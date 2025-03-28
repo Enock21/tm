@@ -3,6 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provider/provider.dart';
+import 'package:tm_front/components/input/ci_date.dart';
+import 'package:tm_front/components/input/text/cit_email.dart';
+import 'package:tm_front/components/input/text/cit_password.dart';
+import 'package:tm_front/components/input/text/cit_username.dart';
 import 'package:tm_front/providers/user_profile_state.dart';
 import 'package:tm_front/screens/register/user/sru_prof.dart';
 import 'package:tm_front/screens/register/player/srp1_choice.dart';
@@ -43,20 +47,39 @@ void main() {
         );
         await tester.pumpAndSettle();
 
-        // Em SRUProf, toque no botão "Próximo"
-        final nextButton = find.widgetWithText(ElevatedButton, 'Próximo');
+        // Preencher os dados de cadastro (valores válidos)
+        await tester.enterText(find.byType(CITUsername), 'TestUser');
+        await tester.enterText(find.byType(CITEmail), 'test@example.com');
+
+        final dateField = find.byType(CIDate);
+        final textField = tester.widget<TextFormField>(find.descendant(
+          of: dateField,
+          matching: find.byType(TextFormField),
+        ));
+        textField.controller?.text = '01/01/2000';
+
+        // Existem dois campos de senha; preenchemos ambos com o mesmo valor
+        final passwordFields = find.byType(CITPassword);
+        expect(passwordFields, findsNWidgets(2));
+        await tester.enterText(passwordFields.at(0), 'password123');
+        await tester.enterText(passwordFields.at(1), 'password123');
+
+        // Tocar no botão "Próximo" para submeter o formulário
+        final nextButton = find.text('Próximo');
+        await tester.ensureVisible(nextButton);
         expect(nextButton, findsOneWidget);
-        await tester.tap(nextButton);
+        await tester.tap(nextButton);//Comportamento estranho, pulando o bloco de WidgetsBinding.instance.addPostFrameCallback((_) {
         await tester.pumpAndSettle();
 
         // Em SRP1Choice, toque no botão "NÃO" (decline)
-        final srp1Decline = find.widgetWithText(TMButton, 'NÃO');
-        expect(srp1Decline, findsOneWidget);
+        final srp1Decline = find.text('NÃO');
+        //await tester.ensureVisible(srp1Decline);
+        expect(srp1Decline, findsOneWidget);//Erro: widget nao encontrado
         await tester.tap(srp1Decline);
         await tester.pumpAndSettle();
 
         // Em SRGM1Choice, toque no botão "NÃO" (decline)
-        final srgm1Decline = find.widgetWithText(TMButton, 'NÃO');
+        final srgm1Decline = find.text('NÃO');
         expect(srgm1Decline, findsOneWidget);
         await tester.tap(srgm1Decline);
         await tester.pumpAndSettle();
@@ -65,6 +88,7 @@ void main() {
         expect(observer.routes.last.settings.name, URoutes.homepage);
       },
     );
+
 
     // Fluxo 2:
     // SRUProf -> SRP1Choice (confirm) -> SRGM1Choice (decline) -> SRP2Intro (pular tudo) -> HomePage
@@ -84,9 +108,25 @@ void main() {
         );
         await tester.pumpAndSettle();
 
+        // Preencher os dados de cadastro (valores válidos)
+        await tester.enterText(find.byType(CITUsername), 'TestUser');
+        await tester.enterText(find.byType(CITEmail), 'test@example.com');
+        final dateField = find.byType(CIDate);
+        final textField = tester.widget<TextFormField>(find.descendant(
+          of: dateField,
+          matching: find.byType(TextFormField),
+        ));
+        textField.controller?.text = '01/01/2000';
+        // Existem dois campos de senha; preenchemos ambos com o mesmo valor
+        final passwordFields = find.byType(CITPassword);
+        expect(passwordFields, findsNWidgets(2));
+        await tester.enterText(passwordFields.at(0), 'password123');
+        await tester.enterText(passwordFields.at(1), 'password123');
+
         // Em SRUProf, toque no botão "Próximo"
         final nextButton = find.widgetWithText(ElevatedButton, 'Próximo');
         expect(nextButton, findsOneWidget);
+        await tester.ensureVisible(nextButton);
         await tester.tap(nextButton);
         await tester.pumpAndSettle();
 
@@ -134,9 +174,25 @@ void main() {
         );
         await tester.pumpAndSettle();
 
+        // Preencher os dados de cadastro (valores válidos)
+        await tester.enterText(find.byType(CITUsername), 'TestUser');
+        await tester.enterText(find.byType(CITEmail), 'test@example.com');
+        final dateField = find.byType(CIDate);
+        final textField = tester.widget<TextFormField>(find.descendant(
+          of: dateField,
+          matching: find.byType(TextFormField),
+        ));
+        textField.controller?.text = '01/01/2000';
+        // Existem dois campos de senha; preenchemos ambos com o mesmo valor
+        final passwordFields = find.byType(CITPassword);
+        expect(passwordFields, findsNWidgets(2));
+        await tester.enterText(passwordFields.at(0), 'password123');
+        await tester.enterText(passwordFields.at(1), 'password123');
+
         // Em SRUProf, toque no botão "Próximo"
         final nextButton = find.widgetWithText(ElevatedButton, 'Próximo');
         expect(nextButton, findsOneWidget);
+        await tester.ensureVisible(nextButton);
         await tester.tap(nextButton);
         await tester.pumpAndSettle();
 
@@ -185,9 +241,25 @@ void main() {
         );
         await tester.pumpAndSettle();
 
+        // Preencher os dados de cadastro (valores válidos)
+        await tester.enterText(find.byType(CITUsername), 'TestUser');
+        await tester.enterText(find.byType(CITEmail), 'test@example.com');
+        final dateField = find.byType(CIDate);
+        final textField = tester.widget<TextFormField>(find.descendant(
+          of: dateField,
+          matching: find.byType(TextFormField),
+        ));
+        textField.controller?.text = '01/01/2000';
+        // Existem dois campos de senha; preenchemos ambos com o mesmo valor
+        final passwordFields = find.byType(CITPassword);
+        expect(passwordFields, findsNWidgets(2));
+        await tester.enterText(passwordFields.at(0), 'password123');
+        await tester.enterText(passwordFields.at(1), 'password123');
+
         // Em SRUProf, toque no botão "Próximo"
         final nextButton = find.widgetWithText(ElevatedButton, 'Próximo');
         expect(nextButton, findsOneWidget);
+        await tester.ensureVisible(nextButton);
         await tester.tap(nextButton);
         await tester.pumpAndSettle();
 

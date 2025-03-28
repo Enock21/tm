@@ -163,6 +163,7 @@ class _SRUProfState extends State<SRUProf> {
                       _formSubmitted = true;
                     });
                     WidgetsBinding.instance.addPostFrameCallback((_) {
+                      print('Dentro de WidgetsBinding.instance.addPostFrameCallback');
                       if (formKey.currentState!.validate()) {
                         //TODO: Criar conta no Firebase com ${emailController.text} e senha
 
