@@ -6,15 +6,15 @@ class CBoxSelection extends StatefulWidget {
   final String title;
   final Widget? leadingIcon;
   final String description;
-  final TripleSelection? initialSelection;
-  final ValueChanged<TripleSelection> onChanged;
+  final Selection initialSelection;
+  final ValueChanged<Selection> onChanged;
 
   const CBoxSelection({
     Key? key,
     required this.title,
     this.leadingIcon,
     required this.description,
-    this.initialSelection,
+    this.initialSelection = Selection.neutral,
     required this.onChanged,
   }) : super(key: key);
 
@@ -85,7 +85,8 @@ class _CBoxSelectionState extends State<CBoxSelection>
                         width: 24.0, // Mesma largura do ícone
                         height: 24.0, // Mesma altura do ícone
                       ),
-                const SizedBox(width: 8), // Espaçamento entre o ícone e o título
+                const SizedBox(
+                    width: 8), // Espaçamento entre o ícone e o título
                 Expanded(
                   child: Text(
                     widget.title,
@@ -109,7 +110,6 @@ class _CBoxSelectionState extends State<CBoxSelection>
             ),
           ),
 
-
           // Parte intermediária: descrição (oculta por padrão)
           if (_isExpanded) ...[
             const SizedBox(height: 8),
@@ -125,8 +125,8 @@ class _CBoxSelectionState extends State<CBoxSelection>
           const SizedBox(height: 8),
           // Parte inferior: CTripleSelection
           CTripleSelection(
-            initialSelection: widget.initialSelection,
             onChanged: widget.onChanged,
+            initialSelection: Selection.neutral,
           ),
         ],
       ),

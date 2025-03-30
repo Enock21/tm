@@ -40,11 +40,11 @@ class SRP3Types extends StatelessWidget {
                     AppBoxes.bellowTitleVSeparator,
                     CJustBodyMedium(
                         text:
-                          'Existem várias formas de jogar RPG, cada uma com suas próprias características. Escolha os tipos que você tem ou não interesse em jogar a seguir.'),
+                            'Existem várias formas de jogar RPG, cada uma com suas próprias características. Escolha os tipos que você tem ou não interesse em jogar a seguir.'),
                     AppBoxes.textVSeparator,
                     CJustBodyMedium(
                         text:
-                          'Você pode apertar em cada tipo para ver uma breve descrição.'),
+                            'Você pode apertar em cada tipo para ver uma breve descrição.'),
                     AppBoxes.setVSeparator,
                     // Nova seção de ícones e descrições:
                     Column(
@@ -52,38 +52,43 @@ class SRP3Types extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            const Icon(Icons.thumb_up, color: AppColors.neutralColor),
+                            const Icon(Icons.thumb_up,
+                                color: AppColors.neutralColor),
                             const SizedBox(width: 8),
-                            Text('= Tenho interesse!', style: AppTexts.bodyMedium),
+                            Text('= Tenho interesse!',
+                                style: AppTexts.bodyMedium),
                           ],
                         ),
                         const SizedBox(height: 8),
                         Row(
                           children: [
-                            const Icon(Icons.sentiment_neutral, color: AppColors.neutralColor),
+                            const Icon(Icons.sentiment_neutral,
+                                color: AppColors.neutralColor),
                             const SizedBox(width: 8),
-                            Text('= Sem opinião formada.', style: AppTexts.bodyMedium),
+                            Text('= Sem opinião formada.',
+                                style: AppTexts.bodyMedium),
                           ],
                         ),
                         const SizedBox(height: 8),
                         Row(
                           children: [
-                            const Icon(Icons.thumb_down, color: AppColors.neutralColor),
+                            const Icon(Icons.thumb_down,
+                                color: AppColors.neutralColor),
                             const SizedBox(width: 8),
-                            Text('= Não tenho interesse!', style: AppTexts.bodyMedium),
+                            Text('= Não tenho interesse!',
+                                style: AppTexts.bodyMedium),
                           ],
                         ),
                       ],
                     ),
                     AppBoxes.setVSeparator,
                     CBoxSelection(
-                      title: 'Genérico',
-                      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-                      initialSelection: TripleSelection.neutral,
-                      onChanged: (selection){
-                        print('Seleção $selection');
-                      }
-                    )
+                        title: 'Genérico',
+                        description:
+                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                        onChanged: (selection) {
+                          print('Seleção $selection');
+                        })
                   ],
                 ),
               ),

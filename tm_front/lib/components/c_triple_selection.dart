@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:tm_front/utils/u_theme.dart';
 
-enum TripleSelection { dislike, neutral, like }
+enum Selection { dislike, neutral, like }
 
 class CTripleSelection extends StatefulWidget {
-  final TripleSelection? initialSelection;
-  final ValueChanged<TripleSelection> onChanged;
+  final Selection? initialSelection;
+  final ValueChanged<Selection> onChanged;
 
   const CTripleSelection({
     Key? key,
@@ -18,7 +18,7 @@ class CTripleSelection extends StatefulWidget {
 }
 
 class _CTripleSelectionState extends State<CTripleSelection> {
-  TripleSelection? _selected;
+  Selection? _selected;
 
   @override
   void initState() {
@@ -26,7 +26,7 @@ class _CTripleSelectionState extends State<CTripleSelection> {
     _selected = widget.initialSelection;
   }
 
-  void _select(TripleSelection selection) {
+  void _select(Selection selection) {
     setState(() {
       _selected = selection;
     });
@@ -34,7 +34,7 @@ class _CTripleSelectionState extends State<CTripleSelection> {
   }
 
   // Constrói cada botão de ícone com destaque quando selecionado.
-  Widget _buildIcon(TripleSelection type, IconData iconData) {
+  Widget _buildIcon(Selection type, IconData iconData) {
     final bool isSelected = _selected == type;
     return GestureDetector(
       onTap: () => _select(type),
@@ -44,7 +44,9 @@ class _CTripleSelectionState extends State<CTripleSelection> {
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           color: isSelected ? AppColors.interactiveMainColor : Colors.grey[300],
-          border: isSelected ? Border.all(color: AppColors.neutralColor, width: 3) : null,
+          border: isSelected
+              ? Border.all(color: AppColors.neutralColor, width: 3)
+              : null,
         ),
         child: Icon(
           iconData,
@@ -61,11 +63,11 @@ class _CTripleSelectionState extends State<CTripleSelection> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        _buildIcon(TripleSelection.dislike, Icons.thumb_down),
+        _buildIcon(Selection.dislike, Icons.thumb_down),
         const SizedBox(width: 16),
-        _buildIcon(TripleSelection.neutral, Icons.sentiment_neutral),
+        _buildIcon(Selection.neutral, Icons.sentiment_neutral),
         const SizedBox(width: 16),
-        _buildIcon(TripleSelection.like, Icons.thumb_up),
+        _buildIcon(Selection.like, Icons.thumb_up),
       ],
     );
   }
