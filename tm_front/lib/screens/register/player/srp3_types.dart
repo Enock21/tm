@@ -52,7 +52,7 @@ class SRP3Types extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            const Icon(Icons.thumb_up, color: AppColors.positiveColor),
+                            const Icon(Icons.thumb_up, color: AppColors.neutralColor),
                             const SizedBox(width: 8),
                             Text('= Tenho interesse!', style: AppTexts.bodyMedium),
                           ],
@@ -68,7 +68,7 @@ class SRP3Types extends StatelessWidget {
                         const SizedBox(height: 8),
                         Row(
                           children: [
-                            const Icon(Icons.thumb_down, color: AppColors.negativeColor),
+                            const Icon(Icons.thumb_down, color: AppColors.neutralColor),
                             const SizedBox(width: 8),
                             Text('= Não tenho interesse!', style: AppTexts.bodyMedium),
                           ],
