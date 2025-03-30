@@ -8,6 +8,7 @@ import 'package:tm_front/components/c_header.dart';
 import 'package:tm_front/components/c_just_body_medium.dart';
 import 'package:tm_front/components/c_triple_selection.dart';
 import 'package:tm_front/components/visual/cv_player_icon.dart';
+import 'package:tm_front/models/game_type.dart';
 import 'package:tm_front/providers/user_profile_state.dart';
 import 'package:tm_front/utils/u_routes.dart';
 import 'package:tm_front/utils/u_theme.dart';
@@ -82,13 +83,19 @@ class SRP3Types extends StatelessWidget {
                       ],
                     ),
                     AppBoxes.setVSeparator,
-                    CBoxSelection(
-                        title: 'Genérico',
-                        description:
-                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-                        onChanged: (selection) {
-                          print('Seleção $selection');
-                        })
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: gameTypes.map((game) {
+                        return CBoxSelection(
+                          title: game.title,
+                          description: game.description,
+                          iconAsset: game.iconAsset, // Passa o caminho do SVG
+                          onChanged: (selection) {
+                            print('Tipo ${game.title}: seleção $selection');
+                          },
+                        );
+                      }).toList(),
+                    )
                   ],
                 ),
               ),

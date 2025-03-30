@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:tm_front/utils/u_theme.dart';
 import 'package:tm_front/components/c_triple_selection.dart';
 
@@ -8,6 +9,7 @@ class CBoxSelection extends StatefulWidget {
   final String description;
   final Selection initialSelection;
   final ValueChanged<Selection> onChanged;
+  final String? iconAsset;
 
   const CBoxSelection({
     Key? key,
@@ -16,6 +18,7 @@ class CBoxSelection extends StatefulWidget {
     required this.description,
     this.initialSelection = Selection.neutral,
     required this.onChanged,
+    this.iconAsset,
   }) : super(key: key);
 
   @override
@@ -74,19 +77,23 @@ class _CBoxSelectionState extends State<CBoxSelection>
             onTap: _toggleExpansion,
             child: Row(
               children: [
-                // Espaço reservado para o ícone ou um SizedBox vazio com tamanho fixo
-                widget.leadingIcon != null
-                    ? SizedBox(
-                        width: 24.0, // Largura fixa para o ícone
-                        height: 24.0, // Altura fixa para o ícone
-                        child: widget.leadingIcon,
-                      )
-                    : const SizedBox(
-                        width: 24.0, // Mesma largura do ícone
-                        height: 24.0, // Mesma altura do ícone
-                      ),
-                const SizedBox(
-                    width: 8), // Espaçamento entre o ícone e o título
+                SizedBox(
+                  width: 24.0,
+                  height: 24.0,
+                  child: widget.iconAsset != null
+                  ? SvgPicture.asset(
+                    widget.iconAsset!,
+                    width: 24,
+                    height: 24,
+                    color: AppColors.nonInteractiveGreen
+                  )
+                  :
+                  const SizedBox(
+                    width: 24.0, // Mesma largura do ícone
+                    height: 24.0, // Mesma altura do ícone
+                  ),
+                ),
+                const SizedBox(width: 8), // Espaçamento entre o ícone e o título
                 Expanded(
                   child: Text(
                     widget.title,
@@ -114,12 +121,10 @@ class _CBoxSelectionState extends State<CBoxSelection>
           if (_isExpanded) ...[
             const SizedBox(height: 8),
             Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                widget.description,
-                style: AppTexts.bodyMedium,
-                textAlign: TextAlign.left,
-              ),
+              child: RichText(
+                  textAlign: TextAlign.justify,
+                  text: TextSpan(
+                      style: AppTexts.bodyMedium, text: widget.description)),
             ),
           ],
           const SizedBox(height: 8),
