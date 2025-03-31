@@ -55,9 +55,9 @@ class URoutes {
       case srp3Types:
         return MaterialPageRoute(
           settings: settings, builder: (_) => const SRP3Types());
-      // case srp4Sys:
-      //   return MaterialPageRoute(
-      //     settings: settings, builder: (_) => const SRP4Sys());
+      case srp4Sys:
+        return MaterialPageRoute(
+          settings: settings, builder: (_) => const SRP4Sys());
       case srgm1Choice:
         return MaterialPageRoute(
             settings: settings, builder: (_) => const SRGM1Choice());

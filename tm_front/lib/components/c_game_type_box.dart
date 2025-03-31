@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:tm_front/utils/u_theme.dart';
 import 'package:tm_front/components/c_triple_selection.dart';
 
-class CBoxSelection extends StatefulWidget {
+class CGameTypeBox extends StatefulWidget {
   final String title;
   final Widget? leadingIcon;
   final String description;
@@ -11,7 +11,7 @@ class CBoxSelection extends StatefulWidget {
   final ValueChanged<Selection> onChanged;
   final String? iconAsset;
 
-  const CBoxSelection({
+  const CGameTypeBox({
     Key? key,
     required this.title,
     this.leadingIcon,
@@ -22,10 +22,10 @@ class CBoxSelection extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _CBoxSelectionState createState() => _CBoxSelectionState();
+  _CGameTypeBoxState createState() => _CGameTypeBoxState();
 }
 
-class _CBoxSelectionState extends State<CBoxSelection>
+class _CGameTypeBoxState extends State<CGameTypeBox>
     with SingleTickerProviderStateMixin {
   bool _isExpanded = false;
   late AnimationController _controller;
@@ -81,19 +81,17 @@ class _CBoxSelectionState extends State<CBoxSelection>
                   width: 30.0,
                   height: 30.0,
                   child: widget.iconAsset != null
-                  ? SvgPicture.asset(
-                    widget.iconAsset!,
-                    width: 30,
-                    height: 30,
-                    color: AppColors.nonInteractiveGreen
-                  )
-                  :
-                  const SizedBox(
-                    width: 30.0, // Mesma largura do ícone
-                    height: 30.0, // Mesma altura do ícone
-                  ),
+                      ? SvgPicture.asset(widget.iconAsset!,
+                          width: 30,
+                          height: 30,
+                          color: AppColors.nonInteractiveGreen)
+                      : const SizedBox(
+                          width: 30.0, // Mesma largura do ícone
+                          height: 30.0, // Mesma altura do ícone
+                        ),
                 ),
-                const SizedBox(width: 8), // Espaçamento entre o ícone e o título
+                const SizedBox(
+                    width: 8), // Espaçamento entre o ícone e o título
                 Expanded(
                   child: Text(
                     widget.title,
