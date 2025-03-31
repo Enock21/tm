@@ -23,17 +23,17 @@ class SRP4Sys extends StatefulWidget {
 
 class _SRP4SysState extends State<SRP4Sys> {
   // Para simplificar, utilizamos uma lista de inteiros como identificadores dos sistemas.
-  final List<int> systems = [];
+  final List<UniqueKey> systems = [];
 
   void addSystem() {
     setState(() {
-      systems.add(systems.length); // Cada novo sistema recebe um ID único (a contagem atual)
+      systems.insert(0, UniqueKey()); // Cada novo sistema recebe um ID único (a contagem atual)
     });
   }
 
-  void removeSystem(int id) {
+  void removeSystem(UniqueKey key) {
     setState(() {
-      systems.remove(id);
+      systems.remove(key);
     });
   }
 
@@ -87,10 +87,14 @@ class _SRP4SysState extends State<SRP4Sys> {
                       ],
                     ),
                     AppBoxes.setVSeparator,
+                    ElevatedButton(
+                      onPressed: addSystem,
+                      child: Text("+ Adicionar Sistema"),
+                    ),
                     // Espaço reservado para as caixas de seleção (Sistemas)
-                    ...systems.map((id) => CGameSysBox(
-                          key: ValueKey(id),
-                          onDelete: () => removeSystem(id),
+                    ...systems.map((key) => CGameSysBox(
+                          key: ValueKey(key),
+                          onDelete: () => removeSystem(key),//Erro: UniqueKey can't be assigned to int
                           onTitleChanged: (newTitle) {
                             // Aqui você pode atualizar o estado do modelo do sistema, se necessário.
                           },
@@ -98,11 +102,6 @@ class _SRP4SysState extends State<SRP4Sys> {
                             // Trate a seleção (como interesse ou não) para este sistema.
                           },
                         )),
-                    // Botão para adicionar novo sistema
-                    ElevatedButton(
-                      onPressed: addSystem,
-                      child: Text("+ Adicionar Sistema"),
-                    ),
                   ],
                 ),
               ),
