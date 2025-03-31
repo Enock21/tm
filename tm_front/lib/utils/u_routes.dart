@@ -4,6 +4,7 @@ import 'package:tm_front/screens/password_recovery/spr_expired_link.dart';
 import 'package:tm_front/screens/password_recovery/spr_main.dart';
 import 'package:tm_front/screens/register/gm/srgm3_types.dart';
 import 'package:tm_front/screens/register/player/srp3_types.dart';
+import 'package:tm_front/screens/register/player/srp4_sys.dart';
 import 'package:tm_front/screens/s_login.dart';
 import '../screens/register/user/sru_prof.dart';
 import '../screens/register/player/srp1_choice.dart';
@@ -21,9 +22,11 @@ class URoutes {
   static const String srp1Choice = '/srp1Choice';
   static const String srp2Intro = '/srp2Intro';
   static const String srp3Types = '/srp3Types';
+  static const String srp4Sys = '/srp4Sys';
   static const String srgm1Choice = '/srgm1Choice';
   static const String srgm2Intro = '/srgm2Intro';
   static const String srgm3Types = '/srgm3Types';
+  static const String srgm4Sys = '/srgm4Sys';
   static const String homepage = '/homepage';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -52,6 +55,9 @@ class URoutes {
       case srp3Types:
         return MaterialPageRoute(
           settings: settings, builder: (_) => const SRP3Types());
+      // case srp4Sys:
+      //   return MaterialPageRoute(
+      //     settings: settings, builder: (_) => const SRP4Sys());
       case srgm1Choice:
         return MaterialPageRoute(
             settings: settings, builder: (_) => const SRGM1Choice());
@@ -61,6 +67,9 @@ class URoutes {
       case srgm3Types:
         return MaterialPageRoute(
           settings: settings, builder: (_) => const SRGM3Types());
+      // case srgm4Sys:
+      //   return MaterialPageRoute(
+      //     settings: settings, builder: (_) => const SRGM4Sys());
       case homepage:
         return MaterialPageRoute(
             settings: settings, builder: (_) => const SHomePage());
