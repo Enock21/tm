@@ -43,8 +43,8 @@ class MyApp extends StatelessWidget {
       //initialRoute: URoutes.srp2Intro,
       //initialRoute: URoutes.srp3Types,
       //initialRoute: URoutes.srgm1Choice,
-      //initialRoute: URoutes.srgm2Intro,
-      initialRoute: URoutes.srgm3Types,
+      initialRoute: URoutes.srgm2Intro,
+      //initialRoute: URoutes.srgm3Types,
       onGenerateRoute: URoutes.generateRoute,
     );
   }

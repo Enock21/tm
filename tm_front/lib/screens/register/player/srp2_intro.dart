@@ -59,7 +59,7 @@ class SRP2Intro extends StatelessWidget {
         positiveText: 'Continuar',
         negativeText: 'Pular Tudo',
         onConfirm: () {
-          // Ação para o botão "Continuar"
+          Navigator.pushNamed(context, URoutes.srp3Types);
         },
         onDecline: () {
           if (userProfile.isGM == true) {

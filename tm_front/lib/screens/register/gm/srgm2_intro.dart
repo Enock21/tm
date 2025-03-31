@@ -56,7 +56,7 @@ class SRGM2Intro extends StatelessWidget {
         positiveText: 'Continuar',
         negativeText: 'Pular Tudo',
         onConfirm: () {
-          // Ação para o botão "Continuar"
+          Navigator.pushNamed(context, URoutes.srgm3Types);
         },
         onDecline: () {
           // Ação para o botão "Pular Tudo"
