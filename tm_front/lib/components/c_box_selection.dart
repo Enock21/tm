@@ -78,19 +78,19 @@ class _CBoxSelectionState extends State<CBoxSelection>
             child: Row(
               children: [
                 SizedBox(
-                  width: 24.0,
-                  height: 24.0,
+                  width: 30.0,
+                  height: 30.0,
                   child: widget.iconAsset != null
                   ? SvgPicture.asset(
                     widget.iconAsset!,
-                    width: 24,
-                    height: 24,
+                    width: 30,
+                    height: 30,
                     color: AppColors.nonInteractiveGreen
                   )
                   :
                   const SizedBox(
-                    width: 24.0, // Mesma largura do ícone
-                    height: 24.0, // Mesma altura do ícone
+                    width: 30.0, // Mesma largura do ícone
+                    height: 30.0, // Mesma altura do ícone
                   ),
                 ),
                 const SizedBox(width: 8), // Espaçamento entre o ícone e o título
@@ -103,12 +103,13 @@ class _CBoxSelectionState extends State<CBoxSelection>
                 ),
                 const SizedBox(width: 8), // Espaçamento entre o título e a seta
                 SizedBox(
-                  width: 24.0, // Largura fixa para a seta
-                  height: 24.0, // Altura fixa para a seta
+                  width: 30.0, // Largura fixa para a seta
+                  height: 30.0, // Altura fixa para a seta
                   child: RotationTransition(
                     turns: _arrowAnimation,
                     child: const Icon(
                       Icons.keyboard_arrow_down,
+                      size: 35,
                       color: AppColors.interactiveSecondColor,
                     ),
                   ),

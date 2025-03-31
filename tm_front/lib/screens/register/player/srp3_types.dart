@@ -37,7 +37,7 @@ class SRP3Types extends StatelessWidget {
                     AppBoxes.rowVSeparator,
                     const CVPlayerIcon(),
                     AppBoxes.rowVSeparator,
-                    CHeader(title: 'Tipos'),
+                    CHeader(title: 'Tipos de RPG'),
                     AppBoxes.bellowTitleVSeparator,
                     CJustBodyMedium(
                         text:
