@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:tm_front/components/c_bottom_butt.dart';
+import 'package:tm_front/components/c_game_sys_box.dart';
 import 'package:tm_front/components/c_game_type_box.dart';
 import 'package:tm_front/components/c_header.dart';
 import 'package:tm_front/components/c_just_body_medium.dart';
@@ -13,20 +14,37 @@ import 'package:tm_front/providers/user_profile_state.dart';
 import 'package:tm_front/utils/u_routes.dart';
 import 'package:tm_front/utils/u_theme.dart';
 
-class SRP4Sys extends StatelessWidget {
+class SRP4Sys extends StatefulWidget {
   const SRP4Sys({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final userProfile = Provider.of<UserProfileState>(context, listen: false);
+  _SRP4SysState createState() => _SRP4SysState();
+}
 
+class _SRP4SysState extends State<SRP4Sys> {
+  // Para simplificar, utilizamos uma lista de inteiros como identificadores dos sistemas.
+  final List<int> systems = [];
+
+  void addSystem() {
+    setState(() {
+      systems.add(systems.length); // Cada novo sistema recebe um ID único (a contagem atual)
+    });
+  }
+
+  void removeSystem(int id) {
+    setState(() {
+      systems.remove(id);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
+            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
             child: Center(
               child: ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 390),
@@ -40,51 +58,51 @@ class SRP4Sys extends StatelessWidget {
                     CHeader(title: 'Sistemas de RPG'),
                     AppBoxes.bellowTitleVSeparator,
                     CJustBodyMedium(
-                        text:
-                            'Existem vários sistemas de RPG: conjuntos de regras que ajudam a organizar e balancear o jogo. Aqui você pode destacar os que você tem ou não interesse em jogar.'),
+                      text: 'Existem vários sistemas de RPG: conjuntos de regras que ajudam a organizar e balancear o jogo. Aqui você pode destacar os que você tem ou não interesse em jogar.',
+                    ),
                     AppBoxes.textVSeparator,
                     CJustBodyMedium(
-                        text:
-                            'Sistemas que não são listados aqui são considerados de preferência neutra.'),
+                      text: 'Sistemas que não são listados aqui são considerados de preferência neutra.',
+                    ),
                     AppBoxes.setVSeparator,
+                    // Informações de referência (ícones e legendas)
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
                           children: [
-                            const Icon(Icons.thumb_up,
-                                color: AppColors.neutralColor),
+                            const Icon(Icons.thumb_up, color: AppColors.neutralColor),
                             const SizedBox(width: 8),
-                            Text('= Tenho interesse!',
-                                style: AppTexts.bodyMedium),
+                            Text('= Tenho interesse!', style: AppTexts.bodyMedium),
                           ],
                         ),
                         const SizedBox(height: 8),
                         Row(
                           children: [
-                            const Icon(Icons.thumb_down,
-                                color: AppColors.neutralColor),
+                            const Icon(Icons.thumb_down, color: AppColors.neutralColor),
                             const SizedBox(width: 8),
-                            Text('= Não tenho interesse!',
-                                style: AppTexts.bodyMedium),
+                            Text('= Não tenho interesse!', style: AppTexts.bodyMedium),
                           ],
                         ),
                       ],
                     ),
                     AppBoxes.setVSeparator,
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: gameTypes.map((game) {
-                        return CGameTypeBox(
-                          title: game.title,
-                          description: game.description,
-                          iconAsset: game.iconAsset, // Passa o caminho do SVG
-                          onChanged: (selection) {
-                            print('Tipo ${game.title}: seleção $selection');
+                    // Espaço reservado para as caixas de seleção (Sistemas)
+                    ...systems.map((id) => CGameSysBox(
+                          key: ValueKey(id),
+                          onDelete: () => removeSystem(id),
+                          onTitleChanged: (newTitle) {
+                            // Aqui você pode atualizar o estado do modelo do sistema, se necessário.
                           },
-                        );
-                      }).toList(),
-                    )
+                          onSelectionChanged: (selection) {
+                            // Trate a seleção (como interesse ou não) para este sistema.
+                          },
+                        )),
+                    // Botão para adicionar novo sistema
+                    ElevatedButton(
+                      onPressed: addSystem,
+                      child: Text("+ Adicionar Sistema"),
+                    ),
                   ],
                 ),
               ),
@@ -92,7 +110,6 @@ class SRP4Sys extends StatelessWidget {
           ),
         ),
       ),
-      // Rodapé fixo com os botões:
       bottomNavigationBar: CBottomButt(
         positiveText: 'Continuar',
         negativeText: 'Pular Tudo',
