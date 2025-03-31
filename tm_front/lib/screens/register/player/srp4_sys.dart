@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:tm_front/components/c_bottom_butt.dart';
+import 'package:tm_front/components/c_double_selection.dart';
 import 'package:tm_front/components/c_game_sys_box.dart';
 import 'package:tm_front/components/c_game_type_box.dart';
 import 'package:tm_front/components/c_header.dart';
@@ -22,18 +23,20 @@ class SRP4Sys extends StatefulWidget {
 }
 
 class _SRP4SysState extends State<SRP4Sys> {
-  // Para simplificar, utilizamos uma lista de inteiros como identificadores dos sistemas.
+  final Map<UniqueKey, DoubleSelection> selections = {};
   final List<UniqueKey> systems = [];
 
   void addSystem() {
     setState(() {
-      systems.insert(0, UniqueKey()); // Cada novo sistema recebe um ID único (a contagem atual)
+      systems.insert(0, UniqueKey());
+      selections[systems.first] = DoubleSelection.like;
     });
   }
 
   void removeSystem(UniqueKey key) {
     setState(() {
       systems.remove(key);
+      selections.remove(key);
     });
   }
 
@@ -44,7 +47,8 @@ class _SRP4SysState extends State<SRP4Sys> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
+            padding:
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
             child: Center(
               child: ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 390),
@@ -58,11 +62,13 @@ class _SRP4SysState extends State<SRP4Sys> {
                     CHeader(title: 'Sistemas de RPG'),
                     AppBoxes.bellowTitleVSeparator,
                     CJustBodyMedium(
-                      text: 'Existem vários sistemas de RPG: conjuntos de regras que ajudam a organizar e balancear o jogo. Aqui você pode destacar os que você tem ou não interesse em jogar.',
+                      text:
+                          'Existem vários sistemas de RPG: conjuntos de regras que ajudam a organizar e balancear o jogo. Aqui você pode destacar os que você tem ou não interesse em jogar.',
                     ),
                     AppBoxes.textVSeparator,
                     CJustBodyMedium(
-                      text: 'Sistemas que não são listados aqui são considerados de preferência neutra.',
+                      text:
+                          'Sistemas que não são listados aqui são considerados de preferência neutra.',
                     ),
                     AppBoxes.setVSeparator,
                     // Informações de referência (ícones e legendas)
@@ -71,17 +77,21 @@ class _SRP4SysState extends State<SRP4Sys> {
                       children: [
                         Row(
                           children: [
-                            const Icon(Icons.thumb_up, color: AppColors.neutralColor),
+                            const Icon(Icons.thumb_up,
+                                color: AppColors.neutralColor),
                             const SizedBox(width: 8),
-                            Text('= Tenho interesse!', style: AppTexts.bodyMedium),
+                            Text('= Tenho interesse!',
+                                style: AppTexts.bodyMedium),
                           ],
                         ),
                         const SizedBox(height: 8),
                         Row(
                           children: [
-                            const Icon(Icons.thumb_down, color: AppColors.neutralColor),
+                            const Icon(Icons.thumb_down,
+                                color: AppColors.neutralColor),
                             const SizedBox(width: 8),
-                            Text('= Não tenho interesse!', style: AppTexts.bodyMedium),
+                            Text('= Não tenho interesse!',
+                                style: AppTexts.bodyMedium),
                           ],
                         ),
                       ],
@@ -93,12 +103,16 @@ class _SRP4SysState extends State<SRP4Sys> {
                     ),
                     // Espaço reservado para as caixas de seleção (Sistemas)
                     ...systems.map((key) => CGameSysBox(
-                          key: ValueKey(key),
-                          onDelete: () => removeSystem(key),//Erro: UniqueKey can't be assigned to int
+                          key: key,
+                          selection: selections[key]!,
+                          onDelete: () => removeSystem(key),
                           onTitleChanged: (newTitle) {
                             // Aqui você pode atualizar o estado do modelo do sistema, se necessário.
                           },
                           onSelectionChanged: (selection) {
+                            setState(() {
+                              selections[key] = selection;
+                            });
                             // Trate a seleção (como interesse ou não) para este sistema.
                           },
                         )),

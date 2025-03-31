@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:tm_front/utils/u_theme.dart';
 
-enum Selection { dislike, neutral, like }
+enum TripleSelection { dislike, neutral, like }
 
 class CTripleSelection extends StatefulWidget {
-  final Selection? initialSelection;
-  final ValueChanged<Selection> onChanged;
+  final TripleSelection? initialSelection;
+  final ValueChanged<TripleSelection> onChanged;
 
   const CTripleSelection({
     Key? key,
@@ -18,7 +18,7 @@ class CTripleSelection extends StatefulWidget {
 }
 
 class _CTripleSelectionState extends State<CTripleSelection> {
-  Selection? _selected;
+  TripleSelection? _selected;
 
   @override
   void initState() {
@@ -26,7 +26,7 @@ class _CTripleSelectionState extends State<CTripleSelection> {
     _selected = widget.initialSelection;
   }
 
-  void _select(Selection selection) {
+  void _select(TripleSelection selection) {
     setState(() {
       _selected = selection;
     });
@@ -34,7 +34,7 @@ class _CTripleSelectionState extends State<CTripleSelection> {
   }
 
   // Constrói cada botão de ícone com destaque quando selecionado.
-  Widget _buildIcon(Selection type, IconData iconData) {
+  Widget _buildIcon(TripleSelection type, IconData iconData) {
     final bool isSelected = _selected == type;
     return GestureDetector(
       onTap: () => _select(type),
@@ -63,11 +63,11 @@ class _CTripleSelectionState extends State<CTripleSelection> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        _buildIcon(Selection.dislike, Icons.thumb_down),
+        _buildIcon(TripleSelection.dislike, Icons.thumb_down),
         const SizedBox(width: 16),
-        _buildIcon(Selection.neutral, Icons.sentiment_neutral),
+        _buildIcon(TripleSelection.neutral, Icons.sentiment_neutral),
         const SizedBox(width: 16),
-        _buildIcon(Selection.like, Icons.thumb_up),
+        _buildIcon(TripleSelection.like, Icons.thumb_up),
       ],
     );
   }

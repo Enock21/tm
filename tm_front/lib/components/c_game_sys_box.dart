@@ -4,12 +4,14 @@ import 'package:tm_front/components/input/text/cit_generic.dart';
 import 'package:tm_front/utils/u_theme.dart';
 
 class CGameSysBox extends StatefulWidget {
+  final DoubleSelection selection;
   final VoidCallback onDelete;
   final ValueChanged<String> onTitleChanged;
-  final ValueChanged<Selection> onSelectionChanged;
+  final ValueChanged<DoubleSelection> onSelectionChanged;
 
   const CGameSysBox({
     Key? key,
+    this.selection = DoubleSelection.like,
     required this.onDelete,
     required this.onTitleChanged,
     required this.onSelectionChanged,
@@ -122,6 +124,7 @@ class _CGameSysBoxState extends State<CGameSysBox> {
           ),
           // Espaço inferior com o widget CDoubleSelection.
           CDoubleSelection(
+            initialSelection: widget.selection,
             onChanged: widget.onSelectionChanged,
           ),
         ],

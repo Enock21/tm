@@ -7,8 +7,8 @@ class CGameTypeBox extends StatefulWidget {
   final String title;
   final Widget? leadingIcon;
   final String description;
-  final Selection initialSelection;
-  final ValueChanged<Selection> onChanged;
+  final TripleSelection initialSelection;
+  final ValueChanged<TripleSelection> onChanged;
   final String? iconAsset;
 
   const CGameTypeBox({
@@ -16,7 +16,7 @@ class CGameTypeBox extends StatefulWidget {
     required this.title,
     this.leadingIcon,
     required this.description,
-    this.initialSelection = Selection.neutral,
+    this.initialSelection = TripleSelection.neutral,
     required this.onChanged,
     this.iconAsset,
   }) : super(key: key);
@@ -130,7 +130,7 @@ class _CGameTypeBoxState extends State<CGameTypeBox>
           // Parte inferior: CTripleSelection
           CTripleSelection(
             onChanged: widget.onChanged,
-            initialSelection: Selection.neutral,
+            initialSelection: TripleSelection.neutral,
           ),
         ],
       ),

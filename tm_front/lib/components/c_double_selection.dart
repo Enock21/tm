@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:tm_front/utils/u_theme.dart';
 
-enum Selection { dislike, like }
+enum DoubleSelection { dislike, like }
 
 class CDoubleSelection extends StatefulWidget {
-  final Selection? initialSelection;
-  final ValueChanged<Selection> onChanged;
+  final DoubleSelection? initialSelection;
+  final ValueChanged<DoubleSelection> onChanged;
 
   const CDoubleSelection({
     Key? key,
@@ -18,7 +18,7 @@ class CDoubleSelection extends StatefulWidget {
 }
 
 class _CDoubleSelectionState extends State<CDoubleSelection> {
-  Selection? _selected;
+  DoubleSelection? _selected;
 
   @override
   void initState() {
@@ -26,7 +26,7 @@ class _CDoubleSelectionState extends State<CDoubleSelection> {
     _selected = widget.initialSelection;
   }
 
-  void _select(Selection selection) {
+  void _select(DoubleSelection selection) {
     setState(() {
       _selected = selection;
     });
@@ -34,7 +34,7 @@ class _CDoubleSelectionState extends State<CDoubleSelection> {
   }
 
   // Constrói cada botão de ícone com destaque quando selecionado.
-  Widget _buildIcon(Selection type, IconData iconData) {
+  Widget _buildIcon(DoubleSelection type, IconData iconData) {
     final bool isSelected = _selected == type;
     return GestureDetector(
       onTap: () => _select(type),
@@ -63,9 +63,9 @@ class _CDoubleSelectionState extends State<CDoubleSelection> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        _buildIcon(Selection.dislike, Icons.thumb_down),
+        _buildIcon(DoubleSelection.dislike, Icons.thumb_down),
         const SizedBox(width: 16),
-        _buildIcon(Selection.like, Icons.thumb_up),
+        _buildIcon(DoubleSelection.like, Icons.thumb_up),
       ],
     );
   }
