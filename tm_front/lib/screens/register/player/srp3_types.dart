@@ -108,7 +108,7 @@ class SRP3Types extends StatelessWidget {
         positiveText: 'Continuar',
         negativeText: 'Pular Tudo',
         onConfirm: () {
-          // Ação para o botão "Continuar". Próxima tela.
+          Navigator.pushNamed(context, URoutes.srp4Sys);
         },
         onDecline: () {
           Navigator.pushNamed(context, URoutes.homepage);
