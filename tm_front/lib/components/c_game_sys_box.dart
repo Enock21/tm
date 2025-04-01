@@ -57,8 +57,9 @@ class _CGameSysBoxState extends State<CGameSysBox> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text("Confirmar deleção"),
-        content: Text("Deseja realmente excluir este sistema?"),
+        title: Text("Confirmar Deleção", textAlign: TextAlign.center),
+        content: Text("Deseja realmente excluir este sistema?", textAlign: TextAlign.left),
+        actionsAlignment: MainAxisAlignment.center,
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
@@ -95,7 +96,7 @@ class _CGameSysBoxState extends State<CGameSysBox> {
             children: [
               // Botão de deletar (ícone de lixeira)
               IconButton(
-                icon: Icon(Icons.delete, color: AppColors.interactiveMainColor),
+                icon: Icon(Icons.delete, color: AppColors.negativeColor),
                 onPressed: confirmDelete,
               ),
               Expanded(
@@ -108,7 +109,11 @@ class _CGameSysBoxState extends State<CGameSysBox> {
                         )
                       : Text(
                           title,
-                          style: AppTexts.headlineMedium,
+                          style: AppTexts.headlineMedium.copyWith(
+                            color: widget.selection == DoubleSelection.like
+                              ? AppColors.nonInteractiveGreen
+                              : AppColors.nonInteractiveRed,
+                          ),
                           textAlign: TextAlign.center,
                         ),
                 ),
@@ -116,8 +121,8 @@ class _CGameSysBoxState extends State<CGameSysBox> {
               // Botão de edição / confirmação
               IconButton(
                 icon: isEditing
-                    ? Icon(Icons.check, color: AppColors.interactiveMainColor)
-                    : Icon(Icons.edit, color: AppColors.interactiveMainColor),
+                    ? Icon(Icons.check, color: AppColors.interactiveSecondColor)
+                    : Icon(Icons.edit, color: AppColors.interactiveSecondColor),
                 onPressed: toggleEdit,
               ),
             ],

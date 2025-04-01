@@ -38,22 +38,42 @@ class _CDoubleSelectionState extends State<CDoubleSelection> {
     final bool isSelected = _selected == type;
     return GestureDetector(
       onTap: () => _select(type),
-      child: Container(
-        width: 70,
-        height: 70,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: isSelected ? AppColors.interactiveMainColor : Colors.grey[300],
-          border: isSelected
-              ? Border.all(color: AppColors.neutralColor, width: 3)
-              : null,
-        ),
-        child: Icon(
-          iconData,
-          color: isSelected ? Colors.white : Colors.black,
-          size: 36,
-        ),
-      ),
+      child: isSelected
+        ? Container(
+          width: 70,
+          height: 70,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            border: Border.all(
+              width: 5,
+              color: type == DoubleSelection.like
+                ? AppColors.nonInteractiveGreen
+                : AppColors.nonInteractiveRed,
+            ),
+            color: type == DoubleSelection.dislike
+              ? AppColors.nonInteractiveSecondColor
+              : AppColors.nonInteractiveMainColor,
+          ),
+          child: Icon(
+            iconData,
+            color: type == DoubleSelection.like
+              ? AppColors.nonInteractiveGreen
+              : AppColors.nonInteractiveRed,
+            size: 36,
+          ),
+        )
+        : Container(
+          width: 70,
+          height: 70,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+          ),
+          child: Icon(
+            iconData,
+            color: AppColors.neutralColor,
+            size: 36,
+          ),
+        )
     );
   }
 

@@ -6,6 +6,7 @@ class AppColors {
   static const Color nonInteractiveMainColor = Color(0xFFBB86FC);
   static const Color nonInteractiveSecondColor = Color(0xFFB3B3B3);
   static const Color nonInteractiveGreen = Color(0xFF7BFF93);
+  static const Color nonInteractiveRed = Color(0xFFCF6679);
   static const Color interactiveMainColor = Color(0xFF7B0AAF);
   static const Color interactiveSecondColor = Color.fromARGB(255, 183, 28, 255);
   static const Color positiveColor = Color(0xFF00C925);

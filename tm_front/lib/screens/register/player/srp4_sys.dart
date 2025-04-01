@@ -78,7 +78,7 @@ class _SRP4SysState extends State<SRP4Sys> {
                         Row(
                           children: [
                             const Icon(Icons.thumb_up,
-                                color: AppColors.neutralColor),
+                                color: AppColors.nonInteractiveGreen),
                             const SizedBox(width: 8),
                             Text('= Tenho interesse!',
                                 style: AppTexts.bodyMedium),
@@ -88,7 +88,7 @@ class _SRP4SysState extends State<SRP4Sys> {
                         Row(
                           children: [
                             const Icon(Icons.thumb_down,
-                                color: AppColors.neutralColor),
+                                color: AppColors.nonInteractiveRed),
                             const SizedBox(width: 8),
                             Text('= Não tenho interesse!',
                                 style: AppTexts.bodyMedium),
@@ -98,6 +98,10 @@ class _SRP4SysState extends State<SRP4Sys> {
                     ),
                     AppBoxes.setVSeparator,
                     ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.interactiveMainColor,
+                        foregroundColor: AppColors.positiveColor,
+                      ),
                       onPressed: addSystem,
                       child: Text("+ Adicionar Sistema"),
                     ),
