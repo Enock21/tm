@@ -1,11 +1,11 @@
 import 'package:flutter/foundation.dart';
 
 class UserProfileState with ChangeNotifier {
-  bool? _isPlayer;
-  bool? _isGM;
+  late bool _isPlayer;
+  late bool _isGM;
 
-  bool? get isPlayer => _isPlayer;
-  bool? get isGM => _isGM;
+  bool get isPlayer => _isPlayer;
+  bool get isGM => _isGM;
 
   void setPlayerChoice(bool choice) {
     _isPlayer = choice;

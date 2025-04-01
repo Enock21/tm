@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tm_front/components/c_double_selection.dart';
 import 'package:tm_front/components/input/text/cit_generic.dart';
+import 'package:tm_front/utils/u_dialogs.dart';
 import 'package:tm_front/utils/u_theme.dart';
 
 class CGameSysBox extends StatefulWidget {
@@ -53,31 +54,6 @@ class _CGameSysBoxState extends State<CGameSysBox> {
     }
   }
 
-  Future<void> confirmDelete() async {
-    final confirmed = await showDialog<bool>(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text("Confirmar Deleção", textAlign: TextAlign.center),
-        content: Text("Deseja realmente excluir este sistema?", textAlign: TextAlign.left),
-        actionsAlignment: MainAxisAlignment.center,
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(false),
-            child: Text("Cancelar"),
-          ),
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(true),
-            child: Text("Confirmar"),
-          ),
-        ],
-      ),
-    );
-
-    if (confirmed == true) {
-      widget.onDelete();
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -96,9 +72,13 @@ class _CGameSysBoxState extends State<CGameSysBox> {
             children: [
               // Botão de deletar (ícone de lixeira)
               IconButton(
-                icon: Icon(Icons.delete, color: AppColors.negativeColor),
-                onPressed: confirmDelete,
-              ),
+                  icon: Icon(Icons.delete, color: AppColors.negativeColor),
+                  onPressed: () async {
+                    bool confirmed = await confirmDelete(context);
+                    if (confirmed) {
+                      widget.onDelete();
+                    }
+                  }),
               Expanded(
                 child: Center(
                   child: isEditing
@@ -111,8 +91,8 @@ class _CGameSysBoxState extends State<CGameSysBox> {
                           title,
                           style: AppTexts.headlineMedium.copyWith(
                             color: widget.selection == DoubleSelection.like
-                              ? AppColors.nonInteractiveGreen
-                              : AppColors.nonInteractiveRed,
+                                ? AppColors.nonInteractiveGreen
+                                : AppColors.nonInteractiveRed,
                           ),
                           textAlign: TextAlign.center,
                         ),
