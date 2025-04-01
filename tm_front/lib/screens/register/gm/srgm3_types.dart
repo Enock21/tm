@@ -48,14 +48,13 @@ class SRGM3Types extends StatelessWidget {
                         text:
                             'Você pode apertar em cada tipo para ver uma breve descrição.'),
                     AppBoxes.setVSeparator,
-                    // Nova seção de ícones e descrições:
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
                           children: [
                             const Icon(Icons.thumb_up,
-                                color: AppColors.neutralColor),
+                                color: AppColors.nonInteractiveGreen),
                             const SizedBox(width: 8),
                             Text('= Tenho interesse!',
                                 style: AppTexts.bodyMedium),
@@ -75,7 +74,7 @@ class SRGM3Types extends StatelessWidget {
                         Row(
                           children: [
                             const Icon(Icons.thumb_down,
-                                color: AppColors.neutralColor),
+                                color: AppColors.nonInteractiveRed),
                             const SizedBox(width: 8),
                             Text('= Não tenho interesse!',
                                 style: AppTexts.bodyMedium),

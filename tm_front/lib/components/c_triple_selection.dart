@@ -33,9 +33,29 @@ class _CTripleSelectionState extends State<CTripleSelection> {
     widget.onChanged(selection);
   }
 
-  // Constrói cada botão de ícone com destaque quando selecionado.
   Widget _buildIcon(TripleSelection type, IconData iconData) {
-    final bool isSelected = _selected == type;
+  final bool isSelected = _selected == type;
+  if (isSelected) {
+    Color bgColor;
+    Color borderColor;
+    Color iconColor;
+    switch (type) {
+      case TripleSelection.neutral:
+        bgColor = AppColors.neutralColor;
+        borderColor = Colors.black;
+        iconColor = Colors.black;
+        break;
+      case TripleSelection.dislike:
+        bgColor = AppColors.nonInteractiveSecondColor;
+        borderColor = AppColors.nonInteractiveRed;
+        iconColor = AppColors.nonInteractiveRed;
+        break;
+      case TripleSelection.like:
+        bgColor = AppColors.nonInteractiveMainColor;
+        borderColor = AppColors.nonInteractiveGreen;
+        iconColor = AppColors.nonInteractiveGreen;
+        break;
+    }
     return GestureDetector(
       onTap: () => _select(type),
       child: Container(
@@ -43,19 +63,33 @@ class _CTripleSelectionState extends State<CTripleSelection> {
         height: 70,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: isSelected ? AppColors.interactiveMainColor : Colors.grey[300],
-          border: isSelected
-              ? Border.all(color: AppColors.neutralColor, width: 3)
-              : null,
+          color: bgColor,
+          border: Border.all(color: borderColor, width: 5),
         ),
         child: Icon(
           iconData,
-          color: isSelected ? Colors.white : Colors.black,
+          color: iconColor,
+          size: 36,
+        ),
+      ),
+    );
+  } else {
+    // Caso não esteja selecionado, exibe o ícone com a cor padrão
+    return GestureDetector(
+      onTap: () => _select(type),
+      child: Container(
+        width: 70,
+        height: 70,
+        alignment: Alignment.center,
+        child: Icon(
+          iconData,
+          color: AppColors.neutralColor,
           size: 36,
         ),
       ),
     );
   }
+}
 
   @override
   Widget build(BuildContext context) {

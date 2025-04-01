@@ -30,15 +30,28 @@ class _CGameTypeBoxState extends State<CGameTypeBox>
   bool _isExpanded = false;
   late AnimationController _controller;
   late Animation<double> _arrowAnimation;
+  late TripleSelection _selection;
 
   @override
   void initState() {
     super.initState();
+    _selection = widget.initialSelection;
     _controller = AnimationController(
       duration: const Duration(milliseconds: 200),
       vsync: this,
     );
     _arrowAnimation = Tween<double>(begin: 0.0, end: 0.5).animate(_controller);
+  }
+
+  Color _getColorForSelection(TripleSelection selection) {
+    switch (selection) {
+      case TripleSelection.like:
+        return AppColors.nonInteractiveGreen;
+      case TripleSelection.dislike:
+        return AppColors.nonInteractiveRed;
+      default:
+        return AppColors.neutralColor;
+    }
   }
 
   void _toggleExpansion() {
@@ -60,8 +73,9 @@ class _CGameTypeBoxState extends State<CGameTypeBox>
 
   @override
   Widget build(BuildContext context) {
+    final currentColor = _getColorForSelection(_selection);
+
     return Container(
-      // Formato de retângulo com borda e fundo personalizado
       decoration: BoxDecoration(
         color: AppColors.boxColor,
         borderRadius: BorderRadius.circular(12),
@@ -84,25 +98,26 @@ class _CGameTypeBoxState extends State<CGameTypeBox>
                       ? SvgPicture.asset(widget.iconAsset!,
                           width: 30,
                           height: 30,
-                          color: AppColors.nonInteractiveGreen)
+                          colorFilter:
+                              ColorFilter.mode(currentColor, BlendMode.srcIn))
                       : const SizedBox(
-                          width: 30.0, // Mesma largura do ícone
-                          height: 30.0, // Mesma altura do ícone
+                          width: 30.0,
+                          height: 30.0,
                         ),
                 ),
-                const SizedBox(
-                    width: 8), // Espaçamento entre o ícone e o título
+                const SizedBox(width: 8),
                 Expanded(
                   child: Text(
                     widget.title,
-                    style: AppTexts.headlineMedium,
+                    style:
+                        AppTexts.headlineMedium.copyWith(color: currentColor),
                     textAlign: TextAlign.center,
                   ),
                 ),
-                const SizedBox(width: 8), // Espaçamento entre o título e a seta
+                const SizedBox(width: 8),
                 SizedBox(
-                  width: 30.0, // Largura fixa para a seta
-                  height: 30.0, // Altura fixa para a seta
+                  width: 30.0,
+                  height: 30.0,
                   child: RotationTransition(
                     turns: _arrowAnimation,
                     child: const Icon(
@@ -129,8 +144,13 @@ class _CGameTypeBoxState extends State<CGameTypeBox>
           const SizedBox(height: 8),
           // Parte inferior: CTripleSelection
           CTripleSelection(
-            onChanged: widget.onChanged,
             initialSelection: TripleSelection.neutral,
+            onChanged: (newSelection) {
+              setState(() {
+                _selection = newSelection;
+              });
+              widget.onChanged(newSelection);
+            },
           ),
         ],
       ),

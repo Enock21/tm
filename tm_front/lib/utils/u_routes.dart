@@ -3,6 +3,7 @@ import 'package:tm_front/screens/password_recovery/spr_alteration.dart';
 import 'package:tm_front/screens/password_recovery/spr_expired_link.dart';
 import 'package:tm_front/screens/password_recovery/spr_main.dart';
 import 'package:tm_front/screens/register/gm/srgm3_types.dart';
+import 'package:tm_front/screens/register/gm/srgm4_sys.dart';
 import 'package:tm_front/screens/register/player/srp3_types.dart';
 import 'package:tm_front/screens/register/player/srp4_sys.dart';
 import 'package:tm_front/screens/s_login.dart';
@@ -67,9 +68,9 @@ class URoutes {
       case srgm3Types:
         return MaterialPageRoute(
           settings: settings, builder: (_) => const SRGM3Types());
-      // case srgm4Sys:
-      //   return MaterialPageRoute(
-      //     settings: settings, builder: (_) => const SRGM4Sys());
+      case srgm4Sys:
+        return MaterialPageRoute(
+          settings: settings, builder: (_) => const SRGM4Sys());
       case homepage:
         return MaterialPageRoute(
             settings: settings, builder: (_) => const SHomePage());
