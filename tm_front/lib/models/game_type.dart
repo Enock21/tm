@@ -12,65 +12,77 @@ class GameType {
   });
 }
 
-final List<GameType> gameTypes = [
+final List<GameType> platformTypes = [
   GameType(
     title: 'Ação',
-    description: 'Momentos intensos e dinâmicos, com foco em combate, perseguições, desafios físicos e decisões rápidas, promovendo adrenalina e ritmo acelerado na narrativa.',
+    description:
+        'Momentos intensos e dinâmicos, com foco em combate, perseguições, desafios físicos e decisões rápidas, promovendo adrenalina e ritmo acelerado na narrativa.',
     iconAsset: 'assets/icons/tipos-jogo/acao.svg',
   ),
   GameType(
     title: 'Alta Fantasia',
-    description: 'Ambientado em mundos ricos em fantasia, com muita magia, criaturas místicas e batalhas épicas.',
+    description:
+        'Ambientado em mundos ricos em fantasia, com muita magia, criaturas místicas e batalhas épicas.',
     iconAsset: 'assets/icons/tipos-jogo/alta-fantasia.svg',
   ),
   GameType(
     title: 'Alternativo',
-    description: 'Jogos que fogem dos padrões tradicionais, experimentando com mecânicas ou temas incomuns. Ideal para jogadores criativos e abertos a novas ideias.',
+    description:
+        'Jogos que fogem dos padrões tradicionais, experimentando com mecânicas ou temas incomuns. Ideal para jogadores criativos e abertos a novas ideias.',
     iconAsset: 'assets/icons/tipos-jogo/alternativo.svg',
   ),
   GameType(
     title: 'Animesco',
-    description: 'Inspirado em temas e estilos de animes, com personagens exagerados, poderes únicos e narrativas dramáticas ou cômicas.',
+    description:
+        'Inspirado em temas e estilos de animes, com personagens exagerados, poderes únicos e narrativas dramáticas ou cômicas.',
     iconAsset: 'assets/icons/tipos-jogo/animesco.svg',
   ),
   GameType(
     title: 'Assíncrono',
-    description: 'Jogos onde as interações acontecem de forma espaçada no tempo, permitindo que jogadores participem conforme sua disponibilidade. Geralmente realizados por texto, com foco em narrativa detalhada e flexibilidade.',
+    description:
+        'Jogos onde as interações acontecem de forma espaçada no tempo, permitindo que jogadores participem conforme sua disponibilidade. Geralmente realizados por texto, com foco em narrativa detalhada e flexibilidade.',
     iconAsset: 'assets/icons/tipos-jogo/assincrono.svg',
   ),
   GameType(
     title: 'Baixa Fantasia',
-    description: 'Fantasia mais realista, com pouca magia e foco em conflitos humanos e sobrevivência. Os desafios tendem a ser mais mundanos.',
+    description:
+        'Fantasia mais realista, com pouca magia e foco em conflitos humanos e sobrevivência. Os desafios tendem a ser mais mundanos.',
     iconAsset: 'assets/icons/tipos-jogo/baixa-fantasia.svg',
   ),
   GameType(
     title: 'Cyberpunk',
-    description: 'Histórias em cenários urbanos futuristas, com temas de tecnologia, distopias e corporações opressoras. Caracterizado pela frase “high tech, low life” (“alta tecnologia, baixo estilo de vida”).',
+    description:
+        'Histórias em cenários urbanos futuristas, com temas de tecnologia, distopias e corporações opressoras. Caracterizado pela frase “high tech, low life” (“alta tecnologia, baixo estilo de vida”).',
     iconAsset: 'assets/icons/tipos-jogo/cyberpunk.svg',
   ),
   GameType(
     title: 'Dungeon Crawl',
-    description: 'Focado em invadir masmorras, combater monstros e coletar tesouros. Geralmente mais linear, com ênfase em desafios físicos e mentais.',
+    description:
+        'Focado em invadir masmorras, combater monstros e coletar tesouros. Geralmente mais linear, com ênfase em desafios físicos e mentais.',
     iconAsset: 'assets/icons/tipos-jogo/dungeon-crawl.svg',
   ),
   GameType(
     title: 'Épico',
-    description: 'Narrativas grandiosas, onde os personagens enfrentam ameaças globais, universais ou multiversais, assumindo papéis de figuras lendárias.',
+    description:
+        'Narrativas grandiosas, onde os personagens enfrentam ameaças globais, universais ou multiversais, assumindo papéis de figuras lendárias.',
     iconAsset: 'assets/icons/tipos-jogo/epico.svg',
   ),
   GameType(
     title: 'Estratégico',
-    description: 'Planejamento tático, gerenciamento de recursos e tomada de decisões cuidadosas, frequentemente em combate ou resolução de desafios estruturados, com regras detalhadas e foco na eficiência e lógica dos jogadores.',
+    description:
+        'Planejamento tático, gerenciamento de recursos e tomada de decisões cuidadosas, frequentemente em combate ou resolução de desafios estruturados, com regras detalhadas e foco na eficiência e lógica dos jogadores.',
     iconAsset: 'assets/icons/tipos-jogo/estrategico.svg',
   ),
   GameType(
     title: 'Exploratório',
-    description: 'Valoriza a descoberta de mundos, mapas e segredos. Aventuras focadas em exploração e desbravamento de regiões desconhecidas.',
+    description:
+        'Valoriza a descoberta de mundos, mapas e segredos. Aventuras focadas em exploração e desbravamento de regiões desconhecidas.',
     iconAsset: 'assets/icons/tipos-jogo/exploratorio.svg',
   ),
   GameType(
     title: 'Ficção Científica',
-    description: 'Histórias que abordam diversos temas de uma forma mais científica e racional. Aqui o extraordinário geralmente pode ser explicado por regras científicas, sejam elas reais ou imaginárias.',
+    description:
+        'Histórias que abordam diversos temas de uma forma mais científica e racional. Aqui o extraordinário geralmente pode ser explicado por regras científicas, sejam elas reais ou imaginárias.',
     iconAsset: 'assets/icons/tipos-jogo/ficcao-cientifica.svg',
   ),
   GameType(
@@ -80,32 +92,38 @@ final List<GameType> gameTypes = [
   ),
   GameType(
     title: 'Grimdark',
-    description: 'Cenários sombrios e brutais, onde a moralidade é ambígua, a violência é prevalente, e o desespero e a falta de esperança permeiam a narrativa. Um mundo cruel e implacável.',
+    description:
+        'Cenários sombrios e brutais, onde a moralidade é ambígua, a violência é prevalente, e o desespero e a falta de esperança permeiam a narrativa. Um mundo cruel e implacável.',
     iconAsset: 'assets/icons/tipos-jogo/grimdark.svg',
   ),
   GameType(
     title: 'Histórico',
-    description: 'Ambientado em períodos históricos, com foco em autenticidade e realismo. Ideal para jogadores interessados em história e recriações.',
+    description:
+        'Ambientado em períodos históricos, com foco em autenticidade e realismo. Ideal para jogadores interessados em história e recriações.',
     iconAsset: 'assets/icons/tipos-jogo/historico.svg',
   ),
   GameType(
     title: 'Humorístico',
-    description: 'Estilo descontraído, onde situações engraçadas e interação leve são priorizadas. Ideal para quem quer se divertir sem muita seriedade.',
+    description:
+        'Estilo descontraído, onde situações engraçadas e interação leve são priorizadas. Ideal para quem quer se divertir sem muita seriedade.',
     iconAsset: 'assets/icons/tipos-jogo/humoristico.svg',
   ),
   GameType(
     title: 'Interpretativo',
-    description: 'Centrado na interpretação de personagens. Os jogadores se esforçam para agir de acordo com a personalidade, motivações e história de seus personagens, frequentemente priorizando o roleplay sobre mecânicas.',
+    description:
+        'Centrado na interpretação de personagens. Os jogadores se esforçam para agir de acordo com a personalidade, motivações e história de seus personagens, frequentemente priorizando o roleplay sobre mecânicas.',
     iconAsset: 'assets/icons/tipos-jogo/interpretativo.svg',
   ),
   GameType(
     title: 'Intriga Social',
-    description: 'Aventuras focadas em manipulação, alianças, traições e relações interpessoais. Requer jogadores que apreciem jogos mentais e estratégias sociais.',
+    description:
+        'Aventuras focadas em manipulação, alianças, traições e relações interpessoais. Requer jogadores que apreciem jogos mentais e estratégias sociais.',
     iconAsset: 'assets/icons/tipos-jogo/intriga-social.svg',
   ),
   GameType(
     title: 'LARP',
-    description: 'Live Action Role-Playing é semelhante a uma peça teatral improvisada, envolvendo a interpretação física de personagens em cenários reais, incluindo muitas vezes o uso de fantasias. Diferente dos TTRPGs, LARP não ocorre em uma mesa (nem física nem virtual), mas sim em espaços mais abertos.',
+    description:
+        'Live Action Role-Playing é semelhante a uma peça teatral improvisada, envolvendo a interpretação física de personagens em cenários reais, incluindo muitas vezes o uso de fantasias. Diferente dos TTRPGs, LARP não ocorre em uma mesa (nem física nem virtual), mas sim em espaços mais abertos.',
     iconAsset: 'assets/icons/tipos-jogo/larp.svg',
   ),
   GameType(

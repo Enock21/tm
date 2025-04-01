@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:tm_front/components/c_bottom_butt.dart';
 import 'package:tm_front/components/c_double_selection.dart';
 import 'package:tm_front/components/c_game_sys_box.dart';
-import 'package:tm_front/components/c_game_type_box.dart';
+import 'package:tm_front/components/c_triple_select_box.dart';
 import 'package:tm_front/components/c_header.dart';
 import 'package:tm_front/components/c_just_body_medium.dart';
 import 'package:tm_front/components/c_triple_selection.dart';

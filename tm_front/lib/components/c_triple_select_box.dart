@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:tm_front/utils/u_theme.dart';
 import 'package:tm_front/components/c_triple_selection.dart';
 
-class CGameTypeBox extends StatefulWidget {
+class CTripleSelectBox extends StatefulWidget {
   final String title;
   final Widget? leadingIcon;
   final String description;
@@ -11,7 +11,7 @@ class CGameTypeBox extends StatefulWidget {
   final ValueChanged<TripleSelection> onChanged;
   final String? iconAsset;
 
-  const CGameTypeBox({
+  const CTripleSelectBox({
     Key? key,
     required this.title,
     this.leadingIcon,
@@ -22,10 +22,10 @@ class CGameTypeBox extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _CGameTypeBoxState createState() => _CGameTypeBoxState();
+  _CTripleSelectBoxState createState() => _CTripleSelectBoxState();
 }
 
-class _CGameTypeBoxState extends State<CGameTypeBox>
+class _CTripleSelectBoxState extends State<CTripleSelectBox>
     with SingleTickerProviderStateMixin {
   bool _isExpanded = false;
   late AnimationController _controller;

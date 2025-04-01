@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:tm_front/components/c_bottom_butt.dart';
-import 'package:tm_front/components/c_game_type_box.dart';
+import 'package:tm_front/components/c_triple_select_box.dart';
 import 'package:tm_front/components/c_header.dart';
 import 'package:tm_front/components/c_just_body_medium.dart';
 import 'package:tm_front/components/c_triple_selection.dart';
@@ -86,8 +86,8 @@ class SRGM3Types extends StatelessWidget {
                     AppBoxes.setVSeparator,
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: gameTypes.map((game) {
-                        return CGameTypeBox(
+                      children: platformTypes.map((game) {
+                        return CTripleSelectBox(
                           title: game.title,
                           description: game.description,
                           iconAsset: game.iconAsset, // Passa o caminho do SVG
