@@ -12,6 +12,7 @@ import 'package:tm_front/components/c_triple_selection.dart';
 import 'package:tm_front/components/visual/cv_player_icon.dart';
 import 'package:tm_front/models/game_type.dart';
 import 'package:tm_front/providers/user_profile_state.dart';
+import 'package:tm_front/utils/u_dialogs.dart';
 import 'package:tm_front/utils/u_routes.dart';
 import 'package:tm_front/utils/u_theme.dart';
 
@@ -133,8 +134,17 @@ class _SRP4SysState extends State<SRP4Sys> {
         onConfirm: () {
           // Ação para o botão "Continuar". Próxima tela.
         },
-        onDecline: () {
-          Navigator.pushNamed(context, URoutes.homepage);
+        onDecline: () async {
+          final navigator = Navigator.of(context);
+          final isGM = Provider.of<UserProfileState>(context, listen: false).isGM;
+          bool shouldSkip = await skipAllRegistrationScreens(context);
+          if (shouldSkip) {
+            if (isGM == true) {
+              navigator.pushNamed(URoutes.srgm2Intro);
+            } else {
+              navigator.pushNamed(URoutes.homepage);
+            }
+          }
         },
       ),
     );

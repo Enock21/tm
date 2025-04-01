@@ -6,6 +6,7 @@ import 'package:tm_front/components/c_header.dart';
 import 'package:tm_front/components/c_just_body_medium.dart';
 import 'package:tm_front/components/visual/cv_gm_icon.dart';
 import 'package:tm_front/components/visual/cv_player_icon.dart';
+import 'package:tm_front/utils/u_dialogs.dart';
 import 'package:tm_front/utils/u_routes.dart';
 import 'package:tm_front/utils/u_theme.dart';
 
@@ -58,8 +59,12 @@ class SRGM2Intro extends StatelessWidget {
         onConfirm: () {
           Navigator.pushNamed(context, URoutes.srgm3Types);
         },
-        onDecline: () {
-          Navigator.pushNamed(context, URoutes.homepage);
+        onDecline: () async {
+          final navigator = Navigator.of(context);
+          bool shouldSkip = await skipAllRegistrationScreens(context);
+          if (shouldSkip) {
+            navigator.pushNamed(URoutes.homepage);
+          }
         },
       ),
     );

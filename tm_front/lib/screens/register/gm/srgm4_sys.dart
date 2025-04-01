@@ -13,6 +13,7 @@ import 'package:tm_front/components/visual/cv_gm_icon.dart';
 import 'package:tm_front/components/visual/cv_player_icon.dart';
 import 'package:tm_front/models/game_type.dart';
 import 'package:tm_front/providers/user_profile_state.dart';
+import 'package:tm_front/utils/u_dialogs.dart';
 import 'package:tm_front/utils/u_routes.dart';
 import 'package:tm_front/utils/u_theme.dart';
 
@@ -132,10 +133,14 @@ class _SRGM4SysState extends State<SRGM4Sys> {
         positiveText: 'Continuar',
         negativeText: 'Pular Tudo',
         onConfirm: () {
-          Navigator.pushNamed(context, URoutes.srgm4Sys);
+          //TODO: prox tela
         },
-        onDecline: () {
-          Navigator.pushNamed(context, URoutes.homepage);
+        onDecline: () async {
+          final navigator = Navigator.of(context);
+          bool shouldSkip = await skipAllRegistrationScreens(context);
+          if (shouldSkip) {
+            navigator.pushNamed(URoutes.homepage);
+          }
         },
       ),
     );

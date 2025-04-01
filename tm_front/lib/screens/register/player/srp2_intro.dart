@@ -66,7 +66,6 @@ class _SRP2IntroState extends State<SRP2Intro> {
           final navigator = Navigator.of(context);
           final isGM = Provider.of<UserProfileState>(context, listen: false).isGM;
           bool shouldSkip = await skipAllRegistrationScreens(context);
-          if (!mounted) return;
           if (shouldSkip) {
             if (isGM == true) {
               navigator.pushNamed(URoutes.srgm2Intro);
