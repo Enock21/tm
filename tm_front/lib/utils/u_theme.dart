@@ -11,8 +11,8 @@ class AppColors {
   static const Color interactiveSecondColor = Color.fromARGB(255, 183, 28, 255);
   static const Color positiveColor = Color(0xFF00C925);
   static const Color negativeColor = Color(0xFFCE0000);
-  static const Color negativeAreaColor = Color(0xFF616161);
-  static const Color neutralColor = Color(0xFFFFFFFF);
+  static const Color negativeAreaColor = Color.fromARGB(255, 151, 151, 151);
+  static const Color neutralColor = Color.fromARGB(255, 179, 178, 178);
   static const Color boxColor = Color(0xFF322B47);
 }
 

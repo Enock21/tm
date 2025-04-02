@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tm_front/utils/u_theme.dart';
 
 class CTwoColumnCheckboxes extends StatelessWidget {
   final List<bool> selectedTimes;
@@ -30,7 +31,7 @@ class CTwoColumnCheckboxes extends StatelessWidget {
         controlAffinity: ListTileControlAffinity.leading,
         contentPadding: EdgeInsets.zero,
         visualDensity: const VisualDensity(horizontal: 0, vertical: -4),
-        activeColor: Colors.white, // Cor do ícone quando selecionado
+        activeColor: AppColors.nonInteractiveGreen, // Cor do ícone quando selecionado
         checkColor: Colors.black, // Cor da marca de seleção
       ),
     );
