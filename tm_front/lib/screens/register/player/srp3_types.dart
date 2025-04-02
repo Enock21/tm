@@ -90,7 +90,7 @@ class SRP3Types extends StatelessWidget {
                         return CTripleSelectBox(
                           title: game.title,
                           description: game.description,
-                          iconAsset: game.iconAsset, // Passa o caminho do SVG
+                          iconAsset: game.iconAsset,
                           onChanged: (selection) {
                             print('Tipo ${game.title}: seleção $selection');
                           },

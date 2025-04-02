@@ -89,6 +89,7 @@ class SRP5Plat extends StatelessWidget {
                         return CTripleSelectBox(
                           title: platform.title,
                           description: platform.description,
+                          iconAsset: platform.iconAsset,
                           onChanged: (selection) {
                             print('Plataforma ${platform.title}: seleção $selection');
                           },

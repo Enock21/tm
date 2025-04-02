@@ -99,6 +99,7 @@ flutter:
   assets:
     - assets/icons/
     - assets/icons/tipos-jogo/
+    - assets/icons/plataformas/
 
   # Fonts:
   fonts:
