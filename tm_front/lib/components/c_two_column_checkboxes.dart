@@ -51,7 +51,7 @@ class CTwoColumnCheckboxes extends StatelessWidget {
             }),
           ),
         ),
-        const SizedBox(width: 16), // Espaçamento entre as colunas
+        const SizedBox(width: 16),
         // Segunda coluna (horários de 12:00 a 23:00)
         Expanded(
           child: Column(

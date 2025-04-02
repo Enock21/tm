@@ -77,16 +77,28 @@ class _CTimeSelectBoxState extends State<CTimeSelectBox> {
                       Expanded(
                         child: ElevatedButton(
                           onPressed: _deselectAll,
-                          style: ElevatedButton.styleFrom(),
-                          child: const Text('Desmarcar Todos'),
+                          style: ElevatedButton.styleFrom(backgroundColor: AppColors.negativeAreaColor),
+                          child: const Text(
+                            'Desmarcar Todos',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: AppColors.negativeColor
+                            )
+                          ),  
                         ),
                       ),
                       const SizedBox(width: 16),
                       Expanded(
                         child: ElevatedButton(
                           onPressed: _selectAll,
-                          style: ElevatedButton.styleFrom(),
-                          child: const Text('Marcar Todos'),
+                          style: ElevatedButton.styleFrom(backgroundColor: AppColors.interactiveMainColor),
+                          child: const Text(
+                            'Marcar Todos',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: AppColors.positiveColor
+                            )
+                          ),  
                         ),
                       ),
                     ],
