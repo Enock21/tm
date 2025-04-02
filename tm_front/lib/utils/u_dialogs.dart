@@ -19,6 +19,7 @@ Future<bool> confirmOperation({
             onPressed: () => Navigator.of(context).pop(false),
             child: Text(cancelText),
           ),
+          const SizedBox(width: 20),
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
             child: Text(confirmText),

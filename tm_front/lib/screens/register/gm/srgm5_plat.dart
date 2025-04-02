@@ -3,47 +3,25 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:tm_front/components/c_bottom_butt.dart';
-import 'package:tm_front/components/c_double_selection.dart';
-import 'package:tm_front/components/c_game_sys_box.dart';
 import 'package:tm_front/components/c_triple_select_box.dart';
 import 'package:tm_front/components/c_header.dart';
 import 'package:tm_front/components/c_just_body_medium.dart';
 import 'package:tm_front/components/c_triple_selection.dart';
 import 'package:tm_front/components/visual/cv_gm_icon.dart';
 import 'package:tm_front/components/visual/cv_player_icon.dart';
-import 'package:tm_front/models/game_type.dart';
+import 'package:tm_front/models/platform_type.dart';
 import 'package:tm_front/providers/user_profile_state.dart';
 import 'package:tm_front/utils/u_dialogs.dart';
 import 'package:tm_front/utils/u_routes.dart';
 import 'package:tm_front/utils/u_theme.dart';
 
-class SRGM4Sys extends StatefulWidget {
-  const SRGM4Sys({Key? key}) : super(key: key);
-
-  @override
-  _SRGM4SysState createState() => _SRGM4SysState();
-}
-
-class _SRGM4SysState extends State<SRGM4Sys> {
-  final Map<UniqueKey, DoubleSelection> selections = {};
-  final List<UniqueKey> systems = [];
-
-  void addSystem() {
-    setState(() {
-      systems.insert(0, UniqueKey());
-      selections[systems.first] = DoubleSelection.like;
-    });
-  }
-
-  void removeSystem(UniqueKey key) {
-    setState(() {
-      systems.remove(key);
-      selections.remove(key);
-    });
-  }
+class SRGM5Plat extends StatelessWidget {
+  const SRGM5Plat({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final userProfile = Provider.of<UserProfileState>(context, listen: false);
+
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
       body: SafeArea(
@@ -61,19 +39,16 @@ class _SRGM4SysState extends State<SRGM4Sys> {
                     AppBoxes.rowVSeparator,
                     const CVGMIcon(),
                     AppBoxes.rowVSeparator,
-                    CHeader(title: 'Sistemas de RPG'),
+                    CHeader(title: 'Plataformas de RPG'),
                     AppBoxes.bellowTitleVSeparator,
                     CJustBodyMedium(
-                      text:
-                          'Existem vários sistemas de RPG: conjuntos de regras que ajudam a organizar e balancear o jogo. Aqui você pode destacar os que você tem ou não interesse em mestrar.',
-                    ),
+                        text:
+                            'São meios usados para mestrar RPG. Em outras palavras, uma plataforma é onde você mestra. Aqui você pode declarar as que você está ou não está disposto a usar.'),
                     AppBoxes.textVSeparator,
                     CJustBodyMedium(
-                      text:
-                          'Sistemas que não são listados aqui são considerados de preferência neutra.',
-                    ),
+                        text:
+                            'Você pode apertar em cada plataforma para ver uma breve descrição.'),
                     AppBoxes.setVSeparator,
-                    // Informações de referência (ícones e legendas)
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -83,6 +58,16 @@ class _SRGM4SysState extends State<SRGM4Sys> {
                                 color: AppColors.nonInteractiveGreen),
                             const SizedBox(width: 8),
                             Text('= Tenho interesse!',
+                                style: AppTexts.bodyMedium),
+                          ],
+                        ),
+                        const SizedBox(height: 8),
+                        Row(
+                          children: [
+                            const Icon(Icons.sentiment_neutral,
+                                color: AppColors.neutralColor),
+                            const SizedBox(width: 8),
+                            Text('= Sem opinião formada.',
                                 style: AppTexts.bodyMedium),
                           ],
                         ),
@@ -99,29 +84,19 @@ class _SRGM4SysState extends State<SRGM4Sys> {
                       ],
                     ),
                     AppBoxes.setVSeparator,
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.interactiveMainColor,
-                        foregroundColor: AppColors.positiveColor,
-                      ),
-                      onPressed: addSystem,
-                      child: Text("+ Adicionar Sistema"),
-                    ),
-                    // Espaço reservado para as caixas de seleção (Sistemas)
-                    ...systems.map((key) => CGameSysBox(
-                          key: key,
-                          selection: selections[key]!,
-                          onDelete: () => removeSystem(key),
-                          onTitleChanged: (newTitle) {
-                            // Aqui você pode atualizar o estado do modelo do sistema, se necessário.
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: platformTypes.map((platform) {
+                        return CTripleSelectBox(
+                          title: platform.title,
+                          description: platform.description,
+                          iconAsset: platform.iconAsset,
+                          onChanged: (selection) {
+                            print('Plataforma ${platform.title}: seleção $selection');
                           },
-                          onSelectionChanged: (selection) {
-                            setState(() {
-                              selections[key] = selection;
-                            });
-                            // Trate a seleção (como interesse ou não) para este sistema.
-                          },
-                        )),
+                        );
+                      }).toList(),
+                    )
                   ],
                 ),
               ),
@@ -129,14 +104,17 @@ class _SRGM4SysState extends State<SRGM4Sys> {
           ),
         ),
       ),
+      // Rodapé fixo com os botões:
       bottomNavigationBar: CBottomButt(
         positiveText: 'Continuar',
         negativeText: 'Pular Tudo',
         onConfirm: () {
-          Navigator.of(context).pushNamed(URoutes.srgm5Plat);
+          //TODO: next screen
         },
         onDecline: () async {
           final navigator = Navigator.of(context);
+          final isGM =
+              Provider.of<UserProfileState>(context, listen: false).isGM;
           bool shouldSkip = await skipAllRegistrationScreens(context);
           if (shouldSkip) {
             navigator.pushNamed(URoutes.homepage);

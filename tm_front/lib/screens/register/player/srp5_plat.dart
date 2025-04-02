@@ -7,6 +7,7 @@ import 'package:tm_front/components/c_triple_select_box.dart';
 import 'package:tm_front/components/c_header.dart';
 import 'package:tm_front/components/c_just_body_medium.dart';
 import 'package:tm_front/components/c_triple_selection.dart';
+import 'package:tm_front/components/visual/cv_gm_icon.dart';
 import 'package:tm_front/components/visual/cv_player_icon.dart';
 import 'package:tm_front/models/platform_type.dart';
 import 'package:tm_front/providers/user_profile_state.dart';
@@ -42,7 +43,7 @@ class SRP5Plat extends StatelessWidget {
                     AppBoxes.bellowTitleVSeparator,
                     CJustBodyMedium(
                         text:
-                            'São meios usados para se jogar RPG. Em outras palavras, uma plataforma é onde você joga. Aqui você pode declarar as que você está ou não está disposto a usar.'),
+                            'São meios usados para jogar RPG. Em outras palavras, uma plataforma é onde você joga. Aqui você pode declarar as que você está ou não está disposto a usar.'),
                     AppBoxes.textVSeparator,
                     CJustBodyMedium(
                         text:
