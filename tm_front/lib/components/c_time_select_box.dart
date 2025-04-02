@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tm_front/components/c_two_column_checkboxes.dart';
 import 'package:tm_front/components/input/text/cit_generic.dart';
+import 'package:tm_front/components/input/text/cit_long.dart';
 import 'package:tm_front/utils/u_theme.dart';
 
 class CTimeSelectBox extends StatefulWidget {
@@ -124,7 +125,7 @@ class _CTimeSelectBoxState extends State<CTimeSelectBox> {
                   padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   child: CITGeneric(
                     hintText: 'Observações sobre o dia',
-                    onChanged: widget.onNoteChanged,
+                    onChanged: (widget.onNoteChanged),//TODO: atribuir lógica se necessario
                   ),
                 ),
               ],

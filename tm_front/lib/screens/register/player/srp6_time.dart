@@ -8,6 +8,7 @@ import 'package:tm_front/components/c_triple_select_box.dart';
 import 'package:tm_front/components/c_header.dart';
 import 'package:tm_front/components/c_just_body_medium.dart';
 import 'package:tm_front/components/c_triple_selection.dart';
+import 'package:tm_front/components/input/text/cit_long.dart';
 import 'package:tm_front/components/visual/cv_gm_icon.dart';
 import 'package:tm_front/components/visual/cv_player_icon.dart';
 import 'package:tm_front/models/platform_type.dart';
