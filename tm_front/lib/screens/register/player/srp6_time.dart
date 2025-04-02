@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:tm_front/components/c_bottom_butt.dart';
+import 'package:tm_front/components/c_time_select_box.dart';
 import 'package:tm_front/components/c_triple_select_box.dart';
 import 'package:tm_front/components/c_header.dart';
 import 'package:tm_front/components/c_just_body_medium.dart';
@@ -49,21 +50,18 @@ class SRP6Time extends StatelessWidget {
                         text:
                             'Aperte em cada dia da semana para expandir sua respectiva lista de horários.'),
                     AppBoxes.setVSeparator,
-                    //Começo do que deve ser a lista de horários selecionáveis.
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: platformTypes.map((platform) {
-                        return CTripleSelectBox(
-                          title: platform.title,
-                          description: platform.description,
-                          iconAsset: platform.iconAsset,
-                          onChanged: (selection) {
-                            print('Plataforma ${platform.title}: seleção $selection');
-                          },
-                        );
-                      }).toList(),
-                    )
-                    //Fim do que deve ser a lista de horários selecionáveis.
+                      children: const [
+                        CTimeSelectBox(title: 'Domingo'),
+                        CTimeSelectBox(title: 'Segunda-feira'),
+                        CTimeSelectBox(title: 'Terça-feira'),
+                        CTimeSelectBox(title: 'Quarta-feira'),
+                        CTimeSelectBox(title: 'Quinta-feira'),
+                        CTimeSelectBox(title: 'Sexta-feira'),
+                        CTimeSelectBox(title: 'Sábado'),
+                      ],
+                    ),
                   ],
                 ),
               ),
