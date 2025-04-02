@@ -8,6 +8,7 @@ import 'package:tm_front/screens/register/gm/srgm5_plat.dart';
 import 'package:tm_front/screens/register/player/srp3_types.dart';
 import 'package:tm_front/screens/register/player/srp4_sys.dart';
 import 'package:tm_front/screens/register/player/srp5_plat.dart';
+import 'package:tm_front/screens/register/player/srp6_time.dart';
 import 'package:tm_front/screens/s_login.dart';
 import '../screens/register/user/sru_prof.dart';
 import '../screens/register/player/srp1_choice.dart';
@@ -27,11 +28,13 @@ class URoutes {
   static const String srp3Types = '/srp3Types';
   static const String srp4Sys = '/srp4Sys';
   static const String srp5Plat = '/srp5Plat';
+  static const String srp6Time = '/srp6Time';
   static const String srgm1Choice = '/srgm1Choice';
   static const String srgm2Intro = '/srgm2Intro';
   static const String srgm3Types = '/srgm3Types';
   static const String srgm4Sys = '/srgm4Sys';
   static const String srgm5Plat = '/srgm5Plat';
+  static const String srgm6Time = '/srgm6Time';
   static const String homepage = '/homepage';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -66,6 +69,9 @@ class URoutes {
       case srp5Plat:
         return MaterialPageRoute(
           settings: settings, builder: (_) => const SRP5Plat());
+      case srp6Time:
+        return MaterialPageRoute(
+          settings: settings, builder: (_) => const SRP6Time());
       case srgm1Choice:
         return MaterialPageRoute(
             settings: settings, builder: (_) => const SRGM1Choice());
@@ -81,6 +87,9 @@ class URoutes {
       case srgm5Plat:
         return MaterialPageRoute(
           settings: settings, builder: (_) => const SRGM5Plat());
+      // case srgm6Time:
+      //   return MaterialPageRoute(
+      //     settings: settings, builder: (_) => const SRGM6Time());
       case homepage:
         return MaterialPageRoute(
             settings: settings, builder: (_) => const SHomePage());
