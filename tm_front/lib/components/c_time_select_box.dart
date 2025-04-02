@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tm_front/components/c_two_column_checkboxes.dart';
 import 'package:tm_front/components/input/text/cit_generic.dart';
 import 'package:tm_front/utils/u_theme.dart';
 
@@ -46,31 +47,10 @@ class _CTimeSelectBoxState extends State<CTimeSelectBox> {
     widget.onTimeSelectionChanged?.call(_selectedTimes);
   }
 
-  // Constrói o widget de cada checkbox com seu respectivo horário.
-  Widget _buildTimeCheckbox(int hour) {
-    final timeLabel = '${hour.toString().padLeft(2, '0')}:00';
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Checkbox(
-          value: _selectedTimes[hour],
-          onChanged: (value) {
-            setState(() {
-              _selectedTimes[hour] = value ?? false;
-            });
-            widget.onTimeSelectionChanged?.call(_selectedTimes);
-          },
-        ),
-        Text(timeLabel, style: AppTexts.bodyMedium),
-      ],
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Card(
       color: const Color.fromARGB(255, 49, 49, 49),
-      //color: AppColors.backgroundColor,
       margin: const EdgeInsets.symmetric(vertical: 8.0),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: Column(
@@ -97,8 +77,7 @@ class _CTimeSelectBoxState extends State<CTimeSelectBox> {
                       Expanded(
                         child: ElevatedButton(
                           onPressed: _deselectAll,
-                          style: ElevatedButton.styleFrom(
-                          ),
+                          style: ElevatedButton.styleFrom(),
                           child: const Text('Desmarcar Todos'),
                         ),
                       ),
@@ -106,39 +85,32 @@ class _CTimeSelectBoxState extends State<CTimeSelectBox> {
                       Expanded(
                         child: ElevatedButton(
                           onPressed: _selectAll,
-                          style: ElevatedButton.styleFrom(
-                          ),
+                          style: ElevatedButton.styleFrom(),
                           child: const Text('Marcar Todos'),
                         ),
                       ),
                     ],
                   ),
                 ),
-                // Duas colunas de checkboxes
+                // Duas colunas de checkboxes (com estado controlado)
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      // Coluna para horários de 00:00 a 11:00
-                      Expanded(
-                        child: Column(
-                          children: List.generate(12, (index) => _buildTimeCheckbox(index)),
-                        ),
-                      ),
-                      // Coluna para horários de 12:00 a 23:00
-                      Expanded(
-                        child: Column(
-                          children: List.generate(12, (index) => _buildTimeCheckbox(index + 12)),
-                        ),
-                      ),
-                    ],
+                  padding: const EdgeInsets.symmetric(horizontal: 43, vertical: 8),
+                  child: Center( // Adicione este widget
+                    child: CTwoColumnCheckboxes(
+                      selectedTimes: _selectedTimes,
+                      onChanged: (newTimes) {
+                        setState(() {
+                          _selectedTimes = newTimes;
+                        });
+                        widget.onTimeSelectionChanged?.call(_selectedTimes);
+                      },
+                    ),
                   ),
                 ),
                 // Campo de observações usando CITGeneric
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                  child: CITGeneric(//TODO: precisa de um input para parágrafo longo
+                  child: CITGeneric(
                     hintText: 'Observações sobre o dia',
                     onChanged: widget.onNoteChanged,
                   ),
