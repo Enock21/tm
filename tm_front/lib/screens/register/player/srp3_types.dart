@@ -86,7 +86,7 @@ class SRP3Types extends StatelessWidget {
                     AppBoxes.setVSeparator,
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: platformTypes.map((game) {
+                      children: gameTypes.map((game) {
                         return CTripleSelectBox(
                           title: game.title,
                           description: game.description,

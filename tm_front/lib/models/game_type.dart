@@ -12,7 +12,7 @@ class GameType {
   });
 }
 
-final List<GameType> platformTypes = [
+final List<GameType> gameTypes = [
   GameType(
     title: 'Ação',
     description:
