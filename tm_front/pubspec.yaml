@@ -100,6 +100,7 @@ flutter:
     - assets/icons/
     - assets/icons/tipos-jogo/
     - assets/icons/plataformas/
+    - assets/icons/procurando/
 
   # Fonts:
   fonts:

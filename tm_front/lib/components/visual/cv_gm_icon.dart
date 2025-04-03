@@ -17,7 +17,7 @@ class CVGMIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SvgPicture.asset(
-      'assets/icons/book-opened-svgrepo-com.svg',
+      'assets/icons/bxs--book-reader.svg',
       width: width,
       height: height,
       colorFilter: ColorFilter.mode(

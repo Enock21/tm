@@ -56,9 +56,9 @@ class SRP7Search extends StatelessWidget {
                             if (newValue != null) {}
                             //TODO: adicionar logica
                           },
-                          title: 'Título 1',
+                          title: 'Porcurando Jogo',
                           searchedIconAsset:
-                              'assets/icons/game-icons--tied-scroll.svg',
+                              'assets/icons/proc-jogo.svg',
                         ),
                         CSearchCheckbox(
                           value: false,
@@ -66,9 +66,9 @@ class SRP7Search extends StatelessWidget {
                             if (newValue != null) {}
                             //TODO: adicionar logica
                           },
-                          title: 'Título 2',
+                          title: 'Procurando Mestre',
                           searchedIconAsset:
-                              'assets/icons/book-opened-svgrepo-com.svg',
+                              'assets/icons/proc-mestre.svg',
                         ),
                         CSearchCheckbox(
                           value: false,
@@ -76,9 +76,9 @@ class SRP7Search extends StatelessWidget {
                             if (newValue != null) {}
                             //TODO: adicionar logica
                           },
-                          title: 'Título 3',
+                          title: 'Procurando Jogador',
                           searchedIconAsset:
-                              'assets/icons/game-icons--dice-twenty-faces-twenty.svg',
+                              'assets/icons/proc-jogador.svg',
                         ),
                       ],
                     ),

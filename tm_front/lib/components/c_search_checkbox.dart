@@ -46,26 +46,18 @@ class _CSearchCheckboxState extends State<CSearchCheckbox> {
             value: _isChecked,
             onChanged: _handleCheckboxChange,
             activeColor: AppColors.nonInteractiveGreen,
+            checkColor: Colors.black,
           ),
         ),
         const SizedBox(width: 8),
         SizedBox(
-          width: 40,
-          height: 40,
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              SvgPicture.asset(
-                'assets/icons/oi--magnifying-glass.svg',
-                width: 40,
-                height: 40,
-              ),
-              SvgPicture.asset(
-                widget.searchedIconAsset,
-                width: 24,
-                height: 24,
-              ),
-            ],
+          width: 24,
+          height: 24,
+          child: SvgPicture.asset(
+            widget.searchedIconAsset,
+            width: 24,
+            height: 24,
+            colorFilter: const ColorFilter.mode(AppColors.nonInteractiveGreen, BlendMode.srcIn)
           ),
         ),
         const SizedBox(width: 8),
