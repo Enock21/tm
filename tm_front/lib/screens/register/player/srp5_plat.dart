@@ -92,7 +92,8 @@ class SRP5Plat extends StatelessWidget {
                           description: platform.description,
                           iconAsset: platform.iconAsset,
                           onChanged: (selection) {
-                            print('Plataforma ${platform.title}: seleção $selection');
+                            print(
+                                'Plataforma ${platform.title}: seleção $selection');
                           },
                         );
                       }).toList(),
@@ -109,7 +110,7 @@ class SRP5Plat extends StatelessWidget {
         positiveText: 'Continuar',
         negativeText: 'Pular Tudo',
         onConfirm: () {
-          //TODO: next screen
+          Navigator.of(context).pushNamed(URoutes.srp6Time);
         },
         onDecline: () async {
           final navigator = Navigator.of(context);

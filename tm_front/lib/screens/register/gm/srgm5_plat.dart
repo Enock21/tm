@@ -109,12 +109,10 @@ class SRGM5Plat extends StatelessWidget {
         positiveText: 'Continuar',
         negativeText: 'Pular Tudo',
         onConfirm: () {
-          //TODO: next screen
+          Navigator.of(context).pushNamed(URoutes.srgm6Time);
         },
         onDecline: () async {
           final navigator = Navigator.of(context);
-          final isGM =
-              Provider.of<UserProfileState>(context, listen: false).isGM;
           bool shouldSkip = await skipAllRegistrationScreens(context);
           if (shouldSkip) {
             navigator.pushNamed(URoutes.homepage);

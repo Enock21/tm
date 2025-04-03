@@ -17,8 +17,8 @@ import 'package:tm_front/utils/u_dialogs.dart';
 import 'package:tm_front/utils/u_routes.dart';
 import 'package:tm_front/utils/u_theme.dart';
 
-class SRP6Time extends StatelessWidget {
-  const SRP6Time({Key? key}) : super(key: key);
+class SRGM6Time extends StatelessWidget {
+  const SRGM6Time({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -37,9 +37,9 @@ class SRP6Time extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    CHeader(title: 'JOGADOR'),
+                    CHeader(title: 'MESTRE'),
                     AppBoxes.rowVSeparator,
-                    const CVPlayerIcon(),
+                    const CVGMIcon(),
                     AppBoxes.rowVSeparator,
                     CHeader(title: 'Agenda'),
                     AppBoxes.bellowTitleVSeparator,
@@ -79,15 +79,9 @@ class SRP6Time extends StatelessWidget {
         },
         onDecline: () async {
           final navigator = Navigator.of(context);
-          final isGM =
-              Provider.of<UserProfileState>(context, listen: false).isGM;
           bool shouldSkip = await skipAllRegistrationScreens(context);
           if (shouldSkip) {
-            if (isGM == true) {
-              navigator.pushNamed(URoutes.srgm2Intro);
-            } else {
-              navigator.pushNamed(URoutes.homepage);
-            }
+            navigator.pushNamed(URoutes.homepage);
           }
         },
       ),

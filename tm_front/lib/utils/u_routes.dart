@@ -5,6 +5,7 @@ import 'package:tm_front/screens/password_recovery/spr_main.dart';
 import 'package:tm_front/screens/register/gm/srgm3_types.dart';
 import 'package:tm_front/screens/register/gm/srgm4_sys.dart';
 import 'package:tm_front/screens/register/gm/srgm5_plat.dart';
+import 'package:tm_front/screens/register/gm/srgm6_time.dart';
 import 'package:tm_front/screens/register/player/srp3_types.dart';
 import 'package:tm_front/screens/register/player/srp4_sys.dart';
 import 'package:tm_front/screens/register/player/srp5_plat.dart';
@@ -87,9 +88,9 @@ class URoutes {
       case srgm5Plat:
         return MaterialPageRoute(
           settings: settings, builder: (_) => const SRGM5Plat());
-      // case srgm6Time:
-      //   return MaterialPageRoute(
-      //     settings: settings, builder: (_) => const SRGM6Time());
+      case srgm6Time:
+        return MaterialPageRoute(
+          settings: settings, builder: (_) => const SRGM6Time());
       case homepage:
         return MaterialPageRoute(
             settings: settings, builder: (_) => const SHomePage());
