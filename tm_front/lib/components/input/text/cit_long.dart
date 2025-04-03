@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tm_front/utils/u_theme.dart';
 
 class CITLong extends StatefulWidget {
   final String? hintText;
@@ -35,13 +36,13 @@ class _CITLongState extends State<CITLong> {
           _fieldKey.currentState?.validate();
         }
       },
-      child: Scrollbar(
-        child: SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: ConstrainedBox(
-            constraints: BoxConstraints(
-              minWidth: MediaQuery.of(context).size.width,
-            ),
+      // Envolvemos o TextFormField em um Container com altura fixa
+      // e usamos um Scrollbar com SingleChildScrollView na direção vertical.
+      child: Container(
+        height: 200, // Define uma altura fixa para limitar o campo
+        child: Scrollbar(
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
             child: TextFormField(
               key: _fieldKey,
               controller: widget.controller,
@@ -51,7 +52,9 @@ class _CITLongState extends State<CITLong> {
               },
               decoration: InputDecoration(
                 hintText: widget.hintText,
+                hintStyle: AppTexts.hintText,
                 filled: true,
+                fillColor: AppColors.boxColor,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
                   borderSide: BorderSide.none,
@@ -63,11 +66,12 @@ class _CITLongState extends State<CITLong> {
                 prefixIcon: widget.prefixIcon,
                 suffixIcon: widget.suffixIcon,
               ),
+              style: const TextStyle(color: Colors.white),
               validator: widget.validator,
               keyboardType: TextInputType.multiline,
               textInputAction: TextInputAction.newline,
               minLines: 5,
-              maxLines: null,
+              maxLines: null, // Permite que o campo expanda conforme o conteúdo
             ),
           ),
         ),

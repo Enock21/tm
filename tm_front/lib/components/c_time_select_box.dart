@@ -67,8 +67,9 @@ class _CTimeSelectBoxState extends State<CTimeSelectBox> {
             ),
           ),
           // Conteúdo expansível
-          if (_isExpanded)
-            Column(
+          Offstage(
+            offstage: !_isExpanded,
+            child: Column(
               children: [
                 // Linha com os botões "Desmarcar Todos" e "Marcar Todos"
                 Padding(
@@ -120,16 +121,16 @@ class _CTimeSelectBoxState extends State<CTimeSelectBox> {
                     ),
                   ),
                 ),
-                // Campo de observações usando CITGeneric
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                  child: CITGeneric(
+                  child: CITLong(
                     hintText: 'Observações sobre o dia',
                     onChanged: (widget.onNoteChanged),//TODO: atribuir lógica se necessario
                   ),
                 ),
               ],
             ),
+          ),
           // Seta para expandir/colapsar, centralizada na parte inferior
           GestureDetector(
             onTap: _toggleExpansion,
