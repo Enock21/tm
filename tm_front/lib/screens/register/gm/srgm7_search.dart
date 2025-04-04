@@ -102,7 +102,7 @@ class SRGM7Search extends StatelessWidget {
           final navigator = Navigator.of(context);
           bool shouldSkip = await skipAllRegistrationScreens(context);
           if (shouldSkip) {
-            navigator.pushNamed(URoutes.homepage);
+            navigator.pushNamed(URoutes.sHomepage);
           }
         },
       ),

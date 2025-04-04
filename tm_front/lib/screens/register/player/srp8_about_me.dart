@@ -54,91 +54,73 @@ class SRP8AboutMe extends StatelessWidget {
                     AppBoxes.setVSeparator,
                     Column(
                       children: [
-                        Text(
-                          'Gosto de jogar RPGs que...',
-                          textAlign: TextAlign.center,
-                          style: AppTexts.headlineMedium
-                        ),
+                        Text('Gosto de jogar RPGs que...',
+                            textAlign: TextAlign.center,
+                            style: AppTexts.headlineMedium),
                         AppBoxes.textVSeparator,
                         CITLong(
                           hintText: 'Texto livre',
                         ),
                         AppBoxes.setVSeparator,
-                        Text(
-                          'Não gosto de jogar RPGs que...',
-                          textAlign: TextAlign.center,
-                          style: AppTexts.headlineMedium
-                        ),
+                        Text('Não gosto de jogar RPGs que...',
+                            textAlign: TextAlign.center,
+                            style: AppTexts.headlineMedium),
                         AppBoxes.textVSeparator,
                         CITLong(
                           hintText: 'Texto livre',
                         ),
                         AppBoxes.setVSeparator,
-                        Text(
-                          'Gosto de jogar com mestres que...',
-                          textAlign: TextAlign.center,
-                          style: AppTexts.headlineMedium
-                        ),
+                        Text('Gosto de jogar com mestres que...',
+                            textAlign: TextAlign.center,
+                            style: AppTexts.headlineMedium),
                         AppBoxes.textVSeparator,
                         CITLong(
                           hintText: 'Texto livre',
                         ),
                         AppBoxes.setVSeparator,
-                        Text(
-                          'Não gosto de jogar com mestres que...',
-                          textAlign: TextAlign.center,
-                          style: AppTexts.headlineMedium
-                        ),
+                        Text('Não gosto de jogar com mestres que...',
+                            textAlign: TextAlign.center,
+                            style: AppTexts.headlineMedium),
                         AppBoxes.textVSeparator,
                         CITLong(
                           hintText: 'Texto livre',
                         ),
                         AppBoxes.setVSeparator,
-                        Text(
-                          'Gosto de jogar com jogadores que...',
-                          textAlign: TextAlign.center,
-                          style: AppTexts.headlineMedium
-                        ),
+                        Text('Gosto de jogar com jogadores que...',
+                            textAlign: TextAlign.center,
+                            style: AppTexts.headlineMedium),
                         AppBoxes.textVSeparator,
                         CITLong(
                           hintText: 'Texto livre',
                         ),
                         AppBoxes.setVSeparator,
-                        Text(
-                          'Não gosto de jogar com jogadores que...',
-                          textAlign: TextAlign.center,
-                          style: AppTexts.headlineMedium
-                        ),
+                        Text('Não gosto de jogar com jogadores que...',
+                            textAlign: TextAlign.center,
+                            style: AppTexts.headlineMedium),
                         AppBoxes.textVSeparator,
                         CITLong(
                           hintText: 'Texto livre',
                         ),
                         AppBoxes.setVSeparator,
-                        Text(
-                          'Tive uma experiência boa jogando RPG quando...',
-                          textAlign: TextAlign.center,
-                          style: AppTexts.headlineMedium
-                        ),
+                        Text('Tive uma experiência boa jogando RPG quando...',
+                            textAlign: TextAlign.center,
+                            style: AppTexts.headlineMedium),
                         AppBoxes.textVSeparator,
                         CITLong(
                           hintText: 'Texto livre',
                         ),
                         AppBoxes.setVSeparator,
-                        Text(
-                          'Tive uma experiência ruim jogando RPG quando...',
-                          textAlign: TextAlign.center,
-                          style: AppTexts.headlineMedium
-                        ),
+                        Text('Tive uma experiência ruim jogando RPG quando...',
+                            textAlign: TextAlign.center,
+                            style: AppTexts.headlineMedium),
                         AppBoxes.textVSeparator,
                         CITLong(
                           hintText: 'Texto livre',
                         ),
                         AppBoxes.setVSeparator,
-                        Text(
-                          'Outras coisas sobre mim como jogador',
-                          textAlign: TextAlign.center,
-                          style: AppTexts.headlineMedium
-                        ),
+                        Text('Outras coisas sobre mim como jogador',
+                            textAlign: TextAlign.center,
+                            style: AppTexts.headlineMedium),
                         AppBoxes.textVSeparator,
                         CITLong(
                           hintText: 'Texto livre',
@@ -157,7 +139,13 @@ class SRP8AboutMe extends StatelessWidget {
         positiveText: 'Continuar',
         negativeText: 'Pular Tudo',
         onConfirm: () {
-          //TODO: next screen
+          final navigator = Navigator.of(context);
+          final isGM = Provider.of<UserProfileState>(context, listen: false).isGM;
+          if (isGM == true) {
+            navigator.pushNamed(URoutes.srgm2Intro);
+          } else {
+            navigator.pushNamed(URoutes.sHomepage);
+          }
         },
         onDecline: () async {
           final navigator = Navigator.of(context);
@@ -168,7 +156,7 @@ class SRP8AboutMe extends StatelessWidget {
             if (isGM == true) {
               navigator.pushNamed(URoutes.srgm2Intro);
             } else {
-              navigator.pushNamed(URoutes.homepage);
+              navigator.pushNamed(URoutes.sHomepage);
             }
           }
         },

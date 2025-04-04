@@ -112,7 +112,7 @@ void main() {
       await tester.tap(find.text('Entrar'));
       await tester.pumpAndSettle();
 
-      expect(find.byType(SHomePage), findsOneWidget);
+      expect(find.byType(SHomepage), findsOneWidget);
       expect(find.text(ErrorMsgs.loginNotFound), findsNothing);
     });
 
@@ -128,7 +128,7 @@ void main() {
       await tester.tap(find.text('Entrar'));
       await tester.pumpAndSettle();
 
-      expect(find.byType(SHomePage), findsNothing);
+      expect(find.byType(SHomepage), findsNothing);
       expect(find.text(ErrorMsgs.loginNotFound), findsOneWidget);
     });
 
@@ -144,7 +144,7 @@ void main() {
       await tester.tap(find.text('Entrar'));
       await tester.pumpAndSettle();
 
-      expect(find.byType(SHomePage), findsNothing);
+      expect(find.byType(SHomepage), findsNothing);
       expect(find.text(ErrorMsgs.loginNotFound), findsOneWidget);
     });
 

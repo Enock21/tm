@@ -44,7 +44,10 @@ class URoutes {
   static const String srgm6Time = '/srgm6Time';
   static const String srgm7Search = '/srgm7Search';
   static const String srgm8AboutMe = '/srgm8AboutMe';
-  static const String homepage = '/homepage';
+  static const String sHomepage = '/sHomepage';
+  static const String sUserProfile = '/sUserProfile';
+  static const String sPlayerProfile = '/sPlayerProfile';
+  static const String sGMProfile = '/sGMProfile';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -68,25 +71,25 @@ class URoutes {
             settings: settings, builder: (_) => const SRP1Choice());
       case srp2Intro:
         return MaterialPageRoute(
-          settings: settings, builder: (_) => const SRP2Intro());
+            settings: settings, builder: (_) => const SRP2Intro());
       case srp3Types:
         return MaterialPageRoute(
-          settings: settings, builder: (_) => const SRP3Types());
+            settings: settings, builder: (_) => const SRP3Types());
       case srp4Sys:
         return MaterialPageRoute(
-          settings: settings, builder: (_) => const SRP4Sys());
+            settings: settings, builder: (_) => const SRP4Sys());
       case srp5Plat:
         return MaterialPageRoute(
-          settings: settings, builder: (_) => const SRP5Plat());
+            settings: settings, builder: (_) => const SRP5Plat());
       case srp6Time:
         return MaterialPageRoute(
-          settings: settings, builder: (_) => const SRP6Time());
+            settings: settings, builder: (_) => const SRP6Time());
       case srp7Search:
         return MaterialPageRoute(
-          settings: settings, builder: (_) => const SRP7Search());
+            settings: settings, builder: (_) => const SRP7Search());
       case srp8AboutMe:
         return MaterialPageRoute(
-          settings: settings, builder: (_) => const SRP8AboutMe());
+            settings: settings, builder: (_) => const SRP8AboutMe());
       case srgm1Choice:
         return MaterialPageRoute(
             settings: settings, builder: (_) => const SRGM1Choice());
@@ -95,25 +98,34 @@ class URoutes {
             settings: settings, builder: (_) => const SRGM2Intro());
       case srgm3Types:
         return MaterialPageRoute(
-          settings: settings, builder: (_) => const SRGM3Types());
+            settings: settings, builder: (_) => const SRGM3Types());
       case srgm4Sys:
         return MaterialPageRoute(
-          settings: settings, builder: (_) => const SRGM4Sys());
+            settings: settings, builder: (_) => const SRGM4Sys());
       case srgm5Plat:
         return MaterialPageRoute(
-          settings: settings, builder: (_) => const SRGM5Plat());
+            settings: settings, builder: (_) => const SRGM5Plat());
       case srgm6Time:
         return MaterialPageRoute(
-          settings: settings, builder: (_) => const SRGM6Time());
+            settings: settings, builder: (_) => const SRGM6Time());
       case srgm7Search:
         return MaterialPageRoute(
-          settings: settings, builder: (_) => const SRGM7Search());
+            settings: settings, builder: (_) => const SRGM7Search());
       case srgm8AboutMe:
         return MaterialPageRoute(
-          settings: settings, builder: (_) => const SRGM8AboutMe());
-      case homepage:
+            settings: settings, builder: (_) => const SRGM8AboutMe());
+      case sHomepage:
         return MaterialPageRoute(
-            settings: settings, builder: (_) => const SHomePage());
+            settings: settings, builder: (_) => const SHomepage());
+      // case sUserProfile:
+      //   return MaterialPageRoute(
+      //       settings: settings, builder: (_) => const SUserProfile());
+      // case sPlayerProfile:
+      //   return MaterialPageRoute(
+      //       settings: settings, builder: (_) => const SPlayerProfile());
+      // case sGMProfile:
+      //   return MaterialPageRoute(
+      //       settings: settings, builder: (_) => const SGMProfile());
       default:
         return MaterialPageRoute(
             settings: settings, builder: (_) => const SLogin());

@@ -10,12 +10,8 @@ import 'package:tm_front/screens/password_recovery/spr_expired_link.dart';
 import 'package:tm_front/utils/u_routes.dart';
 
 void main() {
-  runApp(
-    ChangeNotifierProvider(
-      create: (context) => UserProfileState(),
-      child: const MyApp()
-    )
-  );
+  runApp(ChangeNotifierProvider(
+      create: (context) => UserProfileState(), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -55,6 +51,7 @@ class MyApp extends StatelessWidget {
       //initialRoute: URoutes.srgm6Time,
       //initialRoute: URoutes.srgm7Search,
       //initialRoute: URoutes.srgm8AboutMe,
+      //initialRoute: URoutes.sHomepage,
       onGenerateRoute: URoutes.generateRoute,
     );
   }

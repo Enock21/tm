@@ -28,7 +28,8 @@ class _SRP2IntroState extends State<SRP2Intro> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
+            padding:
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
             child: Center(
               child: ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 390),
@@ -42,13 +43,16 @@ class _SRP2IntroState extends State<SRP2Intro> {
                     CHeader(title: 'Pronto para Começar?'),
                     AppBoxes.bellowTitleVSeparator,
                     CJustBodyMedium(
-                        text: 'Preencha as informações seguintes para personalizar seu perfil de jogador.'),
+                        text:
+                            'Preencha as informações seguintes para personalizar seu perfil de jogador.'),
                     AppBoxes.textVSeparator,
                     CJustBodyMedium(
-                        text: 'Todos os campos a seguir são opcionais e você pode alterá-los depois.'),
+                        text:
+                            'Todos os campos a seguir são opcionais e você pode alterá-los depois.'),
                     AppBoxes.textVSeparator,
                     CJustBodyMedium(
-                        text: 'Caso deseje interromper a personalização do seu perfil de jogador, você pode selecionar “Pular Tudo” a qualquer momento. Se fizer isso, o que já foi preenchido ficará salvo no seu perfil.')
+                        text:
+                            'Caso deseje interromper a personalização do seu perfil de jogador, você pode selecionar “Pular Tudo” a qualquer momento. Se fizer isso, o que já foi preenchido ficará salvo no seu perfil.')
                   ],
                 ),
               ),
@@ -64,13 +68,14 @@ class _SRP2IntroState extends State<SRP2Intro> {
         },
         onDecline: () async {
           final navigator = Navigator.of(context);
-          final isGM = Provider.of<UserProfileState>(context, listen: false).isGM;
+          final isGM =
+              Provider.of<UserProfileState>(context, listen: false).isGM;
           bool shouldSkip = await skipAllRegistrationScreens(context);
           if (shouldSkip) {
             if (isGM == true) {
               navigator.pushNamed(URoutes.srgm2Intro);
             } else {
-              navigator.pushNamed(URoutes.homepage);
+              navigator.pushNamed(URoutes.sHomepage);
             }
           }
         },

@@ -136,13 +136,14 @@ class _SRP4SysState extends State<SRP4Sys> {
         },
         onDecline: () async {
           final navigator = Navigator.of(context);
-          final isGM = Provider.of<UserProfileState>(context, listen: false).isGM;
+          final isGM =
+              Provider.of<UserProfileState>(context, listen: false).isGM;
           bool shouldSkip = await skipAllRegistrationScreens(context);
           if (shouldSkip) {
             if (isGM == true) {
               navigator.pushNamed(URoutes.srgm2Intro);
             } else {
-              navigator.pushNamed(URoutes.homepage);
+              navigator.pushNamed(URoutes.sHomepage);
             }
           }
         },

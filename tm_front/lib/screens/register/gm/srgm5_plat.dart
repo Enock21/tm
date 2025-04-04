@@ -92,7 +92,8 @@ class SRGM5Plat extends StatelessWidget {
                           description: platform.description,
                           iconAsset: platform.iconAsset,
                           onChanged: (selection) {
-                            print('Plataforma ${platform.title}: seleção $selection');
+                            print(
+                                'Plataforma ${platform.title}: seleção $selection');
                           },
                         );
                       }).toList(),
@@ -115,7 +116,7 @@ class SRGM5Plat extends StatelessWidget {
           final navigator = Navigator.of(context);
           bool shouldSkip = await skipAllRegistrationScreens(context);
           if (shouldSkip) {
-            navigator.pushNamed(URoutes.homepage);
+            navigator.pushNamed(URoutes.sHomepage);
           }
         },
       ),

@@ -28,7 +28,8 @@ class TestNavigatorObserver extends NavigatorObserver {
 }
 
 void main() {
-  group('Testes de Navegação do Fluxo de Cadastro (SRUProf e subsequentes)', () {
+  group('Testes de Navegação do Fluxo de Cadastro (SRUProf e subsequentes)',
+      () {
     // Fluxo 1:
     // SRUProf -> SRP1Choice (decline) -> SRGM1Choice (decline) -> HomePage
     testWidgets(
@@ -68,13 +69,14 @@ void main() {
         final nextButton = find.text('Próximo');
         await tester.ensureVisible(nextButton);
         expect(nextButton, findsOneWidget);
-        await tester.tap(nextButton);//Comportamento estranho, pulando o bloco de WidgetsBinding.instance.addPostFrameCallback((_) {
+        await tester.tap(
+            nextButton); //Comportamento estranho, pulando o bloco de WidgetsBinding.instance.addPostFrameCallback((_) {
         await tester.pumpAndSettle();
 
         // Em SRP1Choice, toque no botão "NÃO" (decline)
         final srp1Decline = find.text('NÃO');
         //await tester.ensureVisible(srp1Decline);
-        expect(srp1Decline, findsOneWidget);//Erro: widget nao encontrado
+        expect(srp1Decline, findsOneWidget); //Erro: widget nao encontrado
         await tester.tap(srp1Decline);
         await tester.pumpAndSettle();
 
@@ -85,10 +87,9 @@ void main() {
         await tester.pumpAndSettle();
 
         // Espera que a última rota seja HomePage
-        expect(observer.routes.last.settings.name, URoutes.homepage);
+        expect(observer.routes.last.settings.name, URoutes.sHomepage);
       },
     );
-
 
     // Fluxo 2:
     // SRUProf -> SRP1Choice (confirm) -> SRGM1Choice (decline) -> SRP2Intro (pular tudo) -> HomePage
@@ -152,7 +153,7 @@ void main() {
         await tester.pumpAndSettle();
 
         // Deve navegar para HomePage
-        expect(observer.routes.last.settings.name, URoutes.homepage);
+        expect(observer.routes.last.settings.name, URoutes.sHomepage);
       },
     );
 
@@ -218,7 +219,7 @@ void main() {
         await tester.pumpAndSettle();
 
         // Espera que a última rota seja HomePage
-        expect(observer.routes.last.settings.name, URoutes.homepage);
+        expect(observer.routes.last.settings.name, URoutes.sHomepage);
       },
     );
 
@@ -297,7 +298,7 @@ void main() {
         await tester.pumpAndSettle();
 
         // Por fim, deve navegar para HomePage
-        expect(observer.routes.last.settings.name, URoutes.homepage);
+        expect(observer.routes.last.settings.name, URoutes.sHomepage);
       },
     );
   });

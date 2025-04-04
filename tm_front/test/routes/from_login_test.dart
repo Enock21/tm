@@ -20,7 +20,8 @@ class TestNavigatorObserver extends NavigatorObserver {
 
 void main() {
   group('Testes de navegação a partir de SLogin', () {
-    testWidgets('TRL1 - SLogin -> SPRMain: Recuperação de Senha', (WidgetTester tester) async {
+    testWidgets('TRL1 - SLogin -> SPRMain: Recuperação de Senha',
+        (WidgetTester tester) async {
       final observer = TestNavigatorObserver();
 
       await tester.pumpWidget(
@@ -41,7 +42,8 @@ void main() {
       expect(observer.routes.last.settings.name, URoutes.sprMain);
     });
 
-    testWidgets('TRL2 - SLogin -> HomePage: Login bem-sucedido', (WidgetTester tester) async {
+    testWidgets('TRL2 - SLogin -> HomePage: Login bem-sucedido',
+        (WidgetTester tester) async {
       final observer = TestNavigatorObserver();
 
       await tester.pumpWidget(
@@ -63,10 +65,11 @@ void main() {
       await tester.pumpAndSettle();
 
       // Verifica se a última rota acionada é a HomePage
-      expect(observer.routes.last.settings.name, URoutes.homepage);
+      expect(observer.routes.last.settings.name, URoutes.sHomepage);
     });
 
-    testWidgets('TRL3 - SLogin -> SRUProf: Início de Cadastro', (WidgetTester tester) async {
+    testWidgets('TRL3 - SLogin -> SRUProf: Início de Cadastro',
+        (WidgetTester tester) async {
       final observer = TestNavigatorObserver();
 
       await tester.pumpWidget(
@@ -78,7 +81,8 @@ void main() {
       );
 
       // Procura e clica no botão "Criar conta"
-      final createAccountButton = find.widgetWithText(ElevatedButton, 'Criar conta');
+      final createAccountButton =
+          find.widgetWithText(ElevatedButton, 'Criar conta');
       expect(createAccountButton, findsOneWidget);
       await tester.tap(createAccountButton);
       await tester.pumpAndSettle();

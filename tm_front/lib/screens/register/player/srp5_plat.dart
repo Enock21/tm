@@ -121,7 +121,7 @@ class SRP5Plat extends StatelessWidget {
             if (isGM == true) {
               navigator.pushNamed(URoutes.srgm2Intro);
             } else {
-              navigator.pushNamed(URoutes.homepage);
+              navigator.pushNamed(URoutes.sHomepage);
             }
           }
         },

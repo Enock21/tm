@@ -37,7 +37,7 @@ class SLoginState extends State<SLogin> {
           _loginError = null;
         });
 
-        Navigator.pushNamed(context, URoutes.homepage);
+        Navigator.pushNamed(context, URoutes.sHomepage);
       } else {
         // 🔹 Exibe erro se credenciais forem inválidas
         setState(() {
@@ -148,7 +148,7 @@ class SLoginState extends State<SLogin> {
                           ),
 
                           AppBoxes.rowVSeparator,
-                          
+
                           Row(
                             children: [
                               const Icon(Icons.person,

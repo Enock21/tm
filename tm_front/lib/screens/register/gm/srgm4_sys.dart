@@ -139,7 +139,7 @@ class _SRGM4SysState extends State<SRGM4Sys> {
           final navigator = Navigator.of(context);
           bool shouldSkip = await skipAllRegistrationScreens(context);
           if (shouldSkip) {
-            navigator.pushNamed(URoutes.homepage);
+            navigator.pushNamed(URoutes.sHomepage);
           }
         },
       ),

@@ -54,91 +54,76 @@ class SRGM8AboutMe extends StatelessWidget {
                     AppBoxes.setVSeparator,
                     Column(
                       children: [
-                        Text(
-                          'Gosto de mestrar RPGs que...',
-                          textAlign: TextAlign.center,
-                          style: AppTexts.headlineMedium
+                        Text('Gosto de mestrar RPGs que...',
+                            textAlign: TextAlign.center,
+                            style: AppTexts.headlineMedium),
+                        AppBoxes.textVSeparator,
+                        CITLong(
+                          hintText: 'Texto livre',
                         ),
+                        AppBoxes.setVSeparator,
+                        Text('Não gosto de mestrar RPGs que...',
+                            textAlign: TextAlign.center,
+                            style: AppTexts.headlineMedium),
                         AppBoxes.textVSeparator,
                         CITLong(
                           hintText: 'Texto livre',
                         ),
                         AppBoxes.setVSeparator,
                         Text(
-                          'Não gosto de mestrar RPGs que...',
-                          textAlign: TextAlign.center,
-                          style: AppTexts.headlineMedium
-                        ),
+                            'Gosto de mestrar colaborativamente com mestres que…',
+                            textAlign: TextAlign.center,
+                            style: AppTexts.headlineMedium),
                         AppBoxes.textVSeparator,
                         CITLong(
                           hintText: 'Texto livre',
                         ),
                         AppBoxes.setVSeparator,
                         Text(
-                          'Gosto de mestrar colaborativamente com mestres que…',
-                          textAlign: TextAlign.center,
-                          style: AppTexts.headlineMedium
+                            'Não gosto de mestrar colaborativamente com mestres que…',
+                            textAlign: TextAlign.center,
+                            style: AppTexts.headlineMedium),
+                        AppBoxes.textVSeparator,
+                        CITLong(
+                          hintText: 'Texto livre',
                         ),
+                        AppBoxes.setVSeparator,
+                        Text('Gosto de mestrar para jogadores que...',
+                            textAlign: TextAlign.center,
+                            style: AppTexts.headlineMedium),
+                        AppBoxes.textVSeparator,
+                        CITLong(
+                          hintText: 'Texto livre',
+                        ),
+                        AppBoxes.setVSeparator,
+                        Text('Não gosto de mestrar para jogadores que...',
+                            textAlign: TextAlign.center,
+                            style: AppTexts.headlineMedium),
+                        AppBoxes.textVSeparator,
+                        CITLong(
+                          hintText: 'Texto livre',
+                        ),
+                        AppBoxes.setVSeparator,
+                        Text('Tive uma experiência boa mestrando RPG quando...',
+                            textAlign: TextAlign.center,
+                            style: AppTexts.headlineMedium),
                         AppBoxes.textVSeparator,
                         CITLong(
                           hintText: 'Texto livre',
                         ),
                         AppBoxes.setVSeparator,
                         Text(
-                          'Não gosto de mestrar colaborativamente com mestres que…',
-                          textAlign: TextAlign.center,
-                          style: AppTexts.headlineMedium
-                        ),
+                            'Tive uma experiência ruim mestrando RPG quando...',
+                            textAlign: TextAlign.center,
+                            style: AppTexts.headlineMedium),
                         AppBoxes.textVSeparator,
                         CITLong(
                           hintText: 'Texto livre',
                         ),
                         AppBoxes.setVSeparator,
-                        Text(
-                          'Gosto de mestrar para jogadores que...',
-                          textAlign: TextAlign.center,
-                          style: AppTexts.headlineMedium
-                        ),
-                        AppBoxes.textVSeparator,
-                        CITLong(
-                          hintText: 'Texto livre',
-                        ),
-                        AppBoxes.setVSeparator,
-                        Text(
-                          'Não gosto de mestrar para jogadores que...',
-                          textAlign: TextAlign.center,
-                          style: AppTexts.headlineMedium
-                        ),
-                        AppBoxes.textVSeparator,
-                        CITLong(
-                          hintText: 'Texto livre',
-                        ),
-                        AppBoxes.setVSeparator,
-                        Text(
-                          'Tive uma experiência boa mestrando RPG quando...',
-                          textAlign: TextAlign.center,
-                          style: AppTexts.headlineMedium
-                        ),
-                        AppBoxes.textVSeparator,
-                        CITLong(
-                          hintText: 'Texto livre',
-                        ),
-                        AppBoxes.setVSeparator,
-                        Text(
-                          'Tive uma experiência ruim mestrando RPG quando...',
-                          textAlign: TextAlign.center,
-                          style: AppTexts.headlineMedium
-                        ),
-                        AppBoxes.textVSeparator,
-                        CITLong(
-                          hintText: 'Texto livre',
-                        ),
-                        AppBoxes.setVSeparator,
-                        Text(
-                          'Outras coisas sobre mim como mestre',
-                          textAlign: TextAlign.center,
-                          style: AppTexts.headlineMedium
-                        ),
+                        Text('Outras coisas sobre mim como mestre',
+                            textAlign: TextAlign.center,
+                            style: AppTexts.headlineMedium),
                         AppBoxes.textVSeparator,
                         CITLong(
                           hintText: 'Texto livre',
@@ -157,13 +142,13 @@ class SRGM8AboutMe extends StatelessWidget {
         positiveText: 'Continuar',
         negativeText: 'Pular Tudo',
         onConfirm: () {
-          //TODO: next screen
+          Navigator.of(context).pushNamed(URoutes.sHomepage);
         },
         onDecline: () async {
           final navigator = Navigator.of(context);
           bool shouldSkip = await skipAllRegistrationScreens(context);
           if (shouldSkip) {
-            navigator.pushNamed(URoutes.homepage);
+            navigator.pushNamed(URoutes.sHomepage);
           }
         },
       ),
