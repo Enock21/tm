@@ -12,7 +12,7 @@ class AppColors {
   static const Color positiveColor = Color(0xFF00C925);
   static const Color negativeColor = Color(0xFFCE0000);
   static const Color negativeAreaColor = Color.fromARGB(255, 151, 151, 151);
-  static const Color neutralColor = Color.fromARGB(255, 179, 178, 178);
+  static const Color neutralColor = Colors.white;
   static const Color boxColor = Color(0xFF322B47);
 }
 

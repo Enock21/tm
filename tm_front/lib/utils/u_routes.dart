@@ -7,11 +7,13 @@ import 'package:tm_front/screens/register/gm/srgm4_sys.dart';
 import 'package:tm_front/screens/register/gm/srgm5_plat.dart';
 import 'package:tm_front/screens/register/gm/srgm6_time.dart';
 import 'package:tm_front/screens/register/gm/srgm7_search.dart';
+import 'package:tm_front/screens/register/gm/srgm8_about_me.dart';
 import 'package:tm_front/screens/register/player/srp3_types.dart';
 import 'package:tm_front/screens/register/player/srp4_sys.dart';
 import 'package:tm_front/screens/register/player/srp5_plat.dart';
 import 'package:tm_front/screens/register/player/srp6_time.dart';
 import 'package:tm_front/screens/register/player/srp7_search.dart';
+import 'package:tm_front/screens/register/player/srp8_about_me.dart';
 import 'package:tm_front/screens/s_login.dart';
 import '../screens/register/user/sru_prof.dart';
 import '../screens/register/player/srp1_choice.dart';
@@ -33,6 +35,7 @@ class URoutes {
   static const String srp5Plat = '/srp5Plat';
   static const String srp6Time = '/srp6Time';
   static const String srp7Search = '/srp7Search';
+  static const String srp8AboutMe = '/srp8AboutMe';
   static const String srgm1Choice = '/srgm1Choice';
   static const String srgm2Intro = '/srgm2Intro';
   static const String srgm3Types = '/srgm3Types';
@@ -40,6 +43,7 @@ class URoutes {
   static const String srgm5Plat = '/srgm5Plat';
   static const String srgm6Time = '/srgm6Time';
   static const String srgm7Search = '/srgm7Search';
+  static const String srgm8AboutMe = '/srgm8AboutMe';
   static const String homepage = '/homepage';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -80,6 +84,9 @@ class URoutes {
       case srp7Search:
         return MaterialPageRoute(
           settings: settings, builder: (_) => const SRP7Search());
+      case srp8AboutMe:
+        return MaterialPageRoute(
+          settings: settings, builder: (_) => const SRP8AboutMe());
       case srgm1Choice:
         return MaterialPageRoute(
             settings: settings, builder: (_) => const SRGM1Choice());
@@ -101,6 +108,9 @@ class URoutes {
       case srgm7Search:
         return MaterialPageRoute(
           settings: settings, builder: (_) => const SRGM7Search());
+      case srgm8AboutMe:
+        return MaterialPageRoute(
+          settings: settings, builder: (_) => const SRGM8AboutMe());
       case homepage:
         return MaterialPageRoute(
             settings: settings, builder: (_) => const SHomePage());

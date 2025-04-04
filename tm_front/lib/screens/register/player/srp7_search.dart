@@ -96,7 +96,7 @@ class SRP7Search extends StatelessWidget {
         positiveText: 'Continuar',
         negativeText: 'Pular Tudo',
         onConfirm: () {
-          //TODO: next screen
+          Navigator.of(context).pushNamed(URoutes.srp8AboutMe);
         },
         onDecline: () async {
           final navigator = Navigator.of(context);

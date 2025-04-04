@@ -39,7 +39,7 @@ class _CITLongState extends State<CITLong> {
       // Envolvemos o TextFormField em um Container com altura fixa
       // e usamos um Scrollbar com SingleChildScrollView na direção vertical.
       child: Container(
-        height: 200, // Define uma altura fixa para limitar o campo
+        height: 150, // Define uma altura fixa para limitar o campo
         child: Scrollbar(
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
