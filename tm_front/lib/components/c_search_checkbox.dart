@@ -51,12 +51,12 @@ class _CSearchCheckboxState extends State<CSearchCheckbox> {
         ),
         const SizedBox(width: 8),
         SizedBox(
-          width: 24,
-          height: 24,
+          width: 40,
+          height: 40,
           child: SvgPicture.asset(
             widget.searchedIconAsset,
-            width: 24,
-            height: 24,
+            width: 40,
+            height: 40,
             colorFilter: const ColorFilter.mode(AppColors.nonInteractiveGreen, BlendMode.srcIn)
           ),
         ),

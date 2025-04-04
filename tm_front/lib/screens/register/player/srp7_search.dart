@@ -58,7 +58,7 @@ class SRP7Search extends StatelessWidget {
                           },
                           title: 'Porcurando Jogo',
                           searchedIconAsset:
-                              'assets/icons/proc-jogo.svg',
+                              'assets/icons/procurando/proc-jogo.svg',
                         ),
                         CSearchCheckbox(
                           value: false,
@@ -68,7 +68,7 @@ class SRP7Search extends StatelessWidget {
                           },
                           title: 'Procurando Mestre',
                           searchedIconAsset:
-                              'assets/icons/proc-mestre.svg',
+                              'assets/icons/procurando/proc-mestre.svg',
                         ),
                         CSearchCheckbox(
                           value: false,
@@ -78,7 +78,7 @@ class SRP7Search extends StatelessWidget {
                           },
                           title: 'Procurando Jogador',
                           searchedIconAsset:
-                              'assets/icons/proc-jogador.svg',
+                              'assets/icons/procurando/proc-jogador.svg',
                         ),
                       ],
                     ),
