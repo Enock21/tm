@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tm_front/components/c_two_column_checkboxes.dart';
-import 'package:tm_front/components/input/text/cit_generic.dart';
 import 'package:tm_front/components/input/text/cit_long.dart';
 import 'package:tm_front/utils/u_theme.dart';
 
@@ -22,17 +21,21 @@ class CTimeSelectBox extends StatefulWidget {
 
 class _CTimeSelectBoxState extends State<CTimeSelectBox> {
   bool _isExpanded = false;
-  // Vetor de 24 posições, representando cada hora do dia.
   List<bool> _selectedTimes = List.filled(24, false);
+  final TextEditingController _noteController = TextEditingController();
 
-  // Alterna entre expandido e colapsado.
+  @override
+  void dispose() {
+    _noteController.dispose();
+    super.dispose();
+  }
+
   void _toggleExpansion() {
     setState(() {
       _isExpanded = !_isExpanded;
     });
   }
 
-  // Marca todas as checkboxes.
   void _selectAll() {
     setState(() {
       _selectedTimes = List.filled(24, true);
@@ -40,7 +43,6 @@ class _CTimeSelectBoxState extends State<CTimeSelectBox> {
     widget.onTimeSelectionChanged?.call(_selectedTimes);
   }
 
-  // Desmarca todas as checkboxes.
   void _deselectAll() {
     setState(() {
       _selectedTimes = List.filled(24, false);
@@ -57,7 +59,6 @@ class _CTimeSelectBoxState extends State<CTimeSelectBox> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // Cabeçalho com título (sem ícone)
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
             alignment: Alignment.center,
@@ -66,12 +67,22 @@ class _CTimeSelectBoxState extends State<CTimeSelectBox> {
               style: AppTexts.headlineMedium,
             ),
           ),
-          // Conteúdo expansível
+          GestureDetector(
+            onTap: _toggleExpansion,
+            child: Container(
+              alignment: Alignment.center,
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              child: Icon(
+                _isExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
+                size: 36,
+                color: AppColors.interactiveSecondColor,
+              ),
+            ),
+          ),
           Offstage(
             offstage: !_isExpanded,
             child: Column(
               children: [
-                // Linha com os botões "Desmarcar Todos" e "Marcar Todos"
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   child: Row(
@@ -83,10 +94,8 @@ class _CTimeSelectBoxState extends State<CTimeSelectBox> {
                           child: const Text(
                             'Desmarcar Todos',
                             textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: AppColors.negativeColor
-                            )
-                          ),  
+                            style: TextStyle(color: AppColors.negativeColor),
+                          ),
                         ),
                       ),
                       const SizedBox(width: 16),
@@ -97,19 +106,16 @@ class _CTimeSelectBoxState extends State<CTimeSelectBox> {
                           child: const Text(
                             'Marcar Todos',
                             textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: AppColors.positiveColor
-                            )
-                          ),  
+                            style: TextStyle(color: AppColors.positiveColor),
+                          ),
                         ),
                       ),
                     ],
                   ),
                 ),
-                // Duas colunas de checkboxes (com estado controlado)
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 43, vertical: 8),
-                  child: Center( // Adicione este widget
+                  child: Center(
                     child: CTwoColumnCheckboxes(
                       selectedTimes: _selectedTimes,
                       onChanged: (newTimes) {
@@ -124,24 +130,12 @@ class _CTimeSelectBoxState extends State<CTimeSelectBox> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   child: CITLong(
+                    controller: _noteController,
                     hintText: 'Observações sobre o dia',
-                    onChanged: (widget.onNoteChanged),//TODO: atribuir lógica se necessario
+                    onChanged: widget.onNoteChanged,
                   ),
                 ),
               ],
-            ),
-          ),
-          // Seta para expandir/colapsar, centralizada na parte inferior
-          GestureDetector(
-            onTap: _toggleExpansion,
-            child: Container(
-              alignment: Alignment.center,
-              padding: const EdgeInsets.symmetric(vertical: 8),
-              child: Icon(
-                _isExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
-                size: 36,
-                color: AppColors.interactiveSecondColor,
-              ),
             ),
           ),
         ],
