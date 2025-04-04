@@ -75,7 +75,7 @@ class SRP6Time extends StatelessWidget {
         positiveText: 'Continuar',
         negativeText: 'Pular Tudo',
         onConfirm: () {
-          //TODO: next screen
+          Navigator.of(context).pushNamed(URoutes.srp7Search);
         },
         onDecline: () async {
           final navigator = Navigator.of(context);

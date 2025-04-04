@@ -75,7 +75,7 @@ class SRGM6Time extends StatelessWidget {
         positiveText: 'Continuar',
         negativeText: 'Pular Tudo',
         onConfirm: () {
-          //TODO: next screen
+          Navigator.of(context).pushNamed(URoutes.srgm7Search);
         },
         onDecline: () async {
           final navigator = Navigator.of(context);

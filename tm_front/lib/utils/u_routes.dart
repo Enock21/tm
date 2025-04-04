@@ -6,6 +6,7 @@ import 'package:tm_front/screens/register/gm/srgm3_types.dart';
 import 'package:tm_front/screens/register/gm/srgm4_sys.dart';
 import 'package:tm_front/screens/register/gm/srgm5_plat.dart';
 import 'package:tm_front/screens/register/gm/srgm6_time.dart';
+import 'package:tm_front/screens/register/gm/srgm7_search.dart';
 import 'package:tm_front/screens/register/player/srp3_types.dart';
 import 'package:tm_front/screens/register/player/srp4_sys.dart';
 import 'package:tm_front/screens/register/player/srp5_plat.dart';
@@ -97,9 +98,9 @@ class URoutes {
       case srgm6Time:
         return MaterialPageRoute(
           settings: settings, builder: (_) => const SRGM6Time());
-      // case srgm7Search:
-      //   return MaterialPageRoute(
-      //     settings: settings, builder: (_) => const SRGM7Search());
+      case srgm7Search:
+        return MaterialPageRoute(
+          settings: settings, builder: (_) => const SRGM7Search());
       case homepage:
         return MaterialPageRoute(
             settings: settings, builder: (_) => const SHomePage());

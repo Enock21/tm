@@ -60,6 +60,7 @@ class SRP7Search extends StatelessWidget {
                           searchedIconAsset:
                               'assets/icons/procurando/proc-jogo.svg',
                         ),
+                        SizedBox(height: 8),
                         CSearchCheckbox(
                           value: false,
                           onChanged: (bool? newValue) {
@@ -70,6 +71,7 @@ class SRP7Search extends StatelessWidget {
                           searchedIconAsset:
                               'assets/icons/procurando/proc-mestre.svg',
                         ),
+                        SizedBox(height: 8),
                         CSearchCheckbox(
                           value: false,
                           onChanged: (bool? newValue) {
