@@ -1,0 +1,2 @@
+C:/Users/enock/OneDrive/Documentos/tm/tm_front/android/app/.cxx/RelWithDebInfo/5w1k2s3t/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/enock/OneDrive/Documentos/tm/tm_front/android/app/.cxx/RelWithDebInfo/5w1k2s3t/arm64-v8a/CMakeFiles/rebuild_cache.dir
