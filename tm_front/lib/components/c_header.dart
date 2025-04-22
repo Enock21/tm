@@ -5,10 +5,12 @@ import 'package:tm_front/utils/u_theme.dart';
 class CHeader extends StatelessWidget {
   final String? title;
   final VoidCallback? onBack;
+  final bool showBackButton;
 
   const CHeader({
     this.title,
     this.onBack,
+    this.showBackButton = true,
   });
 
   @override
@@ -16,10 +18,13 @@ class CHeader extends StatelessWidget {
     final bool canPop = Navigator.of(context).canPop();
 
     return Row(children: [
-      if (canPop)
+      if (canPop && showBackButton) ...{
         TMBackButton(
           onPressed: onBack ?? () => Navigator.of(context).maybePop(),
         ),
+      } else ...{
+        const SizedBox(width: 40),
+      },
       AppBoxes.smallHBox,
       Expanded(
         child: Text(
