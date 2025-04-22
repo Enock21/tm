@@ -31,8 +31,8 @@ class MyApp extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate, // Suporte para Cupertino (iOS)
       ],
       //initialRoute: URoutes.sLogin,
-      initialRoute: URoutes.sprMain,
-      //initialRoute: URoutes.sprExpiredLink,
+      //initialRoute: URoutes.sprMain,
+      initialRoute: URoutes.sprExpiredLink,
       //initialRoute: URoutes.sprAlteration,
       //initialRoute: URoutes.sruProf,
       //initialRoute: URoutes.srp1Choice,

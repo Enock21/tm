@@ -88,12 +88,12 @@ class TMBackButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
         width: 40,
         child: IconButton(
           icon: const Icon(Icons.arrow_back),
           color: AppColors.interactiveSecondColor,
-          iconSize: 40,
+          iconSize: 35,
           onPressed: onPressed,
         ));
   }
