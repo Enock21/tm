@@ -21,7 +21,7 @@ class SPRExpiredLink extends StatelessWidget {
             children: [
               // Cabeçalho com botão de retorno
               CHeader(
-                title: 'Alteração de Senha',
+                title: 'Alteração de Senha'
               ),
               AppBoxes.bellowTitleVSeparator,
               Padding(
