@@ -44,15 +44,16 @@ class TMButton extends StatelessWidget {
       child: Text(
         text,
         style: textStyle?.copyWith(
-        color: textColor,
-        fontWeight: FontWeight.bold,
-        fontSize: 18,
-        fontFamily: GoogleFonts.montserrat().fontFamily,
-        ) ?? GoogleFonts.montserrat(
-        color: textColor,
-        fontWeight: FontWeight.bold,
-        fontSize: 18,
-        ),
+              color: textColor,
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
+              fontFamily: GoogleFonts.montserrat().fontFamily,
+            ) ??
+            GoogleFonts.montserrat(
+              color: textColor,
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
+            ),
       ),
     );
   }
@@ -80,7 +81,6 @@ class TMTextButton extends StatelessWidget {
   }
 }
 
-//TODO: decide if it should be deleted or not
 class TMBackButton extends StatelessWidget {
   final VoidCallback onPressed;
 
@@ -88,11 +88,13 @@ class TMBackButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      icon: const Icon(Icons.arrow_back),
-      color: AppColors.interactiveSecondColor,
-      iconSize: 40,
-      onPressed: onPressed,
-    );
+    return Container(
+        width: 40,
+        child: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          color: AppColors.interactiveSecondColor,
+          iconSize: 40,
+          onPressed: onPressed,
+        ));
   }
 }

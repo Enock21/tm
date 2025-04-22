@@ -1,39 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:tm_front/components/c_buttons.dart';
 import 'package:tm_front/utils/u_theme.dart';
 
 class CHeader extends StatelessWidget {
-  final String title;
-  final Widget? leading;
+  final String? title;
+  final VoidCallback? onBack;
 
   const CHeader({
-    required this.title,
-    this.leading,
-    Key? key,
-  }) : super(key: key);
+    this.title,
+    this.onBack,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          if (leading != null) //Para o ícone de backbutton
-            Align(
-              alignment: Alignment.centerLeft,
-              child: leading!,
-            ),
-          RichText(
-            textAlign: TextAlign.center,
-            text: TextSpan(
-              style: AppTexts.headlineMedium,
-              children: [
-                TextSpan(text: title),
-              ],
-            ),
-          ),
-        ],
+    final bool canPop = Navigator.of(context).canPop();
+
+    return Row(children: [
+      if (canPop)
+        TMBackButton(
+          onPressed: onBack ?? () => Navigator.of(context).maybePop(),
+        ),
+      AppBoxes.smallHBox,
+      Expanded(
+        child: Text(
+          title ?? '',
+          style: AppTexts.headlineMedium,
+          textAlign: TextAlign.center,
+        ),
       ),
-    );
+      if (canPop) const SizedBox(width: 48)
+    ]);
   }
+  /*
+    Para definir a rota do botão de retorno na referencia do CHeader:
+    CHeader(
+      title: 'Título',
+      onBack: () => Navigator.pushNamed(context, '/rota-personalizada'),
+    ),
+  */
 }

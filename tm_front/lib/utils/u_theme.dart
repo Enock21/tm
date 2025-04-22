@@ -89,7 +89,7 @@ class AppBoxes {
   static const SizedBox setVSeparator = SizedBox(height: 30);
   static const SizedBox sectionVSeparator = SizedBox(height: 50);
 
-  static const SizedBox smallHBox = SizedBox(width: 8);
+  static const SizedBox smallHBox = SizedBox(width: 5);
   static const SizedBox mediumHBox = SizedBox(width: 16);
   static const SizedBox largeHBox = SizedBox(width: 24);
   static const SizedBox smallVBox = SizedBox(height: 8);
