@@ -50,3 +50,13 @@ Future<bool> confirmDelete(BuildContext context) async {
     confirmText: 'Sim',
   );
 }
+
+Future<bool> confirmBackToLogin(BuildContext context) async {
+  return confirmOperation(
+    context: context,
+    title: 'Confirmar Saída',
+    content: 'Deseja realmente sair e retornar à tela de login?',
+    cancelText: 'Não',
+    confirmText: 'Sim',
+  );
+}
