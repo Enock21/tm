@@ -32,7 +32,7 @@ class SRGM2Intro extends StatelessWidget {
                     AppBoxes.rowVSeparator,
                     const CVGMIcon(),
                     AppBoxes.rowVSeparator,
-                    CHeader(title: 'Pronto para Começar?'),
+                    CHeader(title: 'Pronto para Começar?', showBackButton: false),
                     AppBoxes.bellowTitleVSeparator,
                     CJustBodyMedium(
                         text:

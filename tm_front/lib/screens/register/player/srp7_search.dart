@@ -42,7 +42,7 @@ class SRP7Search extends StatelessWidget {
                     AppBoxes.rowVSeparator,
                     const CVPlayerIcon(),
                     AppBoxes.rowVSeparator,
-                    CHeader(title: 'O Que Você Procura?'),
+                    CHeader(title: 'O Que Você Procura?', showBackButton: false),
                     AppBoxes.bellowTitleVSeparator,
                     CJustBodyMedium(
                         text:

@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       //initialRoute: URoutes.sprMain,
       //initialRoute: URoutes.sprExpiredLink,
       //initialRoute: URoutes.sprAlteration,
-      initialRoute: URoutes.sruProf,
+      //initialRoute: URoutes.sruProf,
       //initialRoute: URoutes.srp1Choice,
       //initialRoute: URoutes.srp2Intro,
       //initialRoute: URoutes.srp3Types,
@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
       //initialRoute: URoutes.srgm6Time,
       //initialRoute: URoutes.srgm7Search,
       //initialRoute: URoutes.srgm8AboutMe,
-      //initialRoute: URoutes.sHomepage,
+      initialRoute: URoutes.sHomepage,
       onGenerateRoute: URoutes.generateRoute,
     );
   }

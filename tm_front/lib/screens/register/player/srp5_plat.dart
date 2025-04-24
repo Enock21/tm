@@ -39,7 +39,7 @@ class SRP5Plat extends StatelessWidget {
                     AppBoxes.rowVSeparator,
                     const CVPlayerIcon(),
                     AppBoxes.rowVSeparator,
-                    CHeader(title: 'Plataformas de RPG'),
+                    CHeader(title: 'Plataformas de RPG', showBackButton: false),
                     AppBoxes.bellowTitleVSeparator,
                     CJustBodyMedium(
                         text:

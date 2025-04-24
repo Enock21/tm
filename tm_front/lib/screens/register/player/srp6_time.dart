@@ -41,7 +41,7 @@ class SRP6Time extends StatelessWidget {
                     AppBoxes.rowVSeparator,
                     const CVPlayerIcon(),
                     AppBoxes.rowVSeparator,
-                    CHeader(title: 'Agenda'),
+                    CHeader(title: 'Agenda', showBackButton: false),
                     AppBoxes.bellowTitleVSeparator,
                     CJustBodyMedium(
                         text:

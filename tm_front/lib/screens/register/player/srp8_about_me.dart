@@ -42,7 +42,7 @@ class SRP8AboutMe extends StatelessWidget {
                     AppBoxes.rowVSeparator,
                     const CVPlayerIcon(),
                     AppBoxes.rowVSeparator,
-                    CHeader(title: 'Fale Mais Sobre Você'),
+                    CHeader(title: 'Fale Mais Sobre Você', showBackButton: false),
                     AppBoxes.bellowTitleVSeparator,
                     CJustBodyMedium(
                         text:

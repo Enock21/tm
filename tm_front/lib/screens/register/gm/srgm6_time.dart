@@ -41,7 +41,7 @@ class SRGM6Time extends StatelessWidget {
                     AppBoxes.rowVSeparator,
                     const CVGMIcon(),
                     AppBoxes.rowVSeparator,
-                    CHeader(title: 'Agenda'),
+                    CHeader(title: 'Agenda', showBackButton: false),
                     AppBoxes.bellowTitleVSeparator,
                     CJustBodyMedium(
                         text:

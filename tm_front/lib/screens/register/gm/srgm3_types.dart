@@ -39,7 +39,7 @@ class SRGM3Types extends StatelessWidget {
                     AppBoxes.rowVSeparator,
                     const CVGMIcon(),
                     AppBoxes.rowVSeparator,
-                    CHeader(title: 'Tipos de RPG'),
+                    CHeader(title: 'Tipos de RPG', showBackButton: false),
                     AppBoxes.bellowTitleVSeparator,
                     CJustBodyMedium(
                         text:

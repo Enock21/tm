@@ -61,7 +61,7 @@ class _SRGM4SysState extends State<SRGM4Sys> {
                     AppBoxes.rowVSeparator,
                     const CVGMIcon(),
                     AppBoxes.rowVSeparator,
-                    CHeader(title: 'Sistemas de RPG'),
+                    CHeader(title: 'Sistemas de RPG', showBackButton: false),
                     AppBoxes.bellowTitleVSeparator,
                     CJustBodyMedium(
                       text:

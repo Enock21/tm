@@ -42,7 +42,7 @@ class SRGM7Search extends StatelessWidget {
                     AppBoxes.rowVSeparator,
                     const CVGMIcon(),
                     AppBoxes.rowVSeparator,
-                    CHeader(title: 'O Que Você Procura?'),
+                    CHeader(title: 'O Que Você Procura?', showBackButton: false),
                     AppBoxes.bellowTitleVSeparator,
                     CJustBodyMedium(
                         text:

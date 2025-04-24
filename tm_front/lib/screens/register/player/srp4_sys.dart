@@ -60,7 +60,7 @@ class _SRP4SysState extends State<SRP4Sys> {
                     AppBoxes.rowVSeparator,
                     const CVPlayerIcon(),
                     AppBoxes.rowVSeparator,
-                    CHeader(title: 'Sistemas de RPG'),
+                    CHeader(title: 'Sistemas de RPG', showBackButton: false),
                     AppBoxes.bellowTitleVSeparator,
                     CJustBodyMedium(
                       text:
