@@ -60,3 +60,13 @@ Future<bool> confirmBackToLogin(BuildContext context) async {
     confirmText: 'Sim',
   );
 }
+
+Future<bool> confirmBackFromSRUProf(BuildContext context) async {
+  return confirmOperation(
+    context: context,
+    title: 'Confirmar Saída',
+    content: 'Os dados preenchidos serão perdidos. Deseja realmente sair e retornar à tela de login?',
+    cancelText: 'Cancelar',
+    confirmText: 'Confirmar',
+  );
+}

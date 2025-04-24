@@ -33,7 +33,7 @@ class _SPRAlterationState extends State<SPRAlteration> {
   Widget build(BuildContext context) {
     return PopScope(
       canPop: false,
-      onPopInvoked: (didPop) async {
+      onPopInvokedWithResult: (didPop, Object? result) async {
         if (didPop) return;
         final shouldExit = await confirmBackToLogin(context);
         if (shouldExit) {
