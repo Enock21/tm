@@ -51,7 +51,8 @@ class MyApp extends StatelessWidget {
       //initialRoute: URoutes.srgm6Time,
       //initialRoute: URoutes.srgm7Search,
       //initialRoute: URoutes.srgm8AboutMe,
-      initialRoute: URoutes.sHomepage,
+      //initialRoute: URoutes.sHomepage,
+      initialRoute: URoutes.sUserProfile,
       onGenerateRoute: URoutes.generateRoute,
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:tm_front/utils/u_theme.dart';
 
 class CIAvatarUpload extends StatelessWidget {
@@ -29,19 +30,14 @@ class CIAvatarUpload extends StatelessWidget {
                 color: AppColors.nonInteractiveGreen,
               ),
             ),
-            // Ícone de upload posicionado na parte inferior do círculo
             Positioned(
               bottom: 4,
-              child: CircleAvatar(
-                radius: 16,
-                backgroundColor: AppColors.interactiveSecondColor,
-                child: const Icon(
-                  Icons.file_upload,
-                  size: 18,
-                  color: AppColors.nonInteractiveGreen,
-                ),
-              ),
-            ),
+              child: SvgPicture.asset(
+                'assets/icons/editButt.svg',
+                width: 25,
+                height: 25
+              )
+            )
           ],
         ),
       ),

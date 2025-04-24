@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tm_front/screens/password_recovery/spr_alteration.dart';
 import 'package:tm_front/screens/password_recovery/spr_expired_link.dart';
 import 'package:tm_front/screens/password_recovery/spr_main.dart';
+import 'package:tm_front/screens/profile/SUserProfile.dart';
 import 'package:tm_front/screens/register/gm/srgm3_types.dart';
 import 'package:tm_front/screens/register/gm/srgm4_sys.dart';
 import 'package:tm_front/screens/register/gm/srgm5_plat.dart';
@@ -117,9 +118,9 @@ class URoutes {
       case sHomepage:
         return MaterialPageRoute(
             settings: settings, builder: (_) => const SHomepage());
-      // case sUserProfile:
-      //   return MaterialPageRoute(
-      //       settings: settings, builder: (_) => const SUserProfile());
+      case sUserProfile:
+        return MaterialPageRoute(
+            settings: settings, builder: (_) => const SUserProfile());
       // case sPlayerProfile:
       //   return MaterialPageRoute(
       //       settings: settings, builder: (_) => const SPlayerProfile());
