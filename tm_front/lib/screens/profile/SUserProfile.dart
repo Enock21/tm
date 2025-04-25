@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tm_front/components/input/ci_avatar_upload.dart';
 import 'package:tm_front/utils/u_dialogs.dart';
 import 'package:tm_front/utils/u_routes.dart';
@@ -36,6 +37,16 @@ class _SUserProfileState extends State<SUserProfile> {
     passwordController.dispose();
     confirmPasswordController.dispose();
     super.dispose();
+  }
+
+   @override
+  void initState() {
+    super.initState();
+    // Prefill dos campos com dados do Provider
+    final userProfile = Provider.of<_SUserProfileState>(context, listen: false);
+    usernameController.text = userProfile.username;
+    emailController.text = userProfile.email;
+    birthdateController.text = DateFormat('dd/MM/yyyy').format(userProfile.birthdate);
   }
 
   @override
