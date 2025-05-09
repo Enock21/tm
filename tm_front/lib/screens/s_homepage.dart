@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tm_front/components/c_buttons.dart';
-import 'package:tm_front/providers/user_profile_state.dart';
+import 'package:tm_front/providers/p_registration_data.dart';
 import 'package:tm_front/utils/u_dialogs.dart';
 import 'package:tm_front/utils/u_routes.dart';
 import 'package:tm_front/utils/u_theme.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 
-class UserProfileState with ChangeNotifier {
+class PRegistrationData with ChangeNotifier {
   late bool _isPlayer;
   late bool _isGM;
 

@@ -5,7 +5,7 @@ import 'package:tm_front/components/c_bottom_butt.dart';
 import 'package:tm_front/components/c_buttons.dart';
 import 'package:tm_front/components/c_header.dart';
 import 'package:tm_front/components/visual/cv_gm_icon.dart';
-import 'package:tm_front/providers/user_profile_state.dart';
+import 'package:tm_front/providers/p_registration_data.dart';
 import 'package:tm_front/utils/u_routes.dart';
 import 'package:tm_front/components/c_just_body_medium.dart';
 import 'package:tm_front/utils/u_theme.dart'; // Importa o TMButton
@@ -22,7 +22,7 @@ class SRGM1Choice extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final userState = Provider.of<UserProfileState>(context);
+    final userState = Provider.of<PRegistrationData>(context);
     final bool? isPlayer = userState.isPlayer;
 
     return Scaffold(
@@ -72,7 +72,7 @@ class SRGM1Choice extends StatelessWidget {
           positiveText: 'SIM',
           negativeText: 'NÃO',
           onConfirm: () {
-            Provider.of<UserProfileState>(context, listen: false)
+            Provider.of<PRegistrationData>(context, listen: false)
                 .setGMChoice(true);
             if (isPlayer == true) {
               Navigator.pushNamed(context, URoutes.srp2Intro);
@@ -81,7 +81,7 @@ class SRGM1Choice extends StatelessWidget {
             }
           },
           onDecline: () {
-            Provider.of<UserProfileState>(context, listen: false)
+            Provider.of<PRegistrationData>(context, listen: false)
                 .setGMChoice(false);
             if (isPlayer == true) {
               Navigator.pushNamed(context, URoutes.srp2Intro);

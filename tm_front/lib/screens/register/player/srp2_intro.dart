@@ -6,7 +6,7 @@ import 'package:tm_front/components/c_bottom_butt.dart';
 import 'package:tm_front/components/c_header.dart';
 import 'package:tm_front/components/c_just_body_medium.dart';
 import 'package:tm_front/components/visual/cv_player_icon.dart';
-import 'package:tm_front/providers/user_profile_state.dart';
+import 'package:tm_front/providers/p_registration_data.dart';
 import 'package:tm_front/utils/u_dialogs.dart';
 import 'package:tm_front/utils/u_routes.dart';
 import 'package:tm_front/utils/u_theme.dart';
@@ -21,7 +21,7 @@ class SRP2Intro extends StatefulWidget {
 class _SRP2IntroState extends State<SRP2Intro> {
   @override
   Widget build(BuildContext context) {
-    final userProfile = Provider.of<UserProfileState>(context, listen: false);
+    final userProfile = Provider.of<PRegistrationData>(context, listen: false);
 
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
@@ -40,7 +40,8 @@ class _SRP2IntroState extends State<SRP2Intro> {
                     AppBoxes.rowVSeparator,
                     const CVPlayerIcon(),
                     AppBoxes.rowVSeparator,
-                    CHeader(title: 'Pronto para Começar?', showBackButton: false),
+                    CHeader(
+                        title: 'Pronto para Começar?', showBackButton: false),
                     AppBoxes.bellowTitleVSeparator,
                     CJustBodyMedium(
                         text:
@@ -69,7 +70,7 @@ class _SRP2IntroState extends State<SRP2Intro> {
         onDecline: () async {
           final navigator = Navigator.of(context);
           final isGM =
-              Provider.of<UserProfileState>(context, listen: false).isGM;
+              Provider.of<PRegistrationData>(context, listen: false).isGM;
           bool shouldSkip = await skipAllRegistrationScreens(context);
           if (shouldSkip) {
             if (isGM == true) {

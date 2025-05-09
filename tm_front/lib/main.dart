@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
-import 'package:tm_front/providers/user_profile_state.dart';
+import 'package:tm_front/providers/p_registration_data.dart';
 import 'package:tm_front/screens/register/user/sru_prof.dart';
 import 'package:tm_front/screens/register/player/srp1_choice.dart';
 import 'package:tm_front/screens/s_login.dart';
@@ -10,8 +10,8 @@ import 'package:tm_front/screens/password_recovery/spr_expired_link.dart';
 import 'package:tm_front/utils/u_routes.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(
-      create: (context) => UserProfileState(), child: const MyApp()));
+  runApp(ChangeNotifierProvider( //ChangeNotifierProvider se encontra mais alto do que o necessário na widget tree. Problema de escopo.
+      create: (context) => PRegistrationData(), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {

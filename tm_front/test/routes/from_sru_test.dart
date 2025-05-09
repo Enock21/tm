@@ -7,7 +7,7 @@ import 'package:tm_front/components/input/ci_date.dart';
 import 'package:tm_front/components/input/text/cit_email.dart';
 import 'package:tm_front/components/input/text/cit_password.dart';
 import 'package:tm_front/components/input/text/cit_username.dart';
-import 'package:tm_front/providers/user_profile_state.dart';
+import 'package:tm_front/providers/p_registration_data.dart';
 import 'package:tm_front/screens/register/user/sru_prof.dart';
 import 'package:tm_front/screens/register/player/srp1_choice.dart';
 import 'package:tm_front/screens/register/player/srp2_intro.dart';
@@ -38,7 +38,7 @@ void main() {
         final observer = TestNavigatorObserver();
         await tester.pumpWidget(
           ChangeNotifierProvider(
-            create: (_) => UserProfileState(),
+            create: (_) => PRegistrationData(),
             child: MaterialApp(
               initialRoute: URoutes.sruProf,
               onGenerateRoute: URoutes.generateRoute,
@@ -99,7 +99,7 @@ void main() {
         final observer = TestNavigatorObserver();
         await tester.pumpWidget(
           ChangeNotifierProvider(
-            create: (_) => UserProfileState(),
+            create: (_) => PRegistrationData(),
             child: MaterialApp(
               initialRoute: URoutes.sruProf,
               onGenerateRoute: URoutes.generateRoute,
@@ -165,7 +165,7 @@ void main() {
         final observer = TestNavigatorObserver();
         await tester.pumpWidget(
           ChangeNotifierProvider(
-            create: (_) => UserProfileState(),
+            create: (_) => PRegistrationData(),
             child: MaterialApp(
               initialRoute: URoutes.sruProf,
               onGenerateRoute: URoutes.generateRoute,
@@ -232,7 +232,7 @@ void main() {
         final observer = TestNavigatorObserver();
         await tester.pumpWidget(
           ChangeNotifierProvider(
-            create: (_) => UserProfileState(),
+            create: (_) => PRegistrationData(),
             child: MaterialApp(
               initialRoute: URoutes.sruProf,
               onGenerateRoute: URoutes.generateRoute,

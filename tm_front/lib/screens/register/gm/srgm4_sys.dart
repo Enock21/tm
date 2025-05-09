@@ -12,7 +12,7 @@ import 'package:tm_front/components/c_triple_selection.dart';
 import 'package:tm_front/components/visual/cv_gm_icon.dart';
 import 'package:tm_front/components/visual/cv_player_icon.dart';
 import 'package:tm_front/models/game_type.dart';
-import 'package:tm_front/providers/user_profile_state.dart';
+import 'package:tm_front/providers/p_registration_data.dart';
 import 'package:tm_front/utils/u_dialogs.dart';
 import 'package:tm_front/utils/u_routes.dart';
 import 'package:tm_front/utils/u_theme.dart';

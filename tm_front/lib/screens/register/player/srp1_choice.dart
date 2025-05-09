@@ -5,7 +5,7 @@ import 'package:tm_front/components/c_bottom_butt.dart';
 import 'package:tm_front/components/c_buttons.dart';
 import 'package:tm_front/components/c_header.dart';
 import 'package:tm_front/components/visual/cv_player_icon.dart';
-import 'package:tm_front/providers/user_profile_state.dart';
+import 'package:tm_front/providers/p_registration_data.dart';
 import 'package:tm_front/utils/u_routes.dart';
 import 'package:tm_front/components/c_just_body_medium.dart';
 import 'package:tm_front/utils/u_theme.dart'; // Importa o TMButton
@@ -72,14 +72,14 @@ class SRP1Choice extends StatelessWidget {
         negativeText: 'NÃO',
         onConfirm: () {
           //TODO: variável que indica se o user quer ser player fica true
-          Provider.of<UserProfileState>(context, listen: false)
+          Provider.of<PRegistrationData>(context, listen: false)
               .setPlayerChoice(true);
           Navigator.pushNamed(context, URoutes.srgm1Choice);
         },
         onDecline: () {
           //TODO: variável que indica se o user quer ser player fica false
-          Provider.of<UserProfileState>(context, listen: false)
-            .setPlayerChoice(false);
+          Provider.of<PRegistrationData>(context, listen: false)
+              .setPlayerChoice(false);
           Navigator.pushNamed(context, URoutes.srgm1Choice);
         },
       ),

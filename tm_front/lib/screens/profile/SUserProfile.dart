@@ -39,15 +39,15 @@ class _SUserProfileState extends State<SUserProfile> {
     super.dispose();
   }
 
-   @override
-  void initState() {
-    super.initState();
-    // Prefill dos campos com dados do Provider
-    final userProfile = Provider.of<_SUserProfileState>(context, listen: false);
-    usernameController.text = userProfile.username;
-    emailController.text = userProfile.email;
-    birthdateController.text = DateFormat('dd/MM/yyyy').format(userProfile.birthdate);
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   // Prefill dos campos com dados do Provider
+  //   final userProfile = Provider.of<_SUserProfileState>(context, listen: false);
+  //   usernameController.text = userProfile.username;
+  //   emailController.text = userProfile.email;
+  //   birthdateController.text = DateFormat('dd/MM/yyyy').format(userProfile.birthdate);
+  // }
 
   @override
   Widget build(BuildContext context) {
