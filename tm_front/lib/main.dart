@@ -12,6 +12,7 @@ import 'package:tm_front/utils/u_routes.dart';
 void main() {
   runApp(ChangeNotifierProvider( //ChangeNotifierProvider se encontra mais alto do que o necessário na widget tree. Problema de escopo.
       create: (context) => PRegistrationData(), child: const MyApp()));
+  //runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
       //initialRoute: URoutes.sprExpiredLink,
       //initialRoute: URoutes.sprAlteration,
       //initialRoute: URoutes.sruProf,
-      //initialRoute: URoutes.srp1Choice,
+      initialRoute: URoutes.srp1Choice,
       //initialRoute: URoutes.srp2Intro,
       //initialRoute: URoutes.srp3Types,
       //initialRoute: URoutes.srp4Sys,
@@ -52,7 +53,7 @@ class MyApp extends StatelessWidget {
       //initialRoute: URoutes.srgm7Search,
       //initialRoute: URoutes.srgm8AboutMe,
       //initialRoute: URoutes.sHomepage,
-      initialRoute: URoutes.sUserProfile,
+      //initialRoute: URoutes.sUserProfile,
       onGenerateRoute: URoutes.generateRoute,
     );
   }

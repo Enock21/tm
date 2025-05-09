@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 
 class PRegistrationData with ChangeNotifier {
+  //COMO ISSO FUNCIONA SEM UM BUILD??? ESSE WIDGET NÃO É RECONSTRUÍDO QUANDO ATUALIZA?
   late bool _isPlayer;
   late bool _isGM;
 
