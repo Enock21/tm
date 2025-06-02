@@ -6,7 +6,7 @@ import 'package:tm_front/components/c_bottom_butt.dart';
 import 'package:tm_front/components/c_header.dart';
 import 'package:tm_front/components/c_just_body_medium.dart';
 import 'package:tm_front/components/visual/cv_player_icon.dart';
-import 'package:tm_front/providers/p_registration_data.dart';
+import 'package:tm_front/providers/p_optional_profiles.dart';
 import 'package:tm_front/utils/u_dialogs.dart';
 import 'package:tm_front/utils/u_routes.dart';
 import 'package:tm_front/utils/u_theme.dart';
@@ -21,7 +21,6 @@ class SRP2Intro extends StatefulWidget {
 class _SRP2IntroState extends State<SRP2Intro> {
   @override
   Widget build(BuildContext context) {
-    final userProfile = Provider.of<PRegistrationData>(context, listen: false);
 
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
@@ -70,7 +69,7 @@ class _SRP2IntroState extends State<SRP2Intro> {
         onDecline: () async {
           final navigator = Navigator.of(context);
           final isGM =
-              Provider.of<PRegistrationData>(context, listen: false).isGM;
+              Provider.of<POptionalProfiles>(context, listen: false).isGM;
           bool shouldSkip = await skipAllRegistrationScreens(context);
           if (shouldSkip) {
             if (isGM == true) {

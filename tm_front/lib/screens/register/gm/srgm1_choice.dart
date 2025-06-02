@@ -5,10 +5,10 @@ import 'package:tm_front/components/c_bottom_butt.dart';
 import 'package:tm_front/components/c_buttons.dart';
 import 'package:tm_front/components/c_header.dart';
 import 'package:tm_front/components/visual/cv_gm_icon.dart';
-import 'package:tm_front/providers/p_registration_data.dart';
+import 'package:tm_front/providers/p_optional_profiles.dart';
 import 'package:tm_front/utils/u_routes.dart';
 import 'package:tm_front/components/c_just_body_medium.dart';
-import 'package:tm_front/utils/u_theme.dart'; // Importa o TMButton
+import 'package:tm_front/utils/u_theme.dart';
 
 class SRGM1Choice extends StatelessWidget {
   final VoidCallback? onConfirm;
@@ -22,8 +22,7 @@ class SRGM1Choice extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final userState = Provider.of<PRegistrationData>(context);
-    final bool? isPlayer = userState.isPlayer;
+    final userState = Provider.of<POptionalProfiles>(context);
 
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
@@ -72,18 +71,18 @@ class SRGM1Choice extends StatelessWidget {
           positiveText: 'SIM',
           negativeText: 'NÃO',
           onConfirm: () {
-            Provider.of<PRegistrationData>(context, listen: false)
+            Provider.of<POptionalProfiles>(context, listen: false)
                 .setGMChoice(true);
-            if (isPlayer == true) {
+            if (userState.isPlayer == true) {
               Navigator.pushNamed(context, URoutes.srp2Intro);
             } else {
               Navigator.pushNamed(context, URoutes.srgm2Intro);
             }
           },
           onDecline: () {
-            Provider.of<PRegistrationData>(context, listen: false)
+            Provider.of<POptionalProfiles>(context, listen: false)
                 .setGMChoice(false);
-            if (isPlayer == true) {
+            if (userState.isPlayer == true) {
               Navigator.pushNamed(context, URoutes.srp2Intro);
             } else {
               Navigator.pushNamed(context, URoutes.sHomepage);

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
-import 'package:tm_front/providers/p_registration_data.dart';
+import 'package:tm_front/providers/p_optional_profiles.dart';
 import 'package:tm_front/screens/register/user/sru_prof.dart';
 import 'package:tm_front/screens/register/player/srp1_choice.dart';
 import 'package:tm_front/screens/s_login.dart';
@@ -11,7 +11,7 @@ import 'package:tm_front/utils/u_routes.dart';
 
 void main() {
   runApp(ChangeNotifierProvider( //ChangeNotifierProvider se encontra mais alto do que o necessário na widget tree. Problema de escopo.
-      create: (context) => PRegistrationData(), child: const MyApp()));
+      create: (context) => POptionalProfiles(), child: const MyApp()));
   //runApp(const MyApp());
 }
 

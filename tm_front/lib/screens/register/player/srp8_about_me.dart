@@ -13,7 +13,7 @@ import 'package:tm_front/components/input/text/cit_long.dart';
 import 'package:tm_front/components/visual/cv_gm_icon.dart';
 import 'package:tm_front/components/visual/cv_player_icon.dart';
 import 'package:tm_front/models/platform_type.dart';
-import 'package:tm_front/providers/p_registration_data.dart';
+import 'package:tm_front/providers/p_optional_profiles.dart';
 import 'package:tm_front/utils/u_dialogs.dart';
 import 'package:tm_front/utils/u_routes.dart';
 import 'package:tm_front/utils/u_theme.dart';
@@ -23,7 +23,6 @@ class SRP8AboutMe extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final userProfile = Provider.of<PRegistrationData>(context, listen: false);
 
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
@@ -142,7 +141,7 @@ class SRP8AboutMe extends StatelessWidget {
         onConfirm: () {
           final navigator = Navigator.of(context);
           final isGM =
-              Provider.of<PRegistrationData>(context, listen: false).isGM;
+              Provider.of<POptionalProfiles>(context, listen: false).isGM;
           if (isGM == true) {
             navigator.pushNamed(URoutes.srgm2Intro);
           } else {
@@ -152,7 +151,7 @@ class SRP8AboutMe extends StatelessWidget {
         onDecline: () async {
           final navigator = Navigator.of(context);
           final isGM =
-              Provider.of<PRegistrationData>(context, listen: false).isGM;
+              Provider.of<POptionalProfiles>(context, listen: false).isGM;
           bool shouldSkip = await skipAllRegistrationScreens(context);
           if (shouldSkip) {
             if (isGM == true) {
